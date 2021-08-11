@@ -19,6 +19,15 @@ class MainActivity : AppCompatActivity() {
     private val aroundFragment by lazy {
         AroundFragment.newInstance()
     }
+    private val friendFragment by lazy {
+        FriendFragment.newInstance()
+    }
+    private val noticeFragment by lazy {
+        NoticeFragment.newInstance()
+    }
+    private val myPageFragment by lazy {
+        MyPageFragment.newInstance()
+    }
 
     private fun replaceMainFrame(fragment: Fragment) = fragmentTransaction {
         replace(R.id.mainFrame, fragment)
@@ -37,6 +46,15 @@ class MainActivity : AppCompatActivity() {
                     }
                     R.id.aroundItem -> {
                         replaceMainFrame(aroundFragment)
+                    }
+                    R.id.friendItem -> {
+                        replaceMainFrame(friendFragment)
+                    }
+                    R.id.noticeItem -> {
+                        replaceMainFrame(noticeFragment)
+                    }
+                    R.id.myPageItem -> {
+                        replaceMainFrame(myPageFragment)
                     }
                 }
                 true
