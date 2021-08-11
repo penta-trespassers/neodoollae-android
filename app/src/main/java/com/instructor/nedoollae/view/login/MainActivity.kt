@@ -2,6 +2,7 @@ package com.instructor.nedoollae.view.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.instructor.nedoollae.R
 import com.instructor.nedoollae.databinding.ActivityMainBinding
 import splitties.fragments.fragmentTransaction
@@ -19,25 +20,23 @@ class MainActivity : AppCompatActivity() {
         AroundFragment.newInstance()
     }
 
+    private fun replaceMainFrame(fragment: Fragment) = fragmentTransaction {
+        replace(R.id.mainFrame, fragment)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            fragmentTransaction {
-                replace(R.id.mainFrame, homeFragment)
-            }
+            replaceMainFrame(homeFragment)
             bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.homeItem -> {
-                        fragmentTransaction {
-                            replace(R.id.mainFrame, homeFragment)
-                        }
+                        replaceMainFrame(homeFragment)
                     }
                     R.id.aroundItem -> {
-                        fragmentTransaction {
-                            replace(R.id.mainFrame, aroundFragment)
-                        }
+                        replaceMainFrame(aroundFragment)
                     }
                 }
                 true
