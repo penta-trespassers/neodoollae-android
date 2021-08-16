@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.instructor.nedoollae.R
 import com.instructor.nedoollae.databinding.ActivityMainBinding
+import com.instructor.nedoollae.view.login.friend.FriendFragment
 import splitties.fragments.fragmentTransaction
 
 class MainActivity : AppCompatActivity() {
