@@ -1,11 +1,11 @@
-package com.instructor.nedoollae.view.login
+package com.pentatrespassers.neodoollae.view.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.instructor.nedoollae.databinding.FragmentAroundBinding
+import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 
 class AroundFragment private constructor() : Fragment() {
 

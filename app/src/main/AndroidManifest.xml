@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.instructor.nedoollae">
+    package="com.pentatrespassers.neodoollae">
 
     <application
         android:allowBackup="true"
@@ -14,13 +14,13 @@
             android:value="7qdjutvncl" />
 
         <activity
-            android:name=".view.login.home.AddRoomActivity"
+            android:name="com.pentatrespassers.neodoollae.view.login.home.AddRoomActivity"
             android:exported="true" />
         <activity
-            android:name=".view.login.MainActivity"
+            android:name="com.pentatrespassers.neodoollae.view.login.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name="com.pentatrespassers.neodoollae.view.LoginActivity"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>

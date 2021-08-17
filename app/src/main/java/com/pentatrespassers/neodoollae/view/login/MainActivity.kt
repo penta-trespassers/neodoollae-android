@@ -1,11 +1,11 @@
-package com.instructor.nedoollae.view.login
+package com.pentatrespassers.neodoollae.view.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.instructor.nedoollae.R
-import com.instructor.nedoollae.databinding.ActivityMainBinding
-import com.instructor.nedoollae.view.login.friend.FriendFragment
+import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
+import com.pentatrespassers.neodoollae.view.login.friend.FriendFragment
 import splitties.fragments.fragmentTransaction
 
 class MainActivity : AppCompatActivity() {

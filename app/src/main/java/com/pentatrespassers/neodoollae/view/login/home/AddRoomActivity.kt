@@ -1,10 +1,10 @@
-package com.instructor.nedoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login.home
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.instructor.nedoollae.R
-import com.instructor.nedoollae.databinding.ActivityAddRoomBinding
+import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
 import splitties.fragments.fragmentTransaction
 
 class AddRoomActivity : AppCompatActivity() {

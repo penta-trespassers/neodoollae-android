@@ -1,4 +1,4 @@
-package com.instructor.nedoollae.dto
+package com.pentatrespassers.neodoollae.dto
 
 data class User(
     var nickname: String = "", val socialId: Int = -1, val socialType: Int = -1,

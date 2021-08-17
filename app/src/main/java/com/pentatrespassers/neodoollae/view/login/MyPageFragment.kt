@@ -1,27 +1,27 @@
-package com.instructor.nedoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.instructor.nedoollae.databinding.FragmentAddressBinding
+import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 
-class AddressFragment private constructor() : Fragment() {
+class MyPageFragment private constructor() : Fragment() {
 
-    private lateinit var bind: FragmentAddressBinding
+    private lateinit var bind: FragmentMyPageBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bind = FragmentAddressBinding.inflate(inflater, container, false)
+        bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
             return root
         }
     }
 
     companion object {
-        fun newInstance() = AddressFragment()
+        fun newInstance() = MyPageFragment()
     }
 }

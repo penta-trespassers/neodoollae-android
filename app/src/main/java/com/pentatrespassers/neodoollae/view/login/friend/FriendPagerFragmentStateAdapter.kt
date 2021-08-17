@@ -1,4 +1,4 @@
-package com.instructor.nedoollae.view.login.friend
+package com.pentatrespassers.neodoollae.view.login.friend
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
