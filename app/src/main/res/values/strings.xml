@@ -6,6 +6,15 @@
     <string name="friend">친구</string>
     <string name="notice">알림</string>
     <string name="my_page">마이페이지</string>
+    <string name="insert_address">주소 입력</string>
+    <string name="address_message">지번, 도로명, 건물명을\n입력해주세요.</string>
+    <string name="address_hint">예) 올래동 11–1 또는 갈래 아파트</string>
+    <string name="detail_address_hint">상세 주소를 입력해주세요.</string>
+    <string name="upload_picture">방 사진 등록</string>
+    <string name="insert_room_info">방 정보 입력</string>
+    <string name="room_info_message">내 방에 놀러올 친구들을 위해\n방 정보를 입력해주세요.</string>
+    <string name="hint_room_name">예) 펜타하우스</string>
+    <string name="what_is_room_name">방 이름은 무엇인가요?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="friend_list">친구 목록</string>
     <string name="friend_request">친구 요청</string>
