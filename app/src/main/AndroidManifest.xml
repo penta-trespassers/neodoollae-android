@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nedoollae">
         <activity
+            android:name=".view.login.home.AddRoomActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.login.MainActivity"
             android:exported="true" />
         <activity
