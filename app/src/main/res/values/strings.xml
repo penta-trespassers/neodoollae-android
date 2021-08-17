@@ -16,4 +16,7 @@
     <string name="hint_room_name">예) 펜타하우스</string>
     <string name="what_is_room_name">방 이름은 무엇인가요?</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="friend_list">친구 목록</string>
+    <string name="friend_request">친구 요청</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>
