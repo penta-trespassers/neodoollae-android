@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapFragmentAround"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.45"
+        tools:listitem="@layout/maplistitem_cell" />
 
     <SearchView
         android:id="@+id/mapSearchViewAround"
@@ -36,39 +37,30 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/round_shape1"
         android:baselineAligned="true"
+        android:iconifiedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/mapListRecyclerViewAround"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="검색하고 싶은 방을 검색해보세요."
-        android:iconifiedByDefault="false"
-        android:background="@drawable/round_shape1"
 
-        />
+        app:layout_constraintVertical_bias="0.0"
+        app:queryHint="검색하고 싶은 방을 검색해보세요." />
 
     <Switch
         android:id="@+id/possibleRoomSwtichAround"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layoutDirection="rtl"
+        android:text="예약 가능한 방만 보기"
         app:layout_constraintBottom_toBottomOf="@+id/mapListRecyclerViewAround"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mapListRecyclerViewAround"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/switchtextViewAround"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:text="예약가능한 방만 보이기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/possibleRoomSwtichAround"
-        app:layout_constraintTop_toTopOf="@+id/mapListRecyclerViewAround" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
