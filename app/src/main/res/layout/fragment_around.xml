@@ -6,15 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".view.login.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="내 주변 화면"
+    <fragment
+        android:id="@+id/mapFragmentAround"
+        android:name="com.naver.maps.map.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mapListRecyclerViewAround"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@drawable/round_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapFragmentAround"
+        app:layout_constraintVertical_bias="0.45"
+        tools:listitem="@layout/maplistitem_cell" />
+
+    <SearchView
+        android:id="@+id/mapSearchViewAround"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_shape1"
+        android:baselineAligned="true"
+        android:iconifiedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/mapListRecyclerViewAround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+
+        app:layout_constraintVertical_bias="0.0"
+        app:queryHint="검색하고 싶은 방을 검색해보세요." />
+
+    <Switch
+        android:id="@+id/possibleRoomSwtichAround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layoutDirection="rtl"
+        android:text="예약 가능한 방만 보기"
+        app:layout_constraintBottom_toBottomOf="@+id/mapListRecyclerViewAround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mapListRecyclerViewAround"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
