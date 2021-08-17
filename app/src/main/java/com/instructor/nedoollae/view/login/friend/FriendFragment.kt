@@ -26,14 +26,6 @@ class FriendFragment private constructor() : Fragment() {
             return root
         }
 
-        val tabLayout = bind.friendTabLayoutFriend
-//        bind.friendListTabItemFriend.text = "친구 목록"
-//        bind.friendRequestTabItemFriend.text = "친구 요청"
-
-
-        tabLayout.addTab(tabLayout.newTab().setText("친구 목록"))
-        tabLayout.addTab(tabLayout.newTab().setText("친구 요청"))
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -55,17 +47,13 @@ class FriendFragment private constructor() : Fragment() {
                     0 -> {
                         // 친구 목록창
                         bind.friendSearchViewFriend.isVisible = true
-                        bind.filteringCheckBoxFriendList.isVisible = true
-                        bind.filteringSwitchFriendList.isVisible = true
-                        bind.filteringTextViewFriendList.isVisible = true
+                        bind.filteringSwitchFriend.isVisible = true
                     }
 
                     1 -> {
                         // 친구 요청창
                         bind.friendSearchViewFriend.isVisible = false
-                        bind.filteringCheckBoxFriendList.isVisible = false
-                        bind.filteringSwitchFriendList.isVisible = false
-                        bind.filteringTextViewFriendList.isVisible = false
+                        bind.filteringSwitchFriend.isVisible = false
                     }
 
                 }

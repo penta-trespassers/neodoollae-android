@@ -27,39 +27,18 @@
         android:background="@android:drawable/editbox_background"
         android:baselineAligned="false"
         app:iconifiedByDefault="false"
-        app:queryHint="검색" />
+        app:queryHint="검색" >
 
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="자취러만 보기"
-        android:layout_marginStart="10dp"
-        android:id="@+id/filteringCheckBoxFriendList"/>
+    </androidx.appcompat.widget.SearchView>
 
-    <LinearLayout
+    <Switch
+        android:id="@+id/filteringSwitchFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/switchTextLinearLayoutFriendList"
-        android:orientation="horizontal"
-        android:layout_marginStart="5dp"
-        >
-
-        <Switch
-            android:id="@+id/filteringSwitchFriendList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/filteringTextViewFriendList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="자취러만 보기"
-            android:textSize="13dp"
-            android:textColor="@color/black"
-            android:layout_gravity="center_vertical"/>
-
-    </LinearLayout>
+        android:layoutDirection="rtl"
+        android:showText="false"
+        android:text=" 자취러만 보기"
+        android:layout_marginStart="10dp"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -70,7 +49,7 @@
         android:layout_weight="1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addFriendFloatingActionButtonFriendList"
+        android:id="@+id/addFriendBtnFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
