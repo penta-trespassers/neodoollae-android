@@ -37,9 +37,9 @@ class FriendFragment private constructor() : Fragment() {
         pagerAdapter.addFragment(FriendRequestFragment())
 
         // Adapter
-        bind.viewPager.adapter = pagerAdapter
+        bind.viewPagerFriend.adapter = pagerAdapter
 
-        bind.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        bind.viewPagerFriend.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 Log.e("ViewPagerFragment", "Page ${position+1}")
@@ -61,7 +61,7 @@ class FriendFragment private constructor() : Fragment() {
         })
 
         // TabLayout attach
-        TabLayoutMediator(bind.friendTabLayoutFriend, bind.viewPager) { tab, position ->
+        TabLayoutMediator(bind.friendTabLayoutFriend, bind.viewPagerFriend) { tab, position ->
             when (position) {
                 0 -> {
                     tab.text = "친구 목록"
