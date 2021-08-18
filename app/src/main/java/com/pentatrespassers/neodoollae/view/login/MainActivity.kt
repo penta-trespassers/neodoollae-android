@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
+import com.pentatrespassers.neodoollae.view.login.around.AroundFragment
 import com.pentatrespassers.neodoollae.view.login.friend.FriendFragment
 import splitties.fragments.fragmentTransaction
 

@@ -18,5 +18,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="friend_list">친구 목록</string>
     <string name="friend_request">친구 요청</string>
+    <string name="See_only_available_rooms">예약 가능한 방만 보기</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
