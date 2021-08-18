@@ -50,17 +50,14 @@ class NoticeFragment private constructor() : Fragment() {
                 override fun onNothingSelected(p0: AdapterView<*>?) { }
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                     when(position) {
-                        //전체보기
                         0 -> {
-                            println("전체보기")
+                            //전체보기
                         }
-                        // 내 예약만
                         1 -> {
-                            println("내 예약만")
+                            //내 예약만
                         }
-                        // 내 방 예약만
                         2 -> {
-                            println("내 방 예약만")
+                            //내 방 예약만
                         }
                     }
                 }

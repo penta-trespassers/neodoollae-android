@@ -53,10 +53,10 @@ class ChildControlRecyclerViewAdapter(
     ) :
         RecyclerView.ViewHolder(itemView) {
 
-        private var parentTextView: TextView = itemView.findViewById(R.id.parentTextView)
-        private var parentView: ConstraintLayout = itemView.findViewById(R.id.itemParentView)
+        private var parentTextView: TextView = itemView.findViewById(R.id.reserveInfoTextNotice)
+        private var parentView: ConstraintLayout = itemView.findViewById(R.id.parentLayoutNotice)
         private var childViewWrap: ConstraintLayout = itemView.findViewById(R.id.childViewWrap)
-        private var item_arrow: ImageView = itemView.findViewById(R.id.item_arrow)
+        private var item_arrow: ImageView = itemView.findViewById(R.id.arrowImageNotice)
 
         fun bind(
             sparseArray: SparseArray<Boolean>,

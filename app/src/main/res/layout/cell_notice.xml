@@ -17,45 +17,82 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/itemParentView"
+                android:id="@+id/parentLayoutNotice"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:orientation="horizontal"
-                android:background="@drawable/bg_pressed"
-                android:paddingLeft="23dp">
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Q"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/bg_pressed">
+
+                <ImageView
+                    android:id="@+id/roomNameImageNotice"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    app:layout_constraintEnd_toStartOf="@+id/reserveInfoTextNotice"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/parentTextView"
+                    android:id="@+id/friendNameTextNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="ParentView"
-                    android:textSize="16sp"
+                    android:text="@string/friend_name"
+                    android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView12"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/roomNameImageNotice"
+                    app:layout_constraintEnd_toStartOf="@id/reserveInfoTextNotice"/>
+
+                <TextView
+                    android:id="@+id/reserveInfoTextNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reserve_info"
+                    android:textSize="14dp"
+                    android:layout_marginStart="80dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintBottom_toTopOf="@id/reserveDateNameNotice"
+                    />
+
+                <TextView
+                    android:id="@+id/reserveDateNameNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reserve_date"
+                    android:textSize="12dp"
+                    android:layout_marginStart="80dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/reserveInfoTextNotice"
+                    app:layout_constraintBottom_toTopOf="@id/reserveRoomTextNotice"/>
+
+                <TextView
+                    android:id="@+id/reserveRoomTextNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reserve_room"
+                    android:textSize="12dp"
+                    android:layout_marginStart="80dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/reserveDateNameNotice"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/reserveStateImageNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_check_circle_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/arrowImageNotice"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/item_arrow"
+                    android:id="@+id/arrowImageNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:paddingHorizontal="21dp"
-                    android:scaleType="fitCenter"
                     android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +132,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#7E7B7B" />
+                android:background="#AAAAAA" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
