@@ -9,7 +9,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentHomeBinding
 import splitties.fragmentargs.arg
 
 class SkeletonFragment private constructor() : Fragment() {
-
+/*
     var test: Int by arg()
 
     private lateinit var bind: FragmentSkeletonBinding
@@ -30,5 +30,5 @@ class SkeletonFragment private constructor() : Fragment() {
         }
     }
 
-
+*/
 }
