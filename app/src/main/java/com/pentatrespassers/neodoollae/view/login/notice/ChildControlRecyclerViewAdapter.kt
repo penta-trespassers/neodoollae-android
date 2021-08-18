@@ -54,8 +54,8 @@ class ChildControlRecyclerViewAdapter(
         RecyclerView.ViewHolder(itemView) {
 
         private var parentTextView: TextView = itemView.findViewById(R.id.reserveInfoTextNotice)
-        private var parentView: ConstraintLayout = itemView.findViewById(R.id.parentLayoutNotice)
-        private var childViewWrap: ConstraintLayout = itemView.findViewById(R.id.childViewWrap)
+        private var parentView: ConstraintLayout = itemView.findViewById(R.id.cellLayoutNotice)
+        private var childViewWrap: ConstraintLayout = itemView.findViewById(R.id.expandedCellLayoutNotice)
         private var item_arrow: ImageView = itemView.findViewById(R.id.arrowImageNotice)
 
         fun bind(

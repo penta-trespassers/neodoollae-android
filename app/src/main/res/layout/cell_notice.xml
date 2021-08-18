@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/parentLayoutNotice"
+                android:id="@+id/cellLayoutNotice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
@@ -84,6 +85,7 @@
                     android:id="@+id/reserveStateImageNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
                     android:src="@drawable/ic_check_circle_black_24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/arrowImageNotice"
@@ -93,6 +95,7 @@
                     android:id="@+id/arrowImageNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
                     android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,30 +105,141 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/childViewWrap"
+                android:id="@+id/expandedCellLayoutNotice"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="#D1CCCC"
-                android:paddingVertical="16dp"
-                android:paddingLeft="23dp"
-                android:paddingRight="24dp"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:padding="20dp"
                 android:visibility="gone"
                 tools:visibility="visible">
 
                 <TextView
+                    android:id="@+id/visitingPeopleGuideNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visiting_people_number"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/visitingPeopleTextNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visiting_people_number"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/checkInTimeGuideNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_in_time"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/visitingPeopleGuideNotice"
+                    app:layout_constraintStart_toStartOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/checkInTimeTextNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_in_time"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toBottomOf="@id/visitingPeopleTextNotice"
+                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/checkOutTimeGuideNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_out_time"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/checkInTimeGuideNotice"
+                    app:layout_constraintStart_toStartOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/checkOutTimeTextNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_out_time"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toBottomOf="@id/checkInTimeTextNotice"
+                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/messageToHostGuideNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_to_host"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/checkOutTimeGuideNotice"
+                    app:layout_constraintStart_toStartOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/messageToHostTextNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_to_host"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toBottomOf="@id/checkOutTimeTextNotice"
+                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/messageToGuestGuideNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_to_guest"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/messageToHostTextNotice"
+                    app:layout_constraintStart_toStartOf="parent"></TextView>
+
+                <EditText
+                    android:id="@+id/messageToGuestEditTextNotice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/message_to_guest"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toBottomOf="@id/messageToGuestGuideNotice"
+                    app:layout_constraintEnd_toEndOf="parent"></EditText>
+
+                <Button
+                    android:id="@+id/acceptButtonNotice"
+                    app:layout_constraintHorizontal_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:lineSpacingExtra="10sp"
-                    android:paddingLeft="5dp"
-                    android:text="child View"
-                    android:textColor="#36364b"
-                    android:textSize="14sp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/accept"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/declineButtonNotice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice"></Button>
+
+                <Button
+                    android:id="@+id/declineButtonNotice"
+                    app:layout_constraintHorizontal_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/decline"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintStart_toEndOf="@id/acceptButtonNotice"
+                    app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice"></Button>
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
