@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentNoticeBinding
-import com.pentatrespassers.neodoollae.view.login.notice.ChildControlRecyclerViewAdapter
-import com.pentatrespassers.neodoollae.view.login.notice.LinearLayoutManagerWithSmoothScroller
+import com.pentatrespassers.neodoollae.view.login.notice.NoticeCellRecyclerViewAdapter
+//import com.pentatrespassers.neodoollae.view.login.notice.LinearLayoutManagerWithSmoothScroller
 
 class NoticeFragment private constructor() : Fragment() {
 
@@ -23,8 +23,8 @@ class NoticeFragment private constructor() : Fragment() {
     private lateinit var delete: Button
     private lateinit var deleteText: TextView // Text 터치시에도 delete 기능해야함
     private lateinit var spinner: Spinner
-    //dummy dataArrayList  //private var dataList = ArrayList<Int>()
-    private var dataList = arrayListOf(1,2,3,4,5)
+    //dummy dataArrayList  //private var dataList = ArrayList<Custom Class>()
+    private var dataList = arrayListOf("예약 수락", "예약 거절", "예약 대기", "예약 신청", "예약 대기")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,14 +66,20 @@ class NoticeFragment private constructor() : Fragment() {
             //implement expandable cell
             recyclerView = recyclerNotice
             recyclerView.apply{
-                var lm = LinearLayoutManagerWithSmoothScroller(
+                /*
+                // 선택한 Cell이 RecyclerView의 TOP으로 가게 하는 Custom LinearLayoutManager 사용
+                var linearLayoutManager = LinearLayoutManagerWithSmoothScroller(
                     container?.getContext(),
                     LinearLayoutManager.VERTICAL,
                     false
                 )
+                */
+
+                // 안드로이드 기본 LinearLayoutManager
+                var linearLayoutManager = LinearLayoutManager(container?.getContext())
                 setHasFixedSize(true)
-                this.layoutManager = lm
-                var childControlRecyclerViewAdapter = ChildControlRecyclerViewAdapter(this)
+                this.layoutManager = linearLayoutManager
+                var childControlRecyclerViewAdapter = NoticeCellRecyclerViewAdapter(this)
                 childControlRecyclerViewAdapter.addItem(dataList)
                 adapter = childControlRecyclerViewAdapter
             }

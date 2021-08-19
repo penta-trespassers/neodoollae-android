@@ -8,9 +8,12 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,7 +125,7 @@
                     android:textStyle="bold"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    ></TextView>
+                    />
 
                 <TextView
                     android:id="@+id/visitingPeopleTextNotice"
@@ -133,9 +136,10 @@
                     android:textStyle="normal"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    ></TextView>
+                    />
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/checkInTimeGuideNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,9 +147,10 @@
                     android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@id/visitingPeopleGuideNotice"
-                    app:layout_constraintStart_toStartOf="parent"></TextView>
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/checkInTimeTextNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -153,9 +158,10 @@
                     android:textSize="14dp"
                     android:textStyle="normal"
                     app:layout_constraintTop_toBottomOf="@id/visitingPeopleTextNotice"
-                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/checkOutTimeGuideNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,9 +169,10 @@
                     android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@id/checkInTimeGuideNotice"
-                    app:layout_constraintStart_toStartOf="parent"></TextView>
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/checkOutTimeTextNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,9 +180,10 @@
                     android:textSize="14dp"
                     android:textStyle="normal"
                     app:layout_constraintTop_toBottomOf="@id/checkInTimeTextNotice"
-                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/messageToHostGuideNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -183,19 +191,22 @@
                     android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@id/checkOutTimeGuideNotice"
-                    app:layout_constraintStart_toStartOf="parent"></TextView>
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/messageToHostTextNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/message_to_host"
+                    android:text="@string/message_to_host_example"
+                    android:gravity="right"
                     android:textSize="14dp"
                     android:textStyle="normal"
                     app:layout_constraintTop_toBottomOf="@id/checkOutTimeTextNotice"
-                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/messageToGuestGuideNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -203,9 +214,10 @@
                     android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@id/messageToHostTextNotice"
-                    app:layout_constraintStart_toStartOf="parent"></TextView>
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <EditText
+                    android:layout_marginTop="10dp"
                     android:id="@+id/messageToGuestEditTextNotice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,33 +225,33 @@
                     android:textSize="14dp"
                     android:textStyle="normal"
                     app:layout_constraintTop_toBottomOf="@id/messageToGuestGuideNotice"
-                    app:layout_constraintEnd_toEndOf="parent"></EditText>
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <Button
+                    android:layout_marginTop="10dp"
                     android:id="@+id/acceptButtonNotice"
                     app:layout_constraintHorizontal_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:text="@string/accept"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/declineButtonNotice"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice"></Button>
+                    app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice"/>
 
                 <Button
+                    android:layout_marginTop="10dp"
                     android:id="@+id/declineButtonNotice"
                     app:layout_constraintHorizontal_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/decline"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/acceptButtonNotice"
-                    app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice"></Button>
-
-
+                    app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,5 +261,5 @@
                 android:background="#AAAAAA" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

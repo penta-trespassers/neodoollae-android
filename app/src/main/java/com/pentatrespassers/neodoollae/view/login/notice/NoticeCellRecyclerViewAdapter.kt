@@ -7,6 +7,8 @@ import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,12 +16,12 @@ import androidx.core.util.set
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 
-class ChildControlRecyclerViewAdapter(
+class NoticeCellRecyclerViewAdapter(
     val recyclerView: RecyclerView
 ) :
-    RecyclerView.Adapter<ChildControlRecyclerViewAdapter.ViewHolder>() {
+    RecyclerView.Adapter<NoticeCellRecyclerViewAdapter.ViewHolder>() {
 
-    private var dataList = ArrayList<Int>()
+    private var dataList = ArrayList<String>()
     private var sparseArray = SparseArray<Boolean>()
     private var itemView = HashMap<Int, ConstraintLayout>()
     private var imageView = HashMap<Int, ImageView>()
@@ -42,21 +44,31 @@ class ChildControlRecyclerViewAdapter(
 
     }
 
-    fun addItem(dataList: ArrayList<Int>) {
+    fun addItem(dataList: ArrayList<String>) {
         this.dataList = dataList
     }
 
     class ViewHolder(
         itemView: View,
         val recyclerView: RecyclerView,
-        val dataList: ArrayList<Int>
+        val dataList: ArrayList<String>
     ) :
         RecyclerView.ViewHolder(itemView) {
 
-        private var parentTextView: TextView = itemView.findViewById(R.id.reserveInfoTextNotice)
-        private var parentView: ConstraintLayout = itemView.findViewById(R.id.cellLayoutNotice)
-        private var childViewWrap: ConstraintLayout = itemView.findViewById(R.id.expandedCellLayoutNotice)
-        private var item_arrow: ImageView = itemView.findViewById(R.id.arrowImageNotice)
+        private var friendNameText: TextView = itemView.findViewById(R.id.friendNameTextNotice)
+        private var reserveInfoText: TextView = itemView.findViewById(R.id.reserveInfoTextNotice)
+        private var reserveDateText: TextView = itemView.findViewById(R.id.reserveDateNameNotice)
+        private var reserveRoomText: TextView = itemView.findViewById(R.id.reserveRoomTextNotice)
+        private var visitingPeopleNumberText: TextView = itemView.findViewById(R.id.visitingPeopleTextNotice)
+        private var checkInTimeText: TextView = itemView.findViewById(R.id.checkInTimeTextNotice)
+        private var checkOutTimeText: TextView = itemView.findViewById(R.id.checkOutTimeTextNotice)
+        private var messageToHost: TextView = itemView.findViewById(R.id.messageToHostTextNotice)
+        private var messageToGuest: EditText = itemView.findViewById(R.id.messageToGuestEditTextNotice)
+        private var acceptButton: Button = itemView.findViewById(R.id.acceptButtonNotice)
+        private var declineButton: Button = itemView.findViewById(R.id.declineButtonNotice)
+        private var cellLayout: ConstraintLayout = itemView.findViewById(R.id.cellLayoutNotice)
+        private var expandedCellLayout: ConstraintLayout = itemView.findViewById(R.id.expandedCellLayoutNotice)
+        private var arrowImage: ImageView = itemView.findViewById(R.id.arrowImageNotice)
 
         fun bind(
             sparseArray: SparseArray<Boolean>,
@@ -67,9 +79,9 @@ class ChildControlRecyclerViewAdapter(
                 sparseArray.put(adapterPosition, false)
             }
 
-            parentTextView.text = dataList[adapterPosition].toString()
-            itemView[adapterPosition] = childViewWrap
-            imageView[adapterPosition] = item_arrow
+            reserveInfoText.text = dataList[adapterPosition].toString()
+            itemView[adapterPosition] = expandedCellLayout
+            imageView[adapterPosition] = arrowImage
 
             if (!sparseArray[adapterPosition]) {
                 collapseItem(
@@ -83,40 +95,23 @@ class ChildControlRecyclerViewAdapter(
                 )
             }
 
-            parentView.setOnClickListener {
-                //cardView가 펼쳐질 때 부드러움 추가
-                TransitionManager.beginDelayedTransition(childViewWrap, AutoTransition())
+            cellLayout.setOnClickListener {
+                //cardView가 펼쳐질 때 부드럽게
+                TransitionManager.beginDelayedTransition(expandedCellLayout, AutoTransition())
 
-                when (childViewWrap.visibility) {
+                when (expandedCellLayout.visibility) {
                     View.VISIBLE -> {
                         sparseArray[adapterPosition] = false
-                        childViewWrap.visibility = View.GONE
-                        collapseItem(childViewWrap, item_arrow)
+                        expandedCellLayout.visibility = View.GONE
+                        collapseItem(expandedCellLayout, arrowImage)
                     }
 
                     View.GONE -> {
                         sparseArray[adapterPosition] = true
                         //펼쳐질 때 adapterPosition의 아이템이 top으로 이동하도록 설정
-                        recyclerView.smoothScrollToPosition(adapterPosition)
-                        childViewWrap.visibility = View.VISIBLE
-                        expandItem(childViewWrap, item_arrow)
-
-                        //클릭 시 펼쳐져있는 item collapse
-                        //제 코드로는 scrollToTop과 같이 사용하면 문제가 있습니다.
-//                        for (i in 0..sparseArray.size()) {
-//                            if (sparseArray[i] == true) {
-//                                itemView[i]!!.visibility = View.GONE
-//                                imageView[i]!!.apply {
-//                                    setImageDrawable(
-//                                        resources.getDrawable(
-//                                            R.drawable.ic_arrow_down,
-//                                            null
-//                                        )
-//                                    )
-//                                }
-//                                sparseArray[i] = false
-//                            }
-//                        }
+                        recyclerView.scrollToPosition(adapterPosition)
+                        expandedCellLayout.visibility = View.VISIBLE
+                        expandItem(expandedCellLayout, arrowImage)
                     }
                 }
             }

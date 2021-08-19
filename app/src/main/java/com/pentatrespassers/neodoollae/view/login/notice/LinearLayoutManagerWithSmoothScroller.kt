@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SmoothScroller
 
+/*
+ * 아이템 클릭했을 때 클릭한 아이템이 recyclerView의 top으로 이동하게 하는 LinearLayoutManager
 
-/**
- * 아이템 클릭했을 때 클릭한 아이템이 recyclerView의 top으로 이동
- */
+
 class LinearLayoutManagerWithSmoothScroller : LinearLayoutManager {
     constructor(context: Context?) : super(context, VERTICAL, false)
     constructor(context: Context?, orientation: Int, reverseLayout: Boolean) : super(
@@ -40,3 +40,5 @@ class LinearLayoutManagerWithSmoothScroller : LinearLayoutManager {
         }
     }
 }
+
+*/
