@@ -55,8 +55,9 @@ class NoticeCellRecyclerViewAdapter(
     ) :
         RecyclerView.ViewHolder(itemView) {
 
-        private var friendNameText: TextView = itemView.findViewById(R.id.friendNameTextNotice)
         private var reserveInfoText: TextView = itemView.findViewById(R.id.reserveInfoTextNotice)
+        /*
+        private var friendNameText: TextView = itemView.findViewById(R.id.friendNameTextNotice)
         private var reserveDateText: TextView = itemView.findViewById(R.id.reserveDateNameNotice)
         private var reserveRoomText: TextView = itemView.findViewById(R.id.reserveRoomTextNotice)
         private var visitingPeopleNumberText: TextView = itemView.findViewById(R.id.visitingPeopleTextNotice)
@@ -66,6 +67,7 @@ class NoticeCellRecyclerViewAdapter(
         private var messageToGuest: EditText = itemView.findViewById(R.id.messageToGuestEditTextNotice)
         private var acceptButton: Button = itemView.findViewById(R.id.acceptButtonNotice)
         private var declineButton: Button = itemView.findViewById(R.id.declineButtonNotice)
+        */
         private var cellLayout: ConstraintLayout = itemView.findViewById(R.id.cellLayoutNotice)
         private var expandedCellLayout: ConstraintLayout = itemView.findViewById(R.id.expandedCellLayoutNotice)
         private var arrowImage: ImageView = itemView.findViewById(R.id.arrowImageNotice)
