@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentRoomInfoBinding
 
-class MapFragment private constructor() : Fragment() {
+class MapFragment() : Fragment(),MapTouchListener {
 
     private lateinit var bind: FragmentAroundBinding
 
@@ -28,6 +28,16 @@ class MapFragment private constructor() : Fragment() {
     companion object {
         fun newInstance() = MapFragment()
     }
+
+
+    override fun touch() {
+        print("hi")
+    }
+
+
+
+
+
 }
 
 
