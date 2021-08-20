@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerArrayNotice">
+        <item>전체 보기</item>
+        <item>내 예약만</item>
+        <item>내 방 예약만</item>
+    </string-array>
+
+</resources>
