@@ -3,33 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_frame"
+    android:id="@+id/slidingUpPanel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:umanoPanelHeight="170dp"
+    app:umanoShadowHeight="0dp"
+    app:umanoOverlay="true"
     android:gravity="bottom"
     app:umanoDragView="@id/slidingLayout">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/AroundLayout"
+        android:id="@+id/aroundLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.login.around.AroundFragment">
+        tools:context=".view.login.AroundFragment">
 
-        <com.naver.maps.map.MapView
-            android:id="@+id/mapViewAround"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/naverMap"
             android:name="com.naver.maps.map.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:clickable="true"
-            android:focusable="true"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/mapSearchViewAround"
@@ -41,11 +40,9 @@
             android:background="@drawable/round_shape1"
             android:baselineAligned="true"
             app:iconifiedByDefault="false"
-            app:layout_constraintBottom_toBottomOf="@+id/mapViewAround"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:queryHint="검색하고 싶은 방을 검색해보세요." />
 
 
@@ -60,18 +57,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_marginEnd="411dp"
+            android:layout_marginBottom="731dp"
             android:background="@drawable/round_shape"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/round_shape"
                 android:backgroundTint="#FFFFFF"
-                app:srcCompat="@drawable/round_shape"
-                android:background="@drawable/round_shape"/>
+                app:srcCompat="@drawable/round_shape" />
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/possibleRoomSwtichAround"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
