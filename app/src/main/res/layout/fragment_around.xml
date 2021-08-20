@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         tools:context=".view.login.around.AroundFragment">
 
-        <fragment
+        <com.naver.maps.map.MapView
             android:id="@+id/mapViewAround"
             android:name="com.naver.maps.map.MapFragment"
             android:layout_width="match_parent"
