@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentNoticeBinding
 import com.pentatrespassers.neodoollae.view.login.notice.NoticeCellRecyclerViewAdapter
@@ -19,7 +18,6 @@ class NoticeFragment private constructor() : Fragment() {
     private lateinit var bind: FragmentNoticeBinding
 
     //variables for expandable cell
-    private lateinit var recyclerView: RecyclerView
     private lateinit var delete: Button
     private lateinit var deleteText: TextView // Text 터치시에도 delete 기능해야함
     private lateinit var spinner: Spinner
@@ -64,8 +62,7 @@ class NoticeFragment private constructor() : Fragment() {
             }
 
             //implement expandable cell
-            recyclerView = recyclerNotice
-            recyclerView.apply{
+            recyclerNotice.apply{
                 /*
                 // 선택한 Cell이 RecyclerView의 TOP으로 가게 하는 Custom LinearLayoutManager 사용
                 var linearLayoutManager = LinearLayoutManagerWithSmoothScroller(
@@ -76,10 +73,10 @@ class NoticeFragment private constructor() : Fragment() {
                 */
 
                 // 안드로이드 기본 LinearLayoutManager
-                var linearLayoutManager = LinearLayoutManager(container?.getContext())
+                val linearLayoutManager = LinearLayoutManager(container?.getContext())
                 setHasFixedSize(true)
                 this.layoutManager = linearLayoutManager
-                var childControlRecyclerViewAdapter = NoticeCellRecyclerViewAdapter(this)
+                val childControlRecyclerViewAdapter = NoticeCellRecyclerViewAdapter(this)
                 childControlRecyclerViewAdapter.addItem(dataList)
                 adapter = childControlRecyclerViewAdapter
             }

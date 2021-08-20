@@ -1,14 +1,11 @@
 package com.pentatrespassers.neodoollae.view.login.notice
 
-import android.annotation.SuppressLint
 import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 
 class NoticeCellRecyclerViewAdapter(
-    val recyclerView: RecyclerView
+    private val recyclerView: RecyclerView
 ) :
     RecyclerView.Adapter<NoticeCellRecyclerViewAdapter.ViewHolder>() {
 
@@ -40,7 +37,7 @@ class NoticeCellRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int {
-        return if (dataList.size > 0) dataList.size else 0
+        return dataList.size
 
     }
 
@@ -50,12 +47,13 @@ class NoticeCellRecyclerViewAdapter(
 
     class ViewHolder(
         itemView: View,
-        val recyclerView: RecyclerView,
-        val dataList: ArrayList<String>
+        private val recyclerView: RecyclerView,
+        private val dataList: ArrayList<String>
     ) :
         RecyclerView.ViewHolder(itemView) {
 
         private var reserveInfoText: TextView = itemView.findViewById(R.id.reserveInfoTextNotice)
+
         /*
         private var friendNameText: TextView = itemView.findViewById(R.id.friendNameTextNotice)
         private var reserveDateText: TextView = itemView.findViewById(R.id.reserveDateNameNotice)
@@ -69,7 +67,8 @@ class NoticeCellRecyclerViewAdapter(
         private var declineButton: Button = itemView.findViewById(R.id.declineButtonNotice)
         */
         private var cellLayout: ConstraintLayout = itemView.findViewById(R.id.cellLayoutNotice)
-        private var expandedCellLayout: ConstraintLayout = itemView.findViewById(R.id.expandedCellLayoutNotice)
+        private var expandedCellLayout: ConstraintLayout =
+            itemView.findViewById(R.id.expandedCellLayoutNotice)
         private var arrowImage: ImageView = itemView.findViewById(R.id.arrowImageNotice)
 
         fun bind(
@@ -81,7 +80,7 @@ class NoticeCellRecyclerViewAdapter(
                 sparseArray.put(adapterPosition, false)
             }
 
-            reserveInfoText.text = dataList[adapterPosition].toString()
+            reserveInfoText.text = dataList[adapterPosition]
             itemView[adapterPosition] = expandedCellLayout
             imageView[adapterPosition] = arrowImage
 
@@ -119,31 +118,18 @@ class NoticeCellRecyclerViewAdapter(
             }
         }
 
-        @SuppressLint("UseCompatLoadingForDrawables")
-        fun expandItem(view: View, imageView: ImageView) {
+        private fun expandItem(view: View, imageView: ImageView) {
             view.visibility = View.VISIBLE
-            imageView.apply {
-                setImageDrawable(
-                    this.context.resources.getDrawable(
-                        R.drawable.ic_baseline_keyboard_arrow_up_24,
-                        null
-                    )
-                )
-            }
+            imageView.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
+
         }
 
-        @SuppressLint("UseCompatLoadingForDrawables")
-        fun collapseItem(view: View, imageView: ImageView) {
+        private fun collapseItem(view: View, imageView: ImageView) {
             view.visibility = View.GONE
-            imageView.apply {
-                setImageDrawable(
-                    this.context.resources.getDrawable(
-                        R.drawable.ic_baseline_keyboard_arrow_down_24,
-                        null
-                    )
-                )
-            }
+            imageView.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+
         }
     }
+
 
 }
