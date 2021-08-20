@@ -22,16 +22,19 @@ class AroundFragment private constructor() : Fragment() {
             mapViewAround
             mapSearchViewAround
             slidingLayout
+
+
+            //mapview로 변경 후 뜨긴 뜨는데 작동안함
+            mapViewAround.setOnClickListener {
+                mapSearchViewAround.toggleVisibility()
+                slidingLayout.toggleVisibility()
+
+            }
+
             return root
         }
 
 
-        //mapview로 변경 후 뜨긴 뜨는데 작동안함
-        bind.mapViewAround.setOnClickListener {
-            bind.mapSearchViewAround.toggleVisibility()
-            bind.slidingLayout.toggleVisibility()
-
-        }
 
     }
 
