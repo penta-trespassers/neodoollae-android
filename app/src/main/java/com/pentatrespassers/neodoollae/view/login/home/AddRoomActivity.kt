@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
+import com.pentatrespassers.neodoollae.lib.Util
 import splitties.fragments.fragmentTransaction
 
 class AddRoomActivity : AppCompatActivity() {
@@ -55,6 +56,7 @@ class AddRoomActivity : AppCompatActivity() {
             }
             nextButton.setOnClickListener {
                 if (currentFragmentIndex == fragmentList.lastIndex) {
+                    Util.j(addressFragment.address)
                     // TODO 완료 시 할 작업
                 } else {
                     fragmentTransaction {

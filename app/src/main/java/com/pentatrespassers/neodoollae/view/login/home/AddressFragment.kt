@@ -11,6 +11,9 @@ class AddressFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentAddressBinding
 
+    val address
+        get() = bind.addressEditText.text.toString()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
