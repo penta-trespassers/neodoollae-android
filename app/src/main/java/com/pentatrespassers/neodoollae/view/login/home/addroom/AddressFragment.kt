@@ -13,6 +13,8 @@ class AddressFragment private constructor() : Fragment() {
 
     val address
         get() = bind.addressEditText.text.toString()
+    val detailAddress
+        get() = bind.detailAddressEditText.text.toString()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -26,6 +26,10 @@
     <string name="view_on_map">지도에서 보기</string>
     <string name="make_reservation">예약하기</string>
     <string name="room_registration_complete">방 등록 완료</string>
-    <string name="room_registeration_complete_message">축하합니다!\n방 등록이 완료되었습니다.</string>
+    <string name="room_registration_complete_message">축하합니다!\n방 등록이 완료되었습니다.</string>
+    <string name="full_Address">%s %s</string>
+    <string name="closed">closed</string>
+    <string name="open">open</string>
+    <string name="restricted">restricted</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

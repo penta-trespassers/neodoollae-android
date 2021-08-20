@@ -10,13 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nedoollae">
         <activity
+            android:name=".view.login.friend.FriendProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.login.home.RoomProfileActivity"
             android:exported="true" />
-
         <activity
             android:name=".view.login.home.AddRoomActivity"
-            android:exported="true" />
-
+            android:exported="true"
+            android:noHistory="true" />
         <activity
             android:name=".view.login.MainActivity"
             android:exported="true" />
@@ -30,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="7qdjutvncl" />

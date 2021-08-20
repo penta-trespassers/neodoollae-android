@@ -5,11 +5,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
+import com.pentatrespassers.neodoollae.dto.RoomInfo
 import com.pentatrespassers.neodoollae.view.login.home.addroom.AddressFragment
 import com.pentatrespassers.neodoollae.view.login.home.addroom.PictureFragment
 import com.pentatrespassers.neodoollae.view.login.home.addroom.RoomCompleteFragment
 import com.pentatrespassers.neodoollae.view.login.home.addroom.RoomInfoFragment
-import com.pentatrespassers.neodoollae.lib.Util
+import splitties.activities.start
+import splitties.bundle.putExtras
 import splitties.fragments.fragmentTransaction
 
 class AddRoomActivity : AppCompatActivity() {
@@ -30,7 +32,8 @@ class AddRoomActivity : AppCompatActivity() {
     private val roomCompleteFragment by lazy {
         RoomCompleteFragment.newInstance()
     }
-    private val fragmentList = arrayListOf(addressFragment, roomInfoFragment, pictureFragment, roomCompleteFragment)
+    private val fragmentList =
+        arrayListOf(addressFragment, roomInfoFragment, pictureFragment, roomCompleteFragment)
     private var currentFragmentIndex = 0
 
 
@@ -64,14 +67,23 @@ class AddRoomActivity : AppCompatActivity() {
             }
             nextButton.setOnClickListener {
                 if (currentFragmentIndex == fragmentList.lastIndex) {
-                    // TODO 완료 시 할 작업
+                    start<RoomProfileActivity> {
+                        putExtras(RoomProfileActivity.Extras) {
+                            roomInfo = RoomInfo(
+                                roomName = roomInfoFragment.roomName,
+                                address = addressFragment.address,
+                                detailAddress = addressFragment.detailAddress,
+                                description = roomInfoFragment.description
+                            )
+                        }
+                    }
                 } else {
                     fragmentTransaction {
                         hide(fragmentList[currentFragmentIndex])
                         show(fragmentList[++currentFragmentIndex])
                         if (currentFragmentIndex == 1) {
                             prevButton.visibility = View.VISIBLE
-                        }else if (currentFragmentIndex == fragmentList.lastIndex) {
+                        } else if (currentFragmentIndex == fragmentList.lastIndex) {
                             nextButton.setImageResource(R.drawable.ic_done_24dp)
                         }
                     }
