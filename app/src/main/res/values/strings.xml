@@ -47,4 +47,7 @@
     <string name="delete_guide">완료된 알림 삭제하기</string>
     <string name="accept">수락하기</string>
     <string name="decline">거절하기</string>
+    <string name="reservation_waiting">예약 대기</string>
+    <string name="reservation_accepted">예약 수락</string>
+    <string name="reservation_declined">예약 거절</string>
 </resources>

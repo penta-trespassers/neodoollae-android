@@ -61,5 +61,5 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-fragmentargs:$splitties_version")
 
     // https://github.com/lopspower/CircularImageView
-    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+    implementation "com.mikhaellopez:circularimageview:4.3.0"
 }
