@@ -1,27 +1,27 @@
-package com.pentatrespassers.neodoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login.home.addroom
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pentatrespassers.neodoollae.databinding.FragmentPictureBinding
+import com.pentatrespassers.neodoollae.databinding.FragmentRoomInfoBinding
 
-class PictureFragment private constructor() : Fragment() {
+class RoomInfoFragment private constructor() : Fragment() {
 
-    private lateinit var bind: FragmentPictureBinding
+    private lateinit var bind: FragmentRoomInfoBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bind = FragmentPictureBinding.inflate(inflater, container, false)
+        bind = FragmentRoomInfoBinding.inflate(inflater, container, false)
         with(bind) {
             return root
         }
     }
 
     companion object {
-        fun newInstance() = PictureFragment()
+        fun newInstance() = RoomInfoFragment()
     }
 }

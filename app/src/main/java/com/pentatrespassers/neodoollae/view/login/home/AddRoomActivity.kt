@@ -5,6 +5,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
+import com.pentatrespassers.neodoollae.view.login.home.addroom.AddressFragment
+import com.pentatrespassers.neodoollae.view.login.home.addroom.PictureFragment
+import com.pentatrespassers.neodoollae.view.login.home.addroom.RoomCompleteFragment
+import com.pentatrespassers.neodoollae.view.login.home.addroom.RoomInfoFragment
 import splitties.fragments.fragmentTransaction
 
 class AddRoomActivity : AppCompatActivity() {
@@ -22,7 +26,10 @@ class AddRoomActivity : AppCompatActivity() {
     private val pictureFragment by lazy {
         PictureFragment.newInstance()
     }
-    private val fragmentList = arrayListOf(addressFragment, roomInfoFragment, pictureFragment)
+    private val roomCompleteFragment by lazy {
+        RoomCompleteFragment.newInstance()
+    }
+    private val fragmentList = arrayListOf(addressFragment, roomInfoFragment, pictureFragment, roomCompleteFragment)
     private var currentFragmentIndex = 0
 
 
@@ -31,11 +38,12 @@ class AddRoomActivity : AppCompatActivity() {
         with(bind) {
             setContentView(root)
             fragmentTransaction() {
-                add(R.id.addRoomFrame, addressFragment)
-                add(R.id.addRoomFrame, roomInfoFragment)
-                add(R.id.addRoomFrame, pictureFragment)
-                hide(roomInfoFragment)
-                hide(pictureFragment)
+                for (i in fragmentList.indices) {
+                    add(R.id.addRoomFrame, fragmentList[i])
+                    if (i != 0) {
+                        hide(fragmentList[i])
+                    }
+                }
             }
 
             homeButton.setOnClickListener {
