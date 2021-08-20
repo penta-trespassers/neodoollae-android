@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 
 
-
-class AroundFragment private constructor() : Fragment(),MapTouchListener {
+class AroundFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentAroundBinding
 
@@ -24,24 +21,12 @@ class AroundFragment private constructor() : Fragment(),MapTouchListener {
             return root
         }
 
-
-
-
-
-
     }
-
-
-
-
 
 
     companion object {
         fun newInstance() = AroundFragment()
     }
 
-    override fun touch() {
-        print("hi")
-    }
 }
 
