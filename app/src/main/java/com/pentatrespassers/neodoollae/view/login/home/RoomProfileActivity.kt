@@ -14,7 +14,7 @@ class RoomProfileActivity : AppCompatActivity() {
     object Extras : BundleSpec() {
         var roomInfo: RoomInfo by bundle()
     }
-    private val room by lazy {
+    private val roomInfo by lazy {
         withExtras(Extras) {
             roomInfo
         }
@@ -28,9 +28,9 @@ class RoomProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with (bind) {
             setContentView(root)
-            roomNameText.text = room.roomName
-            addressText.text = getString(R.string.full_Address, room.address, room.detailAddress)
-            descriptionText.text = room.description
+            roomNameText.text = roomInfo.roomName
+            addressText.text = getString(R.string.full_Address, roomInfo.address, roomInfo.detailAddress)
+            descriptionText.text = roomInfo.description
         }
     }
 }

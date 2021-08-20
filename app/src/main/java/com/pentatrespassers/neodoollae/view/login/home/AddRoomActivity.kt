@@ -41,6 +41,9 @@ class AddRoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
+
+            addressFragment.address
+
             fragmentTransaction() {
                 for (i in fragmentList.indices) {
                     add(R.id.addRoomFrame, fragmentList[i])
