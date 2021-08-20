@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+
             bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.homeItem -> {

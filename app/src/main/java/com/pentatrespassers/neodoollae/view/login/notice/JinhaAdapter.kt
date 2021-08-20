@@ -1,8 +1,6 @@
 package com.pentatrespassers.neodoollae.view.login.notice
 
 import android.content.Context
-import android.transition.AutoTransition
-import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,12 +30,6 @@ class JinhaAdapter(
                 friendNameTextNotice.text = reservation.nickname
 
                 cellLayoutNotice.setOnClickListener {
-                    //cardView가 펼쳐질 때 부드럽게
-                    TransitionManager.beginDelayedTransition(
-                        expandedCellLayoutNotice,
-                        AutoTransition()
-                    )
-
                     if (expandedCellLayoutNotice.visibility == View.VISIBLE) {
                         expandedCellLayoutNotice.visibility = View.GONE
                         arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
