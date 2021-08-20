@@ -27,10 +27,9 @@ class AroundFragment private constructor() : Fragment() {
 
 
         //mapview로 변경 후 뜨긴 뜨는데 작동안함
-        bind.mapViewAround.setOnClickListener{
-            bind.mapSearchViewAround.isVisible = !bind.mapSearchViewAround.isVisible
-            bind.slidingLayout.isVisible = !bind.slidingLayout.isVisible
-
+        bind.mapViewAround.setOnClickListener {
+            bind.mapSearchViewAround.toggleVisibility()
+            bind.slidingLayout.toggleVisibility()
 
         }
 
@@ -40,6 +39,14 @@ class AroundFragment private constructor() : Fragment() {
     companion object {
         fun newInstance() = AroundFragment()
     }
+    fun View.isVisible() = this.visibility == View.VISIBLE
 
+    fun View.toggleVisibility() {
+        if (this.isVisible()) {
+            this.visibility = View.INVISIBLE
+        } else {
+            this.visibility = View.VISIBLE
+        }
+    }
 }
 
