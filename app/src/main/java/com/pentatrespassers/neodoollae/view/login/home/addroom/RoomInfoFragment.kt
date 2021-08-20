@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login.home.addroom
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,11 @@ import com.pentatrespassers.neodoollae.databinding.FragmentRoomInfoBinding
 class RoomInfoFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentRoomInfoBinding
+
+    val roomName
+        get() = bind.roomNameEditText.text.toString()
+    val description
+        get() = bind.descriptionEditText.text.toString()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
