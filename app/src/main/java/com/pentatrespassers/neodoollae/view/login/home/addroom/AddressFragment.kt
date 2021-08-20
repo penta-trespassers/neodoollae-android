@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login.home.addroom
 
 import android.os.Bundle
 import android.view.LayoutInflater
