@@ -18,11 +18,7 @@ class NoticeFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentNoticeBinding
 
-    //variables for expandable cell
-    private lateinit var delete: Button
-    private lateinit var deleteText: TextView // Text 터치시에도 delete 기능해야함
-    private lateinit var spinner: Spinner
-    //dummy dataArrayList  //private var dataList = ArrayList<Custom Class>()
+    //dummy dataArrayList  //private var dataList = ArrayList<Reservation>()
     private var reservationList = arrayListOf(
         Reservation(nickname = "윤건우", status = Reservation.STATUS_WAITING),
         Reservation(nickname = "이서진", status = Reservation.STATUS_DECLINED),
@@ -41,7 +37,6 @@ class NoticeFragment private constructor() : Fragment() {
             recyclerNotice.adapter = JinhaAdapter(requireContext(), reservationList)
 
             //implement spinner
-            spinner = filterSpinnerNotice
             ArrayAdapter.createFromResource(
                 requireContext(),
                 R.array.spinnerArrayNotice,
@@ -50,10 +45,10 @@ class NoticeFragment private constructor() : Fragment() {
                 // Specify the layout to use when the list of choices appears
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 // Apply the adapter to the spinner
-                spinner.adapter = adapter
+                filterSpinnerNotice.adapter = adapter
             }
 
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            filterSpinnerNotice.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(p0: AdapterView<*>?) { }
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                     when(position) {
@@ -69,7 +64,6 @@ class NoticeFragment private constructor() : Fragment() {
                     }
                 }
             }
-
             return root
         }
     }
