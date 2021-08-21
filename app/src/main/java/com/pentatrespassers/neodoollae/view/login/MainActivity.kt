@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         FriendFragment.newInstance()
     }
     private val noticeFragment by lazy {
-        NoticeFragment.newInstance(this)
+        NoticeFragment.newInstance()
     }
     private val myPageFragment by lazy {
         MyPageFragment.newInstance()

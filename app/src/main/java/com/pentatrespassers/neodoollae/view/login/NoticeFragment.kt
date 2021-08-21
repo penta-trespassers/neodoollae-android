@@ -1,7 +1,6 @@
 package com.pentatrespassers.neodoollae.view.login
 
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,7 @@ import com.pentatrespassers.neodoollae.view.login.notice.JinhaAdapter
 
 //import com.pentatrespassers.neodoollae.view.login.notice.LinearLayoutManagerWithSmoothScroller
 
-class NoticeFragment private constructor(context: Context) : Fragment() {
+class NoticeFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentNoticeBinding
 
@@ -31,7 +30,6 @@ class NoticeFragment private constructor(context: Context) : Fragment() {
         Reservation(nickname = "김성준", status = Reservation.STATUS_WAITING),
         Reservation(nickname = "황진하", status = Reservation.STATUS_ACCEPTED)
     )
-    private val jinhaAdapter = JinhaAdapter(context, reservationList)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +37,8 @@ class NoticeFragment private constructor(context: Context) : Fragment() {
     ): View {
         bind = FragmentNoticeBinding.inflate(inflater, container, false)
         with(bind) {
+            recyclerNotice.setHasFixedSize(true)
+            recyclerNotice.adapter = JinhaAdapter(requireContext(), reservationList)
 
             //implement spinner
             spinner = filterSpinnerNotice
@@ -70,14 +70,11 @@ class NoticeFragment private constructor(context: Context) : Fragment() {
                 }
             }
 
-            //implement expandable cell
-            recyclerNotice.setHasFixedSize(true)
-            recyclerNotice.adapter = jinhaAdapter
             return root
         }
     }
 
     companion object {
-        fun newInstance(context: Context) = NoticeFragment(context)
+        fun newInstance() = NoticeFragment()
     }
 }
