@@ -10,9 +10,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentNoticeBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.view.login.notice.JinhaAdapter
-
-//import com.pentatrespassers.neodoollae.view.login.notice.LinearLayoutManagerWithSmoothScroller
+import com.pentatrespassers.neodoollae.view.login.notice.NoticeCellRecyclerViewAdapter
 
 class NoticeFragment private constructor() : Fragment() {
 
@@ -34,7 +32,7 @@ class NoticeFragment private constructor() : Fragment() {
         bind = FragmentNoticeBinding.inflate(inflater, container, false)
         with(bind) {
             recyclerNotice.setHasFixedSize(true)
-            recyclerNotice.adapter = JinhaAdapter(requireContext(), reservationList)
+            recyclerNotice.adapter = NoticeCellRecyclerViewAdapter(requireContext(), reservationList)
 
             //implement spinner
             ArrayAdapter.createFromResource(
