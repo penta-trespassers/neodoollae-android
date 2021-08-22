@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nedoollae">
         <activity
+            android:name=".view.login.mypage.SettingsActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.login.friend.FriendProfileActivity"
             android:exported="true" />
         <activity
