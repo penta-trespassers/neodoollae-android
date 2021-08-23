@@ -19,16 +19,11 @@ class AroundFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentAroundBinding.inflate(inflater, container, false)
         with(bind) {
-            mapViewAround
-            mapSearchViewAround
-            slidingLayout
-
 
             //mapview로 변경 후 뜨긴 뜨는데 작동안함
             mapViewAround.setOnClickListener {
                 mapSearchViewAround.toggleVisibility()
                 slidingLayout.toggleVisibility()
-
             }
 
             return root

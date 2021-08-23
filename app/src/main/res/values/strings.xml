@@ -19,5 +19,11 @@
     <string name="friend_list">친구 목록</string>
     <string name="friend_request">친구 요청</string>
     <string name="See_only_available_rooms">예약 가능한 방만 보기</string>
+    <string name="Host_Rate">주인 평가</string>
+    <string name="my_room_reservation_information">내 방 예약 정보</string>
+    <string name="my_reservation_information">나의 예약 정보</string>
+    <string name="my_history">나의 방문기록</string>
+    <string name="guest_rate">손님 평가</string>
+    <string name="my_room_history">내 방 방문기록</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
