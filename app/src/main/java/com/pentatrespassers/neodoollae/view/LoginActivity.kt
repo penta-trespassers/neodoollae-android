@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
 import com.pentatrespassers.neodoollae.view.login.MainActivity
+import com.pentatrespassers.neodoollae.view.login.friend.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.home.AddRoomActivity
 import splitties.activities.start
 
@@ -16,13 +17,16 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        with (bind) {
+        with(bind) {
             setContentView(root)
             dummyLoginButton.setOnClickListener {
                 start<MainActivity>()
             }
             dummyAddRoomButton.setOnClickListener {
                 start<AddRoomActivity>()
+            }
+            dummyFriendProfileButton.setOnClickListener {
+                start<FriendProfileActivity>()
             }
         }
 
