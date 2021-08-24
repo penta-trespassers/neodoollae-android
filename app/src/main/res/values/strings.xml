@@ -33,5 +33,11 @@
     <string name="restricted">restricted</string>
     <string name="See_only_available_rooms">예약 가능한 방만 보기</string>
     <string name="settings">설정</string>
+    <string name="edit_profile">프로필 수정</string>
+    <string name="notice_settings">알림 설정</string>
+    <string name="terms_of_use">이용 약관</string>
+    <string name="logout">로그아웃</string>
+    <string name="support_developer">개발자 후원</string>
+    <string name="developer_info">개발자 정보</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
