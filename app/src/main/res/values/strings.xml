@@ -39,6 +39,7 @@
     <string name="guest_rate">손님 평가</string>
     <string name="my_room_history">내 방 방문기록</string>
     <!-- TODO: Remove or change this placeholder text -->
+
     <!-- Notice strings -->
     <string name="friend_name">친구 이름</string>
     <string name="reserve_info">예약 정보</string>

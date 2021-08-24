@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+
     // 네이버 지도 SDK - https://navermaps.github.io/android-map-sdk/guide-ko/1.html
     implementation ("com.naver.maps:map-sdk:$naverMap_version")
 
@@ -63,6 +64,5 @@ dependencies {
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
     // https://github.com/lopspower/CircularImageView
-    implementation 'com.mikhaellopez:circularimageview:4.3.0'
-
+    implementation "com.mikhaellopez:circularimageview:4.3.0"
 }
