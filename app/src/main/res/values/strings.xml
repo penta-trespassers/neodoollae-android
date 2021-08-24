@@ -31,7 +31,7 @@
     <string name="closed">closed</string>
     <string name="open">open</string>
     <string name="restricted">restricted</string>
-    <string name="See_only_available_rooms">예약 가능한 방만 보기</string>
+    <string name="show_only_available_rooms">예약 가능한 방만 보기</string>
     <string name="Host_Rate">주인 평가</string>
     <string name="my_room_reservation_information">내 방 예약 정보</string>
     <string name="my_reservation_information">나의 예약 정보</string>

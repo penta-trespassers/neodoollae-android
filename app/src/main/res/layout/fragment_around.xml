@@ -81,7 +81,7 @@
                 android:layout_marginTop="4dp"
                 android:layoutDirection="rtl"
                 android:minHeight="48dp"
-                android:text="@string/See_only_available_rooms"
+                android:text="@string/show_only_available_rooms"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.92"
