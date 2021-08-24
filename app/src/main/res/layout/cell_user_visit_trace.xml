@@ -9,7 +9,7 @@
     android:layout_marginVertical="5dp">
 
     <ImageView
-        android:id="@+id/roomPicImageViewBookInfo"
+        android:id="@+id/roomPicImageViewVisitTrace"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/roomNameTextBookInfo"
+        android:id="@+id/roomNameTextVisitTrace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -28,37 +28,27 @@
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/roomPicImageViewBookInfo"
-        app:layout_constraintTop_toTopOf="@+id/roomPicImageViewBookInfo" />
-
-    <ImageView
-        android:id="@+id/acceptIconImageViewBookInfo"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_check_circle_black_24dp" />
+        app:layout_constraintStart_toEndOf="@+id/roomPicImageViewVisitTrace"
+        app:layout_constraintTop_toTopOf="@+id/roomPicImageViewVisitTrace" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/roomPicImageViewBookInfo"
-        app:layout_constraintStart_toStartOf="@+id/roomNameTextBookInfo"
-        app:layout_constraintTop_toBottomOf="@+id/roomNameTextBookInfo">
+        app:layout_constraintBottom_toBottomOf="@+id/roomPicImageViewVisitTrace"
+        app:layout_constraintStart_toStartOf="@+id/roomNameTextVisitTrace"
+        app:layout_constraintTop_toBottomOf="@+id/roomNameTextVisitTrace">
 
         <TextView
-            android:id="@+id/guideTextBookInfo"
+            android:id="@+id/guideTextVisitTrace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/booked_date"
+            android:text="@string/visit_date"
             android:textColor="#000000"
             android:textSize="12dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/bookInfoTextBookInfo"
+            android:id="@+id/VisitTraceTextVisitTrace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2021.XX.XX xx:xx"

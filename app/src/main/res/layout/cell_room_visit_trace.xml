@@ -9,56 +9,56 @@
     android:layout_marginVertical="5dp">
 
     <ImageView
-        android:id="@+id/roomPicImageViewBookInfo"
+        android:id="@+id/userPicImageViewRoomVisitTrace"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
-        android:id="@+id/roomNameTextBookInfo"
+        android:id="@+id/userNameTextRoomVisitTrace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:gravity="top"
-        android:text="sunny님의 방"
+        android:text="XX님"
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/roomPicImageViewBookInfo"
-        app:layout_constraintTop_toTopOf="@+id/roomPicImageViewBookInfo" />
+        app:layout_constraintStart_toEndOf="@+id/userPicImageViewRoomVisitTrace"
+        app:layout_constraintTop_toTopOf="@+id/userPicImageViewRoomVisitTrace" />
 
     <ImageView
-        android:id="@+id/acceptIconImageViewBookInfo"
+        android:id="@+id/acceptIconImageViewRoomVisitTrace"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_check_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/roomPicImageViewBookInfo"
-        app:layout_constraintStart_toStartOf="@+id/roomNameTextBookInfo"
-        app:layout_constraintTop_toBottomOf="@+id/roomNameTextBookInfo">
+        app:layout_constraintBottom_toBottomOf="@+id/userPicImageViewRoomVisitTrace"
+        app:layout_constraintStart_toStartOf="@+id/userNameTextRoomVisitTrace"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTextRoomVisitTrace">
 
         <TextView
-            android:id="@+id/guideTextBookInfo"
+            android:id="@+id/guideTextRoomVisitTrace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/booked_date"
+            android:text="@string/visit_date"
             android:textColor="#000000"
             android:textSize="12dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/bookInfoTextBookInfo"
+            android:id="@+id/VisitTraceTextRoomVisitTrace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2021.XX.XX xx:xx"
