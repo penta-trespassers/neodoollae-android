@@ -11,10 +11,11 @@
 
 
     <ImageView
-        android:id="@+id/MyProfileImageView"
+        android:id="@+id/myProfileImageView"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="40dp"
+        android:backgroundTint="#FFFFFF"
         android:src="@drawable/ic_account_circle_black_24dp"
         app:layout_constraintBottom_toTopOf="@+id/myNameTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +54,7 @@
 
     <Button
         android:id="@+id/myReservationButton"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="40dp"
@@ -101,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MyProfileImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/myProfileImageView" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -114,6 +116,22 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_black_24dp"
+        app:layout_constraintStart_toEndOf="@+id/myNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/myProfileImageView" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_black_24dp"
+        app:layout_constraintEnd_toEndOf="@+id/myProfileImageView"
+        app:layout_constraintTop_toTopOf="@+id/myProfileImageView" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -160,7 +178,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:src="@drawable/ic_settings_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/MyProfileImageView"
+        app:layout_constraintBottom_toTopOf="@+id/myProfileImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"

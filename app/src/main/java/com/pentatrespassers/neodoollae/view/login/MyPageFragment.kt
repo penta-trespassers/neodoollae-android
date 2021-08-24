@@ -33,6 +33,9 @@ class MyPageFragment private constructor() : Fragment() {
             myReservationButton.setOnClickListener{
                 // start<Activity>()
             }
+            SettingImageView.setOnClickListener{
+                // start<SettingActivity>()
+            }
 
 
 

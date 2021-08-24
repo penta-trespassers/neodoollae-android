@@ -64,4 +64,5 @@ dependencies {
 
     // https://github.com/lopspower/CircularImageView
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
+
 }

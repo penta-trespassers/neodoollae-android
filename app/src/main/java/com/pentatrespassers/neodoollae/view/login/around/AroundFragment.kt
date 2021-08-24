@@ -21,7 +21,7 @@ class AroundFragment private constructor() : Fragment() {
         with(bind) {
 
             //mapview로 변경 후 뜨긴 뜨는데 작동안함
-            mapViewAround.setOnClickListener {
+            naverMap.setOnClickListener {
                 mapSearchViewAround.toggleVisibility()
                 slidingLayout.toggleVisibility()
             }

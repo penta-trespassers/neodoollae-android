@@ -39,4 +39,22 @@
     <string name="guest_rate">손님 평가</string>
     <string name="my_room_history">내 방 방문기록</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <!-- Notice strings -->
+    <string name="friend_name">친구 이름</string>
+    <string name="reserve_info">예약 정보</string>
+    <string name="reserve_date">예약 날짜</string>
+    <string name="reserve_room">예약한 방</string>
+    <string name="visiting_people_number">방문 인원</string>
+    <string name="check_in_time">방문 시간</string>
+    <string name="check_out_time">퇴실 시간</string>
+    <string name="message_to_host">주인장에게 한 마디</string>
+    <string name="message_to_host_example">여보소\n여기\n치킨\n한마리요</string>
+    <string name="message_to_guest">수락/거절 메시지</string>
+    <string name="delete_guide">완료된 알림 삭제하기</string>
+    <string name="accept">수락하기</string>
+    <string name="decline">거절하기</string>
+    <string name="reservation_waiting">예약 대기</string>
+    <string name="reservation_accepted">예약 수락</string>
+    <string name="reservation_declined">예약 거절</string>
+
 </resources>
