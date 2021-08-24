@@ -2,7 +2,6 @@ package com.pentatrespassers.neodoollae.view.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import splitties.fragments.fragmentTransaction
@@ -28,33 +27,47 @@ class MainActivity : AppCompatActivity() {
     private val myPageFragment by lazy {
         MyPageFragment.newInstance()
     }
+    private val fragmentList =
+        arrayListOf(homeFragment, aroundFragment, friendFragment, noticeFragment, myPageFragment)
 
-    private fun replaceMainFrame(fragment: Fragment) = fragmentTransaction {
-        replace(R.id.mainFrame, fragment)
+    private fun replaceMainFrame(index: Int) = fragmentTransaction {
+        hide(fragmentList[currentFragmentIndex])
+        show(fragmentList[index])
+        currentFragmentIndex = index
     }
+
+    private var currentFragmentIndex = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            replaceMainFrame(homeFragment)
+            fragmentTransaction() {
+                for (i in fragmentList.indices) {
+                    add(R.id.mainFrame, fragmentList[i])
+                    if (i != 0) {
+                        hide(fragmentList[i])
+                    }
+                }
+            }
+
             bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.homeItem -> {
-                        replaceMainFrame(homeFragment)
+                        replaceMainFrame(0)
                     }
                     R.id.aroundItem -> {
-                        replaceMainFrame(aroundFragment)
+                        replaceMainFrame(1)
                     }
                     R.id.friendItem -> {
-                        replaceMainFrame(friendFragment)
+                        replaceMainFrame(2)
                     }
                     R.id.noticeItem -> {
-                        replaceMainFrame(noticeFragment)
+                        replaceMainFrame(3)
                     }
                     R.id.myPageItem -> {
-                        replaceMainFrame(myPageFragment)
+                        replaceMainFrame(4)
                     }
                 }
                 true

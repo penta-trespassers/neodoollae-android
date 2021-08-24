@@ -9,18 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nedoollae">
-        <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="7qdjutvncl" />
-
         <activity
-            android:name="com.pentatrespassers.neodoollae.view.login.home.AddRoomActivity"
+            android:name=".view.login.friend.FriendProfileActivity"
             android:exported="true" />
         <activity
-            android:name="com.pentatrespassers.neodoollae.view.login.MainActivity"
+            android:name=".view.login.home.RoomProfileActivity"
             android:exported="true" />
         <activity
-            android:name="com.pentatrespassers.neodoollae.view.LoginActivity"
+            android:name=".view.login.home.AddRoomActivity"
+            android:exported="true"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.login.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.LoginActivity"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
@@ -30,6 +33,9 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="7qdjutvncl" />
     </application>
 
 </manifest>
