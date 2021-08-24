@@ -31,7 +31,13 @@
     <string name="closed">closed</string>
     <string name="open">open</string>
     <string name="restricted">restricted</string>
-    <string name="See_only_available_rooms">예약 가능한 방만 보기</string>
+    <string name="show_only_available_rooms">예약 가능한 방만 보기</string>
+    <string name="Host_Rate">주인 평가</string>
+    <string name="my_room_reservation_information">내 방 예약 정보</string>
+    <string name="my_reservation_information">나의 예약 정보</string>
+    <string name="my_history">나의 방문기록</string>
+    <string name="guest_rate">손님 평가</string>
+    <string name="my_room_history">내 방 방문기록</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <!-- Notice strings -->
@@ -51,4 +57,5 @@
     <string name="reservation_waiting">예약 대기</string>
     <string name="reservation_accepted">예약 수락</string>
     <string name="reservation_declined">예약 거절</string>
+
 </resources>

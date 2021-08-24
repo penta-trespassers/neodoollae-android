@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+
     // 네이버 지도 SDK - https://navermaps.github.io/android-map-sdk/guide-ko/1.html
     implementation ("com.naver.maps:map-sdk:$naverMap_version")
 
