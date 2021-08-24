@@ -63,5 +63,5 @@ dependencies {
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
     // https://github.com/lopspower/CircularImageView
-    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+    implementation "com.mikhaellopez:circularimageview:4.3.0"
 }
