@@ -11,7 +11,9 @@
         android:id="@+id/recyclerFriendRequest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        tools:listitem="@layout/cell_friend_request"
+        />
 
     <TextView
         android:id="@+id/exampleTvFriendRequest"

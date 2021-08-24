@@ -10,12 +10,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFriendList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/cell_friend_list"
+        />
 
     <TextView
         android:id="@+id/exampleTvFriendList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="화면 전환을 알아보기 위한 예시 텍스트" />
+        android:text="화면 전환을 알아보기 위한 예시 텍스트"
+        />
 
 </FrameLayout>
