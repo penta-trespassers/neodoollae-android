@@ -58,4 +58,6 @@
     <string name="reservation_waiting">예약 대기</string>
     <string name="reservation_accepted">예약 수락</string>
     <string name="reservation_declined">예약 거절</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
