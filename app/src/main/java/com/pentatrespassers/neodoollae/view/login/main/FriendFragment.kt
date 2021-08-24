@@ -1,23 +1,17 @@
-package com.pentatrespassers.neodoollae.view.login
+package com.pentatrespassers.neodoollae.view.login.main
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayoutMediator
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
-import com.pentatrespassers.neodoollae.view.login.friend.FriendListFragment
-import com.pentatrespassers.neodoollae.view.login.friend.FriendPagerFragmentStateAdapter
-import com.pentatrespassers.neodoollae.view.login.friend.FriendRequestFragment
 
 class FriendFragment private constructor() : Fragment() {
 

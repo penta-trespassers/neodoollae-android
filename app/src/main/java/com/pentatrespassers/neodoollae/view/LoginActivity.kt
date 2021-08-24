@@ -4,9 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
 import com.pentatrespassers.neodoollae.view.login.MainActivity
-import com.pentatrespassers.neodoollae.view.login.friend.FriendProfileActivity
-import com.pentatrespassers.neodoollae.view.login.home.AddRoomActivity
-import splitties.activities.start
+import com.pentatrespassers.neodoollae.view.login.main.friend.FriendProfileActivity
+import com.pentatrespassers.neodoollae.view.login.main.home.AddRoomActivity
 
 class LoginActivity : AppCompatActivity() {
 

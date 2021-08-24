@@ -1,10 +1,10 @@
-package com.pentatrespassers.neodoollae.view.login.friend
+package com.pentatrespassers.neodoollae.view.login.main.friend
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
 import com.pentatrespassers.neodoollae.dto.RoomInfo
-import com.pentatrespassers.neodoollae.view.login.friend.friendprofile.RoomCardAdapter
+import com.pentatrespassers.neodoollae.view.login.main.friend.friendprofile.RoomCardAdapter
 
 class FriendProfileActivity : AppCompatActivity() {
 
