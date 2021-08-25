@@ -6,6 +6,7 @@ import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
 import com.pentatrespassers.neodoollae.view.login.MainActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.AddRoomActivity
+import splitties.activities.start
 
 class LoginActivity : AppCompatActivity() {
 

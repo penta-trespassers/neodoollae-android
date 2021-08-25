@@ -2,22 +2,21 @@ package com.pentatrespassers.neodoollae.view.login.main
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
+import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendPagerFragmentStateAdapter
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
+import splitties.toast.toast
 
 class FriendFragment private constructor() : Fragment() {
 
@@ -43,7 +42,6 @@ class FriendFragment private constructor() : Fragment() {
             viewPagerFriend.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    Log.e("ViewPagerFragment", "Page ${position+1}")
                     when (position) {
                         0 -> {
                             // 친구 목록창
@@ -88,53 +86,46 @@ class FriendFragment private constructor() : Fragment() {
 
     private fun showAddingDialog(){
         // Dialog만들기
-        val dlg = LayoutInflater.from(context).inflate(R.layout.dialog_add_friend, null)
-        val mBuilder = AlertDialog.Builder(context)
-            .setView(dlg)
-            .setCancelable(false)
+        val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
+        with(dialogBind) {
+            val mBuilder = AlertDialog.Builder(context)
+                .setView(root)
+                .setCancelable(false).show()
 
-        val bldr = mBuilder.show()
 
-        val btnOK = dlg.findViewById<Button>(R.id.acceptButtonFriend)
-        btnOK.setOnClickListener {
-            var codeET = dlg.findViewById<EditText>(R.id.codeEditTextFriend).text
-            code = codeET.toString()
-            Toast.makeText(context, "code: $code", Toast.LENGTH_SHORT).show()
-            bldr.dismiss()
+            acceptButtonFriend.setOnClickListener {
+                toast("code: ${codeEditTextFriend.text}")
+                mBuilder.dismiss()
+                // 만약 해당 코드를 가진 친구가 존재한다면
+                showCheckDialog()
 
-            // 만약 해당 코드를 가진 친구가 존재한다면
-            showCheckDialog()
+                // 해당 코드를 가진 친구가 존재하지 않는다면
+                // showRejectDialog()
+                // 혹은 그냥 간단 toast로 해당 코드 가진 사람이 존재하지 않는다고만 띄워도 될 듯.
 
-            // 해당 코드를 가진 친구가 존재하지 않는다면
-            // showRejectDialog()
-            // 혹은 그냥 간단 toast로 해당 코드 가진 사람이 존재하지 않는다고만 띄워도 될 듯.
-
+            }
+            cancelButtonFriend.setOnClickListener {
+                mBuilder.dismiss()
+            }
         }
 
-        val btnNO = dlg.findViewById<Button>(R.id.cancelButtonFriend)
-        btnNO.setOnClickListener {
-            bldr.dismiss()
-        }
     }
 
     private fun showCheckDialog() {
-        val dlg = LayoutInflater.from(context).inflate(R.layout.dialog_check_friend, null)
-        val mBuilder = AlertDialog.Builder(context)
-            .setView(dlg)
-            .setCancelable(false)
+        val dialogBind = DialogCheckFriendBinding.inflate(layoutInflater)
+        with(dialogBind) {
+            val mBuilder = AlertDialog.Builder(context)
+                .setView(root)
+                .setCancelable(false).show()
 
-        val bldr = mBuilder.show()
+            sendButtonCheckFriend.setOnClickListener {
+                Toast.makeText(context, "친구 신청 완료", Toast.LENGTH_SHORT).show()
+                mBuilder.dismiss()
+            }
 
-        val btnSend = dlg.findViewById<Button>(R.id.sendButtonCheckFriend)
-        val btnNO = dlg.findViewById<Button>(R.id.cancelButtonCheckFriend)
-
-        btnSend.setOnClickListener {
-            Toast.makeText(context, "친구 신청 완료", Toast.LENGTH_SHORT).show()
-            bldr.dismiss()
-        }
-
-        btnNO.setOnClickListener {
-            bldr.dismiss()
+            cancelButtonCheckFriend.setOnClickListener {
+                mBuilder.dismiss()
+            }
         }
     }
 
