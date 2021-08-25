@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Nedoollae">
+        android:theme="@style/Theme.Neodoollae">
         <activity
             android:name=".view.login.main.friend.FriendProfileActivity"
             android:exported="true" />
