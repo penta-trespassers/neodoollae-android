@@ -22,7 +22,10 @@ class AddRoomActivity : AppCompatActivity() {
     private val pictureFragment by lazy {
         PictureFragment.newInstance()
     }
-    private val fragmentList = arrayListOf(addressFragment, roomInfoFragment, pictureFragment)
+    private val roomOperationSettingFragment by lazy {
+        RoomOperationSettingFragment.newInstance()
+    }
+    private val fragmentList = arrayListOf(addressFragment, roomInfoFragment, roomOperationSettingFragment,pictureFragment)
     private var currentFragmentIndex = 0
 
 
@@ -33,9 +36,13 @@ class AddRoomActivity : AppCompatActivity() {
             fragmentTransaction() {
                 add(R.id.addRoomFrame, addressFragment)
                 add(R.id.addRoomFrame, roomInfoFragment)
+                add(R.id.addRoomFrame, roomOperationSettingFragment)
                 add(R.id.addRoomFrame, pictureFragment)
+
                 hide(roomInfoFragment)
+                hide(roomOperationSettingFragment)
                 hide(pictureFragment)
+
             }
 
             homeButton.setOnClickListener {

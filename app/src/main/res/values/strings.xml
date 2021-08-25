@@ -18,5 +18,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="friend_list">친구 목록</string>
     <string name="friend_request">친구 요청</string>
+    <string name="choose_a_room_management_option">방 운영 옵션을 선택하세요.</string>
+    <string name="room_operation_settings">방 운영 설정</string>
+    <string name="closed">폐쇄</string>
+    <string name="restricted">제한</string>
+    <string name="opened">개방</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
