@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login
+package com.pentatrespassers.neodoollae.view.login.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,6 +17,25 @@ class MyPageFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
+
+            myRoomHistoryButton.setOnClickListener {
+                // start<Activity>()
+            }
+            myHistoryButton.setOnClickListener {
+                // start<Activity>()
+            }
+            myRoomReservationButton.setOnClickListener {
+                // start<Activity>()
+            }
+            myReservationButton.setOnClickListener {
+                // start<Activity>()
+            }
+            SettingImageView.setOnClickListener {
+                // start<SettingActivity>()
+            }
+
+
+
             return root
         }
     }
@@ -24,4 +43,6 @@ class MyPageFragment private constructor() : Fragment() {
     companion object {
         fun newInstance() = MyPageFragment()
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login.main.home
 
 import android.os.Bundle
 import android.view.View
@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
 import com.pentatrespassers.neodoollae.dto.RoomInfo
-import com.pentatrespassers.neodoollae.view.login.home.addroom.AddressFragment
-import com.pentatrespassers.neodoollae.view.login.home.addroom.PictureFragment
-import com.pentatrespassers.neodoollae.view.login.home.addroom.RoomCompleteFragment
-import com.pentatrespassers.neodoollae.view.login.home.addroom.RoomInfoFragment
+import com.pentatrespassers.neodoollae.view.login.main.home.addroom.AddressFragment
+import com.pentatrespassers.neodoollae.view.login.main.home.addroom.PictureFragment
+import com.pentatrespassers.neodoollae.view.login.main.home.addroom.RoomCompleteFragment
+import com.pentatrespassers.neodoollae.view.login.main.home.addroom.RoomInfoFragment
 import splitties.activities.start
 import splitties.bundle.putExtras
 import splitties.fragments.fragmentTransaction
