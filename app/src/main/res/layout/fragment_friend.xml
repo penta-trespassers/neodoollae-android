@@ -1,60 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".view.login.main.HomeFragment">
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/friendTabLayoutFriend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/friendSearchViewFriend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginVertical="5dp"
-        android:background="@android:drawable/editbox_background"
-        android:baselineAligned="false"
-        app:iconifiedByDefault="false"
-        app:queryHint="검색" >
-
-    </androidx.appcompat.widget.SearchView>
 
     <Switch
         android:id="@+id/filteringSwitchFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layoutDirection="rtl"
+        android:minHeight="48dp"
         android:showText="false"
         android:text=" 자취러만 보기"
-        android:layout_marginStart="10dp"/>
+        app:layout_constraintBottom_toTopOf="@+id/viewPagerFriend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friendSearchViewFriend" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/friendSearchViewFriend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:drawable/editbox_background"
+        android:baselineAligned="false"
+        app:iconifiedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/filteringSwitchFriend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="검색">
+
+    </androidx.appcompat.widget.SearchView>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerFriend"
-        android:layout_width="match_parent"
-        android:layout_height="94dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="5dp"
-        android:layout_weight="1" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="101dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filteringSwitchFriend" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addFriendBtnFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/ic_person_add_black_24dp"
-        app:backgroundTint="#317AF0" />
+        app:backgroundTint="#317AF0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/friendTabLayoutFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.tabs.TabLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,5 +8,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "Nedoollae"
+rootProject.name = "Neodoollae"
 include ':app'
