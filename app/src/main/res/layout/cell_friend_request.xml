@@ -4,13 +4,17 @@
     android:id="@+id/cellFriendRequest"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:background="@drawable/bg_border"
+    android:padding="10dp"
+    android:layout_marginVertical="5dp"
+    >
 
     <ImageView
         android:id="@+id/friendPicImageViewFriendRequest"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="10dp"
+        app:tint="#AAAAAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,6 +28,7 @@
         android:text="윤건우"
         android:textColor="#000000"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/friendPicImageViewFriendRequest"
         app:layout_constraintStart_toEndOf="@+id/friendPicImageViewFriendRequest"
         app:layout_constraintTop_toTopOf="@+id/friendPicImageViewFriendRequest" />
@@ -33,6 +38,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="5dp"
+        app:tint="#317AF0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rejectIconImageViewFriendRequest"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,6 +49,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="10dp"
+        app:tint="#E01D00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.home
+package com.pentatrespassers.neodoollae.view.login.main.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

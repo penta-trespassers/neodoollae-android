@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.friend.friendprofile
+package com.pentatrespassers.neodoollae.view.login.main.friend.friendprofile
 
 import android.content.Context
 import android.view.LayoutInflater

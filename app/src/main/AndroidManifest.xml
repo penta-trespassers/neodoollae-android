@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Neodoollae">
         <activity
-            android:name=".view.login.friend.FriendProfileActivity"
+            android:name=".view.login.main.friend.FriendProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".view.login.home.RoomProfileActivity"
+            android:name=".view.login.main.home.RoomProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".view.login.home.AddRoomActivity"
+            android:name=".view.login.main.home.AddRoomActivity"
             android:exported="true"
             android:noHistory="true" />
         <activity
