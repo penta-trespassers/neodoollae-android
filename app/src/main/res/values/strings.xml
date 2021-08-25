@@ -64,5 +64,10 @@
     <string name="reservation_waiting">예약 대기</string>
     <string name="reservation_accepted">예약 수락</string>
     <string name="reservation_declined">예약 거절</string>
+    <string name="whole_notification">전체 알림</string>
+    <string name="friend_accepted">친구 수락</string>
+    <string name="friend_room_state_changed">친구 방 상태 변경</string>
+    <string name="my_room_reservation">내 방 예약</string>
+    <string name="friend_room_reservation">친구 방 예약</string>
 
 </resources>
