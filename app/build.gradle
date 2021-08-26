@@ -65,4 +65,7 @@ dependencies {
 
     // https://github.com/lopspower/CircularImageView
     implementation "com.mikhaellopez:circularimageview:4.3.0"
+
+    // https://developers.kakao.com/docs/latest/ko/kakaologin/android
+    implementation "com.kakao.sdk:v2-user:2.6.0"
 }
