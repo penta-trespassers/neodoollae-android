@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     private var currentFragmentIndex = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_Neodoollae)
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)

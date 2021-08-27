@@ -8,4 +8,5 @@
     <color name="gray">#FFAAAAAA</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
+    <color name="app_theme">#FC8C8C</color>
 </resources>
