@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/openButton"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="120dp"
@@ -56,9 +56,10 @@
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="120dp"
@@ -70,7 +71,7 @@
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toTopOf="@+id/button3" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button3"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="120dp"
