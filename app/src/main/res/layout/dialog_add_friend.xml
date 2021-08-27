@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:id="@+id/guideTextFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="친구 코드를 입력하세요."
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/codeEditTextFriend"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:autofillHints="name"
+        android:background="@android:drawable/edit_text"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideTextFriend" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/acceptButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/line_btn_border"
+        android:text="확인"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:layout_constraintStart_toStartOf="@+id/codeEditTextFriend"
+        app:layout_constraintTop_toBottomOf="@+id/codeEditTextFriend" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/line_btn_border"
+        android:text="취소"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/codeEditTextFriend"
+        app:layout_constraintStart_toEndOf="@+id/acceptButton"
+        app:layout_constraintTop_toTopOf="@+id/acceptButton"
+        app:layout_goneMarginStart="30dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

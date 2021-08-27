@@ -1,66 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/slidingUpPanel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.login.HomeFragment">
+    app:umanoPanelHeight="170dp"
+    app:umanoShadowHeight="0dp"
+    app:umanoOverlay="true"
+    android:gravity="bottom"
+    app:umanoDragView="@+id/slidingLayout">
 
-    <fragment
-        android:id="@+id/mapFragmentAround"
-        android:name="com.naver.maps.map.MapFragment"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aroundLayout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="match_parent"
+        tools:context=".view.login.main.AroundFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mapListRecyclerViewAround"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/naverMap"
+            android:name="com.naver.maps.map.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <com.naver.maps.map.widget.LocationButtonView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="18dp"
+            app:layout_constraintTop_toBottomOf="@+id/mapSearchViewAround"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.naver.maps.map.widget.CompassView
+            android:id="@+id/compass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="@+id/location"
+            app:layout_constraintStart_toStartOf="@+id/location"
+            app:layout_constraintTop_toBottomOf="@+id/location" />
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/mapSearchViewAround"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_shape1"
+            android:baselineAligned="true"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="검색하고 싶은 방을 검색해보세요." />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/slidingLayout"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="@drawable/round_shape"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapFragmentAround"
-        app:layout_constraintVertical_bias="0.45"
-        tools:listitem="@layout/maplistitem_cell" />
+        android:layout_height="match_parent">
 
-    <SearchView
-        android:id="@+id/mapSearchViewAround"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/round_shape1"
-        android:baselineAligned="true"
-        android:iconifiedByDefault="false"
-        app:layout_constraintBottom_toTopOf="@+id/mapListRecyclerViewAround"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        <!-- 스크롤 해서 보여줄 부분은 listview 또는 custom listview 또는 recyclerview를 사용 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginEnd="411dp"
+            android:layout_marginBottom="731dp"
+            android:background="@drawable/round_shape"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        app:layout_constraintVertical_bias="0.0"
-        app:queryHint="검색하고 싶은 방을 검색해보세요." />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_shape"
+                android:backgroundTint="#FFFFFF"
+                app:srcCompat="@drawable/round_shape" />
 
-    <Switch
-        android:id="@+id/possibleRoomSwtichAround"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layoutDirection="rtl"
-        android:text="예약 가능한 방만 보기"
-        app:layout_constraintBottom_toBottomOf="@+id/mapListRecyclerViewAround"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mapListRecyclerViewAround"
-        app:layout_constraintVertical_bias="0.0" />
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/possibleRoomSwtichAround"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layoutDirection="rtl"
+                android:minHeight="48dp"
+                android:text="@string/show_only_available_rooms"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.92"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mapListRecyclerViewAround"
+                app:layout_constraintVertical_bias="0.43" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mapListRecyclerViewAround"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/round_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/cell_maplistitem">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
