@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
+import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
+import splitties.fragments.start
 
 class MyPageFragment private constructor() : Fragment() {
 
@@ -31,10 +33,8 @@ class MyPageFragment private constructor() : Fragment() {
                 // start<Activity>()
             }
             SettingImageView.setOnClickListener {
-                // start<SettingActivity>()
+                 start<SettingsActivity>()
             }
-
-
 
             return root
         }
