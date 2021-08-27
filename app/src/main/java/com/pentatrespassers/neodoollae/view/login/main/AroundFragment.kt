@@ -50,6 +50,11 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                     slidingUpPanel.panelHeight = previousPanelHeight
                 }
             }
+
+            naverMap.uiSettings.isLocationButtonEnabled = false
+            naverMap.uiSettings.isCompassEnabled = false
+            location.map = naverMap
+            compass.map = naverMap
         }
 
     }
