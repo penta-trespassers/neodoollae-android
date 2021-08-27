@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Neodoollae"
         android:name=".GlobalApplication">
         <activity
+            android:name=".view.login.main.mypage.SettingsActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.login.main.friend.FriendProfileActivity"
             android:exported="true" />
         <activity

@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
@@ -37,30 +34,11 @@ class FriendFragment private constructor() : Fragment() {
             pagerAdapter.addFragment(FriendRequestFragment())
 
             // Adapter
-            viewPagerFriend.adapter = pagerAdapter
+            friendViewPager.adapter = pagerAdapter
 
-            viewPagerFriend.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    when (position) {
-                        0 -> {
-                            // 친구 목록창
-                            friendSearchViewFriend.isVisible = true
-                            filteringSwitchFriend.isVisible = true
-                        }
-
-                        1 -> {
-                            // 친구 요청창
-                            friendSearchViewFriend.isVisible = false
-                            filteringSwitchFriend.isVisible = false
-                        }
-
-                    }
-                }
-            })
 
             // TabLayout attach
-            TabLayoutMediator(friendTabLayoutFriend, viewPagerFriend) { tab, position ->
+            TabLayoutMediator(friendTabLayout, friendViewPager) { tab, position ->
                 when (position) {
                     0 -> {
                         tab.text = "친구 목록"
@@ -72,7 +50,7 @@ class FriendFragment private constructor() : Fragment() {
             }.attach()
 
 
-            addFriendBtnFriend.setOnClickListener {
+            addFriendButton.setOnClickListener {
                 showAddingDialog()
 
             }
@@ -93,7 +71,7 @@ class FriendFragment private constructor() : Fragment() {
                 .setCancelable(false).show()
 
 
-            acceptButtonFriend.setOnClickListener {
+            acceptButton.setOnClickListener {
                 toast("code: ${codeEditTextFriend.text}")
                 mBuilder.dismiss()
                 // 만약 해당 코드를 가진 친구가 존재한다면
@@ -104,7 +82,7 @@ class FriendFragment private constructor() : Fragment() {
                 // 혹은 그냥 간단 toast로 해당 코드 가진 사람이 존재하지 않는다고만 띄워도 될 듯.
 
             }
-            cancelButtonFriend.setOnClickListener {
+            cancelButton.setOnClickListener {
                 mBuilder.dismiss()
             }
         }
@@ -119,7 +97,7 @@ class FriendFragment private constructor() : Fragment() {
                 .setCancelable(false).show()
 
             sendButtonCheckFriend.setOnClickListener {
-                Toast.makeText(context, "친구 신청 완료", Toast.LENGTH_SHORT).show()
+                toast("친구 신청 완료")
                 mBuilder.dismiss()
             }
 
