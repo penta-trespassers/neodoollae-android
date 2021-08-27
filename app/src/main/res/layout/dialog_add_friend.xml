@@ -35,19 +35,19 @@
         app:layout_constraintTop_toBottomOf="@+id/guideTextFriend" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/acceptButtonFriend"
+        android:id="@+id/acceptButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/line_btn_border"
         android:text="확인"
-        app:layout_constraintEnd_toStartOf="@+id/cancelButtonFriend"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
         app:layout_constraintStart_toStartOf="@+id/codeEditTextFriend"
         app:layout_constraintTop_toBottomOf="@+id/codeEditTextFriend" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/cancelButtonFriend"
+        android:id="@+id/cancelButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -55,8 +55,8 @@
         android:text="취소"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/codeEditTextFriend"
-        app:layout_constraintStart_toEndOf="@+id/acceptButtonFriend"
-        app:layout_constraintTop_toTopOf="@+id/acceptButtonFriend"
+        app:layout_constraintStart_toEndOf="@+id/acceptButton"
+        app:layout_constraintTop_toTopOf="@+id/acceptButton"
         app:layout_goneMarginStart="30dp" />
 
 
