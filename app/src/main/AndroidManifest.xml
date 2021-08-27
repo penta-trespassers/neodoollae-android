@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.instructor.nedoollae">
+    package="com.pentatrespassers.neodoollae">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_pink_alt"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_pink_alt_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Nedoollae">
+        android:theme="@style/Theme.Neodoollae"
+        android:name=".GlobalApplication">
+        <activity
+            android:name=".view.login.main.mypage.SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.main.friend.FriendProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.main.home.RoomProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.main.home.AddRoomActivity"
+            android:exported="true"
+            android:noHistory="true" />
         <activity
             android:name=".view.login.MainActivity"
             android:exported="true" />
         <activity
             android:name=".view.LoginActivity"
             android:exported="true"
-            android:noHistory="true">
+            android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+                <data android:host="oauth"
+                    android:scheme="kakaoadb53e0f4981741cc20cfd3c0d6d3dfa" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="7qdjutvncl" />
     </application>
 
 </manifest>
