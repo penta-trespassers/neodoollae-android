@@ -56,7 +56,7 @@
     <string name="check_in_time">방문 시간</string>
     <string name="check_out_time">퇴실 시간</string>
     <string name="message_to_host">주인장에게 한 마디</string>
-    <string name="message_to_host_example">여보소\n여기\n치킨\n한마리요</string>
+    <string name="message_to_host_example">뿌링클 한 마리만 시켜주세요</string>
     <string name="message_to_guest">수락/거절 메시지</string>
     <string name="delete_guide">완료된 알림 삭제하기</string>
     <string name="accept">수락하기</string>
