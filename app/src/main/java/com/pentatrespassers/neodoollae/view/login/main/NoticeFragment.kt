@@ -8,22 +8,23 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentNoticeBinding
-import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.view.login.main.notice.NoticeCellRecyclerViewAdapter
+import com.pentatrespassers.neodoollae.dto.Notification
+import com.pentatrespassers.neodoollae.view.login.main.notice.NotificationRecyclerViewAdapter
 
 class NoticeFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentNoticeBinding
 
-    //dummy dataArrayList  //private var dataList = ArrayList<Reservation>()
-    private var reservationList = arrayListOf(
-        Reservation(nickname = "윤건우", status = Reservation.STATUS_WAITING),
-        Reservation(nickname = "이서진", status = Reservation.STATUS_DECLINED),
-        Reservation(nickname = "현수빈", status = Reservation.STATUS_ACCEPTED),
-        Reservation(nickname = "김성준", status = Reservation.STATUS_WAITING),
-        Reservation(nickname = "황진하", status = Reservation.STATUS_ACCEPTED)
+    private var notificationList = arrayListOf(
+        Notification(nickname = "윤건우", time = "2021.08.28", status = Notification.STATUS_RESERVE_WAITING),
+        Notification(nickname = "이서진", time = "2021.08.28", status = Notification.STATUS_RESERVE_ACCEPTED),
+        Notification(nickname = "현수빈", time = "2021.08.28", status = Notification.STATUS_RESERVE_DECLINED),
+        Notification(nickname = "김성준", time = "2021.08.28", status = Notification.STATUS_REVIEW_HOST),
+        Notification(nickname = "황진하", time = "2021.08.28", status = Notification.STATUS_REVIEW_GUEST),
+        Notification(nickname = "에오스", time = "2021.08.28", status = Notification.STATUS_REVIEW_ROOM)
     )
 
     override fun onCreateView(
@@ -33,7 +34,8 @@ class NoticeFragment private constructor() : Fragment() {
         bind = FragmentNoticeBinding.inflate(inflater, container, false)
         with(bind) {
             recyclerNotice.setHasFixedSize(true)
-            recyclerNotice.adapter = NoticeCellRecyclerViewAdapter(requireContext(), reservationList)
+            recyclerNotice.adapter = NotificationRecyclerViewAdapter(requireContext(), notificationList)
+            recyclerNotice.addItemDecoration(DividerItemDecoration(requireContext(), 1))
 
             //implement spinner
             ArrayAdapter.createFromResource(

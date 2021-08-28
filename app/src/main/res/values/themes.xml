@@ -15,7 +15,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <!-- color high light -->
-        <item name="colorControlHighlight">@color/trespassBlue_300</item>
+        <!-- <item name="colorControlHighlight">@color/trespassBlue_300</item> -->
     </style>
     <style name="Theme.Splash" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/trespassBlue_900</item>
