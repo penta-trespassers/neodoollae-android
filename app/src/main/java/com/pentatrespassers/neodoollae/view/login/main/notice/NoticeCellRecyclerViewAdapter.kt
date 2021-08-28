@@ -29,7 +29,7 @@ class NoticeCellRecyclerViewAdapter(
                 }
                 friendNameTextNotice.text = reservation.nickname
 
-                cellLayoutNotice.setOnClickListener {
+                layoutNotice.setOnClickListener {
                     if (expandedCellLayoutNotice.visibility == View.VISIBLE) {
                         expandedCellLayoutNotice.visibility = View.GONE
                         arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
