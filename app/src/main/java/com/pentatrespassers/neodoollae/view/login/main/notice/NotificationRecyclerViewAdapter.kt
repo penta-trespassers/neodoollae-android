@@ -21,40 +21,7 @@ class NotificationRecyclerViewAdapter(
 
         fun binding(notification: Notification) {
             with(bind) {
-                when (notification.status) {
-                    Notification.STATUS_RESERVE_WAITING -> {
-                        notificationTextNotice.text = notification.nickname + context.getString(R.string.reservation_waiting)
-                        notificationTimeTextNotice.text = notification.time
-                        notificationImageNotice.setImageResource(R.drawable.ic_watch_later_24dp)
-                    }
-                    Notification.STATUS_RESERVE_ACCEPTED -> {
-                        notificationTextNotice.text = notification.nickname + context.getString(R.string.reservation_accepted)
-                        notificationTimeTextNotice.text = notification.time
-                        notificationImageNotice.setImageResource(R.drawable.ic_check_circle_24dp)
-                    }
-                    Notification.STATUS_RESERVE_DECLINED -> {
-                        notificationTextNotice.text = notification.nickname + context.getString(R.string.reservation_declined)
-                        notificationTimeTextNotice.text = notification.time
-                        notificationImageNotice.setImageResource(R.drawable.ic_cancel_24dp)
-                    }
-                    Notification.STATUS_REVIEW_HOST -> {
-                        notificationTextNotice.text = notification.nickname + context.getString(R.string.review_host)
-                        notificationTimeTextNotice.text = notification.time
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                    Notification.STATUS_REVIEW_GUEST -> {
-                        notificationTextNotice.text = notification.nickname + context.getString(R.string.review_guest)
-                        notificationTimeTextNotice.text = notification.time
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                    Notification.STATUS_REVIEW_ROOM -> {
-                        notificationTextNotice.text = notification.nickname + context.getString(R.string.review_room)
-                        notificationTimeTextNotice.text = notification.time
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                }
-
-                messageToGuestTextNotice
+                setNotification(notification)
 
                 constraintLayoutNotice.setOnClickListener {
                     if (notification.status == 0) {
@@ -70,7 +37,7 @@ class NotificationRecyclerViewAdapter(
                     } else if (notification.status < 3){
                         if (reserveExpandedGroupNotice.visibility == View.VISIBLE) {
                             reserveExpandedGroupNotice.visibility = View.GONE
-                            reserveDecidedGroupNotice.visibility = View.GONE
+                            View.GONE.also { reserveDecidedGroupNotice.visibility = it }
                             arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                         } else {
                             reserveExpandedGroupNotice.visibility = View.VISIBLE
@@ -89,9 +56,47 @@ class NotificationRecyclerViewAdapter(
                 }
             }
         }
+
+
+        private fun setNotification(notification: Notification) {
+            with(bind) {
+                notificationTimeTextNotice.text = notification.time
+
+                when (notification.status) {
+                    Notification.STATUS_RESERVE_WAITING -> {
+                        notificationTextNotice.text =
+                            notification.nickname + context.getString(R.string.reservation_waiting)
+                        notificationImageNotice.setImageResource(R.drawable.ic_watch_later_24dp)
+                    }
+                    Notification.STATUS_RESERVE_ACCEPTED -> {
+                        notificationTextNotice.text =
+                            notification.nickname + context.getString(R.string.reservation_accepted)
+                        notificationImageNotice.setImageResource(R.drawable.ic_check_circle_24dp)
+                    }
+                    Notification.STATUS_RESERVE_DECLINED -> {
+                        notificationTextNotice.text =
+                            notification.nickname + context.getString(R.string.reservation_declined)
+                        notificationImageNotice.setImageResource(R.drawable.ic_cancel_24dp)
+                    }
+                    Notification.STATUS_REVIEW_HOST -> {
+                        notificationTextNotice.text =
+                            notification.nickname + context.getString(R.string.review_host)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                    Notification.STATUS_REVIEW_GUEST -> {
+                        notificationTextNotice.text =
+                            notification.nickname + context.getString(R.string.review_guest)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                    Notification.STATUS_REVIEW_ROOM -> {
+                        notificationTextNotice.text =
+                            notification.nickname + context.getString(R.string.review_room)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                }
+            }
+        }
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
