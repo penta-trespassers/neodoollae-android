@@ -28,29 +28,29 @@ class NotificationRecyclerViewAdapter(
                         if (reserveExpandedGroupNotice.visibility == View.VISIBLE) {
                             reserveExpandedGroupNotice.visibility = View.GONE
                             reserveUndecidedGroupNotice.visibility = View.GONE
-                        arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
+                        arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
                         } else {
                             reserveExpandedGroupNotice.visibility = View.VISIBLE
                             reserveUndecidedGroupNotice.visibility = View.VISIBLE
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                         }
                     } else if (notification.status < 3){
                         if (reserveExpandedGroupNotice.visibility == View.VISIBLE) {
                             reserveExpandedGroupNotice.visibility = View.GONE
                             View.GONE.also { reserveDecidedGroupNotice.visibility = it }
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
+                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
                         } else {
                             reserveExpandedGroupNotice.visibility = View.VISIBLE
                             reserveDecidedGroupNotice.visibility = View.VISIBLE
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                         }
                     } else {
                         if (reviewExpandedGroupNotice.visibility == View.VISIBLE) {
                             reviewExpandedGroupNotice.visibility = View.GONE
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
+                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
                         } else {
                             reviewExpandedGroupNotice.visibility = View.VISIBLE
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                         }
                     }
                 }
