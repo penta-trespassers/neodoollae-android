@@ -8,7 +8,7 @@
     tools:context=".view.LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/rateImageView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -28,9 +28,9 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/rateImageView3"
+        app:layout_constraintStart_toStartOf="@+id/rateImageView3"
+        app:layout_constraintTop_toBottomOf="@+id/rateImageView3"
         app:srcCompat="@drawable/kakao_login_medium_wide"
         tools:visibility="visible" />
 

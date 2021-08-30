@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/guestRateImageView"
         android:layout_width="370dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
@@ -18,27 +18,18 @@
         app:srcCompat="@drawable/bg_border" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/myNameEditImageView"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        app:tint="#C8C8C8"
         app:layout_constraintBottom_toTopOf="@+id/reviewGuestNameText"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/guestRateImageView"
         app:layout_constraintHorizontal_bias="0.01"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/guestRateImageView"
+        app:layout_constraintTop_toTopOf="@+id/guestRateImageView"
         app:srcCompat="@drawable/ic_account_circle_black_24dp" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@+id/guestReviewTextView"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp" />
 
     <TextView
         android:id="@+id/reviewGuestNameText"
@@ -47,9 +38,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="15dp"
         android:text="윤건우"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/guestRateImageView"
+        app:layout_constraintEnd_toEndOf="@+id/myNameEditImageView"
+        app:layout_constraintStart_toStartOf="@+id/guestRateImageView" />
 
     <TextView
         android:id="@+id/guestReviewTextView"
@@ -57,11 +48,11 @@
         android:layout_height="60dp"
         android:text="방 주인분께서 라면도 직접 끓여주시고 설거지를 안 시키셔서 좋았습니다. 다음 번에도 또 가고 싶네요~담에는 떡볶이 해주세요:)"
         android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/guestRateImageView"
+        app:layout_constraintEnd_toEndOf="@+id/guestRateImageView"
         app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/myNameEditImageView"
+        app:layout_constraintTop_toTopOf="@+id/guestRateImageView"
         app:layout_constraintVertical_bias="0.42000002" />
 
     <TextView
@@ -72,6 +63,17 @@
         android:layout_marginBottom="4dp"
         android:text="2021.08.25"
         android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/guestRateImageView"
+        app:layout_constraintEnd_toEndOf="@+id/guestRateImageView" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:tint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="@+id/guestRateImageView"
+        app:layout_constraintEnd_toEndOf="@+id/guestRateImageView"
+        app:layout_constraintStart_toEndOf="@+id/guestReviewTextView"
+        app:layout_constraintTop_toTopOf="@+id/guestRateImageView"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,7 @@
         app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/hostRateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -58,10 +58,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9">
+        app:layout_constraintTop_toBottomOf="@+id/hostRateTextView">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/myNameEditImageView"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:clickable="false"
@@ -79,7 +79,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/myNameEditImageView"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/noticeSettingsConstraint">
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/rateImageView4"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:clickable="false"
@@ -119,7 +119,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/rateImageView4"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/termsOfUseConstraint">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/rateImageView3"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:clickable="false"
@@ -159,7 +159,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/rateImageView3"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -182,7 +182,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoutConstraint">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/rateImageView2"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:clickable="false"
@@ -200,7 +200,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toEndOf="@+id/rateImageView2"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -222,7 +222,7 @@
         app:layout_constraintTop_toBottomOf="@+id/supportDeveloperConstraint">
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/rateImageView1"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:clickable="false"
@@ -240,7 +240,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toEndOf="@+id/rateImageView1"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
