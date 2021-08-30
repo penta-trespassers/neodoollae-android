@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
-import com.pentatrespassers.neodoollae.view.login.friend.FriendFragment
+import com.pentatrespassers.neodoollae.view.login.main.*
 import splitties.fragments.fragmentTransaction
 
 class MainActivity : AppCompatActivity() {
@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     private var currentFragmentIndex = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_Neodoollae)
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
