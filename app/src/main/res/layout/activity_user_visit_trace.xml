@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/my_visit_trace"
+        android:text="나의 방문 기록"
         android:textColor="@color/black"
         android:textSize="22dp"
         android:textStyle="bold"
