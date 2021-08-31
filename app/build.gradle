@@ -71,4 +71,7 @@ dependencies {
 
     // https://square.github.io/retrofit/
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    // https://github.com/baoyongzhang/android-PullRefreshLayout
+    implementation 'com.baoyz.pullrefreshlayout:library:1.2.0'
 }

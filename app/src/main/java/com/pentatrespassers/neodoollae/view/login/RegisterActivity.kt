@@ -6,7 +6,6 @@ import com.kakao.sdk.auth.TokenManager
 import com.pentatrespassers.neodoollae.databinding.ActivityRegisterBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.network.RetrofitClient
-import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundleOrDefault
 import splitties.bundle.withExtras
@@ -38,8 +37,7 @@ class RegisterActivity : AppCompatActivity() {
                 ).enqueue(RetrofitClient.defaultCallback { _, response ->
                     val access = response.body()?.access
                     if (access != null) {
-                        Authentication.accessToken = access
-                        start<MainActivity>()
+                        Authentication.startMainActivity(this@RegisterActivity, access)
                     }
                 })
             }

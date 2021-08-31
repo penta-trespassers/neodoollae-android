@@ -13,7 +13,6 @@ import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.RetrofitClient
-import com.pentatrespassers.neodoollae.view.login.MainActivity
 import com.pentatrespassers.neodoollae.view.login.RegisterActivity
 import splitties.activities.start
 import splitties.bundle.putExtras
@@ -81,16 +80,16 @@ class LoginActivity : AppCompatActivity() {
                         finish()
                     }
                 } else {
-                    Authentication.accessToken = accessToken
-                    loginSuccess()
+                    loginSuccess(accessToken)
                 }
             })
     }
 
-    private fun loginSuccess() {
+    private fun loginSuccess(accessToken: String) {
         bind.progressBar.visibility = View.VISIBLE
-        start<MainActivity>()
-        finish()
+        Authentication.startMainActivity(this, accessToken) {
+            finish()
+        }
     }
 
     private val kakaoLoginCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->

@@ -14,7 +14,8 @@ class FriendListFragment private constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendListBinding
-    lateinit var friendList: List<User>
+    private val friendList: List<User> = arrayListOf()
+    private val friendListAdapter by lazy { FriendListAdapter(requireContext(), friendList) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,14 +23,11 @@ class FriendListFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentFriendListBinding.inflate(inflater, container, false)
         with(bind) {
-            RetrofitClient.getAllFriends()
-                .enqueue(RetrofitClient.defaultCallback { call, response ->
-                    if (response.body() != null) {
-                        friendList = response.body()!!
-                        friendListRecycler.adapter = FriendListAdapter(requireContext(), friendList)
-                    }
-                })
-
+            friendListRecycler.adapter = friendListAdapter
+            refreshFriendList()
+            friendListPullRefresh.setOnRefreshListener {
+                refreshFriendList()
+            }
             return root
         }
     }
@@ -37,6 +35,18 @@ class FriendListFragment private constructor() : Fragment() {
     companion object {
         fun newInstance() = FriendListFragment().apply {
         }
+    }
+
+    fun refreshFriendList() {
+        bind.friendListPullRefresh.setRefreshing(true)
+        RetrofitClient.getAllFriends()
+            .enqueue(RetrofitClient.defaultCallback { _, response ->
+                if (response.body() != null) {
+                    friendListAdapter.refresh(response.body()!!)
+                }
+                bind.friendListPullRefresh.setRefreshing(false)
+            })
+
     }
 
 

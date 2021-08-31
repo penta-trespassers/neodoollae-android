@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
+import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.fragments.start
 
@@ -19,6 +20,8 @@ class MyPageFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
+
+            nicknameTextMyPage.text = Authentication.user?.nickname
 
             myRoomHistoryButton.setOnClickListener {
                 // start<Activity>()

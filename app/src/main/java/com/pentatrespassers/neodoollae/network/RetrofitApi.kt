@@ -28,7 +28,13 @@ interface RetrofitApi {
     @GET("friends/")
     fun getAllFriends(
         @Header("Authorization")
-        accessToken: String?
+        bearerAccessToken: String?
     ): Call<List<User>>
+
+    @GET("users/my/")
+    fun getMyInfo(
+        @Header("Authorization")
+        bearerAccessToken: String?
+    ): Call<User>
 
 }

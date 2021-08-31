@@ -23,7 +23,8 @@ object RetrofitClient {
     fun kakaoRegister(kakaoAccessToken: String?, nickname: String?) = instance.kakaoRegister(
         RegisterBody(kakaoAccessToken, nickname)
     )
-    fun getAllFriends() = instance.getAllFriends(Authentication.accessToken)
+    fun getAllFriends() = instance.getAllFriends(Authentication.bearerAccessToken)
+    fun getMyInfo() = instance.getMyInfo(Authentication.bearerAccessToken)
 
 
     fun <T> defaultCallback(

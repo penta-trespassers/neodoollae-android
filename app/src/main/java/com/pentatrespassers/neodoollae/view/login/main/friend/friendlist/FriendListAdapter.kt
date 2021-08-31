@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
 
-class FriendListAdapter(private val context: Context, private val userList: List<User>) :
+class FriendListAdapter(context: Context, private var userList: List<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
@@ -33,5 +33,10 @@ class FriendListAdapter(private val context: Context, private val userList: List
 
     override fun getItemCount(): Int {
         return userList.size
+    }
+
+    fun refresh(userList :List<User>) {
+        this.userList = userList
+        notifyDataSetChanged()
     }
 }
