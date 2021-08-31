@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_watch_later_black_24dp" />
+        app:srcCompat="@drawable/ic_watch_later_24dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"

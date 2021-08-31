@@ -8,7 +8,7 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.instructor.nedoollae"
+        applicationId "com.pentatrespassers.neodoollae"
         minSdk 21
         targetSdk 30
         versionCode 1
@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+
     // 네이버 지도 SDK - https://navermaps.github.io/android-map-sdk/guide-ko/1.html
     implementation ("com.naver.maps:map-sdk:$naverMap_version")
 
@@ -63,5 +64,14 @@ dependencies {
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
     // https://github.com/lopspower/CircularImageView
-    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+    implementation "com.mikhaellopez:circularimageview:4.3.0"
+
+    // https://developers.kakao.com/docs/latest/ko/kakaologin/android
+    implementation "com.kakao.sdk:v2-user:2.6.0"
+
+    // https://square.github.io/retrofit/
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    // https://github.com/baoyongzhang/android-PullRefreshLayout
+    implementation 'com.baoyz.pullrefreshlayout:library:1.2.0'
 }
