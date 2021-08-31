@@ -29,7 +29,7 @@
         android:layout_marginTop="40dp"
         android:backgroundTint="#FFFFFF"
         android:src="@drawable/ic_account_circle_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/myNameTextView"
+        app:layout_constraintBottom_toTopOf="@+id/nicknameTextMyPage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/ic_button_edit" />
 
     <TextView
-        android:id="@+id/myNameTextView"
+        android:id="@+id/nicknameTextMyPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="현수빈"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:scaleX="0.5"
         android:scaleY="0.5"
-        app:layout_constraintStart_toEndOf="@+id/myNameTextView"
+        app:layout_constraintStart_toEndOf="@+id/nicknameTextMyPage"
         app:layout_constraintTop_toBottomOf="@+id/myProfileImageView"
         app:srcCompat="@drawable/ic_button_edit" />
 
@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/nicknameTextMyPage" />
 
     <ImageView
         android:id="@+id/guestRateImageView"
