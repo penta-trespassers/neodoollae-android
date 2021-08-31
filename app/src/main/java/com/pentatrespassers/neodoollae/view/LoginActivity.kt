@@ -11,6 +11,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
 import com.pentatrespassers.neodoollae.dto.Token
+import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.MainActivity
@@ -40,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                     // 카카오로 로그인이 되어있는 경우
                     else {
-                        kakaoLogin()
+                        loggedInKakao()
                     }
                 }
             } else {
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun kakaoLogin() {
+    private fun loggedInKakao() {
         RetrofitClient.kakaoLogin(Token(access = TokenManager.instance.getToken()?.accessToken))
             .enqueue(RetrofitClient.defaultCallback { _, response ->
                 val accessToken = response.body()?.access
@@ -81,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
                         finish()
                     }
                 } else {
-                    // todo 받은 액세스 토큰을 저장해둬야함
+                    Authentication.accessToken = accessToken
                     loginSuccess()
                 }
             })
@@ -97,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
         if (error != null) {
             Util.j("로그인 실패: $error")
         } else if (token != null) {
-            kakaoLogin()
+            loggedInKakao()
         }
     }
 }

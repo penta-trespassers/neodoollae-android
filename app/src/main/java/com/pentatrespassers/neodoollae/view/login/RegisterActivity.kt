@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.TokenManager
 import com.pentatrespassers.neodoollae.databinding.ActivityRegisterBinding
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
+import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import splitties.activities.start
 import splitties.bundle.BundleSpec
@@ -38,8 +39,11 @@ class RegisterActivity : AppCompatActivity() {
                         nicknameEditText.text.toString()
                     )
                 ).enqueue(RetrofitClient.defaultCallback { _, response ->
-                    // todo 액세스 토큰 저장해 둬야함
-                    start<MainActivity>()
+                    val access = response.body()?.access
+                    if (access != null) {
+                        Authentication.accessToken = access
+                        start<MainActivity>()
+                    }
                 })
             }
 

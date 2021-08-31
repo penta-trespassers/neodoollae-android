@@ -15,12 +15,11 @@ object RetrofitClient : RetrofitApi {
         init()
     }
 
-    private fun init(): RetrofitApi = Retrofit.Builder().baseUrl(Param.BASE_URL)
+    private fun init(): RetrofitApi = Retrofit.Builder().baseUrl(Param.DATABASE_URL)
         .addConverterFactory(GsonConverterFactory.create()).build().create(RetrofitApi::class.java)
 
-    override fun kakaoLogin(token: Token): Call<Token> = instance.kakaoLogin(token)
-    override fun kakaoRegister(registerBody: RegisterBody): Call<Token> =
-        instance.kakaoRegister(registerBody)
+    override fun kakaoLogin(token: Token) = instance.kakaoLogin(token)
+    override fun kakaoRegister(registerBody: RegisterBody) = instance.kakaoRegister(registerBody)
 
 
     fun <T> defaultCallback(

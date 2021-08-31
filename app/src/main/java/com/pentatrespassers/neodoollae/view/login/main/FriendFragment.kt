@@ -62,7 +62,7 @@ class FriendFragment private constructor() : Fragment() {
     }
 
 
-    private fun showAddingDialog(){
+    private fun showAddingDialog() {
         // Dialog만들기
         val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
         with(dialogBind) {

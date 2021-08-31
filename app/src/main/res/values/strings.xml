@@ -69,5 +69,7 @@
     <string name="friend_room_state_changed">친구 방 상태 변경</string>
     <string name="my_room_reservation">내 방 예약</string>
     <string name="friend_room_reservation">친구 방 예약</string>
+    <string name="insert_my_information">내 정보 입력</string>
+    <string name="register_message">프로필 사진과 닉네임을 등록해주세요.</string>
 
 </resources>
