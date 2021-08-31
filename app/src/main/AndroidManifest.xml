@@ -2,19 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pentatrespassers.neodoollae">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_pink_alt"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_pink_alt_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Neodoollae"
-        android:usesCleartextTraffic="true">
-        <activity
-            android:name=".view.login.RegisterActivity"
-            android:exported="true"
-            android:noHistory="true"/>
+        android:name=".GlobalApplication">
         <activity
             android:name=".view.login.main.mypage.SettingsActivity"
             android:exported="true" />
@@ -44,13 +41,11 @@
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
-                <data
-                    android:host="oauth"
+                <data android:host="oauth"
                     android:scheme="kakaoadb53e0f4981741cc20cfd3c0d6d3dfa" />
             </intent-filter>
         </activity>
@@ -59,7 +54,5 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="7qdjutvncl" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
