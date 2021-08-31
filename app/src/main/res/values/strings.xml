@@ -56,14 +56,17 @@
     <string name="check_in_time">방문 시간</string>
     <string name="check_out_time">퇴실 시간</string>
     <string name="message_to_host">주인장에게 한 마디</string>
-    <string name="message_to_host_example">여보소\n여기\n치킨\n한마리요</string>
+    <string name="message_to_host_example">뿌링클 한 마리만 시켜주세요</string>
     <string name="message_to_guest">수락/거절 메시지</string>
     <string name="delete_guide">완료된 알림 삭제하기</string>
     <string name="accept">수락하기</string>
     <string name="decline">거절하기</string>
-    <string name="reservation_waiting">예약 대기</string>
-    <string name="reservation_accepted">예약 수락</string>
-    <string name="reservation_declined">예약 거절</string>
+    <string name="reservation_waiting">님의 예약 신청이 있습니다.</string>
+    <string name="reservation_accepted">님이 예약 신청을 수락했습니다.</string>
+    <string name="reservation_declined">님이 예약 신청을 거절했습니다.</string>
+    <string name="review_host">님의 주인 리뷰를 작성해주세요.</string>
+    <string name="review_guest">님의 손님 리뷰를 작성해주세요.</string>
+    <string name="review_room">님의 방 리뷰를 작성해주세요.</string>
     <string name="whole_notification">전체 알림</string>
     <string name="friend_accepted">친구 수락</string>
     <string name="friend_room_state_changed">친구 방 상태 변경</string>
@@ -71,5 +74,9 @@
     <string name="friend_room_reservation">친구 방 예약</string>
     <string name="insert_my_information">내 정보 입력</string>
     <string name="register_message">프로필 사진과 닉네임을 등록해주세요.</string>
+    <string name="choose_a_room_management_option">방 운영 옵션을 선택하세요.</string>
+    <string name="room_operation_settings">방 운영 설정</string>
+    <string name="opened">개방</string>
+
 
 </resources>

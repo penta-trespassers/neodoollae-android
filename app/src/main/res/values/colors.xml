@@ -9,4 +9,24 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="app_theme">#FC8C8C</color>
+
+    <color name="trespassGray_900">#FF626262</color>
+    <color name="trespassGray_600">#FFAAAAAA</color>
+    <color name="trespassGray_300">#FFDEDEDE</color>
+
+    <color name="trespassRed_900">#FFE63E57</color>
+    <color name="trespassRed_600">#FFFF8A9C</color>
+    <color name="trespassRed_300">#FFFFB9C3</color>
+
+    <color name="trespassBlue_900">#FF3E5AE6</color>
+    <color name="trespassBlue_600">#FF6D86FF</color>
+    <color name="trespassBlue_300">#FFB8C4FF</color>
+
+    <color name="trespassGreen_900">#FF209938</color>
+    <color name="trespassGreen_600">#FF42C55C</color>
+    <color name="trespassGreen_300">#FF97F3A9</color>
+
+    <color name="trespassYellow_900">#FFFFC700</color>
+    <color name="trespassYellow_600">#FFFFE072</color>
+    <color name="trespassYellow_300">#FFFFEEB0</color>
 </resources>

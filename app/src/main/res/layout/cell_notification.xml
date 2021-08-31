@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutNotice"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:padding="18dp">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/cellNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="friendImageNotice, notificationTextNotice, notificationTimeTextNotice, notificationImageNotice, arrowImageNotice"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="18dp" />
+
+    <ImageView
+        android:id="@+id/friendImageNotice"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/trespassGray_600" />
+
+    <TextView
+        android:id="@+id/notificationTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="@string/reserve_info"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/friendImageNotice"
+        app:layout_constraintTop_toTopOf="@+id/friendImageNotice" />
+
+    <TextView
+        android:id="@+id/notificationTimeTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reserve_date"
+        android:textColor="@color/trespassGray_600"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/friendImageNotice"
+        app:layout_constraintStart_toStartOf="@+id/notificationTextNotice" />
+
+    <ImageView
+        android:id="@+id/notificationImageNotice"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_check_circle_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/friendImageNotice"
+        app:layout_constraintEnd_toStartOf="@id/arrowImageNotice"
+        app:layout_constraintTop_toTopOf="@id/friendImageNotice" />
+
+    <ImageView
+        android:id="@+id/arrowImageNotice"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        app:layout_constraintBottom_toBottomOf="@+id/notificationImageNotice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/notificationImageNotice" />
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/reserveExpandedGroupNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="visitingRoomGuideNotice, visitingRoomTextNotice, visitingPeopleGuideNotice, visitingPeopleTextNotice, checkInTimeGuideNotice, checkInTimeTextNotice, checkOutTimeGuideNotice, checkOutTimeTextNotice, messageToHostGuideNotice,messageToHostTextNotice, messageToGuestGuideNotice "
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/visitingRoomGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="방문하는 방"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/trespassGray_900"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friendImageNotice" />
+
+    <TextView
+        android:id="@+id/visitingRoomTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/room_name"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/visitingRoomGuideNotice"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/visitingPeopleGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/visiting_people_number"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/trespassGray_900"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visitingRoomGuideNotice" />
+
+    <TextView
+        android:id="@+id/visitingPeopleTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/visiting_people_number"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/visitingPeopleGuideNotice" />
+
+    <TextView
+        android:id="@+id/checkInTimeGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/check_in_time"
+        android:textColor="@color/trespassGray_900"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/visitingPeopleGuideNotice" />
+
+    <TextView
+        android:id="@+id/checkInTimeTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_in_time"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/checkInTimeGuideNotice" />
+
+    <TextView
+        android:id="@+id/checkOutTimeGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/check_out_time"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/trespassGray_900"
+        app:layout_constraintTop_toBottomOf="@id/checkInTimeGuideNotice"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/checkOutTimeTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_out_time"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/checkOutTimeGuideNotice" />
+
+    <TextView
+        android:id="@+id/messageToHostGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/message_to_host"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/trespassGray_900"
+        app:layout_constraintTop_toBottomOf="@id/checkOutTimeGuideNotice"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/messageToHostTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/message_to_host_example"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/messageToHostGuideNotice" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/messageToGuestGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_to_guest"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/trespassGray_900"
+        app:layout_constraintTop_toBottomOf="@id/messageToHostTextNotice"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/reserveUndecidedGroupNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:constraint_referenced_ids="messageToGuestEditTextNotice, acceptButtonNotice, declineButtonNotice"
+        />
+
+    <EditText
+        android:id="@+id/messageToGuestEditTextNotice"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_border"
+        android:hint="@string/message_to_guest"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:gravity="top"
+        android:padding="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/messageToHostTextNotice"
+        app:layout_constraintTop_toBottomOf="@id/messageToGuestGuideNotice" />
+
+    <Button
+        android:id="@+id/acceptButtonNotice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/accept"
+        app:layout_constraintEnd_toStartOf="@id/declineButtonNotice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messageToGuestEditTextNotice" />
+
+    <Button
+        android:id="@+id/declineButtonNotice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/decline"
+        app:layout_constraintBottom_toBottomOf="@+id/acceptButtonNotice"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/acceptButtonNotice"
+        app:layout_constraintTop_toTopOf="@+id/acceptButtonNotice" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/reserveDecidedGroupNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:constraint_referenced_ids="messageToGuestTextNotice"
+        />
+
+    <TextView
+        android:id="@+id/messageToGuestTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/message_to_guest"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/messageToGuestGuideNotice" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/reviewExpandedGroupNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids=
+            "visitedRoomGuideNotice,
+            visitedRoomTextNotice,
+            gradeGuideNotice,
+            radioGroup,
+            writeReviewGuideNotice,
+            writeReviewEditTextNotice,
+            writeButtonNotice"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/visitedRoomGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="방문한 방"
+        android:textColor="@color/trespassGray_900"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friendImageNotice" />
+
+    <TextView
+        android:id="@+id/visitedRoomTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="방문한 방"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/visitedRoomGuideNotice" />
+
+    <TextView
+        android:id="@+id/gradeGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="평가를 선택해주세요"
+        android:textColor="@color/trespassGray_900"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visitedRoomGuideNotice" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gradeGuideNotice">
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/radio_button_4"
+            android:button="@null"
+            android:checked="true"
+            android:text=""
+            android:layout_marginEnd="18dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/radio_button_3"
+            android:button="@null"
+            android:text=""
+            android:layout_marginEnd="18dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/radio_button_2"
+            android:button="@null"
+            android:text=""
+            android:layout_marginEnd="18dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/radio_button_1"
+            android:button="@null"
+            android:text="" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/writeReviewGuideNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="리뷰를 작성해주세요."
+        android:textColor="@color/trespassGray_900"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/writeReviewEditTextNotice"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_border"
+        android:hint="리뷰를 작성해주세요"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:gravity="top"
+        android:padding="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/writeReviewGuideNotice" />
+
+    <Button
+        android:id="@+id/writeButtonNotice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="작성하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/writeReviewEditTextNotice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
