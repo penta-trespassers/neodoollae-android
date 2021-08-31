@@ -8,6 +8,8 @@ package com.pentatrespassers.neodoollae.debug
 //class AdapterSkeleton(private val context: Context, private val dataList: ArrayList<Any>) :
 //    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 //
+//    val layoutInflater: LayoutInflater = LayoutInflater.from(context)
+//
 //    inner class SkeletonHolder(private val bind: SkeletonBinding) :
 //        RecyclerView.ViewHolder(bind.root) {
 //        fun binding(data: Any) {
@@ -16,7 +18,7 @@ package com.pentatrespassers.neodoollae.debug
 //    }
 //
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-//        val layoutInflater = LayoutInflater.from(context)
+//
 //        return SkeletonHolder(
 //            SkeletonBinding.inflate(layoutInflater, parent, false)
 //        )
