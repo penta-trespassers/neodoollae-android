@@ -10,7 +10,6 @@ import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
-import com.pentatrespassers.neodoollae.dto.Token
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -68,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loggedInKakao() {
-        RetrofitClient.kakaoLogin(Token(access = TokenManager.instance.getToken()?.accessToken))
+        RetrofitClient.kakaoLogin(TokenManager.instance.getToken()?.accessToken)
             .enqueue(RetrofitClient.defaultCallback { _, response ->
                 val accessToken = response.body()?.access
                 // 회원 정보가 없음
