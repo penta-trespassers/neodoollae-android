@@ -10,13 +10,13 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.FragmentNoticeBinding
+import com.pentatrespassers.neodoollae.databinding.FragmentNotificationBinding
 import com.pentatrespassers.neodoollae.dto.Notification
-import com.pentatrespassers.neodoollae.view.login.main.notice.NotificationRecyclerViewAdapter
+import com.pentatrespassers.neodoollae.view.login.main.notification.NotificationRecyclerViewAdapter
 
-class NoticeFragment private constructor() : Fragment() {
+class NotificationFragment private constructor() : Fragment() {
 
-    private lateinit var bind: FragmentNoticeBinding
+    private lateinit var bind: FragmentNotificationBinding
 
     private var notificationList = arrayListOf(
         Notification(nickname = "윤건우", time = "2021.08.28", status = Notification.STATUS_RESERVE_WAITING),
@@ -31,7 +31,7 @@ class NoticeFragment private constructor() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bind = FragmentNoticeBinding.inflate(inflater, container, false)
+        bind = FragmentNotificationBinding.inflate(inflater, container, false)
         with(bind) {
             recyclerNotice.setHasFixedSize(true)
             recyclerNotice.adapter = NotificationRecyclerViewAdapter(requireContext(), notificationList)
@@ -70,6 +70,6 @@ class NoticeFragment private constructor() : Fragment() {
     }
 
     companion object {
-        fun newInstance() = NoticeFragment()
+        fun newInstance() = NotificationFragment()
     }
 }

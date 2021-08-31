@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.main.notice
+package com.pentatrespassers.neodoollae.view.login.main.notification
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -28,7 +28,7 @@ class NotificationRecyclerViewAdapter(
                         if (reserveExpandedGroupNotice.visibility == View.VISIBLE) {
                             reserveExpandedGroupNotice.visibility = View.GONE
                             reserveUndecidedGroupNotice.visibility = View.GONE
-                        arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
                         } else {
                             reserveExpandedGroupNotice.visibility = View.VISIBLE
                             reserveUndecidedGroupNotice.visibility = View.VISIBLE
