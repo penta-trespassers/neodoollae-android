@@ -12,17 +12,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private val instance by lazy {
-        init()
-    }
-
-    private fun init(): RetrofitApi = Retrofit.Builder().baseUrl(Param.DATABASE_URL)
+    private val instance = Retrofit.Builder().baseUrl(Param.DATABASE_URL)
         .addConverterFactory(GsonConverterFactory.create()).build().create(RetrofitApi::class.java)
 
-    fun kakaoLogin(kakaoAccessToken: String?) = instance.kakaoLogin(Token(access = kakaoAccessToken))
+    fun kakaoLogin(kakaoAccessToken: String?) =
+        instance.kakaoLogin(Token(access = kakaoAccessToken))
+
     fun kakaoRegister(kakaoAccessToken: String?, nickname: String?) = instance.kakaoRegister(
         RegisterBody(kakaoAccessToken, nickname)
     )
+
     fun getAllFriends() = instance.getAllFriends(Authentication.bearerAccessToken)
     fun getMyInfo() = instance.getMyInfo(Authentication.bearerAccessToken)
 
