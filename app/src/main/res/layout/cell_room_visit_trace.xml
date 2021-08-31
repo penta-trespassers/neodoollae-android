@@ -52,7 +52,7 @@
             android:id="@+id/guideTextRoomVisitTrace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="방문 날짜"
+            android:text="@string/visit_date"
             android:textColor="#000000"
             android:textSize="12dp"
             android:textStyle="bold" />
