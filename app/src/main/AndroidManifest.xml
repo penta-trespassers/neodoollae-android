@@ -19,6 +19,18 @@
             android:name=".view.login.main.mypage.SettingsActivity"
             android:exported="true" />
         <activity
+            android:name=".view.login.main.mypage.RoomVisitTraceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.main.mypage.RoomBookInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.main.mypage.UserVisitTraceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.main.mypage.UserBookInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.login.main.friend.FriendProfileActivity"
             android:exported="true" />
         <activity

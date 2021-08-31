@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.RoomBookInfoActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.RoomVisitTraceActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.UserBookInfoActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.UserVisitTraceActivity
 import splitties.fragments.start
 
 class MyPageFragment private constructor() : Fragment() {
@@ -24,16 +28,16 @@ class MyPageFragment private constructor() : Fragment() {
             nicknameTextMyPage.text = Authentication.user?.nickname
 
             myRoomHistoryButton.setOnClickListener {
-                // start<Activity>()
+                start<RoomVisitTraceActivity> { }
             }
             myHistoryButton.setOnClickListener {
-                // start<Activity>()
+                start<UserVisitTraceActivity> { }
             }
             myRoomReservationButton.setOnClickListener {
-                // start<Activity>()
+                start<RoomBookInfoActivity> { }
             }
             myReservationButton.setOnClickListener {
-                // start<Activity>()
+                start<UserBookInfoActivity> { }
             }
             SettingImageView.setOnClickListener {
                  start<SettingsActivity>()

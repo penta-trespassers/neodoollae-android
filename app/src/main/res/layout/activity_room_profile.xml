@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/circularImageView" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/hostImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -106,13 +106,13 @@
         app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/leftArrowImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/hostImageView"
         app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
 
     <TextView
@@ -121,9 +121,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/nickname"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/hostImageView"
+        app:layout_constraintStart_toStartOf="@+id/hostImageView"
+        app:layout_constraintTop_toBottomOf="@+id/hostImageView" />
 
     <TextView
         android:id="@+id/roomRatingText"
@@ -131,12 +131,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/room_rating"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/leftArrowImageView"
+        app:layout_constraintStart_toStartOf="@+id/leftArrowImageView"
+        app:layout_constraintTop_toBottomOf="@+id/leftArrowImageView" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/guestRateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -167,9 +167,9 @@
         android:layout_marginStart="8dp"
         android:background="@null"
         android:src="@drawable/ic_content_copy_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintBottom_toBottomOf="@+id/guestRateTextView"
+        app:layout_constraintStart_toEndOf="@+id/guestRateTextView"
+        app:layout_constraintTop_toTopOf="@+id/guestRateTextView" />
 
     <TextView
         android:id="@+id/addressText"
@@ -183,7 +183,7 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/guestRateTextView" />
 
     <TextView
         android:id="@+id/descriptionText"

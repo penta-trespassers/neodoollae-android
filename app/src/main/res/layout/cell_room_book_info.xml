@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cellFriendRequest"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_border"
+    android:padding="12dp"
+    android:layout_marginVertical="5dp">
+
+    <ImageView
+        android:id="@+id/roomPicImageViewRoomBookInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/roomNameTextRoomBookInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="top"
+        android:text="XX님"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/roomPicImageViewRoomBookInfo"
+        app:layout_constraintTop_toTopOf="@+id/roomPicImageViewRoomBookInfo" />
+
+    <ImageView
+        android:id="@+id/iconImageViewRoomBookInfo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_watch_later_24dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/roomPicImageViewRoomBookInfo"
+        app:layout_constraintStart_toStartOf="@+id/roomNameTextRoomBookInfo"
+        app:layout_constraintTop_toBottomOf="@+id/roomNameTextRoomBookInfo">
+
+        <TextView
+            android:id="@+id/guideTextRoomBookInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="방문 날짜"
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bookInfoTextRoomBookInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2021.XX.XX xx:xx"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

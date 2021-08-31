@@ -6,6 +6,18 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/hostImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/hostRateImageView"
+        app:layout_constraintEnd_toStartOf="@+id/guestNameText"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friendProfileText"
+        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+    <ImageView
         android:id="@+id/leftArrowImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,24 +43,12 @@
         app:layout_constraintStart_toEndOf="@+id/leftArrowImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/hostImageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/hostRateImageView"
-        app:layout_constraintEnd_toStartOf="@+id/guestNameText"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friendProfileText"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
-
     <TextView
         android:id="@+id/guestNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="현수빈"
+        android:text="방이름"
         android:textSize="17dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/hostImageView"
@@ -58,7 +58,7 @@
         android:id="@+id/guestRatingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="손님 평가"
+        android:text="주인 이름"
         android:textSize="13dp"
         app:layout_constraintStart_toStartOf="@+id/guestNameText"
         app:layout_constraintTop_toBottomOf="@+id/guestNameText" />
@@ -96,18 +96,6 @@
         app:layout_constraintVertical_bias="0.9" />
 
     <ImageView
-        android:id="@+id/rateImageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/rateImageView2"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar1"
-        app:layout_constraintStart_toEndOf="@+id/hostRateImageView"
-        app:layout_constraintTop_toBottomOf="@+id/guestRatingText"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
-        app:tint="#2196F3" />
-
-    <ImageView
         android:id="@+id/rateImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,30 +107,20 @@
         app:layout_constraintTop_toBottomOf="@+id/rateImageView1"
         app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp" />
 
-    <ImageView
-        android:id="@+id/rateImageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/rateImageView4"
-        app:layout_constraintEnd_toEndOf="@+id/rateImageView2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rateImageView2"
-        app:layout_constraintTop_toBottomOf="@+id/rateImageView2"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp"
-        app:tint="#FFEB3B" />
-
-    <ImageView
-        android:id="@+id/rateImageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+    <ProgressBar
+        android:id="@+id/progressBar4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="214dp"
+        android:layout_height="22dp"
+        android:indeterminateTint="#070707"
+        android:max="10"
+        android:progress="7"
+        android:progressTint="#3C3C3C"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/rateImageView3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rateImageView3"
-        app:layout_constraintTop_toBottomOf="@+id/rateImageView3"
-        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
-        app:tint="#F44336" />
+        app:layout_constraintEnd_toEndOf="@+id/progressBar3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/progressBar3"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
 
     <ProgressBar
         android:id="@+id/progressBar1"
@@ -190,20 +168,42 @@
         app:layout_constraintStart_toStartOf="@+id/progressBar2"
         app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
 
-    <ProgressBar
-        android:id="@+id/progressBar4"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="214dp"
-        android:layout_height="22dp"
-        android:indeterminateTint="#070707"
-        android:max="10"
-        android:progress="7"
-        android:progressTint="#3C3C3C"
+    <ImageView
+        android:id="@+id/rateImageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tint="#FFEB3B"
+        app:layout_constraintBottom_toTopOf="@+id/rateImageView4"
+        app:layout_constraintEnd_toEndOf="@+id/rateImageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/rateImageView2"
+        app:layout_constraintTop_toBottomOf="@+id/rateImageView2"
+        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
+
+    <ImageView
+        android:id="@+id/rateImageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        app:tint="#F44336"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/progressBar3"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
+        app:layout_constraintEnd_toEndOf="@+id/rateImageView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/rateImageView3"
+        app:layout_constraintTop_toBottomOf="@+id/rateImageView3"
+        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied_black_24dp" />
+
+    <ImageView
+        android:id="@+id/rateImageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/rateImageView2"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar1"
+        app:layout_constraintStart_toEndOf="@+id/hostRateImageView"
+        app:layout_constraintTop_toBottomOf="@+id/guestRatingText"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        app:tint="#2196F3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
