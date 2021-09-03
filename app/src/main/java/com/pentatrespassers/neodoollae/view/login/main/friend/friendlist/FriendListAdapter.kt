@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
+import splitties.activities.start
+import splitties.bundle.putExtras
 
-class FriendListAdapter(context: Context, private var userList: List<User>) :
+class FriendListAdapter(private var context: Context, private var userList: List<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
@@ -17,6 +19,13 @@ class FriendListAdapter(context: Context, private var userList: List<User>) :
         fun binding(user: User) {
             with(bind) {
                 nicknameTextFriendList.text = user.nickname
+                itemView.setOnClickListener {
+                    context.start<FriendProfileActivity> {
+                        putExtras(FriendProfileActivity.Extras) {
+                            this.user = user
+                        }
+                    }
+                }
             }
         }
     }
