@@ -4,27 +4,24 @@
     android:id="@+id/cellFriendRequest"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_border"
-    android:padding="10dp"
     android:layout_marginVertical="5dp"
-    >
+    android:padding="16dp">
 
     <ImageView
         android:id="@+id/friendPicImageViewFriendRequest"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        app:tint="#AAAAAA"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        app:tint="#AAAAAA" />
 
     <TextView
         android:id="@+id/friendNameTextViewFriendRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="8dp"
         android:text="윤건우"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -37,23 +34,22 @@
         android:id="@+id/acceptIconImageViewFriendRequest"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="5dp"
-        app:tint="#317AF0"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rejectIconImageViewFriendRequest"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_check_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_check_circle_black_24dp"
+        app:tint="#317AF0" />
 
     <ImageView
         android:id="@+id/rejectIconImageViewFriendRequest"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="10dp"
-        app:tint="#E01D00"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cancel_black_24dp" />
+        app:srcCompat="@drawable/ic_cancel_black_24dp"
+        app:tint="#E01D00" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

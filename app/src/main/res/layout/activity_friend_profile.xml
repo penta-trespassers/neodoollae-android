@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/homeButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@null"
@@ -20,8 +20,8 @@
 
     <ImageButton
         android:id="@+id/favoriteButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@null"
@@ -32,9 +32,9 @@
         app:srcCompat="@drawable/ic_button_star" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/hostImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -44,12 +44,12 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/hostImageView"
         app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
 
     <TextView
@@ -68,7 +68,7 @@
         android:id="@+id/roomNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="18dp"
         android:text="@string/nickname"
         android:textColor="@color/black"
         android:textSize="24dp"
@@ -82,9 +82,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="손님 평가"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/hostImageView"
+        app:layout_constraintStart_toStartOf="@+id/hostImageView"
+        app:layout_constraintTop_toBottomOf="@+id/hostImageView" />
 
     <TextView
         android:id="@+id/ownerRatingText"
@@ -118,9 +118,9 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/circularImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
         app:civ_border="true"
         app:civ_border_color="@color/black"
         app:civ_border_width="1dp"
