@@ -93,8 +93,11 @@ class NotificationAdapter(
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return notificationList[position].status
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        
         return CellNotificationHolder(CellNotificationBinding.inflate(layoutInflater, parent, false))
     }
 
