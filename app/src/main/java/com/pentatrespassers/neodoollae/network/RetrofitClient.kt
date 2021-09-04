@@ -1,5 +1,6 @@
 package com.pentatrespassers.neodoollae.network
 
+import com.pentatrespassers.neodoollae.dto.FriendRequest
 import com.pentatrespassers.neodoollae.dto.Token
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import com.pentatrespassers.neodoollae.lib.Authentication
@@ -22,8 +23,18 @@ object RetrofitClient {
         RegisterBody(kakaoAccessToken, nickname)
     )
 
-    fun getAllFriends() = instance.getAllFriends(Authentication.bearerAccessToken)
     fun getMyInfo() = instance.getMyInfo(Authentication.bearerAccessToken)
+    fun getAllFriends() = instance.getAllFriends(Authentication.bearerAccessToken)
+    fun getAllFriendRequests(
+        onUnsuccessful: ((Call<List<FriendRequest>>, Response<List<FriendRequest>>) -> Unit)? = null,
+        onSuccessful: (Call<List<FriendRequest>>, Response<List<FriendRequest>>) -> Unit
+    ) = instance.getAllFriendRequests(Authentication.bearerAccessToken).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback (onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
 
 
     fun <T> defaultCallback(

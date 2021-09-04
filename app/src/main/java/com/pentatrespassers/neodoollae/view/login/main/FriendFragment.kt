@@ -23,6 +23,7 @@ class FriendFragment private constructor() : Fragment() {
     private var code = ""
 
     private val friendListFragment = FriendListFragment.newInstance()
+    private val friendRequestFragment = FriendRequestFragment.newInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +34,7 @@ class FriendFragment private constructor() : Fragment() {
             val pagerAdapter = FriendPagerFragmentStateAdapter(requireActivity())
             // Fragment 2개 Add
             pagerAdapter.addFragment(friendListFragment)
-            pagerAdapter.addFragment(FriendRequestFragment())
+            pagerAdapter.addFragment(friendRequestFragment)
 
             // Adapter
             friendViewPager.adapter = pagerAdapter
@@ -57,8 +58,6 @@ class FriendFragment private constructor() : Fragment() {
                 showAddingDialog()
 
             }
-
-
 
             return root
         }

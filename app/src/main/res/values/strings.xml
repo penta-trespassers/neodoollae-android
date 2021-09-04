@@ -94,6 +94,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="insert_my_information">내 정보 입력</string>
     <string name="register_message">프로필 사진과 닉네임을 등록해주세요.</string>
+    <string name="friend_code_colon">친구 코드:&#160;</string>
+    <string name="abcdef">ABCDEF</string>
 
 
 </resources>

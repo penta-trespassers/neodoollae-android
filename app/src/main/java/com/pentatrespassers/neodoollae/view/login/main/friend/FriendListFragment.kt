@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendListAdapter
 
@@ -37,15 +38,21 @@ class FriendListFragment private constructor() : Fragment() {
         }
     }
 
-    fun refreshFriendList() {
-        bind.friendListPullRefresh.setRefreshing(true)
-        RetrofitClient.getAllFriends()
-            .enqueue(RetrofitClient.defaultCallback { _, response ->
-                if (response.body() != null) {
-                    friendListAdapter.refresh(response.body()!!)
-                }
-                bind.friendListPullRefresh.setRefreshing(false)
-            })
+    private fun refreshFriendList() {
+        with(bind) {
+            friendListPullRefresh.setRefreshing(true)
+            RetrofitClient.getAllFriends()
+                .enqueue(RetrofitClient.defaultCallback({ _, response ->
+                    Util.j("$response")
+                    friendListPullRefresh.setRefreshing(false)
+                }) { _, response ->
+                    if (response.body() != null) {
+                        friendListAdapter.refresh(response.body()!!)
+                    }
+                    friendListPullRefresh.setRefreshing(false)
+                })
+        }
+
 
     }
 
