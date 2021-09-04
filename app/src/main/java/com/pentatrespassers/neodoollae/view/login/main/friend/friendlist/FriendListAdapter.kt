@@ -14,7 +14,7 @@ class FriendListAdapter(private var context: Context, private var userList: List
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
-    inner class FriendListHolder(private val bind: CellFriendListBinding) :
+    inner class CellFriendListHolder(private val bind: CellFriendListBinding) :
         RecyclerView.ViewHolder(bind.root) {
         fun binding(user: User) {
             with(bind) {
@@ -32,12 +32,12 @@ class FriendListAdapter(private var context: Context, private var userList: List
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return FriendListHolder(CellFriendListBinding.inflate(layoutInflater, parent, false))
+        return CellFriendListHolder(CellFriendListBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = userList[position]
-        (holder as FriendListHolder).binding(data)
+        (holder as CellFriendListHolder).binding(data)
     }
 
     override fun getItemCount(): Int {

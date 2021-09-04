@@ -12,7 +12,7 @@ class FriendRequestAdapter(private val context: Context, private val friendReque
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
-    inner class FriendRequestHolder(private val bind: CellFriendRequestBinding) :
+    inner class CellFriendRequestHolder(private val bind: CellFriendRequestBinding) :
         RecyclerView.ViewHolder(bind.root) {
         fun binding(friendRequest: FriendRequest) {
             with(bind) {
@@ -22,13 +22,13 @@ class FriendRequestAdapter(private val context: Context, private val friendReque
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return FriendRequestHolder(
+        return CellFriendRequestHolder(
             CellFriendRequestBinding.inflate(layoutInflater, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as FriendRequestHolder).binding(friendRequestList[position])
+        (holder as CellFriendRequestHolder).binding(friendRequestList[position])
     }
 
     override fun getItemCount(): Int {

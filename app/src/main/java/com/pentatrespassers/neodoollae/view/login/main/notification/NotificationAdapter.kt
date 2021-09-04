@@ -9,19 +9,54 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellNotificationBinding
 import com.pentatrespassers.neodoollae.dto.Notification
 
-class NotificationRecyclerViewAdapter(
-    private val context: Context, private val notificationList: ArrayList<Notification>
+class NotificationAdapter(
+    private val context: Context, private val notificationList: List<Notification>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    inner class CellNoticeHolder(
+    val layoutInflater: LayoutInflater = LayoutInflater.from(context)
+
+    inner class CellNotificationHolder(
         private val bind: CellNotificationBinding
     ) :
         RecyclerView.ViewHolder(bind.root) {
 
         fun binding(notification: Notification) {
             with(bind) {
-                setNotification(notification)
+                notificationTimeTextNotice.text = notification.time
+
+                when (notification.status) {
+                    Notification.STATUS_RESERVE_WAITING -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.reservation_waiting, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_watch_later_24dp)
+                    }
+                    Notification.STATUS_RESERVE_ACCEPTED -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.reservation_accepted, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_check_circle_24dp)
+                    }
+                    Notification.STATUS_RESERVE_DECLINED -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.reservation_declined, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_cancel_24dp)
+                    }
+                    Notification.STATUS_REVIEW_HOST -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.review_host, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                    Notification.STATUS_REVIEW_GUEST -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.review_guest, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                    Notification.STATUS_REVIEW_ROOM -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.review_room, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                }
 
                 constraintLayoutNotice.setOnClickListener {
                     if (notification.status == 0) {
@@ -34,7 +69,7 @@ class NotificationRecyclerViewAdapter(
                             reserveUndecidedGroupNotice.visibility = View.VISIBLE
                             arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                         }
-                    } else if (notification.status < 3){
+                    } else if (notification.status < 3) {
                         if (reserveExpandedGroupNotice.visibility == View.VISIBLE) {
                             reserveExpandedGroupNotice.visibility = View.GONE
                             View.GONE.also { reserveDecidedGroupNotice.visibility = it }
@@ -56,57 +91,17 @@ class NotificationRecyclerViewAdapter(
                 }
             }
         }
-
-
-        private fun setNotification(notification: Notification) {
-            with(bind) {
-                notificationTimeTextNotice.text = notification.time
-
-                when (notification.status) {
-                    Notification.STATUS_RESERVE_WAITING -> {
-                        notificationTextNotice.text =
-                            notification.nickname + context.getString(R.string.reservation_waiting)
-                        notificationImageNotice.setImageResource(R.drawable.ic_watch_later_24dp)
-                    }
-                    Notification.STATUS_RESERVE_ACCEPTED -> {
-                        notificationTextNotice.text =
-                            notification.nickname + context.getString(R.string.reservation_accepted)
-                        notificationImageNotice.setImageResource(R.drawable.ic_check_circle_24dp)
-                    }
-                    Notification.STATUS_RESERVE_DECLINED -> {
-                        notificationTextNotice.text =
-                            notification.nickname + context.getString(R.string.reservation_declined)
-                        notificationImageNotice.setImageResource(R.drawable.ic_cancel_24dp)
-                    }
-                    Notification.STATUS_REVIEW_HOST -> {
-                        notificationTextNotice.text =
-                            notification.nickname + context.getString(R.string.review_host)
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                    Notification.STATUS_REVIEW_GUEST -> {
-                        notificationTextNotice.text =
-                            notification.nickname + context.getString(R.string.review_guest)
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                    Notification.STATUS_REVIEW_ROOM -> {
-                        notificationTextNotice.text =
-                            notification.nickname + context.getString(R.string.review_room)
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                }
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val layoutInflater = LayoutInflater.from(context)
-        return CellNoticeHolder(CellNotificationBinding.inflate(layoutInflater, parent, false))
+        
+        return CellNotificationHolder(CellNotificationBinding.inflate(layoutInflater, parent, false))
     }
 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val reservation = notificationList[position]
-        (holder as CellNoticeHolder).binding(reservation)
+        (holder as CellNotificationHolder).binding(reservation)
     }
 
     override fun getItemCount(): Int {
