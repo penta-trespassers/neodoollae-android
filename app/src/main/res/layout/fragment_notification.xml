@@ -45,6 +45,6 @@
         app:layout_constraintTop_toBottomOf="@+id/deleteBtnNotice"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:paddingBottom="?attr/actionBarSize"
-        tools:listitem="@layout/cell_notification"/>
+        tools:listitem="@layout/cell_notification_reservation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
