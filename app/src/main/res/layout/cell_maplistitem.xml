@@ -18,39 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/roomImageView1"
-        android:layout_width="98dp"
-        android:layout_height="91dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/roomImageView2"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/roomImageView2"
-        android:layout_width="98dp"
-        android:layout_height="91dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/roomImageView1"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/roomImageView3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/roomImageView3"
-        android:layout_width="98dp"
-        android:layout_height="91dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/roomImageView2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/roomConditionTextView"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/roomHostNametextViewAround"
         android:layout_width="wrap_content"
@@ -60,6 +27,17 @@
         android:textSize="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roomTitleTextViewAround" />
+
+    <ImageView
+        android:id="@+id/roomRateImageView"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/roomImageView1"
+        app:layout_constraintEnd_toStartOf="@+id/roomConditionTextView"
+        app:layout_constraintStart_toStartOf="@+id/roomHostNametextViewAround"
+        app:layout_constraintTop_toTopOf="@+id/roomConditionTextView"
+        app:layout_constraintVertical_bias="0.17000002"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/roomConditionTextView"
@@ -74,17 +52,6 @@
         app:layout_constraintTop_toBottomOf="@+id/roomHostNametextViewAround"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/roomRateImageView"
-        android:layout_width="13dp"
-        android:layout_height="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/roomImageView3"
-        app:layout_constraintEnd_toStartOf="@+id/roomConditionTextView"
-        app:layout_constraintStart_toStartOf="@+id/roomHostNametextViewAround"
-        app:layout_constraintTop_toTopOf="@+id/roomConditionTextView"
-        app:layout_constraintVertical_bias="0.17000002"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
@@ -94,8 +61,44 @@
         android:layout_marginBottom="4dp"
         android:text="TextView"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/roomImageView3"
+        app:layout_constraintBottom_toTopOf="@+id/roomImageView1"
         app:layout_constraintStart_toEndOf="@+id/roomConditionTextView"
         app:layout_constraintTop_toBottomOf="@+id/roomHostNametextViewAround" />
+
+    <ImageView
+        android:id="@+id/roomImageView1"
+        android:layout_width="98dp"
+        android:layout_height="91dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/roomImageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/roomConditionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/roomConditionTextView"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/roomImageView2"
+        android:layout_width="98dp"
+        android:layout_height="91dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/roomImageView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/roomImageView1"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTextView"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/roomImageView3"
+        android:layout_width="98dp"
+        android:layout_height="91dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/roomImageView2"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTextView"
+        app:layout_constraintVertical_bias="0.19999999"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

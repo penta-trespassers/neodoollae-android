@@ -43,7 +43,7 @@
         app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/leftArrowImageView"
         android:layout_width="24dp"
         android:layout_height="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,9 +92,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="주인 평가"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/leftArrowImageView"
+        app:layout_constraintStart_toStartOf="@+id/leftArrowImageView"
+        app:layout_constraintTop_toBottomOf="@+id/leftArrowImageView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/roomCardRecycler"

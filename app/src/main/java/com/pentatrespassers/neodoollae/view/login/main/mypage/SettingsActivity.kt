@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivitySettingsBinding
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.DeveloperInfoFragment
-import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.NoticeSettingsFragment
+import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.NotificationSettingsFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.TermsOfUseFragment
 import splitties.fragments.fragmentTransaction
 
@@ -17,7 +17,7 @@ class SettingsActivity : AppCompatActivity() {
         ActivitySettingsBinding.inflate(layoutInflater)
     }
 
-    private val noticeSettingsFragment = NoticeSettingsFragment.newInstance()
+    private val noticeSettingsFragment = NotificationSettingsFragment.newInstance()
     private val termsOfUseFragment = TermsOfUseFragment.newInstance()
     private val developerInfoFragment = DeveloperInfoFragment.newInstance()
 

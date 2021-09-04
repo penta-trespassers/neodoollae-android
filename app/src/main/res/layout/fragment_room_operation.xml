@@ -32,6 +32,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/openButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_border"
+        android:text="@string/opened"
+        app:layout_constraintEnd_toStartOf="@+id/restrictedButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/restrictedButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border"
+        android:text="제한"
+        app:layout_constraintEnd_toStartOf="@+id/closedButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/openButton"
+        app:layout_constraintTop_toTopOf="@+id/openButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/closedButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border"
+        android:text="폐쇄"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/restrictedButton"
+        app:layout_constraintTop_toTopOf="@+id/restrictedButton" />
+
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="0dp"
@@ -44,43 +81,5 @@
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/openButton"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_border"
-        android:text="@string/opened"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_border"
-        android:text="@string/closed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_border"
-        android:text="@string/restricted"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/openButton"
-        app:layout_constraintTop_toTopOf="@+id/openButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
