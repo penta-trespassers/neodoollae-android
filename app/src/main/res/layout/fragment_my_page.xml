@@ -4,193 +4,211 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".view.login.main.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/myRoomHistoryButton"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:background="@drawable/round_shape1"
-        android:backgroundTint="#F5F5F5"
-        android:text="@string/my_room_history"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/myHistoryButton"
-        app:layout_constraintStart_toStartOf="@+id/myHistoryButton"
-        app:layout_constraintTop_toTopOf="@+id/myRoomReservationButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/myRoomReservationButton"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/round_shape1"
-        android:backgroundTint="#F5F5F5"
-        android:text="@string/my_room_reservation_information"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/myReservationButton"
-        app:layout_constraintStart_toStartOf="@+id/myReservationButton"
-        app:layout_constraintTop_toBottomOf="@+id/myReservationButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/myReservationButton"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/round_shape1"
-        android:backgroundTint="#F5F5F5"
-        android:text="@string/my_reservation_information"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/myHistoryButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/myHistoryButton"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:background="@drawable/round_shape1"
-        android:backgroundTint="#F5F5F5"
-        android:text="@string/my_history"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/myReservationButton"
-        app:layout_constraintTop_toTopOf="@+id/myReservationButton" />
-
-    <ImageView
-        android:id="@+id/myProfileImageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="120dp"
-        android:backgroundTint="#FFFFFF"
-        android:src="@drawable/ic_account_circle_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/nicknameTextMyPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48000002"
-        app:tint="#AAAAAA" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_sentiment_satisfied_alt_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        app:layout_constraintStart_toEndOf="@+id/nicknameTextMyPage"
-        app:layout_constraintTop_toBottomOf="@+id/myProfileImageView"
-        app:srcCompat="@drawable/ic_button_edit" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/myProfileImageView"
-        app:layout_constraintTop_toTopOf="@+id/myProfileImageView"
-        app:srcCompat="@drawable/ic_button_edit" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_sentiment_satisfied_alt_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
-
-    <ImageView
-        android:id="@+id/SettingImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/ic_settings_black_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="#AAAAAA" />
-
-    <TextView
-        android:id="@+id/myCodeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/friend_code_colon"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/friendCodeText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/nicknameTextMyPage"
-        app:layout_constraintTop_toBottomOf="@+id/nicknameTextMyPage" />
-
-    <TextView
-        android:id="@+id/friendCodeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/abcdef"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/myCodeTextView"
-        app:layout_constraintEnd_toEndOf="@+id/nicknameTextMyPage"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/myCodeTextView"
-        app:layout_constraintTop_toTopOf="@+id/myCodeTextView" />
-
-    <TextView
-        android:id="@+id/nicknameTextMyPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="현수빈"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/myCodeTextView"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myProfileImageView" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/guest_rate"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/host_Rate"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            <ImageView
+                android:id="@+id/myProfileImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="120dp"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/ic_account_circle_black_24dp"
+                app:layout_constraintBottom_toTopOf="@+id/nicknameTextMyPage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.48000002"
+                app:tint="#AAAAAA" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ic_sentiment_satisfied_alt_black_24dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                app:layout_constraintStart_toEndOf="@+id/nicknameTextMyPage"
+                app:layout_constraintTop_toBottomOf="@+id/myProfileImageView"
+                app:srcCompat="@drawable/ic_button_edit" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/myProfileImageView"
+                app:layout_constraintTop_toTopOf="@+id/myProfileImageView"
+                app:srcCompat="@drawable/ic_button_edit" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ic_sentiment_satisfied_alt_black_24dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
+
+            <ImageView
+                android:id="@+id/SettingImageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_settings_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#AAAAAA" />
+
+            <TextView
+                android:id="@+id/myCodeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/friend_code_colon"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/friendCodeText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/nicknameTextMyPage"
+                app:layout_constraintTop_toBottomOf="@+id/nicknameTextMyPage" />
+
+            <TextView
+                android:id="@+id/friendCodeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/abcdef"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/myCodeTextView"
+                app:layout_constraintEnd_toEndOf="@+id/nicknameTextMyPage"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/myCodeTextView"
+                app:layout_constraintTop_toTopOf="@+id/myCodeTextView" />
+
+            <TextView
+                android:id="@+id/nicknameTextMyPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="현수빈"
+                android:textSize="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/myCodeTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myProfileImageView" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/guest_rate"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/host_Rate"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myRoomHistoryButton"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/round_shape1"
+                android:backgroundTint="#F5F5F5"
+                android:text="@string/my_room_history"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/myHistoryButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/myHistoryButton"
+                app:layout_constraintTop_toBottomOf="@+id/myHistoryButton" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myRoomReservationButton"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/round_shape1"
+                android:backgroundTint="#F5F5F5"
+                android:text="@string/my_room_reservation_information"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/myReservationButton"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/myReservationButton"
+                app:layout_constraintTop_toBottomOf="@+id/myReservationButton"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myReservationButton"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/round_shape1"
+                android:backgroundTint="#F5F5F5"
+                android:text="@string/my_reservation_information"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/myHistoryButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myHistoryButton"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:background="@drawable/round_shape1"
+                android:backgroundTint="#F5F5F5"
+                android:text="@string/my_history"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/myReservationButton"
+                app:layout_constraintTop_toTopOf="@+id/myReservationButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
