@@ -18,7 +18,7 @@
         app:tint="#AAAAAA" />
 
     <TextView
-        android:id="@+id/friendNameTextViewFriendRequest"
+        android:id="@+id/nicknameTextFriendRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

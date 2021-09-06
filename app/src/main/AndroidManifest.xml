@@ -31,7 +31,7 @@
             android:name=".view.login.main.mypage.UserBookInfoActivity"
             android:exported="true" />
         <activity
-            android:name=".view.login.main.friend.FriendProfileActivity"
+            android:name=".view.login.main.friend.friendlist.FriendProfileActivity"
             android:exported="true" />
         <activity
             android:name=".view.login.main.home.RoomProfileActivity"

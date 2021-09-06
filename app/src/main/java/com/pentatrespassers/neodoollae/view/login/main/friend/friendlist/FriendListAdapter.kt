@@ -6,29 +6,38 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
+import splitties.activities.start
+import splitties.bundle.putExtras
 
-class FriendListAdapter(context: Context, private var userList: List<User>) :
+class FriendListAdapter(private var context: Context, private var userList: List<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
-    inner class FriendListHolder(private val bind: CellFriendListBinding) :
+    inner class CellFriendListHolder(private val bind: CellFriendListBinding) :
         RecyclerView.ViewHolder(bind.root) {
         fun binding(user: User) {
             with(bind) {
                 nicknameTextFriendList.text = user.nickname
+                itemView.setOnClickListener {
+                    context.start<FriendProfileActivity> {
+                        putExtras(FriendProfileActivity.Extras) {
+                            this.user = user
+                        }
+                    }
+                }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return FriendListHolder(CellFriendListBinding.inflate(layoutInflater, parent, false))
+        return CellFriendListHolder(CellFriendListBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = userList[position]
-        (holder as FriendListHolder).binding(data)
+        (holder as CellFriendListHolder).binding(data)
     }
 
     override fun getItemCount(): Int {

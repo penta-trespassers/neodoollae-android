@@ -6,10 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
 import com.pentatrespassers.neodoollae.dto.RoomInfo
-import com.pentatrespassers.neodoollae.view.login.main.home.addroom.AddressFragment
-import com.pentatrespassers.neodoollae.view.login.main.home.addroom.PictureFragment
-import com.pentatrespassers.neodoollae.view.login.main.home.addroom.RoomCompleteFragment
-import com.pentatrespassers.neodoollae.view.login.main.home.addroom.RoomInfoFragment
+import com.pentatrespassers.neodoollae.view.login.main.home.addroom.*
 import splitties.activities.start
 import splitties.bundle.putExtras
 import splitties.fragments.fragmentTransaction
@@ -20,20 +17,14 @@ class AddRoomActivity : AppCompatActivity() {
         ActivityAddRoomBinding.inflate(layoutInflater)
     }
 
-    private val addressFragment by lazy {
-        AddressFragment.newInstance()
-    }
-    private val roomInfoFragment by lazy {
-        RoomInfoFragment.newInstance()
-    }
-    private val pictureFragment by lazy {
-        PictureFragment.newInstance()
-    }
-    private val roomCompleteFragment by lazy {
-        RoomCompleteFragment.newInstance()
-    }
+    private val addressFragment = AddressFragment.newInstance()
+    private val roomInfoFragment = RoomInfoFragment.newInstance()
+    private val roomOperationFragment = RoomOperationFragment.newInstance()
+    private val pictureFragment = PictureFragment.newInstance()
+    private val roomCompleteFragment = RoomCompleteFragment.newInstance()
+
     private val fragmentList =
-        arrayListOf(addressFragment, roomInfoFragment, pictureFragment, roomCompleteFragment)
+        arrayListOf(addressFragment, roomInfoFragment, roomOperationFragment, pictureFragment, roomCompleteFragment)
     private var currentFragmentIndex = 0
 
 
@@ -42,7 +33,7 @@ class AddRoomActivity : AppCompatActivity() {
         with(bind) {
             setContentView(root)
 
-            fragmentTransaction() {
+            fragmentTransaction {
                 for (i in fragmentList.indices) {
                     add(R.id.addRoomFrame, fragmentList[i])
                     if (i != 0) {
