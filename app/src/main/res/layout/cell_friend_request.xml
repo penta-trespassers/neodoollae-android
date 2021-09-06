@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
     <TextView
-        android:id="@+id/friendNameTextViewFriendRequest"
+        android:id="@+id/nicknameTextFriendRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

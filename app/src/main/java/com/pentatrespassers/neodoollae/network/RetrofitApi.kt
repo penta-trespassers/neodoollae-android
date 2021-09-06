@@ -1,5 +1,6 @@
 package com.pentatrespassers.neodoollae.network
 
+import com.pentatrespassers.neodoollae.dto.FriendRequest
 import com.pentatrespassers.neodoollae.dto.Token
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
@@ -25,16 +26,22 @@ interface RetrofitApi {
         registerBody: RegisterBody
     ): Call<Token>
 
+    @GET("users/my/")
+    fun getMyInfo(
+        @Header("Authorization")
+        bearerAccessToken: String?
+    ): Call<User>
+
     @GET("friends/")
     fun getAllFriends(
         @Header("Authorization")
         bearerAccessToken: String?
     ): Call<List<User>>
 
-    @GET("users/my/")
-    fun getMyInfo(
+    @GET("friends/request/pending/")
+    fun getAllFriendRequests(
         @Header("Authorization")
         bearerAccessToken: String?
-    ): Call<User>
+    ): Call<List<FriendRequest>>
 
 }

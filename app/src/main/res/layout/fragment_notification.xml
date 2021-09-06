@@ -7,18 +7,18 @@
     tools:context=".view.login.main.HomeFragment">
 
     <Spinner
-        android:id="@+id/filterSpinnerNotice"
+        android:id="@+id/filterSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/recyclerNotice"
+        app:layout_constraintBottom_toTopOf="@+id/notificationRecycler"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageButton
-        android:id="@+id/deleteBtnNotice"
+        android:id="@+id/deleteButtonNotification"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginTop="18dp"
@@ -33,16 +33,16 @@
         android:layout_height="1dp"
         android:background="@color/gray"
         android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/deleteBtnNotice"/>
+        app:layout_constraintTop_toBottomOf="@+id/deleteButtonNotification"/>
 
     <androidx.recyclerview.widget.RecyclerView
 
-        android:id="@+id/recyclerNotice"
+        android:id="@+id/notificationRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteBtnNotice"
+        app:layout_constraintTop_toBottomOf="@+id/deleteButtonNotification"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:paddingBottom="?attr/actionBarSize"
         tools:listitem="@layout/cell_notification_reservation"/>
