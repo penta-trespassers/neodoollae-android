@@ -6,11 +6,24 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/leftArrowImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:id="@+id/hostImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:tint="#AAAAAA"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+        app:layout_constraintEnd_toStartOf="@+id/guestNameText"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,25 +36,14 @@
         android:id="@+id/friendProfileText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="친구 프로필"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/leftArrowImageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/hostImageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/hostRateImageView"
-        app:layout_constraintEnd_toStartOf="@+id/guestNameText"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friendProfileText"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
     <TextView
         android:id="@+id/guestNameText"
@@ -64,131 +66,51 @@
         app:layout_constraintTop_toBottomOf="@+id/guestNameText" />
 
     <ImageView
-        android:id="@+id/hostRateImageView"
+        android:id="@+id/imageView4"
         android:layout_width="88dp"
-        android:layout_height="99dp"
-        android:layout_marginBottom="14dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toStartOf="@+id/rateImageView2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
         app:srcCompat="@drawable/bg_border" />
 
     <ImageView
         android:id="@+id/guestRateImage"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:tint="#2196F3"
-        app:layout_constraintBottom_toTopOf="@+id/hostRateTextView"
-        app:layout_constraintEnd_toEndOf="@+id/hostRateImageView"
-        app:layout_constraintStart_toStartOf="@+id/hostRateImageView"
-        app:layout_constraintTop_toTopOf="@+id/hostRateImageView"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.26"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        app:tint="#3E5AE6" />
 
     <TextView
-        android:id="@+id/hostRateTextView"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="리뷰 : 20개"
-        app:layout_constraintBottom_toBottomOf="@+id/hostRateImageView"
-        app:layout_constraintEnd_toEndOf="@+id/hostRateImageView"
-        app:layout_constraintStart_toStartOf="@+id/hostRateImageView"
-        app:layout_constraintTop_toTopOf="@+id/hostRateImageView"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/guestRateImage" />
 
     <ImageView
-        android:id="@+id/rateImageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/rateImageView2"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar1"
-        app:layout_constraintStart_toEndOf="@+id/hostRateImageView"
-        app:layout_constraintTop_toBottomOf="@+id/guestRatingText"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
-        app:tint="#2196F3" />
-
-    <ImageView
-        android:id="@+id/rateImageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:tint="#4CAF50"
-        app:layout_constraintBottom_toTopOf="@+id/rateImageView3"
-        app:layout_constraintEnd_toEndOf="@+id/rateImageView1"
+        android:id="@+id/imageView8"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rateImageView1"
-        app:layout_constraintTop_toBottomOf="@+id/rateImageView1"
-        app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp" />
-
-    <ImageView
-        android:id="@+id/rateImageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/rateImageView4"
-        app:layout_constraintEnd_toEndOf="@+id/rateImageView2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rateImageView2"
-        app:layout_constraintTop_toBottomOf="@+id/rateImageView2"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp"
-        app:tint="#FFEB3B" />
-
-    <ImageView
-        android:id="@+id/rateImageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/rateImageView3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rateImageView3"
-        app:layout_constraintTop_toBottomOf="@+id/rateImageView3"
-        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
-        app:tint="#F44336" />
-
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="214dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="40dp"
-        android:indeterminateTint="#070707"
-        android:max="10"
-        android:progress="1"
-        android:progressTint="#3C3C3C"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toEndOf="@+id/rateImageView1"
-        app:layout_constraintTop_toBottomOf="@+id/guestRatingText" />
-
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="214dp"
-        android:layout_height="22dp"
-        android:indeterminateTint="#070707"
-        android:max="10"
-        android:progress="3"
-        android:progressTint="#3C3C3C"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/progressBar1"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar1" />
-
-    <ProgressBar
-        android:id="@+id/progressBar3"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="214dp"
-        android:layout_height="22dp"
-        android:indeterminateTint="#070707"
-        android:max="10"
-        android:progress="5"
-        android:progressTint="#3C3C3C"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar4"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/progressBar2"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp"
+        app:tint="#209938" />
 
     <ProgressBar
         android:id="@+id/progressBar4"
@@ -205,14 +127,124 @@
         app:layout_constraintStart_toStartOf="@+id/progressBar3"
         app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
 
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="214dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:indeterminateTint="#070707"
+        android:max="10"
+        android:progress="1"
+        android:progressTint="#3C3C3C"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="214dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
+        android:indeterminateTint="#070707"
+        android:max="10"
+        android:progress="3"
+        android:progressTint="#3C3C3C"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/progressBar1"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar1" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="214dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
+        android:indeterminateTint="#070707"
+        android:max="10"
+        android:progress="5"
+        android:progressTint="#3C3C3C"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar4"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/progressBar2"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp"
+        app:tint="#FFC700" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
+        app:tint="#E63E57" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar1"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        app:tint="#3E5AE6" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="507dp"
+        android:layout_width="411dp"
+        android:layout_height="433dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar4"
         tools:listitem="@layout/cell_review" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friendProfileText"
+        app:srcCompat="@drawable/bg_border" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
