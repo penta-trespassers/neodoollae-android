@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.CellNotificationBinding
+import com.pentatrespassers.neodoollae.databinding.CellNotificationReservationBinding
+import com.pentatrespassers.neodoollae.databinding.CellNotificationReviewBinding
 import com.pentatrespassers.neodoollae.dto.Notification
 
 class NotificationAdapter(
@@ -16,8 +17,8 @@ class NotificationAdapter(
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
-    inner class CellNotificationHolder(
-        private val bind: CellNotificationBinding
+    inner class CellNotificationReservationHolder(
+        private val bind: CellNotificationReservationBinding
     ) :
         RecyclerView.ViewHolder(bind.root) {
 
@@ -40,21 +41,6 @@ class NotificationAdapter(
                         notificationTextNotice.text =
                             context.getString(R.string.reservation_declined, notification.nickname)
                         notificationImageNotice.setImageResource(R.drawable.ic_cancel_24dp)
-                    }
-                    Notification.STATUS_REVIEW_HOST -> {
-                        notificationTextNotice.text =
-                            context.getString(R.string.review_host, notification.nickname)
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                    Notification.STATUS_REVIEW_GUEST -> {
-                        notificationTextNotice.text =
-                            context.getString(R.string.review_guest, notification.nickname)
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
-                    }
-                    Notification.STATUS_REVIEW_ROOM -> {
-                        notificationTextNotice.text =
-                            context.getString(R.string.review_room, notification.nickname)
-                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
                     }
                 }
 
@@ -79,14 +65,46 @@ class NotificationAdapter(
                             reserveDecidedGroupNotice.visibility = View.VISIBLE
                             arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    inner class CellNotificationReviewHolder(
+        private val bind: CellNotificationReviewBinding
+    ) :
+        RecyclerView.ViewHolder(bind.root) {
+
+        fun binding(notification: Notification) {
+            with(bind) {
+                notificationTimeTextNotice.text = notification.time
+
+                when(notification.status){
+                    Notification.STATUS_REVIEW_HOST -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.review_host, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                    Notification.STATUS_REVIEW_GUEST -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.review_guest, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                    Notification.STATUS_REVIEW_ROOM -> {
+                        notificationTextNotice.text =
+                            context.getString(R.string.review_room, notification.nickname)
+                        notificationImageNotice.setImageResource(R.drawable.ic_edit_24dp)
+                    }
+                }
+
+                constraintLayoutNotice.setOnClickListener {
+                    if (reviewExpandedGroupNotice.visibility == View.VISIBLE) {
+                        reviewExpandedGroupNotice.visibility = View.GONE
+                        arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
                     } else {
-                        if (reviewExpandedGroupNotice.visibility == View.VISIBLE) {
-                            reviewExpandedGroupNotice.visibility = View.GONE
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
-                        } else {
-                            reviewExpandedGroupNotice.visibility = View.VISIBLE
-                            arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
-                        }
+                        reviewExpandedGroupNotice.visibility = View.VISIBLE
+                        arrowImageNotice.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                     }
                 }
             }
@@ -98,13 +116,19 @@ class NotificationAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return CellNotificationHolder(CellNotificationBinding.inflate(layoutInflater, parent, false))
+        return if (viewType < 3) CellNotificationReservationHolder(CellNotificationReservationBinding.inflate(layoutInflater, parent, false))
+        else CellNotificationReviewHolder(CellNotificationReviewBinding.inflate(layoutInflater, parent, false))
     }
 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val reservation = notificationList[position]
-        (holder as CellNotificationHolder).binding(reservation)
+        val notification = notificationList[position]
+        if (getItemViewType(position) < 3) {
+            (holder as CellNotificationReservationHolder).binding(notification)
+        } else {
+            (holder as CellNotificationReviewHolder).binding(notification)
+        }
+
     }
 
     override fun getItemCount(): Int {
