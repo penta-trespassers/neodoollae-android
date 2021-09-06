@@ -138,14 +138,24 @@
         android:id="@+id/myCodeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="친구코드 : ABCDEF"
+        android:text="@string/friend_code_colon"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/friendCodeText"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nicknameTextMyPage"
         app:layout_constraintTop_toBottomOf="@+id/nicknameTextMyPage" />
+
+    <TextView
+        android:id="@+id/friendCodeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/abcdef"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/myCodeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/nicknameTextMyPage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/myCodeTextView"
+        app:layout_constraintTop_toTopOf="@+id/myCodeTextView" />
 
     <TextView
         android:id="@+id/nicknameTextMyPage"

@@ -80,7 +80,7 @@ class NotificationAdapter(
             with(bind) {
                 notificationTimeTextNotice.text = notification.time
 
-                when(notification.status){
+                when (notification.status) {
                     Notification.STATUS_REVIEW_HOST -> {
                         notificationTextNotice.text =
                             context.getString(R.string.review_host, notification.nickname)
@@ -116,8 +116,16 @@ class NotificationAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType < 3) CellNotificationReservationHolder(CellNotificationReservationBinding.inflate(layoutInflater, parent, false))
-        else CellNotificationReviewHolder(CellNotificationReviewBinding.inflate(layoutInflater, parent, false))
+        return if (viewType < 3) CellNotificationReservationHolder(
+            CellNotificationReservationBinding.inflate(layoutInflater, parent, false)
+        )
+        else CellNotificationReviewHolder(
+            CellNotificationReviewBinding.inflate(
+                layoutInflater,
+                parent,
+                false
+            )
+        )
     }
 
 
