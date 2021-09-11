@@ -1,14 +1,12 @@
 package com.pentatrespassers.neodoollae.network
 
 import com.pentatrespassers.neodoollae.dto.FriendRequest
+import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.Token
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 // 여기서 구현
@@ -43,5 +41,13 @@ interface RetrofitApi {
         @Header("Authorization")
         bearerAccessToken: String?
     ): Call<List<FriendRequest>>
+
+    @GET("rooms/")
+    fun getRooms(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Query("userId")
+        userId: Int?
+    ): Call<List<Room>>
 
 }
