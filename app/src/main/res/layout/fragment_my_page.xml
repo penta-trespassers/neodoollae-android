@@ -76,17 +76,6 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
 
-            <ImageView
-                android:id="@+id/SettingImageView"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_settings_black_24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#AAAAAA" />
-
             <TextView
                 android:id="@+id/myCodeTextView"
                 android:layout_width="wrap_content"

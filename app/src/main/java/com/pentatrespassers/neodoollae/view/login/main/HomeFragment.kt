@@ -22,6 +22,13 @@ class HomeFragment private constructor() : Fragment() {
         }
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        if (hidden) {
+
+        } else {
+        }
+    }
+
     companion object {
         fun newInstance(test: Int) = HomeFragment().apply {
         }
