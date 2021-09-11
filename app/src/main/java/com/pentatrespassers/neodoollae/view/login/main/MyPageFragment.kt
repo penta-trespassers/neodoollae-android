@@ -25,7 +25,7 @@ class MyPageFragment private constructor() : Fragment() {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
 
-            nicknameTextMyPage.text = Authentication.user?.nickname
+           // nicknameTextMyPage.text = Authentication.user?.nickname
 
             myRoomHistoryButton.setOnClickListener {
                 start<RoomVisitTraceActivity> { }

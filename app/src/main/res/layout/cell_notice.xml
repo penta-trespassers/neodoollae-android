@@ -34,7 +34,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="16dp"
                     android:src="@drawable/ic_baseline_account_circle_24"
-                    android:tint="#AAAAAA"
+                    app:tint="#AAAAAA"
                     app:layout_constraintEnd_toStartOf="@+id/reserveInfoTextNotice"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +92,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="5dp"
-                    android:src="@drawable/ic_check_circle_black_24dp"
+                    android:src="@drawable/ic_check_circle_24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/arrowImageNotice"
                     app:layout_constraintTop_toTopOf="parent" />
