@@ -4,15 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
-import com.pentatrespassers.neodoollae.dto.RoomInfo
 import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.withExtras
 
 class FriendProfileActivity : AppCompatActivity() {
 
-    object Extras: BundleSpec() {
+    object Extras : BundleSpec() {
         var user: User by bundle()
     }
 
@@ -31,7 +31,8 @@ class FriendProfileActivity : AppCompatActivity() {
         with(bind) {
             setContentView(root)
             RetrofitClient.getRoom(user.id) { _, response ->
-                roomCardRecycler.adapter = RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
+                roomCardRecycler.adapter =
+                    RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
             }
 
             nicknameTextFriendProfile.text = user.nickname
