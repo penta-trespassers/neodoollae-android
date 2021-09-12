@@ -6,14 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
-import com.pentatrespassers.neodoollae.dto.RoomInfo
+import com.pentatrespassers.neodoollae.dto.Room
 
-class MapListRecyclerViewAdapter(private val context: Context, private val mapItemList: List<RoomInfo>) :
+class MapListRecyclerViewAdapter(
+    private val context: Context,
+    private val mapItemList: List<Room>
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class MapListItemHolder(private val bind: CellMaplistitemBinding) :
         RecyclerView.ViewHolder(bind.root) {
-        fun binding(roomData: RoomInfo) {
+        fun binding(roomData: Room) {
             with(bind) {
                 roomTitleTextViewAround.text = roomData.roomName
                 roomHostNametextViewAround.text = roomData.nickname
@@ -22,7 +25,7 @@ class MapListRecyclerViewAdapter(private val context: Context, private val mapIt
                 roomImageView2.setImageResource(R.drawable.app_icon)
                 roomImageView3.setImageResource(R.drawable.app_icon)
                 roomConditionTextView.text = "opened"
-                distanceTextView.text= "300m"
+                distanceTextView.text = "300m"
             }
         }
     }
@@ -35,8 +38,7 @@ class MapListRecyclerViewAdapter(private val context: Context, private val mapIt
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val roomdata = mapItemList[position]
-        (holder as MapListItemHolder).binding(roomdata)
+        (holder as MapListItemHolder).binding(mapItemList[position])
     }
 
     override fun getItemCount(): Int {
@@ -44,4 +46,4 @@ class MapListRecyclerViewAdapter(private val context: Context, private val mapIt
     }
 
 
-    }
+}
