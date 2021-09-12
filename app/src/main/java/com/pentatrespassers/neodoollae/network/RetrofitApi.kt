@@ -48,6 +48,6 @@ interface RetrofitApi {
         bearerAccessToken: String?,
         @Query("userId")
         userId: Int?
-    ): Call<List<Room>>
+    ): Call<ArrayList<Room>>
 
 }

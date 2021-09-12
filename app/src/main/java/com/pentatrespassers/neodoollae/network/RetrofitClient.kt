@@ -38,8 +38,8 @@ object RetrofitClient {
     )
     fun getRoom(
         userId: Int,
-        onUnsuccessful: ((Call<List<Room>>, Response<List<Room>>) -> Unit)? = null,
-        onSuccessful: (Call<List<Room>>, Response<List<Room>>) -> Unit
+        onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
     ) = instance.getRooms(Authentication.bearerAccessToken, userId).enqueue(
         if (onUnsuccessful == null) {
             defaultCallback (onSuccessful = onSuccessful)

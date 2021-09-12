@@ -11,7 +11,7 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellRoomCardBinding
 import com.pentatrespassers.neodoollae.dto.Room
 
-class RoomCardAdapter(private val context: Context, private val roomList: List<Room>) :
+class RoomCardAdapter(private val context: Context, private val roomList: ArrayList<Room>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class RoomCardHolder(private val bind: CellRoomCardBinding) :
