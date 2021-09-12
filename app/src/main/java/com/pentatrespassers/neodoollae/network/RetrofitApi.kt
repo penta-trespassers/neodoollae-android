@@ -12,37 +12,37 @@ import retrofit2.http.*
 // 여기서 구현
 interface RetrofitApi {
 
-    @POST("auth/kakao/login/")
+    @POST("/v1/auth/kakao/login/")
     fun kakaoLogin(
         @Body
         token: Token
     ): Call<Token>
 
-    @POST("auth/kakao/register/")
+    @POST("/v1/auth/kakao/register/")
     fun kakaoRegister(
         @Body
         registerBody: RegisterBody
     ): Call<Token>
 
-    @GET("users/my/")
+    @GET("/v1/users/my/")
     fun getMyInfo(
         @Header("Authorization")
         bearerAccessToken: String?
     ): Call<User>
 
-    @GET("friends/")
+    @GET("/v1/friends/")
     fun getAllFriends(
         @Header("Authorization")
         bearerAccessToken: String?
     ): Call<List<User>>
 
-    @GET("friends/requests/pending/")
+    @GET("/v1/friends/requests/pending/")
     fun getAllFriendRequests(
         @Header("Authorization")
         bearerAccessToken: String?
     ): Call<List<FriendRequest>>
 
-    @GET("rooms/")
+    @GET("/v1/rooms/")
     fun getRooms(
         @Header("Authorization")
         bearerAccessToken: String?,
