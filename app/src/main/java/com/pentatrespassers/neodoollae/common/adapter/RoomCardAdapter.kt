@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile
+package com.pentatrespassers.neodoollae.common.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,16 +9,16 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellRoomCardBinding
-import com.pentatrespassers.neodoollae.dto.RoomInfo
+import com.pentatrespassers.neodoollae.dto.Room
 
-class RoomCardAdapter(private val context: Context, private val roomInfoList: ArrayList<RoomInfo>) :
+class RoomCardAdapter(private val context: Context, private val roomList: ArrayList<Room>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class RoomCardHolder(private val bind: CellRoomCardBinding) :
         RecyclerView.ViewHolder(bind.root) {
-        fun binding(roomInfo: RoomInfo) {
+        fun binding(room: Room) {
             with(bind) {
-                if (roomInfo.status == RoomInfo.STATUS_UNDEFINED) {
+                if (room.status == Room.STATUS_UNDEFINED) {
                     roomImage.run {
                         setImageResource(R.drawable.ic_plus)
                         scaleType = ImageView.ScaleType.CENTER
@@ -29,10 +29,10 @@ class RoomCardAdapter(private val context: Context, private val roomInfoList: Ar
                     nicknameTextRoomCard.visibility = View.INVISIBLE
                     roomStatusText.visibility = View.INVISIBLE
                 } else {
-                    roomNameTextRoomCard.text = roomInfo.roomName
-                    roomStatusText.text = when (roomInfo.status) {
-                        RoomInfo.STATUS_OPEN -> context.getString(R.string.open)
-                        RoomInfo.STATUS_CLOSED -> context.getString(R.string.closed)
+                    roomNameTextRoomCard.text = room.roomName
+                    roomStatusText.text = when (room.status) {
+                        Room.STATUS_OPEN -> context.getString(R.string.open)
+                        Room.STATUS_CLOSED -> context.getString(R.string.closed)
                         else -> context.getString(R.string.restricted)
                     }
                 }
@@ -47,12 +47,12 @@ class RoomCardAdapter(private val context: Context, private val roomInfoList: Ar
 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val room = roomInfoList[position]
+        val room = roomList[position]
         (holder as RoomCardHolder).binding(room)
     }
 
     override fun getItemCount(): Int {
-        return roomInfoList.size
+        return roomList.size
     }
 
 

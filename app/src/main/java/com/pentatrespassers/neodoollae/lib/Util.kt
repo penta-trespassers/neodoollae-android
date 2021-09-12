@@ -16,5 +16,4 @@ object Util {
         }
     }
     fun j(msg: String) = Log.d("jinha", msg)
-    fun dummy(any: Any?) = any
 }

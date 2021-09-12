@@ -1,10 +1,13 @@
 package com.pentatrespassers.neodoollae.view.login
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
+import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
+import splitties.activities.start
 import splitties.fragments.fragmentTransaction
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val homeFragment by lazy {
-        HomeFragment.newInstance(23)
+        HomeFragment.newInstance()
     }
     private val aroundFragment by lazy {
         AroundFragment.newInstance()
@@ -31,10 +34,27 @@ class MainActivity : AppCompatActivity() {
     private val fragmentList =
         arrayListOf(homeFragment, aroundFragment, friendFragment, noticeFragment, myPageFragment)
 
-    private fun replaceMainFrame(index: Int) = fragmentTransaction {
-        hide(fragmentList[currentFragmentIndex])
-        show(fragmentList[index])
-        currentFragmentIndex = index
+    private fun replaceMainFrame(index: Int) {
+        val fragment = fragmentList[index]
+        fragmentTransaction {
+            hide(fragmentList[currentFragmentIndex])
+            with(bind) {
+                when (fragment) {
+                    homeFragment -> {
+                        settingButton.visibility = View.GONE
+                        menuBarConstraint.visibility = View.VISIBLE
+                    }
+                    myPageFragment -> {
+                        settingButton.visibility = View.VISIBLE
+                        menuBarConstraint.visibility = View.VISIBLE
+                    }
+                    else -> menuBarConstraint.visibility = View.GONE
+                }
+            }
+
+            show(fragment)
+            currentFragmentIndex = index
+        }
     }
 
     private var currentFragmentIndex = 0
@@ -51,6 +71,12 @@ class MainActivity : AppCompatActivity() {
                         hide(fragmentList[i])
                     }
                 }
+            }
+            notificationButton.setOnClickListener {
+
+            }
+            settingButton.setOnClickListener {
+                start<SettingsActivity>()
             }
 
             bottomNavigationView.setOnItemSelectedListener {

@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.network
 
 import com.pentatrespassers.neodoollae.dto.FriendRequest
+import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.Token
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import com.pentatrespassers.neodoollae.lib.Authentication
@@ -35,7 +36,17 @@ object RetrofitClient {
             defaultCallback(onUnsuccessful, onSuccessful)
         }
     )
-
+    fun getRoom(
+        userId: Int,
+        onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
+    ) = instance.getRooms(Authentication.bearerAccessToken, userId).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback (onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
 
     fun <T> defaultCallback(
         onUnsuccessful: (Call<T>, Response<T>) -> Unit = { _, response ->
