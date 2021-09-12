@@ -2,7 +2,9 @@ package com.pentatrespassers.neodoollae.view
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.kakao.sdk.auth.AuthApiClient
 import com.kakao.sdk.auth.TokenManager
 import com.kakao.sdk.auth.model.OAuthToken
@@ -17,6 +19,9 @@ import com.pentatrespassers.neodoollae.view.login.RegisterActivity
 import splitties.activities.start
 import splitties.bundle.putExtras
 
+
+
+
 class LoginActivity : AppCompatActivity() {
 
     private val bind by lazy {
@@ -24,8 +29,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_Neodoollae)
         super.onCreate(savedInstanceState)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.app_theme)
 
         with(bind) {
             setContentView(root)
