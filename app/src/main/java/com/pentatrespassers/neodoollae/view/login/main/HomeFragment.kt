@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentHomeBinding
+import com.pentatrespassers.neodoollae.dto.User
 
 class HomeFragment private constructor() : Fragment() {
 
@@ -18,20 +19,14 @@ class HomeFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentHomeBinding.inflate(inflater, container, false)
         with(bind) {
+            var a:List<User>? = null
+//            roomCardRecyclerHome.adapter = RoomCardAdapter(this@HomeFragment, roomList)
             return root
         }
     }
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        if (hidden) {
-
-        } else {
-        }
-    }
-
     companion object {
-        fun newInstance(test: Int) = HomeFragment().apply {
-        }
+        fun newInstance() = HomeFragment()
     }
 
 

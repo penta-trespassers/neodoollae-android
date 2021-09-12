@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val homeFragment by lazy {
-        HomeFragment.newInstance(23)
+        HomeFragment.newInstance()
     }
     private val aroundFragment by lazy {
         AroundFragment.newInstance()

@@ -2,10 +2,10 @@ package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
 import com.pentatrespassers.neodoollae.dto.RoomInfo
 import com.pentatrespassers.neodoollae.dto.User
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.RoomCardAdapter
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.withExtras
