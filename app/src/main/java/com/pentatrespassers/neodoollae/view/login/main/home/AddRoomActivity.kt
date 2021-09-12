@@ -5,7 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
-import com.pentatrespassers.neodoollae.dto.RoomInfo
+import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.*
 import splitties.activities.start
 import splitties.bundle.putExtras
@@ -61,7 +61,7 @@ class AddRoomActivity : AppCompatActivity() {
                 if (currentFragmentIndex == fragmentList.lastIndex) {
                     start<RoomProfileActivity> {
                         putExtras(RoomProfileActivity.Extras) {
-                            roomInfo = RoomInfo(
+                            room = Room(
                                 roomName = roomInfoFragment.roomName,
                                 address = addressFragment.address,
                                 detailAddress = addressFragment.detailAddress,

@@ -4,9 +4,10 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class RoomInfo(
+data class Room(
+    var id: Int? = null,
+    var userId: Int? = null,
     var nickname: String = "",
-    var userId: Int = -1,
     var roomName: String = "",
     var address: String = "",
     var detailAddress: String = "",

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
-import com.pentatrespassers.neodoollae.dto.RoomInfo
+import com.pentatrespassers.neodoollae.dto.Room
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.withExtras
@@ -12,11 +12,11 @@ import splitties.bundle.withExtras
 class RoomProfileActivity : AppCompatActivity() {
 
     object Extras : BundleSpec() {
-        var roomInfo: RoomInfo by bundle()
+        var room: Room by bundle()
     }
     private val roomInfo by lazy {
         withExtras(Extras) {
-            roomInfo
+            room
         }
     }
 

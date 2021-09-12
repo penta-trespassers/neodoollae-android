@@ -25,17 +25,15 @@ class FriendProfileActivity : AppCompatActivity() {
     private val bind by lazy {
         ActivityFriendProfileBinding.inflate(layoutInflater)
     }
-    private val roomList = arrayListOf(
-        RoomInfo(roomName = "우리 집", status = RoomInfo.STATUS_OPEN),
-        RoomInfo(roomName = "우리 집", status = RoomInfo.STATUS_CLOSED),
-        RoomInfo(roomName = "우리 집", status = RoomInfo.STATUS_RESTRICTED)
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            roomCardRecycler.adapter = RoomCardAdapter(this@FriendProfileActivity, roomList)
+            RetrofitClient.getRoom(user.id) { _, response ->
+                roomCardRecycler.adapter = RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
+            }
+
             nicknameTextFriendProfile.text = user.nickname
             backButton.setOnClickListener {
                 finish()
