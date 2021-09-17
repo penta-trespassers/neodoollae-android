@@ -96,6 +96,7 @@
     <string name="register_message">프로필 사진과 닉네임을 등록해주세요.</string>
     <string name="friend_code_colon">친구 코드:&#160;</string>
     <string name="abcdef">ABCDEF</string>
+    <string name="reservation_history">예약 내역</string>
 
 
 </resources>

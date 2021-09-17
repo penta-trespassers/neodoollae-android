@@ -10,56 +10,30 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.FragmentNotificationBinding
-import com.pentatrespassers.neodoollae.dto.Notification
-import com.pentatrespassers.neodoollae.view.login.main.notification.NotificationAdapter
+import com.pentatrespassers.neodoollae.databinding.FragmentReservationBinding
+import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
 
-class NotificationFragment private constructor() : Fragment() {
+class ReservationFragment private constructor() : Fragment() {
 
-    private lateinit var bind: FragmentNotificationBinding
+    private lateinit var bind: FragmentReservationBinding
 
-    private var notificationList = arrayListOf(
-        Notification(
-            nickname = "윤건우",
-            time = "2021.08.28",
-            status = Notification.STATUS_RESERVE_WAITING
-        ),
-        Notification(
-            nickname = "이서진",
-            time = "2021.08.28",
-            status = Notification.STATUS_RESERVE_ACCEPTED
-        ),
-        Notification(
-            nickname = "현수빈",
-            time = "2021.08.28",
-            status = Notification.STATUS_RESERVE_DECLINED
-        ),
-        Notification(
-            nickname = "김성준",
-            time = "2021.08.28",
-            status = Notification.STATUS_REVIEW_HOST
-        ),
-        Notification(
-            nickname = "황진하",
-            time = "2021.08.28",
-            status = Notification.STATUS_REVIEW_GUEST
-        ),
-        Notification(
-            nickname = "에오스",
-            time = "2021.08.28",
-            status = Notification.STATUS_REVIEW_ROOM
-        )
+    private var reservationList = arrayListOf(
+        Reservation(nickname = "진하", createdAt = System.currentTimeMillis(), roomName = "진하방", status = Reservation.STATUS_WAITING),
+        Reservation(nickname = "수빈", createdAt = System.currentTimeMillis(), roomName = "수빈방", status = Reservation.STATUS_ACCEPTED),
+        Reservation(nickname = "성준", createdAt = System.currentTimeMillis(), roomName = "성준방", status = Reservation.STATUS_DECLINED),
+//        Reservation(nickname = "서진", createdAt = System.currentTimeMillis(), roomName = "서진방", status = Reservation.STATUS_UNDEFINED),
     )
 
     private val notificationAdapter by lazy {
-        NotificationAdapter(requireContext(), notificationList)
+        ReservationAdapter(requireContext(), reservationList)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bind = FragmentNotificationBinding.inflate(inflater, container, false)
+        bind = FragmentReservationBinding.inflate(inflater, container, false)
         with(bind) {
             notificationRecycler.setHasFixedSize(true)
             notificationRecycler.adapter = notificationAdapter
@@ -102,6 +76,6 @@ class NotificationFragment private constructor() : Fragment() {
     }
 
     companion object {
-        fun newInstance() = NotificationFragment()
+        fun newInstance() = ReservationFragment()
     }
 }

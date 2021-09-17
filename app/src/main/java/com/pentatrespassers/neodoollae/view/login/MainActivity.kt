@@ -25,14 +25,14 @@ class MainActivity : AppCompatActivity() {
     private val friendFragment by lazy {
         FriendFragment.newInstance()
     }
-    private val noticeFragment by lazy {
-        NotificationFragment.newInstance()
+    private val reservationFragment by lazy {
+        ReservationFragment.newInstance()
     }
     private val myPageFragment by lazy {
         MyPageFragment.newInstance()
     }
     private val fragmentList =
-        arrayListOf(homeFragment, aroundFragment, friendFragment, noticeFragment, myPageFragment)
+        arrayListOf(homeFragment, aroundFragment, friendFragment, reservationFragment, myPageFragment)
 
     private fun replaceMainFrame(index: Int) {
         val fragment = fragmentList[index]
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.friendItem -> {
                         replaceMainFrame(2)
                     }
-                    R.id.noticeItem -> {
+                    R.id.reservationItem -> {
                         replaceMainFrame(3)
                     }
                     R.id.myPageItem -> {
