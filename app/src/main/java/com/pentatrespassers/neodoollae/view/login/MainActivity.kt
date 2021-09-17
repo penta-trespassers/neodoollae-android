@@ -38,14 +38,22 @@ class MainActivity : AppCompatActivity() {
         NotificationFragment.newInstance()
     }
     private val fragmentList =
-        arrayListOf(homeFragment, aroundFragment, friendFragment, reservationFragment, myPageFragment, notificationFragment)
+        arrayListOf(
+            homeFragment,
+            aroundFragment,
+            friendFragment,
+            reservationFragment,
+            myPageFragment,
+            notificationFragment
+        )
 
     private fun replaceMainFrame(index: Int) {
-        val fragment = fragmentList[index]
+        val currentFragment = fragmentList[currentFragmentIndex]
+        val nextFragment = fragmentList[index]
         fragmentTransaction {
-            hide(fragmentList[currentFragmentIndex])
+            hide(currentFragment)
             with(bind) {
-                when (fragment) {
+                when (nextFragment) {
                     homeFragment -> {
                         notificationButton.visibility = View.VISIBLE
                         backButtonMain.visibility = View.GONE
@@ -72,12 +80,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            show(fragment)
+            show(nextFragment)
             previousFragmentIndex = currentFragmentIndex
             currentFragmentIndex = index
         }
     }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
