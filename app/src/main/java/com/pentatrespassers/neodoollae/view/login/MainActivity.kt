@@ -85,13 +85,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            fragmentTransaction() {
+            fragmentTransaction {
                 for (i in fragmentList.indices) {
                     add(R.id.mainFrame, fragmentList[i])
                     if (i != 0) {
                         hide(fragmentList[i])
                     }
                 }
+
             }
             notificationButton.setOnClickListener {
                 replaceMainFrame(5)
@@ -126,5 +127,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        with(bind) {
+            if (backButtonMain.visibility == View.VISIBLE) {
+                backButtonMain.performClick()
+            } else {
+                super.onBackPressed()
+            }
+        }
+
+    }
 
 }
