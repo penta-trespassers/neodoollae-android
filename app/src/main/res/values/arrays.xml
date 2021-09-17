@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinnerArrayNotice">
+    <string-array name="spinnerArrayNotification">
         <item>전체 알림</item>
         <item>예약 알림</item>
         <item>리뷰 알림</item>
     </string-array>
+    <string-array name="spinnerArrayReservation">
+        <item>전체 예약</item>
+        <item>예약 신청</item>
+    </string-array>
+
 
 </resources>

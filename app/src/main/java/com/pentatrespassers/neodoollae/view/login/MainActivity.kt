@@ -12,6 +12,9 @@ import splitties.fragments.fragmentTransaction
 
 class MainActivity : AppCompatActivity() {
 
+    private var currentFragmentIndex = 0
+    private var previousFragmentIndex = -1
+
     private val bind by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -31,8 +34,11 @@ class MainActivity : AppCompatActivity() {
     private val myPageFragment by lazy {
         MyPageFragment.newInstance()
     }
+    private val notificationFragment by lazy {
+        NotificationFragment.newInstance()
+    }
     private val fragmentList =
-        arrayListOf(homeFragment, aroundFragment, friendFragment, reservationFragment, myPageFragment)
+        arrayListOf(homeFragment, aroundFragment, friendFragment, reservationFragment, myPageFragment, notificationFragment)
 
     private fun replaceMainFrame(index: Int) {
         val fragment = fragmentList[index]
@@ -41,23 +47,38 @@ class MainActivity : AppCompatActivity() {
             with(bind) {
                 when (fragment) {
                     homeFragment -> {
+                        notificationButton.visibility = View.VISIBLE
+                        backButtonMain.visibility = View.GONE
+                        titleText.visibility = View.GONE
                         settingButton.visibility = View.GONE
-                        menuBarConstraint.visibility = View.VISIBLE
+                        appBarConstraint.visibility = View.VISIBLE
                     }
                     myPageFragment -> {
+                        notificationButton.visibility = View.VISIBLE
+                        backButtonMain.visibility = View.GONE
+                        titleText.visibility = View.VISIBLE
+                        titleText.text = getString(R.string.my_page)
                         settingButton.visibility = View.VISIBLE
-                        menuBarConstraint.visibility = View.VISIBLE
+                        appBarConstraint.visibility = View.VISIBLE
                     }
-                    else -> menuBarConstraint.visibility = View.GONE
+                    notificationFragment -> {
+                        notificationButton.visibility = View.GONE
+                        backButtonMain.visibility = View.VISIBLE
+                        titleText.visibility = View.VISIBLE
+                        titleText.text = getString(R.string.notification)
+                        settingButton.visibility = View.GONE
+                    }
+                    else -> appBarConstraint.visibility = View.GONE
                 }
             }
 
             show(fragment)
+            previousFragmentIndex = currentFragmentIndex
             currentFragmentIndex = index
         }
     }
 
-    private var currentFragmentIndex = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Neodoollae)
@@ -73,7 +94,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             notificationButton.setOnClickListener {
-
+                replaceMainFrame(5)
+            }
+            backButtonMain.setOnClickListener {
+                replaceMainFrame(previousFragmentIndex)
             }
             settingButton.setOnClickListener {
                 start<SettingsActivity>()

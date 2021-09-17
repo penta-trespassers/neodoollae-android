@@ -6,46 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".view.login.main.HomeFragment">
 
-    <Spinner
-        android:id="@+id/filterSpinner"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/notificationRecycler"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageButton
-        android:id="@+id/deleteButtonNotification"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="18dp"
-        android:background="@color/transparent"
-        android:src="@drawable/ic_baseline_delete_24"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Spinner
+            android:id="@+id/filterSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="18dp"
         android:background="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/deleteButtonNotification" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
     <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/notificationRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingBottom="0"
+        android:paddingBottom="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:listitem="@layout/cell_reservation" />
+        tools:listitem="@layout/cell_review" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

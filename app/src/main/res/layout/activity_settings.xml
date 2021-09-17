@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:clickable="false"
-            android:text="@string/notice_settings"
+            android:text="@string/notification_settings"
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
