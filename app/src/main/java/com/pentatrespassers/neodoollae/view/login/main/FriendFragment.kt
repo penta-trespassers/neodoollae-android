@@ -53,7 +53,7 @@ class FriendFragment private constructor() : Fragment() {
                 }
             }.attach()
             friendTabLayout.clearOnTabSelectedListeners()
-            friendTabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            friendTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     friendViewPager.setCurrentItem(tab!!.position, false)
                 }

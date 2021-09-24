@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="@+id/friendImageReservation" />
 
     <TextView
-        android:id="@+id/reservationDateText"
+        android:id="@+id/createdAtText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reserve_date"
@@ -71,7 +71,7 @@
         tools:visibility="visible">
 
         <TextView
-            android:id="@+id/messageToHostTextReservation"
+            android:id="@+id/requestMessageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -103,7 +103,7 @@
             android:textSize="14dp"
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/messageToHostTextReservation" />
+            app:layout_constraintTop_toBottomOf="@id/requestMessageText" />
 
         <TextView
             android:id="@+id/checkInTimeTextReservation"
@@ -186,7 +186,7 @@
             app:layout_constraintTop_toBottomOf="@id/visitingPeopleGuideReservation" />
 
         <TextView
-            android:id="@+id/messageToGuestTextReservation"
+            android:id="@+id/responseMessageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -220,7 +220,7 @@
             android:padding="18dp"
             android:textSize="14dp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="@+id/messageToHostTextReservation"
+            app:layout_constraintEnd_toEndOf="@+id/requestMessageText"
             app:layout_constraintTop_toBottomOf="@id/messageToGuestGuideReservation" />
 
         <Button
@@ -262,7 +262,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:constraint_referenced_ids="messageToGuestTextReservation
+            app:constraint_referenced_ids="responseMessageText
            ,messageToGuestGuideReservation"
             tools:layout_editor_absoluteX="18dp"
             tools:layout_editor_absoluteY="18dp"

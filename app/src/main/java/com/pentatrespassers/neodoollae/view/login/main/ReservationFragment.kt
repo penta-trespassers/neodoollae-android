@@ -11,22 +11,23 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentReservationBinding
-import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
 
 class ReservationFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentReservationBinding
 
-    private var reservationList = arrayListOf(
-        Reservation(nickname = "진하",  roomName = "진하방", status = Reservation.STATUS_WAITING),
-        Reservation(nickname = "수빈", roomName = "수빈방", status = Reservation.STATUS_ACCEPTED),
-        Reservation(nickname = "성준",  roomName = "성준방", status = Reservation.STATUS_DECLINED),
-//        Reservation(nickname = "서진", createdAt = System.currentTimeMillis(), roomName = "서진방", status = Reservation.STATUS_UNDEFINED),
-    )
 
     private val reservationAdapter by lazy {
-        ReservationAdapter(requireContext(), reservationList)
+        ReservationAdapter(requireContext(), arrayListOf())
+    }
+
+    private fun refreshReservationList() {
+        RetrofitClient.getAllMyReservations { _, response ->
+            reservationAdapter.reservationList = response.body()!!
+            reservationAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun onCreateView(
@@ -38,6 +39,7 @@ class ReservationFragment private constructor() : Fragment() {
             reservationRecycler.setHasFixedSize(true)
             reservationRecycler.adapter = reservationAdapter
             reservationRecycler.addItemDecoration(DividerItemDecoration(requireContext(), 1))
+            refreshReservationList()
 
             //implement spinner
             filterSpinner.adapter =

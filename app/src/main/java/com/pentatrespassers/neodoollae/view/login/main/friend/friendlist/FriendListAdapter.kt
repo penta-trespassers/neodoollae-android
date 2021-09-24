@@ -44,7 +44,7 @@ class FriendListAdapter(private var context: Context, private var userList: List
         return userList.size
     }
 
-    fun refresh(userList :List<User>) {
+    fun refresh(userList: List<User>) {
         this.userList = userList
         notifyDataSetChanged()
     }

@@ -23,7 +23,8 @@ class FriendRequestFragment private constructor() : Fragment() {
         with(bind) {
             RetrofitClient.getAllFriendRequests { _, response ->
                 if (response.body() != null) {
-                    friendRequestRecycler.adapter = FriendRequestAdapter(requireContext(), response.body()!!)
+                    friendRequestRecycler.adapter =
+                        FriendRequestAdapter(requireContext(), response.body()!!)
                 }
             }
             return root

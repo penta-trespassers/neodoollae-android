@@ -106,10 +106,10 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             var markerList = mutableListOf<Marker>()
             mapList.forEach {
                 val marker = Marker()
-                marker.setPosition(LatLng(it.latitude, it.longitude))
+                marker.position = LatLng(it.latitude, it.longitude)
                 //이미지 설정
                 // marker.setIcon(OverlayImage.fromResource(R.drawable.ic_done_24dp));
-                marker.setMap(naverMap)
+                marker.map = naverMap
                 markerList.add(marker)
             }
 

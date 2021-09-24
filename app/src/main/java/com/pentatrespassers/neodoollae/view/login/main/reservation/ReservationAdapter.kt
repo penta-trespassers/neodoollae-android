@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellReservationBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.lib.Util
+import java.util.*
 
 class ReservationAdapter(
-    private val context: Context, private val reservationList: ArrayList<Reservation>
+    private val context: Context, var reservationList: ArrayList<Reservation>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -45,8 +47,15 @@ class ReservationAdapter(
                         itemView.visibility = View.GONE
                     }
                 }
-                reservationDateText.text = "${reservation.createdAt}"
+
+                createdAtText.text = Util.simpleDateFormatter.format(reservation.createdAt?.time)
                 roomNameTextReservation.text = reservation.roomName
+                checkInTimeTextReservation.text =
+                    Util.simpleDateFormatter.format(reservation.checkIn?.time)
+                checkOutTimeTextReservation.text =
+                    Util.simpleDateFormatter.format(reservation.checkOut?.time)
+                requestMessageText.text = reservation.requestMessage
+                responseMessageText.text = reservation.responseMessage
 
                 when (reservation.status) {
                     Reservation.STATUS_WAITING -> {
@@ -83,10 +92,6 @@ class ReservationAdapter(
         }
     }
 
-
-    override fun getItemViewType(position: Int): Int {
-        return reservationList[position].status
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CellNotificationReservationHolder(

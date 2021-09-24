@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                         settingButton.visibility = View.GONE
                         appBarConstraint.visibility = View.VISIBLE
                     }
-                    friendFragment-> {
+                    friendFragment -> {
                         notificationButton.visibility = View.GONE
                         backButtonMain.visibility = View.GONE
                         titleText.visibility = View.VISIBLE
