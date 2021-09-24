@@ -29,6 +29,11 @@ import splitties.permissions.ensureAllPermissions
 
 class LoginActivity : AppCompatActivity() {
 
+    private val permissions = listOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.ACCESS_FINE_LOCATION
+    )
+
     private val bind by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
     }
@@ -52,8 +57,7 @@ class LoginActivity : AppCompatActivity() {
             }
             lifecycle.coroutineScope.launch {
                 ensureAllPermissions(
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.CAMERA,
+                    permissions,
                     activity = this@LoginActivity,
                     fragmentManager = supportFragmentManager,
                     lifecycle = lifecycle,
