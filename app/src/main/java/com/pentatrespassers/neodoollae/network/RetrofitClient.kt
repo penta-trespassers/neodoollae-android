@@ -48,6 +48,8 @@ object RetrofitClient {
         }
     )
 
+    fun getAllMyReservations() = instance.getAllMyReservations(Authentication.bearerAccessToken)
+
     fun <T> defaultCallback(
         onUnsuccessful: (Call<T>, Response<T>) -> Unit = { _, response ->
             Util.j("실패: $response")

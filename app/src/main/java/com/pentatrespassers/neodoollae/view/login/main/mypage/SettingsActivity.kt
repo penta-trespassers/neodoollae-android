@@ -17,14 +17,27 @@ class SettingsActivity : AppCompatActivity() {
         ActivitySettingsBinding.inflate(layoutInflater)
     }
 
-    private val noticeSettingsFragment = NotificationSettingsFragment.newInstance()
+    private val notificationSettingsFragment = NotificationSettingsFragment.newInstance()
     private val termsOfUseFragment = TermsOfUseFragment.newInstance()
     private val developerInfoFragment = DeveloperInfoFragment.newInstance()
 
     private fun replaceSettingsFrame(fragment: Fragment) = fragmentTransaction {
         replace(R.id.settingsFrame, fragment)
-        bind.settingsFrame.visibility = View.VISIBLE
-        bind.previousText.text = getString(R.string.settings)
+        with(bind) {
+            when (fragment) {
+                notificationSettingsFragment -> {
+                    titleTextSettings.text = getString(R.string.notification_settings)
+                }
+                termsOfUseFragment -> {
+                    titleTextSettings.text = getString(R.string.terms_of_use)
+                }
+                developerInfoFragment -> {
+                    titleTextSettings.text = getString(R.string.developer_info)
+                }
+            }
+            settingsFrame.visibility = View.VISIBLE
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +47,7 @@ class SettingsActivity : AppCompatActivity() {
                 onBackPressed()
             }
             noticeSettingsConstraint.setOnClickListener {
-                replaceSettingsFrame(noticeSettingsFragment)
+                replaceSettingsFrame(notificationSettingsFragment)
             }
             termsOfUseConstraint.setOnClickListener {
                 replaceSettingsFrame(termsOfUseFragment)
@@ -49,12 +62,13 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         with(bind) {
-            if (previousText.text == getString(R.string.settings)) {
+            if (settingsFrame.visibility == View.VISIBLE) {
+                titleTextSettings.text = getString(R.string.settings)
                 settingsFrame.visibility = View.GONE
-                previousText.text = getString(R.string.my_page)
             } else {
                 finish()
             }
         }
+
     }
 }

@@ -19,9 +19,9 @@ class ReservationFragment private constructor() : Fragment() {
     private lateinit var bind: FragmentReservationBinding
 
     private var reservationList = arrayListOf(
-        Reservation(nickname = "진하", createdAt = System.currentTimeMillis(), roomName = "진하방", status = Reservation.STATUS_WAITING),
-        Reservation(nickname = "수빈", createdAt = System.currentTimeMillis(), roomName = "수빈방", status = Reservation.STATUS_ACCEPTED),
-        Reservation(nickname = "성준", createdAt = System.currentTimeMillis(), roomName = "성준방", status = Reservation.STATUS_DECLINED),
+        Reservation(nickname = "진하",  roomName = "진하방", status = Reservation.STATUS_WAITING),
+        Reservation(nickname = "수빈", roomName = "수빈방", status = Reservation.STATUS_ACCEPTED),
+        Reservation(nickname = "성준",  roomName = "성준방", status = Reservation.STATUS_DECLINED),
 //        Reservation(nickname = "서진", createdAt = System.currentTimeMillis(), roomName = "서진방", status = Reservation.STATUS_UNDEFINED),
     )
 

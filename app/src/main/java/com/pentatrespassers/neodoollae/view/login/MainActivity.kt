@@ -5,6 +5,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
+import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.*
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
@@ -50,6 +52,8 @@ class MainActivity : AppCompatActivity() {
     private fun replaceMainFrame(index: Int) {
         val currentFragment = fragmentList[currentFragmentIndex]
         val nextFragment = fragmentList[index]
+
+
         fragmentTransaction {
             hide(currentFragment)
             with(bind) {
@@ -92,6 +96,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
+            RetrofitClient.getAllMyReservations().enqueue(RetrofitClient.defaultCallback { call, response ->
+                Util.j("${response.body()}")
+            })
             fragmentTransaction {
                 for (i in fragmentList.indices) {
                     add(R.id.mainFrame, fragmentList[i])
