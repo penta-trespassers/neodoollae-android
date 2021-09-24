@@ -65,6 +65,22 @@ class MainActivity : AppCompatActivity() {
                         settingButton.visibility = View.GONE
                         appBarConstraint.visibility = View.VISIBLE
                     }
+                    friendFragment-> {
+                        notificationButton.visibility = View.GONE
+                        backButtonMain.visibility = View.GONE
+                        titleText.visibility = View.VISIBLE
+                        titleText.text = getString(R.string.friend)
+                        settingButton.visibility = View.GONE
+                        appBarConstraint.visibility = View.VISIBLE
+                    }
+                    reservationFragment -> {
+                        notificationButton.visibility = View.GONE
+                        backButtonMain.visibility = View.GONE
+                        titleText.visibility = View.VISIBLE
+                        titleText.text = getString(R.string.reservation_history)
+                        settingButton.visibility = View.GONE
+                        appBarConstraint.visibility = View.VISIBLE
+                    }
                     myPageFragment -> {
                         notificationButton.visibility = View.VISIBLE
                         backButtonMain.visibility = View.GONE
