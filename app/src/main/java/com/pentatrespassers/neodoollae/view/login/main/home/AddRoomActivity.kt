@@ -24,7 +24,13 @@ class AddRoomActivity : AppCompatActivity() {
     private val roomCompleteFragment = RoomCompleteFragment.newInstance()
 
     private val fragmentList =
-        arrayListOf(addressFragment, roomInfoFragment, roomOperationFragment, pictureFragment, roomCompleteFragment)
+        arrayListOf(
+            addressFragment,
+            roomInfoFragment,
+            roomOperationFragment,
+            pictureFragment,
+            roomCompleteFragment
+        )
     private var currentFragmentIndex = 0
 
 

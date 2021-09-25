@@ -1,5 +1,6 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,24 +8,44 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.FragmentNotificationBinding
+import com.pentatrespassers.neodoollae.databinding.FragmentReservationBinding
+import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
 
-class NotificationFragment private constructor() : Fragment() {
+class ReservationFragment private constructor() : Fragment() {
 
-    private lateinit var bind: FragmentNotificationBinding
+    private lateinit var bind: FragmentReservationBinding
 
+
+    private val reservationAdapter by lazy {
+        ReservationAdapter(requireContext(), arrayListOf())
+    }
+
+    private fun refreshReservationList() {
+        RetrofitClient.getAllMyReservations { _, response ->
+            reservationAdapter.reservationList = response.body()!!
+            reservationAdapter.notifyDataSetChanged()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bind = FragmentNotificationBinding.inflate(inflater, container, false)
+        bind = FragmentReservationBinding.inflate(inflater, container, false)
         with(bind) {
+            reservationRecycler.setHasFixedSize(true)
+            reservationRecycler.adapter = reservationAdapter
+            reservationRecycler.addItemDecoration(DividerItemDecoration(requireContext(), 1))
+            refreshReservationList()
+
+            //implement spinner
             filterSpinner.adapter =
                 ArrayAdapter.createFromResource(
                     requireContext(),
-                    R.array.spinnerArrayNotification,
+                    R.array.spinnerArrayReservation,
                     android.R.layout.simple_spinner_item
                 ).apply {
                     // Specify the layout to use when the list of choices appears
@@ -56,10 +77,7 @@ class NotificationFragment private constructor() : Fragment() {
         }
     }
 
-
     companion object {
-        fun newInstance() = NotificationFragment()
+        fun newInstance() = ReservationFragment()
     }
-
-
 }

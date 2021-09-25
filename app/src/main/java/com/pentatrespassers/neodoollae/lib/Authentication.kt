@@ -19,10 +19,15 @@ object Authentication {
 
     fun startMainActivity(context: Context, accessToken: String, extraCallback: () -> Unit = {}) {
         this.accessToken = accessToken
-        RetrofitClient.getMyInfo().enqueue(RetrofitClient.defaultCallback { _, response ->
+        RetrofitClient.getMyInfo{ _, response ->
             user = response.body()
             context.start<MainActivity>()
             extraCallback()
-        })
+        }
+    }
+    fun refreshUser() {
+        RetrofitClient.getMyInfo { _, response ->
+            user = response.body()
+        }
     }
 }

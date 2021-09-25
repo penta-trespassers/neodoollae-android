@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellFriendRequestBinding
 import com.pentatrespassers.neodoollae.dto.FriendRequest
 
-class FriendRequestAdapter(private val context: Context, private val friendRequestList: List<FriendRequest>) :
+class FriendRequestAdapter(
+    private val context: Context,
+    private val friendRequestList: List<FriendRequest>
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)

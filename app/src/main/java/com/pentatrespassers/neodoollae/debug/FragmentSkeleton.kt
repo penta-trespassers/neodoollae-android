@@ -1,12 +1,6 @@
 package com.pentatrespassers.neodoollae.debug
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pentatrespassers.neodoollae.databinding.FragmentHomeBinding
-import splitties.fragmentargs.arg
 
 class SkeletonFragment private constructor() : Fragment() {
 

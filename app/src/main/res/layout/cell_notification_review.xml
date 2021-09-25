@@ -8,14 +8,6 @@
     android:background="?attr/selectableItemBackground"
     android:padding="18dp">
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/cellNotice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="friendImageNotice, notificationTextNotice, notificationTimeTextNotice, notificationImageNotice, arrowImageNotice"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="18dp" />
-
     <ImageView
         android:id="@+id/friendImageNotice"
         android:layout_width="36dp"
@@ -26,7 +18,7 @@
         app:tint="@color/trespassGray_600" />
 
     <TextView
-        android:id="@+id/notificationTextNotice"
+        android:id="@+id/notificationMessageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -45,7 +37,7 @@
         android:textColor="@color/trespassGray_600"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/friendImageNotice"
-        app:layout_constraintStart_toStartOf="@+id/notificationTextNotice" />
+        app:layout_constraintStart_toStartOf="@+id/notificationMessageText" />
 
     <ImageView
         android:id="@+id/notificationImageNotice"
@@ -65,21 +57,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/notificationImageNotice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/notificationImageNotice" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/reviewExpandedGroupNotice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids=
-            "visitedRoomGuideNotice,
-            visitedRoomTextNotice,
-            gradeGuideNotice,
-            radioGroup,
-            writeReviewGuideNotice,
-            writeReviewEditTextNotice,
-            writeButtonNotice"
-        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/visitedRoomGuideNotice"

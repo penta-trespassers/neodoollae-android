@@ -1,8 +1,6 @@
 package com.pentatrespassers.neodoollae.network
 
-import com.pentatrespassers.neodoollae.dto.FriendRequest
-import com.pentatrespassers.neodoollae.dto.Room
-import com.pentatrespassers.neodoollae.dto.Token
+import com.pentatrespassers.neodoollae.dto.*
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Param
@@ -24,25 +22,44 @@ object RetrofitClient {
         RegisterBody(kakaoAccessToken, nickname)
     )
 
-    fun getMyInfo() = instance.getMyInfo(Authentication.bearerAccessToken)
+    fun getMyInfo(onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
+                  onSuccessful: (Call<User>, Response<User>) -> Unit) = instance.getMyInfo(Authentication.bearerAccessToken).enqueue(
+                        if (onUnsuccessful ==  null) {
+                            defaultCallback(onSuccessful = onSuccessful)
+                        } else {
+                            defaultCallback(onUnsuccessful, onSuccessful)
+                        }
+                  )
     fun getAllFriends() = instance.getAllFriends(Authentication.bearerAccessToken)
     fun getAllFriendRequests(
         onUnsuccessful: ((Call<List<FriendRequest>>, Response<List<FriendRequest>>) -> Unit)? = null,
         onSuccessful: (Call<List<FriendRequest>>, Response<List<FriendRequest>>) -> Unit
     ) = instance.getAllFriendRequests(Authentication.bearerAccessToken).enqueue(
         if (onUnsuccessful == null) {
-            defaultCallback (onSuccessful = onSuccessful)
+            defaultCallback(onSuccessful = onSuccessful)
         } else {
             defaultCallback(onUnsuccessful, onSuccessful)
         }
     )
+
     fun getRoom(
         userId: Int,
         onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
         onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
     ) = instance.getRooms(Authentication.bearerAccessToken, userId).enqueue(
         if (onUnsuccessful == null) {
-            defaultCallback (onSuccessful = onSuccessful)
+            defaultCallback(onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
+
+    fun getAllMyReservations(
+        onUnsuccessful: ((Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit
+    ) = instance.getAllMyReservations(Authentication.bearerAccessToken).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback(onSuccessful = onSuccessful)
         } else {
             defaultCallback(onUnsuccessful, onSuccessful)
         }

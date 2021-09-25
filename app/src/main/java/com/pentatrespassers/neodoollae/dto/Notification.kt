@@ -1,12 +1,13 @@
 package com.pentatrespassers.neodoollae.dto
 
 data class Notification(
-    var nickname: String = "",
-    var time: String = "",
-    var status: Int = STATUS_UNDEFINED
+    var title: String = "",
+    var message: String = "",
+    var createdAt: Long = 0,
+    var type: Int = TYPE_UNDEFINED
 ) {
     companion object {
-        const val STATUS_UNDEFINED = -1
+        const val TYPE_UNDEFINED = -1
         const val STATUS_RESERVE_WAITING = 0
         const val STATUS_RESERVE_ACCEPTED = 1
         const val STATUS_RESERVE_DECLINED = 2

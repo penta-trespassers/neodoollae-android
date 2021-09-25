@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
@@ -51,7 +52,19 @@ class FriendFragment private constructor() : Fragment() {
                     }
                 }
             }.attach()
+            friendTabLayout.clearOnTabSelectedListeners()
+            friendTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    friendViewPager.setCurrentItem(tab!!.position, false)
+                }
 
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+                }
+
+            })
             friendViewPager.isUserInputEnabled = false
 
             addFriendButton.setOnClickListener {

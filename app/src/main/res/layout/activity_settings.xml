@@ -6,50 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".view.login.main.mypage.SettingsActivity">
 
-    <TextView
-        android:id="@+id/previousText"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/previous"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/previousButton"
-        app:layout_constraintStart_toEndOf="@+id/previousButton"
-        app:layout_constraintTop_toTopOf="@+id/previousButton" />
-
-    <ImageButton
-        android:id="@+id/previousButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
-
-    <TextView
-        android:id="@+id/hostRateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/settings"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        android:textStyle="bold"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previousButton" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/previousButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+        <TextView
+            android:id="@+id/titleTextSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/noticeSettingsConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -57,12 +54,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hostRateTextView">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
         <ImageView
             android:id="@+id/myNameEditImageView"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:clickable="false"
-            android:text="@string/notice_settings"
+            android:text="@string/notification_settings"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/myNameEditImageView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -89,6 +86,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -100,8 +98,8 @@
 
         <ImageView
             android:id="@+id/rateImageView4"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +113,7 @@
             android:clickable="false"
             android:text="@string/terms_of_use"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rateImageView4"
             app:layout_constraintTop_toTopOf="parent" />
@@ -128,6 +126,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -139,8 +138,8 @@
 
         <ImageView
             android:id="@+id/rateImageView3"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -154,7 +153,7 @@
             android:clickable="false"
             android:text="@string/logout"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rateImageView3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -168,6 +167,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -179,8 +179,8 @@
 
         <ImageView
             android:id="@+id/rateImageView2"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -194,7 +194,7 @@
             android:clickable="false"
             android:text="@string/support_developer"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rateImageView2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -207,6 +207,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -218,8 +219,8 @@
 
         <ImageView
             android:id="@+id/rateImageView1"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -233,7 +234,7 @@
             android:clickable="false"
             android:text="@string/developer_info"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rateImageView1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -248,7 +249,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previousButton">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

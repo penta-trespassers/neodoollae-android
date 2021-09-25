@@ -3,6 +3,8 @@ package com.pentatrespassers.neodoollae.lib
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Util {
     inline fun Fragment.fragmentTransaction(
@@ -15,5 +17,7 @@ object Util {
             else -> if (now) ft.commitNow() else ft.commit()
         }
     }
+
     fun j(msg: String) = Log.d("jinha", msg)
+    var simpleDateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 }

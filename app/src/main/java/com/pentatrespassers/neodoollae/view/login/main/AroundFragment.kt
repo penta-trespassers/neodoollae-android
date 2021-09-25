@@ -1,6 +1,5 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
-import android.Manifest
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -35,10 +34,6 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     private val TAG = "MainActivity"
 
     private val PERMISSION_REQUEST_CODE = 100
-    private val PERMISSIONS = arrayOf<String>(
-        Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION
-    )
 
     private var mLocationSource: FusedLocationSource? = null
     private var mNaverMap: NaverMap? = null
@@ -59,8 +54,6 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             mapListRecyclerViewAround.adapter = mapListAdapter
 
 
-            // getMapAsync를 호출하여 비동기로 onMapReady 콜백 메서드 호출
-            // onMapReady에서 NaverMap 객체를 받음
             // getMapAsync를 호출하여 비동기로 onMapReady 콜백 메서드 호출
             // onMapReady에서 NaverMap 객체를 받음
             mapFragment.getMapAsync(this@AroundFragment)
@@ -106,10 +99,10 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             var markerList = mutableListOf<Marker>()
             mapList.forEach {
                 val marker = Marker()
-                marker.setPosition(LatLng(it.latitude, it.longitude))
+                marker.position = LatLng(it.latitude, it.longitude)
                 //이미지 설정
                 // marker.setIcon(OverlayImage.fromResource(R.drawable.ic_done_24dp));
-                marker.setMap(naverMap)
+                marker.map = naverMap
                 markerList.add(marker)
             }
 

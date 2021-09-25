@@ -22,7 +22,10 @@ class RoomCardAdapter(private val context: Context, private val roomList: ArrayL
                     roomImage.run {
                         setImageResource(R.drawable.ic_plus)
                         scaleType = ImageView.ScaleType.CENTER
-                        background = AppCompatResources.getDrawable(context, R.drawable.bg_border_white_black)
+                        background = AppCompatResources.getDrawable(
+                            context,
+                            R.drawable.bg_border_white_black
+                        )
                     }
                     roomRatingImage.visibility = View.INVISIBLE
                     roomNameTextRoomCard.visibility = View.INVISIBLE
