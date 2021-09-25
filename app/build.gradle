@@ -63,7 +63,7 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-fragments:$splitties_version")
     implementation("com.louiscad.splitties:splitties-fragmentargs:$splitties_version")
 
-    // sliding up pannel 구현을 위한 dependency - https://github.com/umano/AndroidSlidingUpPanel
+    // https://github.com/umano/AndroidSlidingUpPanel - Sliding up panel 구현을 위한 dependency
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
     // https://github.com/lopspower/CircularImageView
@@ -77,4 +77,8 @@ dependencies {
 
     // https://github.com/baoyongzhang/android-PullRefreshLayout
     implementation 'com.baoyz.pullrefreshlayout:library:1.2.0'
+
+    // https://github.com/bumptech/glide - 이미지 로딩을 위한 라이브러리
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 }
