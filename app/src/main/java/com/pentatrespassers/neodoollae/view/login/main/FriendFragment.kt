@@ -113,9 +113,16 @@ class FriendFragment private constructor() : Fragment() {
         }
     }
 
-    private fun showRejectDialog() {
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden) {
+            friendListFragment.refreshFriendList()
+            friendRequestFragment.refreshFriendRequest()
+        }
     }
+
+
 
     companion object {
         fun newInstance() = FriendFragment()

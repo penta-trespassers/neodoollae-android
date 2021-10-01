@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendListBinding
-import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendListAdapter
 
@@ -14,8 +13,7 @@ class FriendListFragment private constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendListBinding
-    private val friendList: ArrayList<User> = arrayListOf()
-    private val friendListAdapter by lazy { FriendListAdapter(requireContext(), friendList) }
+    private val friendListAdapter by lazy { FriendListAdapter(requireContext(), arrayListOf()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +32,7 @@ class FriendListFragment private constructor() : Fragment() {
         }
     }
 
-    private fun refreshFriendList() {
+    fun refreshFriendList() {
         RetrofitClient.getAllFriends { _, response ->
             friendListAdapter.refresh(response.body()!!)
         }
