@@ -17,8 +17,8 @@ data class Reservation(
 ) {
     companion object {
         const val STATUS_UNDEFINED = -1
-        const val STATUS_WAITING = 0
-        const val STATUS_ACCEPTED = 1
-        const val STATUS_DECLINED = 2
+        const val STATUS_WAITING = 0    // 예약 수락 대기중
+        const val STATUS_ACCEPTED = 1   // 예약 수락됨
+        const val STATUS_DECLINED = 2   // 예약 거절됨
     }
 }

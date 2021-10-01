@@ -47,7 +47,7 @@ interface RetrofitApi {
         userId: Int?
     ): Call<ArrayList<Room>>
 
-    @GET("/v1/reserves/")
+    @GET("/v1/reservations/")
     fun getAllMyReservations(
         @Header("Authorization")
         bearerAccessToken: String?
