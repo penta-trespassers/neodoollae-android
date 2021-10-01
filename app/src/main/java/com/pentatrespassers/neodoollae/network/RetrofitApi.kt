@@ -31,7 +31,7 @@ interface RetrofitApi {
     fun getAllFriends(
         @Header("Authorization")
         bearerAccessToken: String?
-    ): Call<List<User>>
+    ): Call<ArrayList<User>>
 
     @GET("/v1/friends/requests/pending/")
     fun getAllFriendRequests(

@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
+import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
+import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
-import com.pentatrespassers.neodoollae.view.login.main.friend.FriendPagerFragmentStateAdapter
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
 import splitties.toast.toast
 
@@ -20,11 +20,10 @@ class FriendFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentFriendBinding
 
-    private var isFriendExist = false
-    private var code = ""
 
     private val friendListFragment = FriendListFragment.newInstance()
     private val friendRequestFragment = FriendRequestFragment.newInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,40 +31,32 @@ class FriendFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentFriendBinding.inflate(inflater, container, false)
         with(bind) {
-            val pagerAdapter = FriendPagerFragmentStateAdapter(requireActivity())
-            // Fragment 2개 Add
-            pagerAdapter.addFragment(friendListFragment)
-            pagerAdapter.addFragment(friendRequestFragment)
-
-            // Adapter
-            friendViewPager.adapter = pagerAdapter
-
-
-            // TabLayout attach
-            TabLayoutMediator(friendTabLayout, friendViewPager) { tab, position ->
-                when (position) {
-                    0 -> {
-                        tab.text = "친구 목록"
-                    }
-                    1 -> {
-                        tab.text = "친구 요청"
-                    }
+            fragmentTransaction {
+                add(R.id.friendFrame,friendListFragment)
+                add(R.id.friendFrame,friendRequestFragment)
+                hide(friendRequestFragment)
+            }
+            friendListConstraint.setOnClickListener {
+                fragmentTransaction {
+                    hide(friendRequestFragment)
+                    show(friendListFragment)
+                    friendListText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassBlue_900))
+                    friendListUnderlineConstraint.visibility = View.VISIBLE
+                    friendRequestText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassGray_900))
+                    friendRequestUnderlineConstraint.visibility = View.GONE
                 }
-            }.attach()
-            friendTabLayout.clearOnTabSelectedListeners()
-            friendTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    friendViewPager.setCurrentItem(tab!!.position, false)
+            }
+            friendRequestConstraint.setOnClickListener {
+                fragmentTransaction {
+                    hide(friendListFragment)
+                    show(friendRequestFragment)
+                    friendRequestText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassBlue_900))
+                    friendRequestUnderlineConstraint.visibility = View.VISIBLE
+                    friendListText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassGray_900))
+                    friendListUnderlineConstraint.visibility = View.GONE
                 }
+            }
 
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                }
-
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-                }
-
-            })
-            friendViewPager.isUserInputEnabled = false
 
             addFriendButton.setOnClickListener {
                 showAddingDialog()

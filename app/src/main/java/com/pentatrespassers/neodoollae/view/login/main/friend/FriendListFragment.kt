@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendListAdapter
 
@@ -15,7 +14,7 @@ class FriendListFragment private constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendListBinding
-    private val friendList: List<User> = arrayListOf()
+    private val friendList: ArrayList<User> = arrayListOf()
     private val friendListAdapter by lazy { FriendListAdapter(requireContext(), friendList) }
 
     override fun onCreateView(
@@ -26,9 +25,6 @@ class FriendListFragment private constructor() : Fragment() {
         with(bind) {
             friendListRecycler.adapter = friendListAdapter
             refreshFriendList()
-            friendListPullRefresh.setOnRefreshListener {
-                refreshFriendList()
-            }
             return root
         }
     }
@@ -39,22 +35,16 @@ class FriendListFragment private constructor() : Fragment() {
     }
 
     private fun refreshFriendList() {
-        with(bind) {
-            friendListPullRefresh.setRefreshing(true)
-            RetrofitClient.getAllFriends()
-                .enqueue(RetrofitClient.defaultCallback({ _, response ->
-                    Util.j("$response")
-                    friendListPullRefresh.setRefreshing(false)
-                }) { _, response ->
-                    if (response.body() != null) {
-                        friendListAdapter.refresh(response.body()!!)
-                    }
-                    friendListPullRefresh.setRefreshing(false)
-                })
+        RetrofitClient.getAllFriends { _, response ->
+            friendListAdapter.refresh(response.body()!!)
         }
-
-
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden) {
+            refreshFriendList()
+        }
+    }
 
 }
