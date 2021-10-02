@@ -11,7 +11,9 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
+import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
 import splitties.toast.toast
@@ -59,8 +61,27 @@ class FriendFragment private constructor() : Fragment() {
 
 
             addFriendButton.setOnClickListener {
-                showAddingDialog()
-
+                val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
+                with(dialogBind) {
+                    val mBuilder = AlertDialog.Builder(context)
+                        .setView(root)
+                        .setCancelable(false).show()
+                    acceptButton.setOnClickListener {
+                        RetrofitClient.getUser("${friendCodeEditText.text}") { _, response ->
+                            val user = response.body()!!
+                            if (user.id == User.ID_UNDEFINED) {
+                                friendCodeEditText.setText("")
+                                errorTextAddFriend.visibility = View.VISIBLE
+                            } else {
+                                showCheckDialog(user)
+                                mBuilder.dismiss()
+                            }
+                        }
+                    }
+                    cancelButton.setOnClickListener {
+                        mBuilder.dismiss()
+                    }
+                }
             }
 
             return root
@@ -68,36 +89,10 @@ class FriendFragment private constructor() : Fragment() {
     }
 
 
-    private fun showAddingDialog() {
-        // Dialog만들기
-        val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
-        with(dialogBind) {
-            val mBuilder = AlertDialog.Builder(context)
-                .setView(root)
-                .setCancelable(false).show()
-
-
-            acceptButton.setOnClickListener {
-                toast("code: ${codeEditTextFriend.text}")
-                mBuilder.dismiss()
-                // 만약 해당 코드를 가진 친구가 존재한다면
-                showCheckDialog()
-
-                // 해당 코드를 가진 친구가 존재하지 않는다면
-                // showRejectDialog()
-                // 혹은 그냥 간단 toast로 해당 코드 가진 사람이 존재하지 않는다고만 띄워도 될 듯.
-
-            }
-            cancelButton.setOnClickListener {
-                mBuilder.dismiss()
-            }
-        }
-
-    }
-
-    private fun showCheckDialog() {
+    private fun showCheckDialog(user: User) {
         val dialogBind = DialogCheckFriendBinding.inflate(layoutInflater)
         with(dialogBind) {
+            friendNameTextCheckFriend.text = user.nickname
             val mBuilder = AlertDialog.Builder(context)
                 .setView(root)
                 .setCancelable(false).show()

@@ -22,6 +22,20 @@ object RetrofitClient {
         RegisterBody(kakaoAccessToken, nickname)
     )
 
+
+
+    fun getUser(
+        friendCode: String,
+        onUnsuccessful: ((Call<User?>, Response<User?>) -> Unit)? = null,
+        onSuccessful: (Call<User?>, Response<User?>) -> Unit
+    ) = instance.getUser(Authentication.bearerAccessToken, friendCode).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback(onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
+
     fun getMyInfo(
         onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
         onSuccessful: (Call<User>, Response<User>) -> Unit
@@ -98,5 +112,16 @@ object RetrofitClient {
 
     }
 
+//
+//    private fun <T> enqueue(
+//        onUnsuccessful: ((Call<T>, Response<T>) -> Unit)? = null,
+//        onSuccessful: (Call<T>, Response<T>) -> Unit
+//    ) {
+//        if (onUnsuccessful == null) {
+//            defaultCallback(onSuccessful = onSuccessful)
+//        } else {
+//            defaultCallback(onUnsuccessful, onSuccessful)
+//        }
+//    }
 
 }

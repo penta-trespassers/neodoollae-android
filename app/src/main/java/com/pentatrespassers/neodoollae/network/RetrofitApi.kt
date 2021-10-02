@@ -21,6 +21,14 @@ interface RetrofitApi {
         registerBody: RegisterBody
     ): Call<Token>
 
+    @GET("/v1/users/")
+    fun getUser(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Query("friendCode")
+        friendCode: String
+    ): Call<User>
+
     @GET("/v1/users/my/")
     fun getMyInfo(
         @Header("Authorization")
