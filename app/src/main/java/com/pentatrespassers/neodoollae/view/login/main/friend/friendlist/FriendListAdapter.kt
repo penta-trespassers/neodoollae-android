@@ -9,7 +9,7 @@ import com.pentatrespassers.neodoollae.dto.User
 import splitties.activities.start
 import splitties.bundle.putExtras
 
-class FriendListAdapter(private var context: Context, private var userList: List<User>) :
+class FriendListAdapter(private var context: Context, private var userList: ArrayList<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
@@ -44,7 +44,7 @@ class FriendListAdapter(private var context: Context, private var userList: List
         return userList.size
     }
 
-    fun refresh(userList: List<User>) {
+    fun refresh(userList: ArrayList<User>) {
         this.userList = userList
         notifyDataSetChanged()
     }

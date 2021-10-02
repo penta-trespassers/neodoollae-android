@@ -9,7 +9,7 @@ import com.pentatrespassers.neodoollae.dto.FriendRequest
 
 class FriendRequestAdapter(
     private val context: Context,
-    private val friendRequestList: List<FriendRequest>
+    private var friendRequestList: ArrayList<FriendRequest>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -36,5 +36,10 @@ class FriendRequestAdapter(
 
     override fun getItemCount(): Int {
         return friendRequestList.size
+    }
+
+    fun refresh(friendRequestList: ArrayList<FriendRequest>) {
+        this.friendRequestList = friendRequestList
+        notifyDataSetChanged()
     }
 }

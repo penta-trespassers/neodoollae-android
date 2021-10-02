@@ -5,14 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
+import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
+import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
-import com.pentatrespassers.neodoollae.view.login.main.friend.FriendPagerFragmentStateAdapter
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
 import splitties.toast.toast
 
@@ -20,11 +22,10 @@ class FriendFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentFriendBinding
 
-    private var isFriendExist = false
-    private var code = ""
 
     private val friendListFragment = FriendListFragment.newInstance()
     private val friendRequestFragment = FriendRequestFragment.newInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,44 +33,55 @@ class FriendFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentFriendBinding.inflate(inflater, container, false)
         with(bind) {
-            val pagerAdapter = FriendPagerFragmentStateAdapter(requireActivity())
-            // Fragment 2개 Add
-            pagerAdapter.addFragment(friendListFragment)
-            pagerAdapter.addFragment(friendRequestFragment)
-
-            // Adapter
-            friendViewPager.adapter = pagerAdapter
-
-
-            // TabLayout attach
-            TabLayoutMediator(friendTabLayout, friendViewPager) { tab, position ->
-                when (position) {
-                    0 -> {
-                        tab.text = "친구 목록"
-                    }
-                    1 -> {
-                        tab.text = "친구 요청"
-                    }
+            fragmentTransaction {
+                add(R.id.friendFrame,friendListFragment)
+                add(R.id.friendFrame,friendRequestFragment)
+                hide(friendRequestFragment)
+            }
+            friendListConstraint.setOnClickListener {
+                fragmentTransaction {
+                    hide(friendRequestFragment)
+                    show(friendListFragment)
+                    friendListText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassBlue_900))
+                    friendListUnderlineConstraint.visibility = View.VISIBLE
+                    friendRequestText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassGray_900))
+                    friendRequestUnderlineConstraint.visibility = View.GONE
                 }
-            }.attach()
-            friendTabLayout.clearOnTabSelectedListeners()
-            friendTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    friendViewPager.setCurrentItem(tab!!.position, false)
+            }
+            friendRequestConstraint.setOnClickListener {
+                fragmentTransaction {
+                    hide(friendListFragment)
+                    show(friendRequestFragment)
+                    friendRequestText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassBlue_900))
+                    friendRequestUnderlineConstraint.visibility = View.VISIBLE
+                    friendListText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassGray_900))
+                    friendListUnderlineConstraint.visibility = View.GONE
                 }
+            }
 
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                }
-
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-                }
-
-            })
-            friendViewPager.isUserInputEnabled = false
 
             addFriendButton.setOnClickListener {
-                showAddingDialog()
-
+                val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
+                with(dialogBind) {
+                    val mBuilder = AlertDialog.Builder(context)
+                        .setView(root)
+                        .setCancelable(false).show()
+                    acceptButton.setOnClickListener {
+                        RetrofitClient.getUser("${friendCodeEditText.text}") { _, response ->
+                            val user = response.body()!!
+                            if (user.id == User.ID_UNDEFINED) {
+                                friendCodeEditText.setText("")
+                                errorTextAddFriend.visibility = View.VISIBLE
+                            } else {
+                                showCheckDialog(user)
+                                mBuilder.dismiss()
+                            }
+                        }
+                    }
+                    cancelButton.setOnClickListener {
+                        mBuilder.dismiss()
+                    }
+                }
             }
 
             return root
@@ -77,36 +89,10 @@ class FriendFragment private constructor() : Fragment() {
     }
 
 
-    private fun showAddingDialog() {
-        // Dialog만들기
-        val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
-        with(dialogBind) {
-            val mBuilder = AlertDialog.Builder(context)
-                .setView(root)
-                .setCancelable(false).show()
-
-
-            acceptButton.setOnClickListener {
-                toast("code: ${codeEditTextFriend.text}")
-                mBuilder.dismiss()
-                // 만약 해당 코드를 가진 친구가 존재한다면
-                showCheckDialog()
-
-                // 해당 코드를 가진 친구가 존재하지 않는다면
-                // showRejectDialog()
-                // 혹은 그냥 간단 toast로 해당 코드 가진 사람이 존재하지 않는다고만 띄워도 될 듯.
-
-            }
-            cancelButton.setOnClickListener {
-                mBuilder.dismiss()
-            }
-        }
-
-    }
-
-    private fun showCheckDialog() {
+    private fun showCheckDialog(user: User) {
         val dialogBind = DialogCheckFriendBinding.inflate(layoutInflater)
         with(dialogBind) {
+            friendNameTextCheckFriend.text = user.nickname
             val mBuilder = AlertDialog.Builder(context)
                 .setView(root)
                 .setCancelable(false).show()
@@ -122,9 +108,16 @@ class FriendFragment private constructor() : Fragment() {
         }
     }
 
-    private fun showRejectDialog() {
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden) {
+            friendListFragment.refreshFriendList()
+            friendRequestFragment.refreshFriendRequest()
+        }
     }
+
+
 
     companion object {
         fun newInstance() = FriendFragment()

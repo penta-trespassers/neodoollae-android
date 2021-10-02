@@ -21,6 +21,14 @@ interface RetrofitApi {
         registerBody: RegisterBody
     ): Call<Token>
 
+    @GET("/v1/users/")
+    fun getUser(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Query("friendCode")
+        friendCode: String
+    ): Call<User>
+
     @GET("/v1/users/my/")
     fun getMyInfo(
         @Header("Authorization")
@@ -31,13 +39,13 @@ interface RetrofitApi {
     fun getAllFriends(
         @Header("Authorization")
         bearerAccessToken: String?
-    ): Call<List<User>>
+    ): Call<ArrayList<User>>
 
     @GET("/v1/friends/requests/pending/")
     fun getAllFriendRequests(
         @Header("Authorization")
         bearerAccessToken: String?
-    ): Call<List<FriendRequest>>
+    ): Call<ArrayList<FriendRequest>>
 
     @GET("/v1/rooms/")
     fun getRooms(
@@ -47,7 +55,7 @@ interface RetrofitApi {
         userId: Int?
     ): Call<ArrayList<Room>>
 
-    @GET("/v1/reserves/")
+    @GET("/v1/reservations/")
     fun getAllMyReservations(
         @Header("Authorization")
         bearerAccessToken: String?

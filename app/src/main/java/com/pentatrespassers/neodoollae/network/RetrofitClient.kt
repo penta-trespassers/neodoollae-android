@@ -22,18 +22,45 @@ object RetrofitClient {
         RegisterBody(kakaoAccessToken, nickname)
     )
 
-    fun getMyInfo(onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
-                  onSuccessful: (Call<User>, Response<User>) -> Unit) = instance.getMyInfo(Authentication.bearerAccessToken).enqueue(
-                        if (onUnsuccessful ==  null) {
-                            defaultCallback(onSuccessful = onSuccessful)
-                        } else {
-                            defaultCallback(onUnsuccessful, onSuccessful)
-                        }
-                  )
-    fun getAllFriends() = instance.getAllFriends(Authentication.bearerAccessToken)
+
+
+    fun getUser(
+        friendCode: String,
+        onUnsuccessful: ((Call<User?>, Response<User?>) -> Unit)? = null,
+        onSuccessful: (Call<User?>, Response<User?>) -> Unit
+    ) = instance.getUser(Authentication.bearerAccessToken, friendCode).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback(onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
+
+    fun getMyInfo(
+        onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
+        onSuccessful: (Call<User>, Response<User>) -> Unit
+    ) = instance.getMyInfo(Authentication.bearerAccessToken).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback(onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
+
+    fun getAllFriends(
+        onUnsuccessful: ((Call<ArrayList<User>>, Response<ArrayList<User>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<User>>, Response<ArrayList<User>>) -> Unit
+    ) = instance.getAllFriends(Authentication.bearerAccessToken).enqueue(
+        if (onUnsuccessful == null) {
+            defaultCallback(onSuccessful = onSuccessful)
+        } else {
+            defaultCallback(onUnsuccessful, onSuccessful)
+        }
+    )
+
     fun getAllFriendRequests(
-        onUnsuccessful: ((Call<List<FriendRequest>>, Response<List<FriendRequest>>) -> Unit)? = null,
-        onSuccessful: (Call<List<FriendRequest>>, Response<List<FriendRequest>>) -> Unit
+        onUnsuccessful: ((Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit
     ) = instance.getAllFriendRequests(Authentication.bearerAccessToken).enqueue(
         if (onUnsuccessful == null) {
             defaultCallback(onSuccessful = onSuccessful)
@@ -85,5 +112,16 @@ object RetrofitClient {
 
     }
 
+//
+//    private fun <T> enqueue(
+//        onUnsuccessful: ((Call<T>, Response<T>) -> Unit)? = null,
+//        onSuccessful: (Call<T>, Response<T>) -> Unit
+//    ) {
+//        if (onUnsuccessful == null) {
+//            defaultCallback(onSuccessful = onSuccessful)
+//        } else {
+//            defaultCallback(onUnsuccessful, onSuccessful)
+//        }
+//    }
 
 }

@@ -19,11 +19,13 @@
             android:id="@+id/notificationButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
             android:background="@null"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/settingButton"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginEnd="0dp"
             app:srcCompat="@drawable/ic_notifications_outline_black_24dp" />
 
         <ImageButton
@@ -36,7 +38,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+            app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp"
+            tools:visibility="visible" />
 
         <ImageButton
             android:id="@+id/settingButton"
@@ -55,14 +58,16 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@string/title"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backButtonMain"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="0dp"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

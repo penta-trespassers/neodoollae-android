@@ -18,6 +18,6 @@ object Util {
         }
     }
 
-    fun j(msg: String) = Log.d("jinha", msg)
+    fun j(msg: Any?) = Log.d("jinha", "$msg")
     var simpleDateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 }

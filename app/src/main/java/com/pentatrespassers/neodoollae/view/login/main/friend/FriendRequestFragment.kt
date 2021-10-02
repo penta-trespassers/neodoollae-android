@@ -13,6 +13,12 @@ class FriendRequestFragment private constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendRequestBinding
+    private val friendRequestAdapter by lazy {
+        FriendRequestAdapter(
+            requireContext(),
+            arrayListOf()
+        )
+    }
 
 
     override fun onCreateView(
@@ -21,13 +27,22 @@ class FriendRequestFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentFriendRequestBinding.inflate(inflater, container, false)
         with(bind) {
-            RetrofitClient.getAllFriendRequests { _, response ->
-                if (response.body() != null) {
-                    friendRequestRecycler.adapter =
-                        FriendRequestAdapter(requireContext(), response.body()!!)
-                }
-            }
+            friendRequestRecycler.adapter = friendRequestAdapter
+            refreshFriendRequest()
             return root
+        }
+    }
+
+    fun refreshFriendRequest() {
+        RetrofitClient.getAllFriendRequests { _, response ->
+            friendRequestAdapter.refresh(response.body()!!)
+        }
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden) {
+            refreshFriendRequest()
         }
     }
 
