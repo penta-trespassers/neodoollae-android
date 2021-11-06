@@ -17,8 +17,8 @@
 
         <ImageButton
             android:id="@+id/notificationButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="8dp"
             android:background="@null"
             android:scaleType="fitCenter"
@@ -30,8 +30,8 @@
 
         <ImageButton
             android:id="@+id/backButtonMain"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:background="@null"
             android:scaleType="fitCenter"
             android:visibility="gone"
@@ -43,8 +43,8 @@
 
         <ImageButton
             android:id="@+id/settingButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:background="@null"
             android:scaleType="fitCenter"
             android:visibility="gone"
