@@ -17,7 +17,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/myProfileImageView"
@@ -44,24 +44,6 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                app:layout_constraintStart_toEndOf="@+id/nicknameTextMyPage"
-                app:layout_constraintTop_toBottomOf="@+id/myProfileImageView"
-                app:srcCompat="@drawable/ic_button_edit" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@+id/myProfileImageView"
-                app:layout_constraintTop_toTopOf="@+id/myProfileImageView"
-                app:srcCompat="@drawable/ic_button_edit" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -116,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/guest_rate"
+                android:textColor="#000000"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -128,73 +111,112 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/host_Rate"
+                android:textColor="#000000"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/imageView4"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/myRoomHistoryButton"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/round_shape1"
-                android:backgroundTint="#F5F5F5"
-                android:text="@string/my_room_history"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/myHistoryButton"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/myHistoryButton"
-                app:layout_constraintTop_toBottomOf="@+id/myHistoryButton" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/myRoomReservationButton"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="2dp"
-                android:background="@drawable/round_shape1"
-                android:backgroundTint="#F5F5F5"
-                android:text="@string/my_room_reservation_information"
-                android:textColor="#000000"
-                android:textSize="16dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
+                android:foregroundTint="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/myReservationButton"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/myReservationButton"
-                app:layout_constraintTop_toBottomOf="@+id/myReservationButton"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/myReservationButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/round_shape1"
-                android:backgroundTint="#F5F5F5"
-                android:text="@string/my_reservation_information"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                app:layout_constraintEnd_toStartOf="@+id/myHistoryButton"
-                app:layout_constraintHorizontal_bias="0.5"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="친구 코드"
+                android:textSize="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintTop_toTopOf="@id/constraintLayout6" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/myHistoryButton"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_shape1"
-                android:backgroundTint="#F5F5F5"
-                android:text="@string/my_history"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/myReservationButton"
-                app:layout_constraintTop_toTopOf="@+id/myReservationButton" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_baseline_rate_review_24"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/friend_code_colon"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/abcdef"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                />
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
+                android:foregroundTint="@color/black"
+                app:layout_goneMarginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기록"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/constraintLayout7" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
+                android:foregroundTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
