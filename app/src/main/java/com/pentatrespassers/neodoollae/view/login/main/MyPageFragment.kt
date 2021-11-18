@@ -67,6 +67,8 @@ class MyPageFragment private constructor() : Fragment() {
 
             reloadInformation()
 
+            // TODO: 리뷰관리 & 방문 기록 activity 따로 만들어서 intent 전환하는 거 넣어야 함
+            /*
             myRoomHistoryButton.setOnClickListener {
                 start<RoomVisitTraceActivity>()
             }
@@ -78,7 +80,7 @@ class MyPageFragment private constructor() : Fragment() {
             }
             myReservationButton.setOnClickListener {
                 start<UserBookInfoActivity>()
-            }
+            } */
 
             return root
         }

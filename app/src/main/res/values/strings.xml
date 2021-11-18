@@ -39,7 +39,7 @@
     <string name="support_developer">개발자 후원</string>
     <string name="developer_info">개발자 정보</string>
     <string name="show_only_available_rooms">예약 가능한 방만 보기</string>
-    <string name="host_Rate">주인 평가</string>
+    <string name="host_Rate">주인 점수</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <!-- Notice strings -->
@@ -58,12 +58,18 @@
 
 
     <string name="See_only_available_rooms">예약 가능한 방만 보기</string>
-    <string name="Host_Rate">주인 평가</string>
+    <string name="Host_Rate">주인 점수</string>
     <string name="my_room_reservation_information">내 방 예약 정보</string>
     <string name="my_reservation_information">나의 예약 정보</string>
     <string name="my_history">나의 방문기록</string>
-    <string name="guest_rate">손님 평가</string>
+    <string name="guest_rate">손님 점수</string>
     <string name="my_room_history">내 방 방문기록</string>
+
+    <string name="anonymous_name">아무개</string>
+    <string name="review_management">리뷰 관리</string>
+    <string name="visit_record">방문 기록</string>
+    <string name="record">기록</string>
+    <string name="just_friend_code">친구 코드</string>
 
 
     <!-- Notice strings -->

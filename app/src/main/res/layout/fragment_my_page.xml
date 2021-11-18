@@ -17,7 +17,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/myProfileImageView"
@@ -37,57 +37,32 @@
                 android:id="@+id/imageView3"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="50dp"
                 android:src="@drawable/ic_sentiment_satisfied_alt_black_24dp"
+                android:layout_marginTop="50dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView8"
                 app:layout_constraintEnd_toStartOf="@+id/imageView4"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/nicknameTextMyPage" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:src="@drawable/ic_sentiment_satisfied_alt_black_24dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toBottomOf="@+id/myCodeTextView" />
-
-            <TextView
-                android:id="@+id/myCodeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/friend_code_colon"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/friendCodeText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/nicknameTextMyPage"
-                app:layout_constraintTop_toBottomOf="@+id/nicknameTextMyPage" />
-
-            <TextView
-                android:id="@+id/friendCodeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/abcdef"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="@+id/myCodeTextView"
-                app:layout_constraintEnd_toEndOf="@+id/nicknameTextMyPage"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/myCodeTextView"
-                app:layout_constraintTop_toTopOf="@+id/myCodeTextView" />
+                app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
             <TextView
                 android:id="@+id/nicknameTextMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="현수빈"
+                android:text="@string/anonymous_name"
                 android:textSize="32dp"
-                app:layout_constraintBottom_toTopOf="@+id/myCodeTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/myProfileImageView" />
@@ -123,10 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="30dp"
-                android:background="@color/black"
-                android:backgroundTint="@color/black"
-                android:foregroundTint="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/gray"
                 app:layout_constraintTop_toBottomOf="@+id/textView8">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -135,7 +107,7 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="친구 코드"
+                android:text="@string/just_friend_code"
                 android:textSize="14dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
@@ -147,9 +119,10 @@
                 android:id="@+id/imageView"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:src="@drawable/ic_baseline_rate_review_24"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:src="@drawable/ic_content_copy_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView18"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -157,18 +130,20 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/friend_code_colon"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="@id/imageView"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:text="@string/friend_code_colon"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/friendCodeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/abcdef"
                 android:layout_marginTop="16dp"
+                android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/textView13"
                 app:layout_constraintStart_toEndOf="@+id/textView18"
                 />
@@ -179,12 +154,9 @@
                 android:id="@+id/constraintLayout7"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="30dp"
-                android:background="@color/black"
-                android:backgroundTint="@color/black"
-                android:foregroundTint="@color/black"
+                android:layout_marginTop="16dp"
+                android:background="@color/gray"
                 app:layout_goneMarginTop="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView18">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -194,26 +166,60 @@
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기록"
+                android:text="@string/record"
                 android:textSize="14dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/constraintLayout7" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout8"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="30dp"
-                android:background="@color/black"
-                android:backgroundTint="@color/black"
-                android:foregroundTint="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18">
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_baseline_rate_review_24"
+                app:layout_constraintBottom_toBottomOf="@+id/textView20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:tint="@color/black" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/review_management"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/inventory_black_24dp_1"
+                app:tint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/visit_record"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
 
 
