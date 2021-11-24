@@ -117,23 +117,28 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loggedInKakao() {
-        RetrofitClient.kakaoLogin(TokenManager.instance.getToken()?.accessToken)
-            .enqueue(RetrofitClient.defaultCallback { _, response ->
-                val accessToken = response.body()?.access
-                // 회원 정보가 없음
-                if (accessToken == null) {
-                    UserApiClient.instance.me { user, error ->
-                        start<RegisterActivity> {
-                            putExtras(RegisterActivity.Extras) {
-                                nickname = user?.kakaoAccount?.profile?.nickname ?: ""
+        Authentication.withFcmToken { fcmToken ->
+            Util.j("kakao 토큰: ${TokenManager.instance.getToken()?.accessToken}")
+            Util.j("fcm 토큰: $fcmToken")
+            RetrofitClient.kakaoLogin(TokenManager.instance.getToken()?.accessToken, fcmToken)
+                .enqueue(RetrofitClient.defaultCallback { _, response ->
+                    val accessToken = response.body()?.access
+                    // 회원 정보가 없음
+                    if (accessToken == null) {
+                        UserApiClient.instance.me { user, error ->
+                            start<RegisterActivity> {
+                                putExtras(RegisterActivity.Extras) {
+                                    nickname = user?.kakaoAccount?.profile?.nickname ?: ""
+                                }
                             }
+                            finish()
                         }
-                        finish()
+                    } else {
+                        loginSuccess(accessToken)
                     }
-                } else {
-                    loginSuccess(accessToken)
-                }
-            })
+                })
+        }
+
     }
 
     private fun loginSuccess(accessToken: String) {
