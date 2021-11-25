@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.app_theme)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
         with(bind) {
             setContentView(root)
             Util.j("키 해시: " + Utility.getKeyHash(this@LoginActivity))
