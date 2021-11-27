@@ -3,11 +3,15 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdk 30
 
     defaultConfig {
+        configurations.all {
+            resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
+        }
         applicationId "com.pentatrespassers.neodoollae"
         minSdk 21
         targetSdk 30
@@ -62,6 +66,7 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-toast:$splitties_version")
     implementation("com.louiscad.splitties:splitties-fragments:$splitties_version")
     implementation("com.louiscad.splitties:splitties-fragmentargs:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-permissions:$splitties_version")
 
     // https://github.com/umano/AndroidSlidingUpPanel - Sliding up panel 구현을 위한 dependency
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
@@ -83,4 +88,6 @@ dependencies {
     // https://github.com/bumptech/glide - 이미지 로딩을 위한 라이브러리
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
