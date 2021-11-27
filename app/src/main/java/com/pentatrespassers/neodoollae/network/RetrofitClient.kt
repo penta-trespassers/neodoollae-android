@@ -1,6 +1,10 @@
 package com.pentatrespassers.neodoollae.network
 
-import com.pentatrespassers.neodoollae.dto.*
+import com.pentatrespassers.neodoollae.dto.FriendRequest
+import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.dto.body.KakaoLoginBody
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Param
@@ -15,8 +19,8 @@ object RetrofitClient {
     private val instance = Retrofit.Builder().baseUrl(Param.DATABASE_URL)
         .addConverterFactory(GsonConverterFactory.create()).build().create(RetrofitApi::class.java)
 
-    fun kakaoLogin(kakaoAccessToken: String?) =
-        instance.kakaoLogin(Token(access = kakaoAccessToken))
+    fun kakaoLogin(kakaoToken: String?, fcmToken: String) =
+        instance.kakaoLogin(KakaoLoginBody(kakaoToken, fcmToken))
 
     fun kakaoRegister(kakaoAccessToken: String?, nickname: String?) = instance.kakaoRegister(
         RegisterBody(kakaoAccessToken, nickname)

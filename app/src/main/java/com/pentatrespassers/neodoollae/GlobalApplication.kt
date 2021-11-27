@@ -8,5 +8,6 @@ class GlobalApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         KakaoSdk.init(this, Param.KAKAO_SDK_APP_KEY)
+
     }
 }

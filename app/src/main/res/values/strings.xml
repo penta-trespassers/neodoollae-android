@@ -108,6 +108,7 @@
     <string name="cancel">취소</string>
     <string name="confirm">확인</string>
     <string name="invalid_friend_code">유효하지 않은 친구 코드입니다.</string>
+    <string name="my_schedule">내 일정</string>
 
 
 </resources>

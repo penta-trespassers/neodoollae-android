@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "392903579059",
+    "project_id": "neodoollae",
+    "storage_bucket": "neodoollae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392903579059:android:49c8590e803a5a5c95a7c6",
+        "android_client_info": {
+          "package_name": "com.pentatrespassers.neodoollae"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392903579059-frpes6pj9p3ltin25f717adanqbe6m4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQC5dXSMCjtMBOlMyP-vbeqFoSH_j9oU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392903579059-frpes6pj9p3ltin25f717adanqbe6m4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
