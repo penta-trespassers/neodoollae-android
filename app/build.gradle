@@ -63,7 +63,6 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-toast:$splitties_version")
     implementation("com.louiscad.splitties:splitties-fragments:$splitties_version")
     implementation("com.louiscad.splitties:splitties-fragmentargs:$splitties_version")
-    implementation("com.louiscad.splitties:splitties-permissions:$splitties_version")
 
     // https://github.com/umano/AndroidSlidingUpPanel - Sliding up panel 구현을 위한 dependency
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
