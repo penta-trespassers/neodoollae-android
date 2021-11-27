@@ -31,6 +31,9 @@ class RegisterActivity : AppCompatActivity() {
         with(bind) {
             setContentView(root)
             nicknameEditText.setText(nickname)
+            backButtonRegister.setOnClickListener {
+                onBackPressed()
+            }
             registerButton.setOnClickListener {
                 RetrofitClient.kakaoRegister(
                     TokenManager.instance.getToken()?.accessToken, nicknameEditText.text.toString()

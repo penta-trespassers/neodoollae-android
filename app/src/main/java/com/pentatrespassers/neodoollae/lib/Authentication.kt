@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.lib
 
 import android.content.Context
+import com.google.firebase.messaging.FirebaseMessaging
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.MainActivity
@@ -28,6 +29,17 @@ object Authentication {
     fun refreshUser() {
         RetrofitClient.getMyInfo { _, response ->
             user = response.body()
+        }
+    }
+
+    fun withFcmToken(callback: (fcmToken: String) -> Unit) {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            if (!it.isSuccessful) {
+                Util.j("Failure: FCM Token")
+                return@addOnCompleteListener
+            }
+            // Get new FCM registration token
+            callback(it.result)
         }
     }
 }

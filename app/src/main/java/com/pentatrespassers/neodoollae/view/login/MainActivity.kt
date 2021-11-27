@@ -3,6 +3,7 @@ package com.pentatrespassers.neodoollae.view.login
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
@@ -47,6 +48,29 @@ class MainActivity : AppCompatActivity() {
             notificationFragment
         )
 
+    private fun showViews(vararg views: View) {
+        with(bind) {
+            appBarConstraint.visibility = View.VISIBLE
+            View.GONE.also {
+                backButtonMain.visibility = it
+                titleText.visibility = it
+                notificationButton.visibility = it
+                scheduleButton.visibility = it
+                settingButton.visibility = it
+            }
+            View.VISIBLE.also {
+                for (view in views) {
+                    view.visibility = it
+                }
+            }
+
+        }
+    }
+
+    private fun replaceMainFrame(fragment: Fragment) {
+        replaceMainFrame(fragmentList.indexOf(fragment))
+    }
+
     private fun replaceMainFrame(index: Int) {
         val currentFragment = fragmentList[currentFragmentIndex]
         val nextFragment = fragmentList[index]
@@ -57,42 +81,24 @@ class MainActivity : AppCompatActivity() {
             with(bind) {
                 when (nextFragment) {
                     homeFragment -> {
-                        notificationButton.visibility = View.VISIBLE
-                        backButtonMain.visibility = View.GONE
-                        titleText.visibility = View.GONE
-                        settingButton.visibility = View.GONE
-                        appBarConstraint.visibility = View.VISIBLE
+                        titleText.text = getString(R.string.home)
+                        showViews(titleText, notificationButton, scheduleButton)
                     }
                     friendFragment -> {
-                        notificationButton.visibility = View.GONE
-                        backButtonMain.visibility = View.GONE
-                        titleText.visibility = View.VISIBLE
                         titleText.text = getString(R.string.friend)
-                        settingButton.visibility = View.GONE
-                        appBarConstraint.visibility = View.VISIBLE
+                        showViews(titleText)
                     }
                     reservationFragment -> {
-                        notificationButton.visibility = View.GONE
-                        backButtonMain.visibility = View.GONE
-                        titleText.visibility = View.VISIBLE
                         titleText.text = getString(R.string.reservation_history)
-                        settingButton.visibility = View.GONE
-                        appBarConstraint.visibility = View.VISIBLE
+                        showViews(titleText)
                     }
                     myPageFragment -> {
-                        notificationButton.visibility = View.VISIBLE
-                        backButtonMain.visibility = View.GONE
-                        titleText.visibility = View.VISIBLE
                         titleText.text = getString(R.string.my_page)
-                        settingButton.visibility = View.VISIBLE
-                        appBarConstraint.visibility = View.VISIBLE
+                        showViews(titleText, notificationButton, settingButton)
                     }
                     notificationFragment -> {
-                        notificationButton.visibility = View.GONE
-                        backButtonMain.visibility = View.VISIBLE
-                        titleText.visibility = View.VISIBLE
                         titleText.text = getString(R.string.notification)
-                        settingButton.visibility = View.GONE
+                        showViews(backButtonMain, titleText)
                     }
                     else -> appBarConstraint.visibility = View.GONE
                 }
@@ -132,19 +138,19 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.homeItem -> {
-                        replaceMainFrame(0)
+                        replaceMainFrame(homeFragment)
                     }
                     R.id.aroundItem -> {
-                        replaceMainFrame(1)
+                        replaceMainFrame(aroundFragment)
                     }
                     R.id.friendItem -> {
-                        replaceMainFrame(2)
+                        replaceMainFrame(friendFragment)
                     }
                     R.id.reservationItem -> {
-                        replaceMainFrame(3)
+                        replaceMainFrame(reservationFragment)
                     }
                     R.id.myPageItem -> {
-                        replaceMainFrame(4)
+                        replaceMainFrame(myPageFragment)
                     }
                 }
                 true
