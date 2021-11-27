@@ -57,6 +57,15 @@ class MyPageFragment private constructor() : Fragment() {
 
 
     val REQUEST_IMAGE_CAPTURE = 1
+    val REQUEST_GALLERY_TAKE = 2
+
+    //갤러리 열기
+//    private fun openGalleryForImage() {
+//        val intent = Intent(Intent.ACTION_PICK)
+//        intent.type = "image/*"
+//        startActivityForResult(intent, REQUEST_GALLERY_TAKE)
+//    }
+
 
     // 카메라 권한 요청
     private fun requestPermission() {
@@ -101,14 +110,33 @@ class MyPageFragment private constructor() : Fragment() {
                         null
                     }
 
-                // 그림파일을 성공적으로 만들었다면 onActivityForResult로 보내기
-                photoFile?.also {
-                    val photoURI: Uri = FileProvider.getUriForFile(
-                        this.requireContext(), "com.pentatrespassers.neodoollae.view.login.main.fileprovider", it
-                    )
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                if (Build.VERSION.SDK_INT < 24) {
+                    if(photoFile != null){
+                        val photoURI = Uri.fromFile(photoFile)
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+//                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)	//제거해주세요
+                    }
                 }
+                else {
+                    // 그림파일을 성공적으로 만들었다면 onActivityForResult로 보내기
+                    photoFile?.also {
+                        val photoURI: Uri = FileProvider.getUriForFile(
+                            requireContext(),
+                            "com.pentatrespassers.neodoollae.view.login.main.fileprovider",
+                            it
+                        )
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+//                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                    }
+                }
+
+
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = "image/*"
+
+                val chooserIntent = Intent.createChooser(intent, "전환할 앱을 선택해주세요.")
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(takePictureIntent))
+                startActivityForResult(chooserIntent, REQUEST_IMAGE_CAPTURE)
             }
         }
     }
@@ -137,19 +165,39 @@ class MyPageFragment private constructor() : Fragment() {
             1 -> {
                 if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK){
 
+                    data?.data?.let { uri ->
+                        bind.myProfileImageView.setImageURI(uri)
+                    }
+
                     // 카메라로부터 받은 데이터가 있을경우에만
                     val file = File(currentPhotoPath)
-                    if (Build.VERSION.SDK_INT < 28) {
-                        val bitmap = MediaStore.Images.Media
-                            .getBitmap(requireContext().contentResolver, Uri.fromFile(file))  //Deprecated
-                        bind.myProfileImageView.setImageBitmap(bitmap)
+                    val selectedUri = Uri.fromFile(file)
+                    try {
+                        selectedUri?.let {
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media
+                                    .getBitmap(requireContext().contentResolver,
+                                        selectedUri)  //Deprecated
+                                bind.myProfileImageView.setImageBitmap(bitmap)
+                            } else {
+                                val decode = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    selectedUri)
+                                val bitmap = ImageDecoder.decodeBitmap(decode)
+                                bind.myProfileImageView.setImageBitmap(bitmap)
+                            }
+                        }
+                    } catch (e: java.lang.Exception) {
+                        e.printStackTrace()
                     }
-                    else{
-                        val decode = ImageDecoder.createSource(this.requireActivity().contentResolver,
-                            Uri.fromFile(file))
-                        val bitmap = ImageDecoder.decodeBitmap(decode)
-                        bind.myProfileImageView.setImageBitmap(bitmap)
-                    }
+                }
+            }
+        }
+
+        when (requestCode){
+            2 -> {
+                if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GALLERY_TAKE){
+                    bind.myProfileImageView.setImageURI(data?.data) // handle chosen image
                 }
             }
         }
@@ -184,7 +232,7 @@ class MyPageFragment private constructor() : Fragment() {
                 // TODO: 프로필 사진 변경
 
                 /** 카메라 */
-
+//                openGalleryForImage()
 
                 /** 사진 */
 
