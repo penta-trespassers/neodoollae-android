@@ -92,4 +92,13 @@ dependencies {
     // https://firebase.google.com/docs/cloud-messaging/android/client?authuser=0 - FCM
     implementation 'com.google.firebase:firebase-messaging-ktx'
 
+    // crop library
+//    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+//    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'com.canhub.cropper:android-image-cropper:1.1.1'
+}
+
+
+repositories {
 }

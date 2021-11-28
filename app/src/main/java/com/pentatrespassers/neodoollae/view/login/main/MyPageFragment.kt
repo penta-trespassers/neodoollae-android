@@ -7,7 +7,9 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.ImageDecoder
+import android.graphics.Path
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
@@ -42,6 +44,13 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.min
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+
+import androidx.core.graphics.drawable.RoundedBitmapDrawable
+
+
+
 
 class MyPageFragment private constructor() : Fragment() {
 
@@ -121,7 +130,7 @@ class MyPageFragment private constructor() : Fragment() {
                     // 그림파일을 성공적으로 만들었다면 onActivityForResult로 보내기
                     photoFile?.also {
                         val photoURI: Uri = FileProvider.getUriForFile(
-                            requireContext(),
+                            requireActivity(),
                             "com.pentatrespassers.neodoollae.view.login.main.fileprovider",
                             it
                         )
@@ -133,6 +142,7 @@ class MyPageFragment private constructor() : Fragment() {
 
                 val intent = Intent(Intent.ACTION_PICK)
                 intent.type = "image/*"
+                intent.putExtra("crop", true) //기존 코드에 이 줄 추가!
 
                 val chooserIntent = Intent.createChooser(intent, "전환할 앱을 선택해주세요.")
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(takePictureIntent))
@@ -158,6 +168,13 @@ class MyPageFragment private constructor() : Fragment() {
         }
     }
 
+    private fun cropImage(uri: Uri?){
+        CropImage.activity(uri).setGuidelines(CropImageView.Guidelines.ON)
+            .setCropShape(CropImageView.CropShape.RECTANGLE)
+            //사각형 모양으로 자른다
+            .start(this)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -165,9 +182,29 @@ class MyPageFragment private constructor() : Fragment() {
             1 -> {
                 if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK){
 
+                    // 갤러리에서 저장
                     data?.data?.let { uri ->
-                        bind.myProfileImageView.setImageURI(uri)
+                        cropImage((uri))
                     }
+                    var photoUri = data?.data
+                    bind.myProfileImageView.setImageURI(photoUri)
+
+//                    CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
+//                        //그후, 이곳으로 들어와 RESULT_OK 상태라면 이미지 Uri를 결과 Uri로 저장!
+//                        val result = CropImage.getActivityResult(data)
+//                        if(resultCode == Activity.RESULT_OK){
+//                            result.uri?.let {
+//                                imageView.setImageBitmap(result.bitmap)
+//                                imageView.setImageURI(result.uri)
+//                                photoUri = result.uri
+//
+//                            }
+//                        }else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+//                            val error = result.error
+//                            toast(error.message)
+//                        }
+                    }
+//                    else ->{finish()}
 
                     // 카메라로부터 받은 데이터가 있을경우에만
                     val file = File(currentPhotoPath)
@@ -178,13 +215,24 @@ class MyPageFragment private constructor() : Fragment() {
                                 val bitmap = MediaStore.Images.Media
                                     .getBitmap(requireContext().contentResolver,
                                         selectedUri)  //Deprecated
-                                bind.myProfileImageView.setImageBitmap(bitmap)
+                                bitmap?.apply {
+//                                    val roundDrawable = RoundedBitmapDrawableFactory.create(resources, bitmap)
+//                                    roundDrawable.isCircular = true
+//                                    bind.myProfileImageView.setImageDrawable(roundDrawable)
+//                                    bind.myProfileImageView.setImageBitmap(cropCircularArea())
+                                    bind.myProfileImageView.setImageBitmap(bitmap)
+                                }
                             } else {
                                 val decode = ImageDecoder.createSource(
-                                    requireActivity().contentResolver,
+                                    requireContext().contentResolver,
                                     selectedUri)
-                                val bitmap = ImageDecoder.decodeBitmap(decode)
-                                bind.myProfileImageView.setImageBitmap(bitmap)
+                                var bitmap = ImageDecoder.decodeBitmap(decode)
+                                bitmap?.apply {
+//                                    val roundDrawable = RoundedBitmapDrawableFactory.create(resources, bitmap)
+//                                    roundDrawable.isCircular = true
+//                                    bind.myProfileImageView.setImageDrawable(roundDrawable)
+                                    bind.myProfileImageView.setImageBitmap(bitmap)
+                                }
                             }
                         }
                     } catch (e: java.lang.Exception) {
@@ -194,31 +242,63 @@ class MyPageFragment private constructor() : Fragment() {
             }
         }
 
-        when (requestCode){
-            2 -> {
-                if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GALLERY_TAKE){
-                    bind.myProfileImageView.setImageURI(data?.data) // handle chosen image
-                }
-            }
-        }
+//        when (requestCode){
+//            2 -> {
+//                if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GALLERY_TAKE){
+//                    bind.myProfileImageView.setImageURI(data?.data) // handle chosen image
+//                }
+//            }
+//        }
     }
 
-//    if (Build.VERSION.SDK_INT < 24) {
-//        if(photoFile != null){
-//            val photoURI = Uri.fromFile(photoFile)
-//            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-//        }
+//    private fun launchImageCrop(uri: Uri?){
+//        CropImage.activity(uri).setGuidelines(CropImageView.Guidelines.ON)
+//            .setCropShape(CropImageView.CropShape.RECTANGLE)
+//            .start(this)
 //    }
-//    else{
-//        photoFile?.also {
-//            val photoURI: Uri = FileProvider.getUriForFile(
-//                this.requireContext(), "com.example.cameraonly.fileprovider", it
-//            )
-//            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-//        }
-//    }
+
+
+    fun Bitmap.cropCircularArea(
+        diameter:Int = min(width,height)
+    ):Bitmap?{
+        val bitmap = Bitmap.createBitmap(
+            width, // width in pixels
+            height, // height in pixels
+            Bitmap.Config.ARGB_8888
+        )
+
+        val canvas = Canvas(bitmap)
+
+        // create a circular path
+        val path = Path()
+        val length = min(diameter,min(width,height))
+        val radius = length / 2F // in pixels
+        path.apply {
+            addCircle(
+                width/2f,
+                height/2f,
+                radius,
+                Path.Direction.CCW
+            )
+        }
+
+        // draw circular bitmap on canvas
+        canvas.clipPath(path)
+        canvas.drawBitmap(this,0f,0f,null)
+
+        val x = (width - length)/2
+        val y = (height - length)/2
+
+        // return cropped circular bitmap
+        return Bitmap.createBitmap(
+            bitmap, // source bitmap
+            x, // x coordinate of the first pixel in source
+            y, // y coordinate of the first pixel in source
+            length, // width
+            length // height
+        )
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
