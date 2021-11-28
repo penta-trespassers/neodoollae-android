@@ -22,7 +22,7 @@ class BadgeImageView @JvmOverloads constructor(
 
             paint.color = Color.RED
 
-            canvas.drawCircle(0f, 0f, 150f, paint)
+            canvas.drawCircle(0f, 0f, 1f, paint)
         }
     }
 }

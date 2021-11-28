@@ -30,7 +30,7 @@
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
             tools:visibility="visible" />
 
-        <ImageView
+        <com.pentatrespassers.neodoollae.common.view.BadgeImageView
             android:id="@+id/notificationButton"
             android:layout_width="24dp"
             android:layout_height="24dp"
