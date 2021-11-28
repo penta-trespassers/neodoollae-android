@@ -7,15 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentHomeBinding
+import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.main.home.MyScheduleAdapter
 
 class HomeFragment private constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentHomeBinding
 
+    private val myScheduleAdapter by lazy {
+        MyScheduleAdapter(requireContext(), arrayListOf(Reservation(), Reservation(), Reservation()))
+    }
 
     private val roomCardAdapter by lazy {
 
@@ -27,6 +32,7 @@ class HomeFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentHomeBinding.inflate(inflater, container, false)
         with(bind) {
+            myScheduleRecycler.adapter = myScheduleAdapter
             RetrofitClient.getRoom(Authentication.user?.id ?: -1) { _, response ->
                 val roomList = response.body()!!
                 roomList.add(Room(status = Room.STATUS_UNDEFINED))

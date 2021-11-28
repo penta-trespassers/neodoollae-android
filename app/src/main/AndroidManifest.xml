@@ -14,7 +14,7 @@
         <activity
             android:name=".view.login.RegisterActivity"
             android:exported="true"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".view.login.main.mypage.SettingsActivity"
             android:exported="true" />
@@ -52,7 +52,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -66,10 +67,34 @@
             </intent-filter>
         </activity>
 
+        <!--        FCM-->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/app_icon" />
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/trespassBlue_300" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="1234" />
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="7qdjutvncl" />
+
+        <service
+            android:name=".firebase.MessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
+
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />

@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.network
 
 import com.pentatrespassers.neodoollae.dto.*
+import com.pentatrespassers.neodoollae.dto.body.KakaoLoginBody
 import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -12,7 +13,7 @@ interface RetrofitApi {
     @POST("/v1/auth/kakao/login/")
     fun kakaoLogin(
         @Body
-        token: Token
+        kakaoLoginBody: KakaoLoginBody
     ): Call<Token>
 
     @POST("/v1/auth/kakao/register/")
@@ -33,6 +34,14 @@ interface RetrofitApi {
     fun getMyInfo(
         @Header("Authorization")
         bearerAccessToken: String?
+    ): Call<User>
+
+    @POST("v1/users/fcm/")
+    fun uploadFCMToken(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Body
+        token: Token
     ): Call<User>
 
     @GET("/v1/friends/")

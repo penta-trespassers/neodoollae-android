@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BadgeImageView">
+        <attr name="showText" format="boolean" />
+        <attr name="labelPosition" format="enum">
+            <enum name="leftTop" value="0"/>
+            <enum name="rightTop" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
