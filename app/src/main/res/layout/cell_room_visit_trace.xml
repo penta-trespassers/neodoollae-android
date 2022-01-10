@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_satisfied" />
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -26,35 +26,35 @@ class MyPageFragment private constructor() : Fragment() {
 
     private fun reloadInformation() {
         with(bind) {
-            val user = Authentication.user!!
-            Glide.with(this@MyPageFragment).load(user.profileImage)
-                .error(R.drawable.ic_baseline_account_circle_24)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        myProfileImageView.setColorFilter(R.color.gray)
-                        return false
-                    }
-
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        myProfileImageView.imageTintList = null
-                        return false
-                    }
-
-                })
-                .into(myProfileImageView)
-            nicknameTextMyPage.text = user.nickname
-            friendCodeText.text = user.friendCode
+//            val user = Authentication.user!!
+//            Glide.with(this@MyPageFragment).load(user.profileImage)
+//                .error(R.drawable.ic_baseline_account_circle_24)
+//                .listener(object : RequestListener<Drawable> {
+//                    override fun onLoadFailed(
+//                        e: GlideException?,
+//                        model: Any?,
+//                        target: Target<Drawable>?,
+//                        isFirstResource: Boolean
+//                    ): Boolean {
+//                        myProfileImageView.setColorFilter(R.color.gray)
+//                        return false
+//                    }
+//
+//                    override fun onResourceReady(
+//                        resource: Drawable?,
+//                        model: Any?,
+//                        target: Target<Drawable>?,
+//                        dataSource: DataSource?,
+//                        isFirstResource: Boolean
+//                    ): Boolean {
+//                        myProfileImageView.imageTintList = null
+//                        return false
+//                    }
+//
+//                })
+//                .into(myProfileImageView)
+//            nicknameTextMyPage.text = user.nickname
+//            friendCodeText.text = user.friendCode
         }
     }
 
@@ -65,20 +65,20 @@ class MyPageFragment private constructor() : Fragment() {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
 
-            reloadInformation()
-
-            myRoomHistoryButton.setOnClickListener {
-                start<RoomVisitTraceActivity>()
-            }
-            myHistoryButton.setOnClickListener {
-                start<UserVisitTraceActivity>()
-            }
-            myRoomReservationButton.setOnClickListener {
-                start<RoomBookInfoActivity>()
-            }
-            myReservationButton.setOnClickListener {
-                start<UserBookInfoActivity>()
-            }
+//            reloadInformation()
+//
+//            myRoomHistoryButton.setOnClickListener {
+//                start<RoomVisitTraceActivity>()
+//            }
+//            myHistoryButton.setOnClickListener {
+//                start<UserVisitTraceActivity>()
+//            }
+//            myRoomReservationButton.setOnClickListener {
+//                start<RoomBookInfoActivity>()
+//            }
+//            myReservationButton.setOnClickListener {
+//                start<UserBookInfoActivity>()
+//            }
 
             return root
         }

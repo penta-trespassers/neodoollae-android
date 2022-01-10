@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nicknameTextFriendProfile"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_neutral" />
 
     <ImageView
         android:id="@+id/leftArrowImageView"
@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/hostImageView"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_neutral" />
 
     <TextView
         android:id="@+id/textView3"

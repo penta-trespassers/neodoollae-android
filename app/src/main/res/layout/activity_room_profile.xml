@@ -100,12 +100,12 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="16dp"
-        android:tint="#AAAAAA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roomNameText"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        app:tint="#AAAAAA" />
 
     <ImageView
         android:id="@+id/leftArrowImageView"
@@ -115,7 +115,7 @@
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/hostImageView"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_neutral" />
 
     <TextView
         android:id="@+id/nicknameText"
