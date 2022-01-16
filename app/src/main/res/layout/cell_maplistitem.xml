@@ -51,9 +51,6 @@
         android:layout_height="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toStartOf="@+id/roomTitleTextViewAround"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />

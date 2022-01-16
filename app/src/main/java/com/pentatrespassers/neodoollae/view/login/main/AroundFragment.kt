@@ -15,6 +15,7 @@ import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
 import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerViewAdapter
@@ -61,6 +62,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             // 위치를 반환하는 구현체인 FusedLocationSource 생성
 
             mLocationSource = FusedLocationSource(this@AroundFragment, PERMISSION_REQUEST_CODE)
+
 
 
 

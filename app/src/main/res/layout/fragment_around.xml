@@ -6,11 +6,12 @@
     android:id="@+id/slidingUpPanel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:umanoPanelHeight="170dp"
+    app:umanoPanelHeight="336dp"
     app:umanoShadowHeight="0dp"
     app:umanoOverlay="true"
     android:gravity="bottom"
-    app:umanoDragView="@+id/slidingLayout">
+    app:umanoDragView="@+id/slidingLayout"
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,14 +71,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/slidingLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:minHeight="336dp">
 
         <!-- 스크롤 해서 보여줄 부분은 listview 또는 custom listview 또는 recyclerview를 사용 -->
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginEnd="411dp"
-            android:layout_marginBottom="731dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_shape"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -85,46 +86,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/hostImageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_shape"
-                android:backgroundTint="#FFFFFF"
-                app:srcCompat="@drawable/round_shape" />
-
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/possibleRoomSwtichAround"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="19dp"
                 android:layout_marginTop="4dp"
                 android:layoutDirection="rtl"
                 android:minHeight="48dp"
                 android:text="@string/show_only_available_rooms"
+                android:textColorHighlight="#3E5AE6"
+                android:textColorLink="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.92"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mapListRecyclerViewAround"
-                app:layout_constraintVertical_bias="0.43" />
 
+                app:layout_constraintVertical_bias="0.43"
+                app:showText="false" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mapListRecyclerViewAround"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/round_shape"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/cell_maplistitem">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mapListRecyclerViewAround"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="48dp"
-            android:background="@drawable/round_shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/cell_maplistitem">
 
-        </androidx.recyclerview.widget.RecyclerView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
