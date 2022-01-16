@@ -1,5 +1,6 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,9 +23,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerViewAdapter
 import android.widget.Toast
-
-
-
+import com.naver.maps.map.util.MarkerIcons
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
@@ -92,6 +91,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                 } else {
                     mapSearchViewAround.visibility = View.VISIBLE
                     slidingUpPanel.panelHeight = previousPanelHeight
+                    singleRoomInfoConstraintLayout.visibility = View.INVISIBLE
                 }
 
             }
@@ -114,6 +114,8 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                     marker.position = LatLng(it.latitude, it.longitude)
                     //이미지 설정
                     // marker.setIcon(OverlayImage.fromResource(R.drawable.ic_done_24dp));
+                    marker.icon = MarkerIcons.GRAY
+                    marker.iconTintColor = Color.BLUE
                     marker.map = naverMap
                     markerList.add(marker)
                     val infoWindow = InfoWindow()
@@ -142,6 +144,8 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                         previousPanelHeight = slidingUpPanel.panelHeight
                         slidingUpPanel.panelHeight = 0
 
+
+                        singleRoomInfoConstraintLayout.visibility = View.VISIBLE
 
                         true
                     }
