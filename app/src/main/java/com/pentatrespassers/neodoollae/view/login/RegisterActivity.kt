@@ -37,12 +37,13 @@ class RegisterActivity : AppCompatActivity() {
             registerButton.setOnClickListener {
                 RetrofitClient.kakaoRegister(
                     TokenManager.instance.getToken()?.accessToken, nicknameEditText.text.toString()
-                ).enqueue(RetrofitClient.defaultCallback { _, response ->
+                ) { _, response ->
                     val access = response.body()?.access
                     if (access != null) {
                         Authentication.startMainActivity(this@RegisterActivity, access)
                     }
-                })
+
+                }
             }
 
         }

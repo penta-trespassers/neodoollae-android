@@ -25,6 +25,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled = true
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
@@ -92,4 +93,7 @@ dependencies {
     // https://firebase.google.com/docs/cloud-messaging/android/client?authuser=0 - FCM
     implementation 'com.google.firebase:firebase-messaging-ktx'
 
+
+    // 디슈가링 - https://developer.android.com/studio/write/java8-support#library-desugaring
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 }
