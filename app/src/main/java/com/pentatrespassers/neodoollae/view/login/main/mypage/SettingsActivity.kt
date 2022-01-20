@@ -43,7 +43,7 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
-            previousButton.setOnClickListener {
+            backButtonSettings.setOnClickListener {
                 onBackPressed()
             }
             noticeSettingsConstraint.setOnClickListener {

@@ -7,46 +7,50 @@
     tools:context=".view.login.main.mypage.SettingsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
-        android:layout_width="0dp"
+        android:id="@+id/appBarConstraint"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/previousButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/backButtonSettings"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
             android:background="@null"
             android:scaleType="fitCenter"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/titleTextSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@string/settings"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/backButtonSettings"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/noticeSettingsConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -54,12 +58,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        app:layout_constraintTop_toBottomOf="@id/appBarConstraint">
 
         <ImageView
-            android:id="@+id/myNameEditImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/notiSettingImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,9 +77,9 @@
             android:clickable="false"
             android:text="@string/notification_settings"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/myNameEditImageView"
+            app:layout_constraintStart_toEndOf="@+id/notiSettingImageView"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -83,10 +87,6 @@
         android:id="@+id/termsOfUseConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -97,9 +97,9 @@
         app:layout_constraintTop_toBottomOf="@+id/noticeSettingsConstraint">
 
         <ImageView
-            android:id="@+id/rateImageView4"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/termsOfUseImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,9 +113,9 @@
             android:clickable="false"
             android:text="@string/terms_of_use"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rateImageView4"
+            app:layout_constraintStart_toEndOf="@+id/termsOfUseImageView"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -123,10 +123,6 @@
         android:id="@+id/logoutConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -137,9 +133,9 @@
         app:layout_constraintTop_toBottomOf="@+id/termsOfUseConstraint">
 
         <ImageView
-            android:id="@+id/rateImageView3"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/logoutImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -153,9 +149,9 @@
             android:clickable="false"
             android:text="@string/logout"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rateImageView3"
+            app:layout_constraintStart_toEndOf="@+id/logoutImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -164,10 +160,6 @@
         android:id="@+id/supportDeveloperConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -178,9 +170,9 @@
         app:layout_constraintTop_toBottomOf="@+id/logoutConstraint">
 
         <ImageView
-            android:id="@+id/rateImageView2"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/supportDeveloperImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -194,9 +186,9 @@
             android:clickable="false"
             android:text="@string/support_developer"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rateImageView2"
+            app:layout_constraintStart_toEndOf="@+id/supportDeveloperImageView"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -204,10 +196,6 @@
         android:id="@+id/developerInfoConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_border_white_black"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -218,9 +206,9 @@
         app:layout_constraintTop_toBottomOf="@+id/supportDeveloperConstraint">
 
         <ImageView
-            android:id="@+id/rateImageView1"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/developerInfoImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -234,9 +222,9 @@
             android:clickable="false"
             android:text="@string/developer_info"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rateImageView1"
+            app:layout_constraintStart_toEndOf="@+id/developerInfoImageView"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,7 +237,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/appBarConstraint">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
