@@ -20,6 +20,7 @@ object Util {
 
     fun j(msg: Any?) = Log.d("jinha", "$msg")
 
-    fun dateFormat(obj: Any, pattern: String) = SimpleDateFormat(pattern, Locale.getDefault()).format(obj)
+    fun getDateFormatter(pattern: String) = SimpleDateFormat(pattern, Locale.getDefault())
+    fun getDateFormat(obj: Any, pattern: String) = SimpleDateFormat(pattern, Locale.getDefault()).format(obj)
     var simpleDateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 }

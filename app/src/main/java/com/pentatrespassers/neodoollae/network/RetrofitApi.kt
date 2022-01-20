@@ -70,4 +70,12 @@ interface RetrofitApi {
         bearerAccessToken: String?
     ): Call<ArrayList<Reservation>>
 
+    @GET("/v1/reservations/schedules/")
+    fun getMySchedules(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Query("term")
+        term: Int
+    ): Call<Map<String, ArrayList<Reservation>>>
+
 }
