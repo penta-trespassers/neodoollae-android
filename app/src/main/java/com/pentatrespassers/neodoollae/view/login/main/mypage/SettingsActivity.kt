@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivitySettingsBinding
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.DeveloperInfoFragment
+import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.ManageAccountFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.NotificationSettingsFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.TermsOfUseFragment
 import splitties.fragments.fragmentTransaction
@@ -20,6 +21,7 @@ class SettingsActivity : AppCompatActivity() {
     private val notificationSettingsFragment = NotificationSettingsFragment.newInstance()
     private val termsOfUseFragment = TermsOfUseFragment.newInstance()
     private val developerInfoFragment = DeveloperInfoFragment.newInstance()
+    private val manageAccountFragment = ManageAccountFragment.newInstance()
 
     private fun replaceSettingsFrame(fragment: Fragment) = fragmentTransaction {
         replace(R.id.settingsFrame, fragment)
@@ -27,6 +29,9 @@ class SettingsActivity : AppCompatActivity() {
             when (fragment) {
                 notificationSettingsFragment -> {
                     titleTextSettings.text = getString(R.string.notification_settings)
+                }
+                manageAccountFragment -> {
+                    titleTextSettings.text = getString(R.string.manage_account)
                 }
                 termsOfUseFragment -> {
                     titleTextSettings.text = getString(R.string.terms_of_use)
@@ -48,6 +53,9 @@ class SettingsActivity : AppCompatActivity() {
             }
             noticeSettingsConstraint.setOnClickListener {
                 replaceSettingsFrame(notificationSettingsFragment)
+            }
+            manageAccountConstraint.setOnClickListener {
+                replaceSettingsFrame(manageAccountFragment)
             }
             termsOfUseConstraint.setOnClickListener {
                 replaceSettingsFrame(termsOfUseFragment)

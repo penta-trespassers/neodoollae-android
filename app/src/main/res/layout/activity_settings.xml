@@ -84,7 +84,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/accountConstraint"
+        android:id="@+id/manageAccountConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/noticeSettingsConstraint">
 
         <ImageView
-            android:id="@+id/logoutImageView"
+            android:id="@+id/manageAccountImageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:clickable="false"
@@ -115,7 +115,7 @@
             android:textColor="@color/black"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/logoutImageView"
+            app:layout_constraintStart_toEndOf="@+id/manageAccountImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -131,7 +131,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accountConstraint">
+        app:layout_constraintTop_toBottomOf="@+id/manageAccountConstraint">
 
         <ImageView
             android:id="@+id/termsOfUseImageView"

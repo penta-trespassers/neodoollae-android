@@ -37,7 +37,7 @@
     <string name="terms_of_use">이용 약관</string>
     <string name="manage_account">계정 관리</string>
     <string name="logout">로그아웃</string>
-    <string name="withdraw">탈퇴하</string>
+    <string name="withdraw">탈퇴하기</string>
     <string name="support_developer">개발자 후원</string>
     <string name="developer_info">개발자 정보</string>
     <string name="show_only_available_rooms">예약 가능한 방만 보기</string>
