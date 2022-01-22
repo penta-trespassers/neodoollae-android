@@ -41,6 +41,7 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
             settingsFrame.visibility = View.VISIBLE
+            settingsFrame.isClickable = true
         }
 
     }
