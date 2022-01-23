@@ -7,14 +7,14 @@
     tools:context=".view.login.main.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/friendListConstraint"
+        android:id="@+id/myReservationConstraint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/friendListText"
+            android:id="@+id/myReservationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/friendListUnderlineConstraint"
+            android:id="@+id/myReservationUnderlineConstraint"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/trespassBlue_900"
@@ -45,11 +45,11 @@
         android:id="@+id/friendRequestConstraint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/friendListConstraint"
-        app:layout_constraintTop_toTopOf="@+id/friendListConstraint">
+        app:layout_constraintStart_toEndOf="@+id/myReservationConstraint"
+        app:layout_constraintTop_toTopOf="@+id/myReservationConstraint">
 
         <TextView
-            android:id="@+id/friendRequestText"
+            android:id="@+id/myRoomReservationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/friendRequestUnderlineConstraint"
+            android:id="@+id/myRoomReservationUnderlineConstraint"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/trespassBlue_900"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friendListConstraint">
+        app:layout_constraintTop_toBottomOf="@+id/myReservationConstraint">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

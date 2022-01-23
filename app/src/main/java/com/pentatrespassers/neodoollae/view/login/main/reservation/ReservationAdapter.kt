@@ -27,35 +27,8 @@ class ReservationAdapter(
             with(bind) {
 
 
-                when (reservation.status) {
-                    Reservation.STATUS_WAITING -> {
-                        reservationMessageText.text =
-                            context.getString(R.string.reservation_waiting, reservation.nickname)
-                        statusImage.setImageResource(R.drawable.ic_watch_later_24dp)
-                    }
-                    Reservation.STATUS_ACCEPTED -> {
-                        reservationMessageText.text =
-                            context.getString(R.string.reservation_accepted, reservation.nickname)
-                        statusImage.setImageResource(R.drawable.ic_check_circle_24dp)
-                    }
-                    Reservation.STATUS_DECLINED -> {
-                        reservationMessageText.text =
-                            context.getString(R.string.reservation_declined, reservation.nickname)
-                        statusImage.setImageResource(R.drawable.ic_cancel_24dp)
-                    }
-                    Reservation.STATUS_UNDEFINED -> {
-                        itemView.visibility = View.GONE
-                    }
-                }
-
                 createdAtText.text = Util.simpleDateFormatter.format(reservation.createdAt?.time)
-                roomNameTextReservation.text = reservation.roomName
-                checkInTimeTextReservation.text =
-                    Util.simpleDateFormatter.format(reservation.checkIn?.time)
-                checkOutTimeTextReservation.text =
-                    Util.simpleDateFormatter.format(reservation.checkOut?.time)
-                requestMessageText.text = reservation.requestMessage
-                responseMessageText.text = reservation.responseMessage
+
 
                 when (reservation.status) {
                     Reservation.STATUS_WAITING -> {
@@ -63,35 +36,20 @@ class ReservationAdapter(
                             if (reservationDetailConstraint.visibility == View.VISIBLE) {
                                 reservationDetailConstraint.visibility = View.GONE
                                 reserveUndecidedGroupReservation.visibility = View.GONE
-                                arrowImageReservation.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+
                             } else {
                                 reservationDetailConstraint.visibility = View.VISIBLE
                                 reserveUndecidedGroupReservation.visibility = View.VISIBLE
-                                arrowImageReservation.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
                             }
                         }
 
                     }
-                    Reservation.STATUS_DECLINED, Reservation.STATUS_ACCEPTED -> {
-                        itemView.setOnClickListener {
-                            if (reservationDetailConstraint.visibility == View.VISIBLE) {
-                                reservationDetailConstraint.visibility = View.GONE
-                                reserveDecidedGroupReservation.visibility = View.GONE
-                                arrowImageReservation.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
-                            } else {
-                                reservationDetailConstraint.visibility = View.VISIBLE
-                                reserveDecidedGroupReservation.visibility = View.VISIBLE
-                                arrowImageReservation.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
-                            }
-                        }
-                    }
+
+
                 }
-
-
             }
         }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CellNotificationReservationHolder(
