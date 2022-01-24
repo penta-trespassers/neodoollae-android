@@ -17,6 +17,14 @@ class TermsOfUseFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentTermsOfUseBinding.inflate(inflater, container, false)
         with(bind) {
+
+            pdfView.fromAsset("terms_of_use.pdf")
+                .swipeHorizontal(true)
+                .pageSnap(true)
+                .autoSpacing(true)
+                .pageFling(true)
+                .load()
+
             return root
         }
     }
@@ -25,6 +33,5 @@ class TermsOfUseFragment private constructor() : Fragment() {
         fun newInstance() = TermsOfUseFragment().apply {
         }
     }
-
 
 }

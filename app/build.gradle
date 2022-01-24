@@ -85,4 +85,7 @@ dependencies {
     // https://github.com/bumptech/glide - 이미지 로딩을 위한 라이브러리
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    // https://github.com/barteksc/AndroidPdfViewer - 이용약관 pdf 문서를 보여주기 위한 라이브러리
+    implementation 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
 }

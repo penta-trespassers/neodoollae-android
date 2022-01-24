@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# https://github.com/barteksc/AndroidPdfViewer - 이용약관 pdf 문서를 보여주기 위한 라이브러리에서 추가
+-keep class com.shockwave.**
