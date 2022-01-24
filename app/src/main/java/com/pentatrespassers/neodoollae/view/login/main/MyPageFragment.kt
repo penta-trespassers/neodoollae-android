@@ -1,5 +1,8 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,17 +15,17 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
-import com.pentatrespassers.neodoollae.view.login.main.mypage.RoomBookInfoActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.RoomVisitTraceActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserBookInfoActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserVisitTraceActivity
-import splitties.fragments.start
+import splitties.toast.toast
 
 class MyPageFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentMyPageBinding
+
+    private lateinit var clipData : ClipData
+    private lateinit var clipboardManager : ClipboardManager
 
     private fun reloadInformation() {
         with(bind) {
@@ -36,7 +39,7 @@ class MyPageFragment private constructor() : Fragment() {
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        myPageProfileView.profileImage.setColorFilter(R.color.gray)
+                        myPageProfileView.profileImage.setColorFilter(R.color.trespassGray_600)
                         return false
                     }
 
@@ -56,7 +59,9 @@ class MyPageFragment private constructor() : Fragment() {
 
             myPageProfileView.nameText.text = user.nickname
             myCodeCell.oneLineSettingImage.setImageResource(R.drawable.ic_content_copy_black_24dp)
-            myCodeCell.oneLineSettingText.text = "나의 친구 코드 : " + user.friendCode
+            myCodeCell.oneLineSettingText.text = resources.getString(my_code_cell) + user.friendCode
+
+            clipData = ClipData.newPlainText("friend code", user.friendCode)
 
             manageReviewCell.oneLineSettingImage.setImageResource(R.drawable.ic_outline_rate_review_24)
             manageReviewCell.oneLineSettingText.setText(R.string.manage_review)
@@ -77,7 +82,9 @@ class MyPageFragment private constructor() : Fragment() {
             reloadInformation()
 
             myCodeConstraint.setOnClickListener{
-
+                clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                clipboardManager.setPrimaryClip(clipData)
+                toast(R.string.copy_to_clipboard)
             }
 
             manageReviewConstraint.setOnClickListener{

@@ -52,6 +52,8 @@
 
     <!-- My Page strings -->
     <string name="my_code">나의 친구 코드</string>
+    <string name="my_code_cell">나의 친구 코드 :\ </string>
+    <string name="copy_to_clipboard">클립보드에 복사되었습니다.</string>
     <string name="history">기록</string>
     <string name="manage_review">리뷰 관리</string>
     <string name="visit_history">방문 기록</string>
