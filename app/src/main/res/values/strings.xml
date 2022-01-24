@@ -51,6 +51,13 @@
     <string name="decline">거절하기</string>
 
     <!-- My Page strings -->
+    <string name="my_code">나의 친구 코드</string>
+    <string name="history">기록</string>
+    <string name="manage_review">리뷰 관리</string>
+    <string name="visit_history">방문 기록</string>
+
+
+    <!-- My Page Past -->
     <string name="my_book_info">나의 예약 정보</string>
     <string name="my_room_book_info">내 방 예약 정보</string>
     <string name="my_visit_trace">나의 방문 기록</string>

@@ -55,9 +55,15 @@ class MyPageFragment private constructor() : Fragment() {
                 .into(myPageProfileView.profileImage)
 
             myPageProfileView.nameText.text = user.nickname
+            myCodeCell.oneLineSettingImage.setImageResource(R.drawable.ic_content_copy_black_24dp)
+            myCodeCell.oneLineSettingText.text = "나의 친구 코드 : " + user.friendCode
 
+            manageReviewCell.oneLineSettingImage.setImageResource(R.drawable.ic_outline_rate_review_24)
+            manageReviewCell.oneLineSettingText.setText(R.string.manage_review)
 
-//            friendCodeText.text = user.friendCode
+            visitHistoryCell.oneLineSettingImage.setImageResource(R.drawable.ic_outline_inventory_24)
+            visitHistoryCell.oneLineSettingText.setText(R.string.visit_history)
+
         }
     }
 
@@ -68,21 +74,19 @@ class MyPageFragment private constructor() : Fragment() {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
 
-//            reloadInformation()
-//
-//            myRoomHistoryButton.setOnClickListener {
-//                start<RoomVisitTraceActivity>()
-//            }
-//            myHistoryButton.setOnClickListener {
-//                start<UserVisitTraceActivity>()
-//            }
-//            myRoomReservationButton.setOnClickListener {
-//                start<RoomBookInfoActivity>()
-//            }
-//            myReservationButton.setOnClickListener {
-//                start<UserBookInfoActivity>()
-//            }
+            reloadInformation()
 
+            myCodeConstraint.setOnClickListener{
+
+            }
+
+            manageReviewConstraint.setOnClickListener{
+
+            }
+
+            visitHistoryConstraint.setOnClickListener{
+
+            }
             return root
         }
     }
