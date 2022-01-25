@@ -10,19 +10,19 @@
         android:id="@+id/appBarConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/backButtonSettings"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:scaleType="fitCenter"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_common_btn_app_bar"
+            android:scaleType="center"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +40,9 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/backButtonSettings"
             app:layout_constraintStart_toEndOf="@+id/backButtonSettings"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backButtonSettings"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
