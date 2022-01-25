@@ -49,6 +49,22 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
+
+            noticeSettingsCell.oneLineSettingImage.setImageResource(R.drawable.ic_notifications_black_24dp)
+            noticeSettingsCell.oneLineSettingText.setText(R.string.notification_settings)
+
+            manageAccountCell.oneLineSettingImage.setImageResource(R.drawable.ic_baseline_manage_accounts_24)
+            manageAccountCell.oneLineSettingText.setText(R.string.manage_account)
+
+            termsOfUseCell.oneLineSettingImage.setImageResource(R.drawable.ic_receipt_long_black_24dp)
+            termsOfUseCell.oneLineSettingText.setText(R.string.terms_of_use)
+
+            supportDeveloperCell.oneLineSettingImage.setImageResource(R.drawable.ic_paid_black_24dp)
+            supportDeveloperCell.oneLineSettingText.setText(R.string.support_developer)
+
+            developerInfoCell.oneLineSettingImage.setImageResource(R.drawable.ic_groups_black_24dp)
+            developerInfoCell.oneLineSettingText.setText(R.string.developer_info)
+
             backButtonSettings.setOnClickListener {
                 onBackPressed()
             }
