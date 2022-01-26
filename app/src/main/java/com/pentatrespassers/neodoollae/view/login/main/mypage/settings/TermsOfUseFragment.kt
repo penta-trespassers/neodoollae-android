@@ -19,7 +19,7 @@ class TermsOfUseFragment private constructor() : Fragment() {
         with(bind) {
 
             pdfView.fromAsset("terms_of_use.pdf")
-                .swipeHorizontal(true)
+                .swipeHorizontal(false)
                 .pageSnap(true)
                 .autoSpacing(true)
                 .pageFling(true)
