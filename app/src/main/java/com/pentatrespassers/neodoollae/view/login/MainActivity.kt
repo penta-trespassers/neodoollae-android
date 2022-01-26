@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
+import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
 import splitties.fragments.fragmentTransaction
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             View.GONE.also {
                 backButtonMain.visibility = it
                 titleText.visibility = it
+                editButton.visibility = it
                 notificationButton.visibility = it
                 scheduleButton.visibility = it
                 settingButton.visibility = it
@@ -94,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     myPageFragment -> {
                         titleText.text = getString(R.string.my_page)
-                        showViews(titleText, notificationButton, settingButton)
+                        showViews(titleText, editButton, notificationButton, settingButton)
                     }
                     notificationFragment -> {
                         titleText.text = getString(R.string.notification)
@@ -124,6 +126,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
+            }
+            editButton.setOnClickListener{
+                start<EditMyInfoActivity>()
             }
             notificationButton.setOnClickListener {
                 replaceMainFrame(5)
