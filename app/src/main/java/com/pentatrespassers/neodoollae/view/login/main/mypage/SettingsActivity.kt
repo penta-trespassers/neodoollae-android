@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivitySettingsBinding
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineSetting
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.DeveloperInfoFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.ManageAccountFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.NotificationSettingsFragment
@@ -49,36 +50,41 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
-
-            noticeSettingsCell.oneLineSettingImage.setImageResource(R.drawable.ic_notifications_black_24dp)
-            noticeSettingsCell.oneLineSettingText.setText(R.string.notification_settings)
-
-            manageAccountCell.oneLineSettingImage.setImageResource(R.drawable.ic_baseline_manage_accounts_24)
-            manageAccountCell.oneLineSettingText.setText(R.string.manage_account)
-
-            termsOfUseCell.oneLineSettingImage.setImageResource(R.drawable.ic_receipt_long_black_24dp)
-            termsOfUseCell.oneLineSettingText.setText(R.string.terms_of_use)
-
-            supportDeveloperCell.oneLineSettingImage.setImageResource(R.drawable.ic_paid_black_24dp)
-            supportDeveloperCell.oneLineSettingText.setText(R.string.support_developer)
-
-            developerInfoCell.oneLineSettingImage.setImageResource(R.drawable.ic_groups_black_24dp)
-            developerInfoCell.oneLineSettingText.setText(R.string.developer_info)
-
             backButtonSettings.setOnClickListener {
                 onBackPressed()
             }
-            noticeSettingsConstraint.setOnClickListener {
-                replaceSettingsFrame(notificationSettingsFragment)
+
+            with(noticeSettingsCell){
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_notification, R.string.notification_settings)
+                oneLineSettingConstraint.setOnClickListener {
+                    replaceSettingsFrame(notificationSettingsFragment)
+                }
             }
-            manageAccountConstraint.setOnClickListener {
-                replaceSettingsFrame(manageAccountFragment)
+            with(manageAccountCell){
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_manage_account, R.string.manage_account)
+                oneLineSettingConstraint.setOnClickListener {
+                    replaceSettingsFrame(manageAccountFragment)
+                }
             }
-            termsOfUseConstraint.setOnClickListener {
-                replaceSettingsFrame(termsOfUseFragment)
+            with(termsOfUseCell){
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_receipt, R.string.terms_of_use)
+                oneLineSettingConstraint.setOnClickListener {
+                    replaceSettingsFrame(termsOfUseFragment)
+                }
             }
-            developerInfoConstraint.setOnClickListener {
-                replaceSettingsFrame(developerInfoFragment)
+
+            with(supportDeveloperCell){
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_cash, R.string.support_developer)
+                oneLineSettingConstraint.setOnClickListener {
+                    // TODO : support Developer
+                }
+            }
+
+            with(developerInfoCell){
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_developers, R.string.developer_info)
+                oneLineSettingConstraint.setOnClickListener {
+                    replaceSettingsFrame(developerInfoFragment)
+                }
             }
 
             setContentView(root)

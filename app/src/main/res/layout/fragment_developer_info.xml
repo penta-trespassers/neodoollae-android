@@ -7,93 +7,134 @@
     tools:context=".view.login.main.mypage.settings.NotificationSettingsFragment" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/teamConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_common_card">
 
         <include
             android:id="@+id/teamCell"
-            layout="@layout/cell_two_line"/>
+            layout="@layout/cell_two_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/firstMemberConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/teamConstraint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/teamCell"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"/>
 
         <include
             android:id="@+id/firstMemberCell"
-            layout="@layout/cell_two_line"/>
+            layout="@layout/cell_two_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_common_button_menu_cell"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstMemberCell"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/secondMemberConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/firstMemberConstraint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
 
         <include
             android:id="@+id/secondMemberCell"
-            layout="@layout/cell_two_line"/>
+            layout="@layout/cell_two_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/secondMemberCell"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/thirdMemberConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/secondMemberConstraint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
 
         <include
             android:id="@+id/thirdMemberCell"
-            layout="@layout/cell_two_line"/>
+            layout="@layout/cell_two_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fourthMemberConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/thirdMemberConstraint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thirdMemberCell"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"/>
 
         <include
             android:id="@+id/fourthMemberCell"
-            layout="@layout/cell_two_line"/>
+            layout="@layout/cell_two_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_common_button_menu_cell"
+            app:layout_constraintTop_toBottomOf="@id/divider4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fifthMemberConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/fourthMemberConstraint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fourthMemberCell"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"/>
 
         <include
             android:id="@+id/fifthMemberCell"
-            layout="@layout/cell_two_line"/>
+            layout="@layout/cell_two_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

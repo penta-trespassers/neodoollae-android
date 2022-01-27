@@ -18,10 +18,10 @@
 
         <ImageButton
             android:id="@+id/backButtonSettings"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:background="@drawable/bg_common_btn_app_bar"
+            android:background="@drawable/bg_common_button_app_bar"
             android:scaleType="center"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,78 +47,122 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/noticeSettingsConstraint"
-        android:layout_width="0dp"
+        android:id="@+id/firstMenuSetting"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/bg_common_card"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarConstraint">
 
         <include
             android:id="@+id/noticeSettingsCell"
-            layout="@layout/cell_one_line_setting" />
+            layout="@layout/cell_one_line_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/manageAccountConstraint"
-        android:layout_width="0dp"
+        android:id="@+id/secondMenuSetting"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/bg_common_card"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticeSettingsConstraint">
+        app:layout_constraintTop_toBottomOf="@id/firstMenuSetting">
 
         <include
             android:id="@+id/manageAccountCell"
-            layout="@layout/cell_one_line_setting" />
+            layout="@layout/cell_one_line_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/termsOfUseConstraint"
-        android:layout_width="0dp"
+        android:id="@+id/thirdMenuSetting"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_common_card"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manageAccountConstraint">
+        app:layout_constraintTop_toBottomOf="@id/secondMenuSetting"
+        app:layout_constraintVertical_bias="0.0">
 
         <include
             android:id="@+id/termsOfUseCell"
-            layout="@layout/cell_one_line_setting" />    </androidx.constraintlayout.widget.ConstraintLayout>
+            layout="@layout/cell_one_line_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/supportDeveloperConstraint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/termsOfUseConstraint">
+        <View
+            android:id="@+id/divider31"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/termsOfUseCell" />
+
 
         <include
             android:id="@+id/supportDeveloperCell"
-            layout="@layout/cell_one_line_setting" />    </androidx.constraintlayout.widget.ConstraintLayout>
+            layout="@layout/cell_one_line_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider31" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/developerInfoConstraint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supportDeveloperConstraint">
+        <View
+            android:id="@+id/divider32"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supportDeveloperCell" />
 
         <include
             android:id="@+id/developerInfoCell"
-            layout="@layout/cell_one_line_setting" />    </androidx.constraintlayout.widget.ConstraintLayout>
+            layout="@layout/cell_one_line_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider32" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settingsFrame"

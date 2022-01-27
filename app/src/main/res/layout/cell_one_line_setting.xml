@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:id="@+id/oneLineSettingConstraint"
+    android:background="@drawable/bg_common_button_menu_cell"
+    >
 
     <ImageView
         android:id="@+id/oneLineSettingImage"

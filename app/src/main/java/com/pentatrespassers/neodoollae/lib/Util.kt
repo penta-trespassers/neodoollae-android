@@ -1,8 +1,11 @@
 package com.pentatrespassers.neodoollae.lib
 
+
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.pentatrespassers.neodoollae.databinding.CellOneLineSettingBinding
+import com.pentatrespassers.neodoollae.databinding.CellTwoLineBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,4 +26,19 @@ object Util {
     fun getDateFormatter(pattern: String) = SimpleDateFormat(pattern, Locale.getDefault())
     fun getDateFormat(obj: Any, pattern: String) = SimpleDateFormat(pattern, Locale.getDefault()).format(obj)
     var simpleDateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+
+
+    fun setOneLineSetting(cell: CellOneLineSettingBinding, image: Int, mainText: Int) {
+        with(cell) {
+            oneLineSettingImage.setImageResource(image)
+            oneLineSettingText.setText(mainText)
+        }
+    }
+    fun setTwoLineCell(cell: CellTwoLineBinding, image: Int, mainText: Int, subText: Int){
+        with(cell){
+            twoLineImage.setImageResource(image)
+            twoLineMainText.setText(mainText)
+            twoLineSubText.setText(subText)
+        }
+    }
 }

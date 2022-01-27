@@ -15,9 +15,11 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.R.string.my_code
 import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineSetting
 import splitties.toast.toast
 
 class MyPageFragment private constructor() : Fragment() {
@@ -58,17 +60,12 @@ class MyPageFragment private constructor() : Fragment() {
                 .into(myPageProfileView.profileImage)
 
             myPageProfileView.nameText.text = user.nickname
-            myCodeCell.oneLineSettingImage.setImageResource(R.drawable.ic_content_copy_black_24dp)
-            myCodeCell.oneLineSettingText.text = resources.getString(my_code_cell) + user.friendCode
 
-            clipData = ClipData.newPlainText("friend code", user.friendCode)
-
-            manageReviewCell.oneLineSettingImage.setImageResource(R.drawable.ic_outline_rate_review_24)
-            manageReviewCell.oneLineSettingText.setText(R.string.manage_review)
-
-            visitHistoryCell.oneLineSettingImage.setImageResource(R.drawable.ic_outline_inventory_24)
-            visitHistoryCell.oneLineSettingText.setText(R.string.visit_history)
-
+            with(myCodeCell){
+                oneLineSettingImage.setImageResource(R.drawable.ic_mypage_copy)
+                oneLineSettingText.text = resources.getString(my_code_cell) + user.friendCode
+                clipData = ClipData.newPlainText("friend code", user.friendCode)
+            }
         }
     }
 
@@ -78,22 +75,30 @@ class MyPageFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
-
             reloadInformation()
 
-            myCodeConstraint.setOnClickListener{
-                clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-                clipboardManager.setPrimaryClip(clipData)
-                toast(R.string.copy_to_clipboard)
+            with(myCodeCell){
+                oneLineSettingConstraint.setOnClickListener {
+                    clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                    clipboardManager.setPrimaryClip(clipData)
+                    toast(R.string.copy_to_clipboard)
+                }
             }
 
-            manageReviewConstraint.setOnClickListener{
-
+            with(manageReviewCell){
+                setOneLineSetting(this, R.drawable.ic_mypage_review, R.string.manage_review)
+                oneLineSettingConstraint.setOnClickListener {
+                    // TODO : MANAGE REVIEWS
+                }
             }
 
-            visitHistoryConstraint.setOnClickListener{
-
+            with(visitHistoryCell) {
+                setOneLineSetting(this, R.drawable.ic_mypage_inventory, R.string.visit_history)
+                oneLineSettingConstraint.setOnClickListener {
+                    // TODO : VISIT HISTORY
+                }
             }
+
             return root
         }
     }

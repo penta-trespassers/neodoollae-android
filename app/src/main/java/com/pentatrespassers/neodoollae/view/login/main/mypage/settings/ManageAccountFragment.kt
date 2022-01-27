@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentManageAccountBinding
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineSetting
+import com.pentatrespassers.neodoollae.view.LoginActivity
+import splitties.fragments.start
 
 class ManageAccountFragment private constructor() : Fragment() {
 
@@ -19,23 +22,18 @@ class ManageAccountFragment private constructor() : Fragment() {
         bind = FragmentManageAccountBinding.inflate(inflater, container, false)
         with(bind) {
             with(logoutCell){
-                oneLineSettingImage.setImageResource(R.drawable.ic_logout_black_24dp)
-                oneLineSettingText.setText(R.string.logout)
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_logout, R.string.logout)
+                oneLineSettingConstraint.setOnClickListener{
+                    // TODO : LOGOUT
+                    start<LoginActivity>()
+                }
             }
             with(withdrawCell){
-                oneLineSettingImage.setImageResource(R.drawable.ic_cancel_24dp)
-                oneLineSettingText.setText(R.string.withdraw)
+                setOneLineSetting(this, R.drawable.ic_mypage_setting_withdraw, R.string.withdraw)
+                oneLineSettingConstraint.setOnClickListener {
+                    // TODO : WITHDRAW
+                }
             }
-
-            logoutConstraint.setOnClickListener{
-
-            }
-
-            withdrawConstraint.setOnClickListener{
-
-            }
-
-
             return root
         }
     }

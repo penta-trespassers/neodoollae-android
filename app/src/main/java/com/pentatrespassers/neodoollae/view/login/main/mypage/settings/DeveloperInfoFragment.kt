@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentDeveloperInfoBinding
+import com.pentatrespassers.neodoollae.lib.Util.setTwoLineCell
 
 class DeveloperInfoFragment private constructor() : Fragment() {
 
@@ -22,67 +23,41 @@ class DeveloperInfoFragment private constructor() : Fragment() {
         bind = FragmentDeveloperInfoBinding.inflate(inflater, container, false)
         with(bind) {
             with(teamCell){
-                twoLineImage.setImageResource(R.drawable.ic_groups_black_24dp)
-                twoLineMainText.setText(R.string.team_name)
-                twoLineSubText.setText(R.string.team_description)
-
+                setTwoLineCell(this, R.drawable.ic_groups_black_24dp, R.string.team_name, R.string.team_description)
+                twoLineConstraint.setOnClickListener {
+                    hyperlink(R.string.team_url)
+                }
             }
             with(firstMemberCell){
-                twoLineImage.setImageResource(R.drawable.ic_account_circle_black_24dp)
-                twoLineMainText.setText(R.string.first_member)
-                twoLineSubText.setText(R.string.back_end)
+                setTwoLineCell(this, R.drawable.ic_account_circle_black_24dp, R.string.first_member, R.string.back_end)
+                twoLineConstraint.setOnClickListener {
+                    hyperlink(R.string.first_url)
+                }
             }
             with(secondMemberCell){
-                twoLineImage.setImageResource(R.drawable.ic_account_circle_black_24dp)
-                twoLineMainText.setText(R.string.second_member)
-                twoLineSubText.setText(R.string.front_end_designer)
+                setTwoLineCell(this, R.drawable.ic_account_circle_black_24dp, R.string.second_member, R.string.front_end_designer)
+                twoLineConstraint.setOnClickListener {
+                    hyperlink(R.string.second_url)
+                }
             }
             with(thirdMemberCell){
-                twoLineImage.setImageResource(R.drawable.ic_account_circle_black_24dp)
-                twoLineMainText.setText(R.string.third_member)
-                twoLineSubText.setText(R.string.front_end)
+                setTwoLineCell(this, R.drawable.ic_account_circle_black_24dp, R.string.third_member, R.string.front_end)
+                twoLineConstraint.setOnClickListener {
+                    hyperlink(R.string.third_url)
+                }
             }
             with(fourthMemberCell){
-                twoLineImage.setImageResource(R.drawable.ic_account_circle_black_24dp)
-                twoLineMainText.setText(R.string.fourth_member)
-                twoLineSubText.setText(R.string.front_back_end)
+                setTwoLineCell(this, R.drawable.ic_account_circle_black_24dp, R.string.fourth_member, R.string.front_back_end)
+                twoLineConstraint.setOnClickListener {
+                    hyperlink(R.string.fourth_url)
+                }
             }
             with(fifthMemberCell){
-                twoLineImage.setImageResource(R.drawable.ic_account_circle_black_24dp)
-                twoLineMainText.setText(R.string.fifth_member)
-                twoLineSubText.setText(R.string.front_end)
+                setTwoLineCell(this, R.drawable.ic_account_circle_black_24dp, R.string.fifth_member, R.string.front_end)
+                twoLineConstraint.setOnClickListener {
+                    hyperlink(R.string.fifth_url)
+                }
             }
-
-            teamConstraint.setOnClickListener{
-                intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/penta-trespassers"))
-                startActivity(intent)
-            }
-
-            firstMemberConstraint.setOnClickListener{
-                intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sjwhole"))
-                startActivity(intent)
-            }
-
-            secondMemberConstraint.setOnClickListener{
-                intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/inticoy"))
-                startActivity(intent)
-            }
-
-            thirdMemberConstraint.setOnClickListener{
-                intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SEOJIN-LEE"))
-                startActivity(intent)
-            }
-
-            fourthMemberConstraint.setOnClickListener{
-                intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/recsater"))
-                startActivity(intent)
-            }
-
-            fifthMemberConstraint.setOnClickListener{
-                intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sunny5875"))
-                startActivity(intent)
-            }
-
             return root
         }
     }
@@ -92,5 +67,11 @@ class DeveloperInfoFragment private constructor() : Fragment() {
         }
     }
 
+    private fun hyperlink(resource: Int){
+        var url = resources.getString(resource)
+        println(url)
+        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+    }
 
 }
