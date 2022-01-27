@@ -33,7 +33,7 @@ class MyPageFragment private constructor() : Fragment() {
         with(bind) {
             val user = Authentication.user!!
             Glide.with(this@MyPageFragment).load(user.profileImage)
-                .error(R.drawable.ic_baseline_account_circle_24)
+                .error(R.drawable.ic_common_account)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
@@ -60,6 +60,14 @@ class MyPageFragment private constructor() : Fragment() {
                 .into(myPageProfileView.profileImage)
 
             myPageProfileView.nameText.text = user.nickname
+
+            myPageProfileView.leftButton.setOnClickListener {
+
+            }
+
+            myPageProfileView.rightButton.setOnClickListener {
+
+            }
 
             with(myCodeCell){
                 oneLineSettingImage.setImageResource(R.drawable.ic_mypage_copy)
