@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendListBinding
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -23,6 +24,19 @@ class FriendListFragment private constructor() : Fragment() {
         with(bind) {
             friendListRecycler.adapter = friendListAdapter
             refreshFriendList()
+
+
+            friendSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(p0: String?): Boolean {
+                    friendListAdapter.filter.filter(p0)
+                    return false
+                }
+            })
+
             return root
         }
     }

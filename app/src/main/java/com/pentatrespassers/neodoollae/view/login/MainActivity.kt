@@ -3,14 +3,19 @@ package com.pentatrespassers.neodoollae.view.login
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
+import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
+import com.pentatrespassers.neodoollae.databinding.BtmSheetCheckFriendBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
 import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
 import splitties.fragments.fragmentTransaction
+import splitties.toast.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     private val bind by lazy {
         ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    private val bind2 by lazy {
+        BtmSheetAddFriendBinding.inflate(layoutInflater)
+    }
+
+    private val bind3 by lazy {
+        BtmSheetCheckFriendBinding.inflate(layoutInflater)
     }
 
     private val homeFragment by lazy {
@@ -88,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     friendFragment -> {
                         titleText.text = getString(R.string.friend)
-                        showViews(titleText)
+                        showViews(titleText, searchButton, addfriendButton, notificationButton)
                     }
                     reservationFragment -> {
                         titleText.text = getString(R.string.reservation_history)
@@ -138,6 +151,69 @@ class MainActivity : AppCompatActivity() {
             }
             settingButton.setOnClickListener {
                 start<SettingsActivity>()
+            }
+
+            addfriendButton.setOnClickListener {
+
+//                with(bind2) {
+//                    // add friend dialog
+//                    val btmSheetView = layoutInflater.inflate(R.layout.btm_sheet_add_friend, null)
+//                    val btmSheetDialog = BottomSheetDialog(bind.root.context)
+//                    btmSheetDialog.setContentView(btmSheetView)
+//
+//                    // check friend dialog
+//                    val btmSheetView2 = layoutInflater.inflate(R.layout.btm_sheet_check_friend, null)
+//                    val btmSheetDialog2 = BottomSheetDialog(bind.root.context)
+//                    btmSheetDialog2.setContentView(btmSheetView2)
+//
+//                    // show add friend dialog
+//                    btmSheetDialog.show()
+//
+//                    acceptButton.setOnClickListener {
+//                        btmSheetDialog2.show()
+//                        with(bind3) {
+//                            cancelButtonCheckFriend.setOnClickListener {
+//                                btmSheetDialog2.dismiss()
+//                            }
+//
+//                            sendButtonCheckFriend.setOnClickListener {
+////                                btmSheetDialog2.dismissWithAnimation
+////                                btmSheetDialog.dismissWithAnimation
+////                                toast
+//                            }
+//                        }
+//                    }
+//                }
+
+                val btmSheetView = layoutInflater.inflate(R.layout.btm_sheet_add_friend, null)
+                val btmSheetDialog = BottomSheetDialog(bind.root.context)
+                btmSheetDialog.setContentView(btmSheetView)
+
+                // check friend dialog
+                val btmSheetView2 = layoutInflater.inflate(R.layout.btm_sheet_check_friend, null)
+                val btmSheetDialog2 = BottomSheetDialog(bind.root.context)
+                btmSheetDialog2.setContentView(btmSheetView2)
+
+                // show add friend dialog
+                btmSheetDialog.show()
+
+                val accept = btmSheetView.findViewById<AppCompatButton>(R.id.acceptButton)
+                val cancel = btmSheetView2.findViewById<AppCompatButton>(R.id.cancelButtonCheckFriend)
+                val send = btmSheetView2.findViewById<AppCompatButton>(R.id.sendButtonCheckFriend)
+
+                accept.setOnClickListener {
+                    btmSheetDialog2.show()
+
+                    cancel.setOnClickListener {
+                        btmSheetDialog2.dismiss()
+                    }
+
+                    send.setOnClickListener {
+                        btmSheetDialog.dismiss()
+                        btmSheetDialog2.dismiss()
+                        toast("친구 신청 완료!")
+                    }
+                }
             }
 
             bottomNavigationView.setOnItemSelectedListener {
