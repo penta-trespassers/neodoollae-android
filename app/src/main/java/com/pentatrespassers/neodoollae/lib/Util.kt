@@ -4,7 +4,7 @@ package com.pentatrespassers.neodoollae.lib
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.pentatrespassers.neodoollae.databinding.CellOneLineSettingBinding
+import com.pentatrespassers.neodoollae.databinding.CellOneLineMenuBinding
 import com.pentatrespassers.neodoollae.databinding.CellTwoLineBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,10 +28,10 @@ object Util {
     var simpleDateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 
 
-    fun setOneLineSetting(cell: CellOneLineSettingBinding, image: Int, mainText: Int) {
+    fun setOneLineMenu(cell: CellOneLineMenuBinding, image: Int, mainText: Int) {
         with(cell) {
-            oneLineSettingImage.setImageResource(image)
-            oneLineSettingText.setText(mainText)
+            oneLineMenuImage.setImageResource(image)
+            oneLineMenuText.setText(mainText)
         }
     }
     fun setTwoLineCell(cell: CellTwoLineBinding, image: Int, mainText: Int, subText: Int){

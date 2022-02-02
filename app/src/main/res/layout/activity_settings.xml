@@ -61,7 +61,7 @@
 
         <include
             android:id="@+id/noticeSettingsCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -85,7 +85,7 @@
 
         <include
             android:id="@+id/manageAccountCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +113,7 @@
 
         <include
             android:id="@+id/termsOfUseCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +134,7 @@
 
         <include
             android:id="@+id/supportDeveloperCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
 
         <include
             android:id="@+id/developerInfoCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

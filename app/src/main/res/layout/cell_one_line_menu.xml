@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
-    android:id="@+id/oneLineSettingConstraint"
+    android:id="@+id/oneLineMenuConstraint"
     android:background="@drawable/bg_common_button_menu_cell"
     >
 
     <ImageView
-        android:id="@+id/oneLineSettingImage"
+        android:id="@+id/oneLineMenuImage"
         android:layout_width="24dp"
         android:layout_height="24dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,15 +20,15 @@
         app:tint="@color/trespassGray_600" />
 
     <TextView
-        android:id="@+id/oneLineSettingText"
+        android:id="@+id/oneLineMenuText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14dp"
         android:textStyle="normal"
         android:text="TextView"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/oneLineSettingImage"
-        app:layout_constraintStart_toEndOf="@+id/oneLineSettingImage"
-        app:layout_constraintTop_toTopOf="@id/oneLineSettingImage"
+        app:layout_constraintBottom_toBottomOf="@id/oneLineMenuImage"
+        app:layout_constraintStart_toEndOf="@+id/oneLineMenuImage"
+        app:layout_constraintTop_toTopOf="@id/oneLineMenuImage"
         android:layout_marginStart="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

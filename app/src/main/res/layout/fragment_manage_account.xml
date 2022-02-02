@@ -25,7 +25,7 @@
 
         <include
             android:id="@+id/logoutCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
 
         <include
             android:id="@+id/withdrawCell"
-            layout="@layout/cell_one_line_setting"
+            layout="@layout/cell_one_line_menu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

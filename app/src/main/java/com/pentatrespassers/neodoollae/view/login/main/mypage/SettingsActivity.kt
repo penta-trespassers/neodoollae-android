@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivitySettingsBinding
-import com.pentatrespassers.neodoollae.lib.Util.setOneLineSetting
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.DeveloperInfoFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.ManageAccountFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.NotificationSettingsFragment
@@ -55,34 +55,34 @@ class SettingsActivity : AppCompatActivity() {
             }
 
             with(noticeSettingsCell){
-                setOneLineSetting(this, R.drawable.ic_mypage_setting_notification, R.string.notification_settings)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_notification, R.string.notification_settings)
+                oneLineMenuConstraint.setOnClickListener {
                     replaceSettingsFrame(notificationSettingsFragment)
                 }
             }
             with(manageAccountCell){
-                setOneLineSetting(this, R.drawable.ic_mypage_setting_manage_account, R.string.manage_account)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_manage_account, R.string.manage_account)
+                oneLineMenuConstraint.setOnClickListener {
                     replaceSettingsFrame(manageAccountFragment)
                 }
             }
             with(termsOfUseCell){
-                setOneLineSetting(this, R.drawable.ic_mypage_setting_receipt, R.string.terms_of_use)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_receipt, R.string.terms_of_use)
+                oneLineMenuConstraint.setOnClickListener {
                     replaceSettingsFrame(termsOfUseFragment)
                 }
             }
 
             with(supportDeveloperCell){
-                setOneLineSetting(this, R.drawable.ic_mypage_setting_cash, R.string.support_developer)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_cash, R.string.support_developer)
+                oneLineMenuConstraint.setOnClickListener {
                     // TODO : support Developer
                 }
             }
 
             with(developerInfoCell){
-                setOneLineSetting(this, R.drawable.ic_mypage_setting_developers, R.string.developer_info)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_developers, R.string.developer_info)
+                oneLineMenuConstraint.setOnClickListener {
                     replaceSettingsFrame(developerInfoFragment)
                 }
             }

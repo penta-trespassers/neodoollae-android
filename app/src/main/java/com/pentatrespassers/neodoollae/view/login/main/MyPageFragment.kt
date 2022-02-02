@@ -15,11 +15,10 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.R.string.my_code
 import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
-import com.pentatrespassers.neodoollae.lib.Util.setOneLineSetting
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
 import splitties.toast.toast
 
 class MyPageFragment private constructor() : Fragment() {
@@ -70,8 +69,8 @@ class MyPageFragment private constructor() : Fragment() {
             }
 
             with(myCodeCell){
-                oneLineSettingImage.setImageResource(R.drawable.ic_mypage_copy)
-                oneLineSettingText.text = resources.getString(my_code_cell) + user.friendCode
+                oneLineMenuImage.setImageResource(R.drawable.ic_mypage_copy)
+                oneLineMenuText.text = resources.getString(my_code_cell) + user.friendCode
                 clipData = ClipData.newPlainText("friend code", user.friendCode)
             }
         }
@@ -86,7 +85,7 @@ class MyPageFragment private constructor() : Fragment() {
             reloadInformation()
 
             with(myCodeCell){
-                oneLineSettingConstraint.setOnClickListener {
+                oneLineMenuConstraint.setOnClickListener {
                     clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
                     clipboardManager.setPrimaryClip(clipData)
                     toast(R.string.copy_to_clipboard)
@@ -94,15 +93,15 @@ class MyPageFragment private constructor() : Fragment() {
             }
 
             with(manageReviewCell){
-                setOneLineSetting(this, R.drawable.ic_mypage_review, R.string.manage_review)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_review, R.string.manage_review)
+                oneLineMenuConstraint.setOnClickListener {
                     // TODO : MANAGE REVIEWS
                 }
             }
 
             with(visitHistoryCell) {
-                setOneLineSetting(this, R.drawable.ic_mypage_inventory, R.string.visit_history)
-                oneLineSettingConstraint.setOnClickListener {
+                setOneLineMenu(this, R.drawable.ic_mypage_inventory, R.string.visit_history)
+                oneLineMenuConstraint.setOnClickListener {
                     // TODO : VISIT HISTORY
                 }
             }
