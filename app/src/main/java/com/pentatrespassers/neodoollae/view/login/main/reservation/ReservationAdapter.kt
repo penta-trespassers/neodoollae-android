@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.view.login.main.reservation
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +28,8 @@ class ReservationAdapter(
             with(bind) {
 
 
-                createdAtText.text = Util.simpleDateFormatter.format(reservation.createdAt?.time)
-
+                reservationStartDateText.text = Util.simpleDateFormatter.format(reservation.createdIn?.time)
+                reservationEndDateText.text = Util.simpleDateFormatter.format(reservation.checkOut?.time)
 
                 when (reservation.status) {
                     Reservation.STATUS_WAITING -> {
@@ -47,6 +48,12 @@ class ReservationAdapter(
 
 
                 }
+
+                itemView.setOnClickListener {
+
+                }
+
+
             }
         }
     }

@@ -119,7 +119,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myReservationConstraint">
+        app:layout_constraintTop_toBottomOf="@+id/myReservationConstraint"
+        tools:context=".view.login.main.ReservationFragment">
 
         <androidx.recyclerview.widget.RecyclerView
 
@@ -128,7 +129,10 @@
             android:layout_height="731dp"
             android:paddingBottom="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:layout_editor_absoluteY="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/cell_reservation">
 
         </androidx.recyclerview.widget.RecyclerView>

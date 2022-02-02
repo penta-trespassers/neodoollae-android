@@ -42,6 +42,16 @@
         app:layout_constraintStart_toStartOf="@+id/reservationRoomText" />
 
 
+    <ImageView
+        android:id="@+id/cellBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_my_schedule" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/reservationDetailConstraint"
         android:layout_width="match_parent"
