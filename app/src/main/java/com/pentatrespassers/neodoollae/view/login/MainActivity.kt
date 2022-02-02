@@ -6,11 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
-import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
-import com.pentatrespassers.neodoollae.databinding.BtmSheetCheckFriendBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
 import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity

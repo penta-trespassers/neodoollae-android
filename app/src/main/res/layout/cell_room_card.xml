@@ -33,7 +33,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_satisfied" />
 
     <TextView
         android:id="@+id/roomNameTextRoomCard"
