@@ -82,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="@+id/hostRateImageView"
         app:layout_constraintStart_toStartOf="@+id/hostRateImageView"
         app:layout_constraintTop_toTopOf="@+id/hostRateImageView"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied" />
 
     <TextView
         android:id="@+id/hostRateTextView"
@@ -105,7 +105,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/rateImageView1"
         app:layout_constraintTop_toBottomOf="@+id/rateImageView1"
-        app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_satisfied" />
 
     <ProgressBar
         android:id="@+id/progressBar4"
@@ -178,7 +178,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/rateImageView2"
         app:layout_constraintTop_toBottomOf="@+id/rateImageView2"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_neutral" />
 
     <ImageView
         android:id="@+id/rateImageView4"
@@ -191,7 +191,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/rateImageView3"
         app:layout_constraintTop_toBottomOf="@+id/rateImageView3"
-        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied" />
 
     <ImageView
         android:id="@+id/rateImageView1"
@@ -202,7 +202,7 @@
         app:layout_constraintEnd_toStartOf="@+id/progressBar1"
         app:layout_constraintStart_toEndOf="@+id/hostRateImageView"
         app:layout_constraintTop_toBottomOf="@+id/guestRatingText"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied"
         app:tint="#2196F3" />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -10,13 +10,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:tint="#AAAAAA"
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toStartOf="@+id/guestNameText"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView12"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        app:tint="#AAAAAA" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.26"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied"
         app:tint="#3E5AE6" />
 
     <TextView
@@ -109,7 +109,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:srcCompat="@drawable/ic_sentiment_satisfied_alt_black_24dp"
+        app:srcCompat="@drawable/ic_sentiment_satisfied"
         app:tint="#209938" />
 
     <ProgressBar
@@ -186,7 +186,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/ic_sentiment_neutral_black_24dp"
+        app:srcCompat="@drawable/ic_sentiment_neutral"
         app:tint="#FFC700" />
 
     <ImageView
@@ -199,7 +199,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
+        app:srcCompat="@drawable/ic_sentiment_very_dissatisfied"
         app:tint="#E63E57" />
 
     <ImageView
@@ -212,7 +212,7 @@
         app:layout_constraintEnd_toStartOf="@+id/progressBar1"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied"
         app:tint="#3E5AE6" />
 
     <androidx.recyclerview.widget.RecyclerView

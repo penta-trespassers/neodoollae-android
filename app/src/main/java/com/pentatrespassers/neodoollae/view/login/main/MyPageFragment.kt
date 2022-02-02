@@ -1,5 +1,8 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,23 +15,24 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
-import com.pentatrespassers.neodoollae.view.login.main.mypage.RoomBookInfoActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.RoomVisitTraceActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserBookInfoActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserVisitTraceActivity
-import splitties.fragments.start
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
+import splitties.toast.toast
 
 class MyPageFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentMyPageBinding
 
+    private lateinit var clipData : ClipData
+    private lateinit var clipboardManager : ClipboardManager
+
     private fun reloadInformation() {
         with(bind) {
             val user = Authentication.user!!
             Glide.with(this@MyPageFragment).load(user.profileImage)
-                .error(R.drawable.ic_baseline_account_circle_24)
+                .error(R.drawable.ic_common_account)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
@@ -36,7 +40,7 @@ class MyPageFragment private constructor() : Fragment() {
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        myProfileImageView.setColorFilter(R.color.gray)
+                        myPageProfileView.profileImage.setColorFilter(R.color.trespassGray_600)
                         return false
                     }
 
@@ -47,14 +51,28 @@ class MyPageFragment private constructor() : Fragment() {
                         dataSource: DataSource?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        myProfileImageView.imageTintList = null
+                        myPageProfileView.profileImage.imageTintList = null
                         return false
                     }
 
                 })
-                .into(myProfileImageView)
-            nicknameTextMyPage.text = user.nickname
-            friendCodeText.text = user.friendCode
+                .into(myPageProfileView.profileImage)
+
+            myPageProfileView.nameText.text = user.nickname
+
+            myPageProfileView.leftButton.setOnClickListener {
+
+            }
+
+            myPageProfileView.rightButton.setOnClickListener {
+
+            }
+
+            with(myCodeCell){
+                oneLineMenuImage.setImageResource(R.drawable.ic_mypage_copy)
+                oneLineMenuText.text = resources.getString(my_code_cell) + user.friendCode
+                clipData = ClipData.newPlainText("friend code", user.friendCode)
+            }
         }
     }
 
@@ -64,20 +82,28 @@ class MyPageFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentMyPageBinding.inflate(inflater, container, false)
         with(bind) {
-
             reloadInformation()
 
-            myRoomHistoryButton.setOnClickListener {
-                start<RoomVisitTraceActivity>()
+            with(myCodeCell){
+                oneLineMenuConstraint.setOnClickListener {
+                    clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                    clipboardManager.setPrimaryClip(clipData)
+                    toast(R.string.copy_to_clipboard)
+                }
             }
-            myHistoryButton.setOnClickListener {
-                start<UserVisitTraceActivity>()
+
+            with(manageReviewCell){
+                setOneLineMenu(this, R.drawable.ic_mypage_review, R.string.manage_review)
+                oneLineMenuConstraint.setOnClickListener {
+                    // TODO : MANAGE REVIEWS
+                }
             }
-            myRoomReservationButton.setOnClickListener {
-                start<RoomBookInfoActivity>()
-            }
-            myReservationButton.setOnClickListener {
-                start<UserBookInfoActivity>()
+
+            with(visitHistoryCell) {
+                setOneLineMenu(this, R.drawable.ic_mypage_inventory, R.string.visit_history)
+                oneLineMenuConstraint.setOnClickListener {
+                    // TODO : VISIT HISTORY
+                }
             }
 
             return root

@@ -10,19 +10,19 @@
         android:id="@+id/imageView5"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:tint="#AAAAAA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        app:tint="#AAAAAA" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:tint="#3E5AE6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_black_24dp" />
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied"
+        app:tint="#3E5AE6" />
 
     <TextView
         android:id="@+id/reviewGuestNameText"

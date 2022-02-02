@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivitySettingsBinding
+import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.DeveloperInfoFragment
+import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.ManageAccountFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.NotificationSettingsFragment
 import com.pentatrespassers.neodoollae.view.login.main.mypage.settings.TermsOfUseFragment
 import splitties.fragments.fragmentTransaction
@@ -20,6 +22,7 @@ class SettingsActivity : AppCompatActivity() {
     private val notificationSettingsFragment = NotificationSettingsFragment.newInstance()
     private val termsOfUseFragment = TermsOfUseFragment.newInstance()
     private val developerInfoFragment = DeveloperInfoFragment.newInstance()
+    private val manageAccountFragment = ManageAccountFragment.newInstance()
 
     private fun replaceSettingsFrame(fragment: Fragment) = fragmentTransaction {
         replace(R.id.settingsFrame, fragment)
@@ -27,6 +30,9 @@ class SettingsActivity : AppCompatActivity() {
             when (fragment) {
                 notificationSettingsFragment -> {
                     titleTextSettings.text = getString(R.string.notification_settings)
+                }
+                manageAccountFragment -> {
+                    titleTextSettings.text = getString(R.string.manage_account)
                 }
                 termsOfUseFragment -> {
                     titleTextSettings.text = getString(R.string.terms_of_use)
@@ -36,6 +42,7 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
             settingsFrame.visibility = View.VISIBLE
+            settingsFrame.isClickable = true
         }
 
     }
@@ -43,17 +50,41 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
-            previousButton.setOnClickListener {
+            backButtonSettings.setOnClickListener {
                 onBackPressed()
             }
-            noticeSettingsConstraint.setOnClickListener {
-                replaceSettingsFrame(notificationSettingsFragment)
+
+            with(noticeSettingsCell){
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_notification, R.string.notification_settings)
+                oneLineMenuConstraint.setOnClickListener {
+                    replaceSettingsFrame(notificationSettingsFragment)
+                }
             }
-            termsOfUseConstraint.setOnClickListener {
-                replaceSettingsFrame(termsOfUseFragment)
+            with(manageAccountCell){
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_manage_account, R.string.manage_account)
+                oneLineMenuConstraint.setOnClickListener {
+                    replaceSettingsFrame(manageAccountFragment)
+                }
             }
-            developerInfoConstraint.setOnClickListener {
-                replaceSettingsFrame(developerInfoFragment)
+            with(termsOfUseCell){
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_receipt, R.string.terms_of_use)
+                oneLineMenuConstraint.setOnClickListener {
+                    replaceSettingsFrame(termsOfUseFragment)
+                }
+            }
+
+            with(supportDeveloperCell){
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_cash, R.string.support_developer)
+                oneLineMenuConstraint.setOnClickListener {
+                    // TODO : support Developer
+                }
+            }
+
+            with(developerInfoCell){
+                setOneLineMenu(this, R.drawable.ic_mypage_setting_developers, R.string.developer_info)
+                oneLineMenuConstraint.setOnClickListener {
+                    replaceSettingsFrame(developerInfoFragment)
+                }
             }
 
             setContentView(root)
