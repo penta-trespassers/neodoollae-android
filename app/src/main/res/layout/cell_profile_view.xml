@@ -21,12 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/profileImage"
         app:layout_constraintStart_toStartOf="@+id/profileImage"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+        app:layout_constraintTop_toBottomOf="@+id/profileImage"
+        tools:text="윤거누" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/leftButton"
@@ -53,13 +53,13 @@
             android:id="@+id/leftText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="14dp"
             android:layout_marginBottom="8dp"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="@+id/leftButton"
             app:layout_constraintEnd_toEndOf="@+id/leftImage"
             app:layout_constraintStart_toStartOf="@+id/leftImage"
-            app:layout_constraintTop_toBottomOf="@+id/leftImage" />
+            app:layout_constraintTop_toBottomOf="@+id/leftImage"
+            tools:text="손님 점수" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View

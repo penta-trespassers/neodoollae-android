@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
@@ -14,8 +13,6 @@ import com.pentatrespassers.neodoollae.dto.User
 import splitties.activities.start
 import splitties.bundle.putExtras
 import splitties.toast.toast
-import java.util.*
-import kotlin.collections.ArrayList
 
 class FriendListAdapter(private var context: Context, private var userList: ArrayList<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
@@ -66,12 +63,12 @@ class FriendListAdapter(private var context: Context, private var userList: Arra
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val data = userList[position]
+        val data = users[position]
         (holder as CellFriendListHolder).binding(data)
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return users.size
     }
 
     fun refresh(userList: ArrayList<User>) {
@@ -84,27 +81,22 @@ class FriendListAdapter(private var context: Context, private var userList: Arra
             override fun performFiltering(constraint: CharSequence): FilterResults {
                 val charString = constraint.toString()
                 users = if (charString.isEmpty()) {
-                    users
+                    userList
                 } else {
                     val filteredList = ArrayList<User>()
-                    if (userList != null) {
-                        for (user in userList) {
-                            if (user.nickname.lowercase()
-                                    .contains(charString.lowercase(Locale.getDefault()))
-                            ) {
-                                filteredList.add(user);
-                            }
+                    for (user in userList) {
+                        if (user.nickname.lowercase()
+                                .contains(charString.lowercase())
+                        ) {
+                            filteredList.add(user);
                         }
                     }
                     filteredList
                 }
-                val filterResults = FilterResults()
-                filterResults.values = users
-                return filterResults
+                return FilterResults()
             }
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                users = p1?.values as ArrayList<User>
                 notifyDataSetChanged()
             }
         }

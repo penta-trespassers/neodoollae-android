@@ -24,8 +24,6 @@ class FriendListFragment private constructor() : Fragment() {
         with(bind) {
             friendListRecycler.adapter = friendListAdapter
             refreshFriendList()
-
-
             friendSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
@@ -49,6 +47,7 @@ class FriendListFragment private constructor() : Fragment() {
     fun refreshFriendList() {
         RetrofitClient.getAllFriends { _, response ->
             friendListAdapter.refresh(response.body()!!)
+            friendListAdapter.filter.filter("")
         }
     }
 

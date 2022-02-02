@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
                 notificationButton.visibility = it
                 scheduleButton.visibility = it
                 settingButton.visibility = it
+                addfriendButton.visibility = it
             }
             View.VISIBLE.also {
                 for (view in views) {
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     friendFragment -> {
                         titleText.text = getString(R.string.friend)
-                        showViews(titleText, searchButton, addfriendButton, notificationButton)
+                        showViews(titleText, addfriendButton, notificationButton)
                     }
                     reservationFragment -> {
                         titleText.text = getString(R.string.reservation_history)
