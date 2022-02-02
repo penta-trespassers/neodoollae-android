@@ -27,8 +27,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:thumb="@drawable/switch_thumb"
-        android:track="@drawable/switch_track_selector"/>
+        android:thumb="@drawable/common_switch_thumb"
+        android:track="@drawable/common_switch_track_selector"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
 
