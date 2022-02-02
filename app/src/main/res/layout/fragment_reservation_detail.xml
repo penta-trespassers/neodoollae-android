@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundImageView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/reservationImageView1"
+        android:layout_width="0dp"
+        android:layout_height="188dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_border_white_black" />
+
+    <TextView
+        android:id="@+id/roomTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="방"
+        android:textColor="#828282"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView1"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView1" />
+
+    <TextView
+        android:id="@+id/visitorNameTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="방문자"
+        android:textColor="#828282"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/reservationImageView1"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView1" />
+
+    <ImageView
+        android:id="@+id/reservationRoomImageView"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView1"
+        app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+    <ImageView
+        android:id="@+id/reservationVisitorImageView"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/reservationImageView1"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/visitorNameTextTitle"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+    <TextView
+        android:id="@+id/reservationRoomNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="방 이름"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView1"
+        app:layout_constraintTop_toBottomOf="@+id/reservationRoomImageView" />
+
+    <TextView
+        android:id="@+id/reservationVisitorNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="나"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/reservationImageView1"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/reservationVisitorImageView" />
+
+    <ImageView
+        android:id="@+id/reservationImageView2"
+        android:layout_width="0dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationImageView1"
+        app:srcCompat="@drawable/bg_border_white_black" />
+
+    <TextView
+        android:id="@+id/visitTimeTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="방문시간"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView2"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView2" />
+
+    <TextView
+        android:id="@+id/vistStartDatetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="48dp"
+        android:text="20YY.MM.DD"
+        android:textColor="#828282"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView2"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView2" />
+
+    <TextView
+        android:id="@+id/vistStartTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="64dp"
+        android:text="오후 HH:MM"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView2"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView2" />
+
+    <TextView
+        android:id="@+id/visitEndTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="60dp"
+        android:text="오전 HH:MM"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/reservationImageView2"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView2" />
+
+    <TextView
+        android:id="@+id/visitEndDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="64dp"
+        android:text="20YY.MM.DD"
+        android:textColor="#828282"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/reservationImageView2"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView2" />
+
+    <ImageView
+        android:id="@+id/reservationImageView3"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationImageView2"
+        app:srcCompat="@drawable/bg_border_white_black" />
+
+    <TextView
+        android:id="@+id/visitNumberTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="방문 인원"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView3"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView3" />
+
+    <TextView
+        android:id="@+id/visitNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView3"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView3" />
+
+    <ImageView
+        android:id="@+id/reservationImageView4"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationImageView3"
+        app:srcCompat="@drawable/bg_border_white_black" />
+
+    <TextView
+        android:id="@+id/toHostTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="방 주인에게 한 마디"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView4"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView4" />
+
+    <TextView
+        android:id="@+id/toHostText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/reservationImageView4"
+        app:layout_constraintTop_toTopOf="@+id/reservationImageView4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,11 +20,8 @@ class MapListRecyclerViewAdapter(
             with(bind) {
                 roomTitleTextViewAround.text = roomData.roomName
                 roomHostNametextViewAround.text = roomData.nickname
-                roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
-                roomImageView1.setImageResource(R.drawable.app_icon)
-                roomImageView2.setImageResource(R.drawable.app_icon)
-                roomImageView3.setImageResource(R.drawable.app_icon)
-                roomConditionTextView.text = "opened"
+                roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied_black_24dp)
+
                 distanceTextView.text = "300m"
             }
         }
