@@ -20,7 +20,7 @@
 
             <include
                 android:id="@+id/myPageProfileView"
-                layout="@layout/cell_profile_view"
+                layout="@layout/cell_profile_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

@@ -60,11 +60,11 @@ class MyPageFragment private constructor() : Fragment() {
 
             myPageProfileView.nameText.text = user.nickname
 
-            myPageProfileView.leftButton.setOnClickListener {
+            myPageProfileView.guestScoreButton.setOnClickListener {
 
             }
 
-            myPageProfileView.rightButton.setOnClickListener {
+            myPageProfileView.hostScoreButton.setOnClickListener {
 
             }
 

@@ -26,10 +26,10 @@
         app:layout_constraintEnd_toEndOf="@+id/profileImage"
         app:layout_constraintStart_toStartOf="@+id/profileImage"
         app:layout_constraintTop_toBottomOf="@+id/profileImage"
-        tools:text="윤거누" />
+        tools:text="이름" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/leftButton"
+        android:id="@+id/guestScoreButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
@@ -40,26 +40,26 @@
         app:layout_constraintTop_toBottomOf="@id/nameText">
 
         <ImageView
-            android:id="@+id/leftImage"
+            android:id="@+id/guestScoreImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/leftButton"
-            app:layout_constraintStart_toStartOf="@+id/leftButton"
+            app:layout_constraintEnd_toEndOf="@+id/guestScoreButton"
+            app:layout_constraintStart_toStartOf="@+id/guestScoreButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_sentiment_very_satisfied" />
 
         <TextView
-            android:id="@+id/leftText"
+            android:id="@+id/guestScoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:text="@string/guest_score"
             android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="@+id/leftButton"
-            app:layout_constraintEnd_toEndOf="@+id/leftImage"
-            app:layout_constraintStart_toStartOf="@+id/leftImage"
-            app:layout_constraintTop_toBottomOf="@+id/leftImage"
-            tools:text="손님 점수" />
+            app:layout_constraintBottom_toBottomOf="@+id/guestScoreButton"
+            app:layout_constraintEnd_toEndOf="@+id/guestScoreImage"
+            app:layout_constraintStart_toStartOf="@+id/guestScoreImage"
+            app:layout_constraintTop_toBottomOf="@+id/guestScoreImage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -73,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rightButton"
+        android:id="@+id/hostScoreButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
@@ -84,26 +84,26 @@
         app:layout_constraintTop_toBottomOf="@+id/nameText">
 
         <ImageView
-            android:id="@+id/rightImage"
+            android:id="@+id/hostScoreImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/rightButton"
-            app:layout_constraintStart_toStartOf="@+id/rightButton"
-            app:layout_constraintTop_toTopOf="@+id/rightButton"
+            app:layout_constraintEnd_toEndOf="@+id/hostScoreButton"
+            app:layout_constraintStart_toStartOf="@+id/hostScoreButton"
+            app:layout_constraintTop_toTopOf="@+id/hostScoreButton"
             app:srcCompat="@drawable/ic_sentiment_very_satisfied" />
 
         <TextView
-            android:id="@+id/rightText"
+            android:id="@+id/hostScoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="TextView"
+            android:text="@string/host_score"
             android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="@+id/rightButton"
-            app:layout_constraintEnd_toEndOf="@+id/rightImage"
-            app:layout_constraintStart_toStartOf="@+id/rightImage"
-            app:layout_constraintTop_toBottomOf="@+id/rightImage" />
+            app:layout_constraintBottom_toBottomOf="@+id/hostScoreButton"
+            app:layout_constraintEnd_toEndOf="@+id/hostScoreImage"
+            app:layout_constraintStart_toStartOf="@+id/hostScoreImage"
+            app:layout_constraintTop_toBottomOf="@+id/hostScoreImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

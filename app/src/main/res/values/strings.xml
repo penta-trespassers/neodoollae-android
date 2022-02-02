@@ -41,6 +41,7 @@
     <string name="developer_info">개발자 정보</string>
     <string name="show_only_available_rooms">예약 가능한 방만 보기</string>
     <string name="host_Rate">주인 평가</string>
+    <string name="room_score">방 점수</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <!-- Notice strings -->
@@ -50,6 +51,9 @@
     <string name="decline">거절하기</string>
 
     <!-- My Page strings -->
+    <string name="guest_score">손님 점수</string>
+    <string name="host_score">주인 점수</string>
+
     <string name="my_code">나의 친구 코드</string>
     <string name="my_code_cell">나의 친구 코드 :\ </string>
     <string name="copy_to_clipboard">클립보드에 복사되었습니다.</string>
