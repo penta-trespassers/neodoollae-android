@@ -103,6 +103,8 @@
     <string name="confirm">확인</string>
     <string name="invalid_friend_code">유효하지 않은 친구 코드입니다.</string>
     <string name="my_schedule">내 일정</string>
+    <string name="favorte_room">즐겨찾는 방</string>
+    <string name="my_room">내 방</string>
 
 
 </resources>

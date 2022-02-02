@@ -30,4 +30,6 @@
     <color name="trespassYellow_900">#FFFFC700</color>
     <color name="trespassYellow_600">#FFFFE072</color>
     <color name="trespassYellow_300">#FFFFEEB0</color>
+
+    <color name="material_neutral_variant95">#FFF0EFFA</color>
 </resources>

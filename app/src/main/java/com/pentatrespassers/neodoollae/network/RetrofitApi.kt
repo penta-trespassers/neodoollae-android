@@ -64,6 +64,12 @@ interface RetrofitApi {
         userId: Int?
     ): Call<ArrayList<Room>>
 
+    @GET("/v1/rooms/fav")
+    fun getMyFavoriteRooms(
+        @Header("Authorization")
+        bearerAccessToken: String?
+    ): Call<ArrayList<Room>>
+
     @GET("/v1/reservations/")
     fun getAllMyReservations(
         @Header("Authorization")
@@ -75,7 +81,7 @@ interface RetrofitApi {
         @Header("Authorization")
         bearerAccessToken: String?,
         @Query("term")
-        term: Int
+        term: Int? = null
     ): Call<Map<String, ArrayList<Reservation>>>
 
 }

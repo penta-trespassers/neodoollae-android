@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellMyScheduleBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.view.login.main.home.myschedule.DayScheduleAdapter
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
-class MyScheduleAdapter(private val context: Context, private var schedules: List<Pair<String, ArrayList<Reservation>>>, private val maxItemCount: Int) :
+class MyScheduleAdapter(private val context: Context, private var schedules: List<Pair<String, ArrayList<Reservation>>>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dateTimeFormatter = DateTimeFormatter.ofPattern("MM.dd E")
@@ -20,6 +21,7 @@ class MyScheduleAdapter(private val context: Context, private var schedules: Lis
         fun binding(schedule: Pair<String, ArrayList<Reservation>>) {
             with(bind) {
                 localDateText.text = LocalDate.parse(schedule.first).format(dateTimeFormatter)
+                dayScheduleRecycler.adapter = DayScheduleAdapter(context, schedule.second)
             }
         }
     }
@@ -35,7 +37,7 @@ class MyScheduleAdapter(private val context: Context, private var schedules: Lis
     }
 
     override fun getItemCount(): Int {
-        return maxItemCount
+        return schedules.size
     }
 
 
