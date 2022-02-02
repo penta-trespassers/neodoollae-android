@@ -174,15 +174,15 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     fun makeDummyData(): List<Room> {
         val data: List<Room> = arrayListOf(
             Room(
-                1, 1, "써니", "sunnyRoom", "한양대학교 어딘가", "000호",
+                1, 1, "써니", "sunnyRoom", "한양대학교 어딘가", null,"000호",
                 "샘플 데이터입니다", 37.5670135, 126.9783740
             ),
             Room(
-                2, 2, "서진", "seojinRoom", "한양대학교 어딘가", "000호",
+                2, 2, "서진", "seojinRoom", "한양대학교 어딘가", null,"000호",
                 "샘플 데이터입니다", 37.5680136, 126.9783740
             ),
             Room(
-                3, 3, "진하", "recasterRoom", "한양대학교 어딘가", "000호",
+                3, 3, "진하", "recasterRoom", "한양대학교 어딘가",null, "000호",
                 "샘플 데이터입니다", 37.5670135, 126.9793743
             )
         )

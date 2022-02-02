@@ -9,11 +9,11 @@ import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentHomeBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.MyScheduleAdapter
 
-
-private const val MAX_ITEM_COUNT = 7
 
 class HomeFragment private constructor() : Fragment() {
 
@@ -22,8 +22,18 @@ class HomeFragment private constructor() : Fragment() {
 
     private lateinit var myScheduleAdapter: MyScheduleAdapter
 
-    private val roomCardAdapter by lazy {
+    private val favoriteRoomAdapter by lazy {
+        RoomCardAdapter(requireContext(), arrayListOf(), arrayListOf({
+            if (it.itemCount > 0) {
+                bind.favoriteRoomConstraint.show()
+            } else {
+                bind.favoriteRoomConstraint.gone()
+            }
+        }))
+    }
 
+    private val myRoomAdapter by lazy {
+        RoomCardAdapter(requireContext(), arrayListOf(Room(status = Room.STATUS_UNDEFINED)))
     }
 
     override fun onCreateView(
@@ -33,20 +43,30 @@ class HomeFragment private constructor() : Fragment() {
         bind = FragmentHomeBinding.inflate(inflater, container, false)
         with(bind) {
             RetrofitClient.getMySchedules(MAX_ITEM_COUNT) { _, response ->
-                myScheduleAdapter = MyScheduleAdapter(requireContext(), response.body()!!.toList(), MAX_ITEM_COUNT)
+                myScheduleAdapter = MyScheduleAdapter(requireContext(), response.body()!!.toList())
                 myScheduleRecycler.adapter = myScheduleAdapter
             }
-            RetrofitClient.getRoom(Authentication.user?.id ?: -1) { _, response ->
-                val roomList = response.body()!!
-                roomList.add(Room(status = Room.STATUS_UNDEFINED))
-                roomCardRecyclerHome.adapter = RoomCardAdapter(requireContext(), roomList)
+
+            favoriteRoomRecycler.adapter = favoriteRoomAdapter
+            myRoomRecycler.adapter = myRoomAdapter
+
+            RetrofitClient.getMyFavoriteRooms { _, response ->
+                favoriteRoomAdapter.refresh(response.body())
             }
+
+            RetrofitClient.getRooms(Authentication.user?.id ?: -1) { _, response ->
+                myRoomAdapter.refresh(response.body()?.apply {
+                    add(Room(status = Room.STATUS_UNDEFINED))
+                })
+            }
+
             return root
         }
     }
 
     companion object {
         fun newInstance() = HomeFragment()
+        const val MAX_ITEM_COUNT = 7
     }
 
 

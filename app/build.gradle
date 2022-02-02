@@ -25,6 +25,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled = true
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
@@ -88,4 +89,15 @@ dependencies {
 
     // https://github.com/barteksc/AndroidPdfViewer - 이용약관 pdf 문서를 보여주기 위한 라이브러리
     implementation 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
+
+    // https://console.firebase.google.com/u/0/ - Firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // https://firebase.google.com/docs/cloud-messaging/android/client?authuser=0 - FCM
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+
+    // 디슈가링 - https://developer.android.com/studio/write/java8-support#library-desugaring
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 }

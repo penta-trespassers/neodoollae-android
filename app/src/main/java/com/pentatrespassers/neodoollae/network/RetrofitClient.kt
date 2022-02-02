@@ -14,59 +14,82 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
     private val instance = Retrofit.Builder().baseUrl(Param.DATABASE_URL)
-            .addConverterFactory(GsonConverterFactory.create()).build().create(RetrofitApi::class.java)
+        .addConverterFactory(GsonConverterFactory.create()).build().create(RetrofitApi::class.java)
 
-    fun kakaoLogin(kakaoToken: String?, fcmToken: String, onUnsuccessful: ((Call<Token?>, Response<Token?>) -> Unit)? = null,
-                   onSuccessful: (Call<Token?>, Response<Token?>) -> Unit) =
-            instance.kakaoLogin(KakaoLoginBody(kakaoToken, fcmToken)).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+    fun kakaoLogin(
+        kakaoToken: String?,
+        fcmToken: String,
+        onUnsuccessful: ((Call<Token?>, Response<Token?>) -> Unit)? = null,
+        onSuccessful: (Call<Token?>, Response<Token?>) -> Unit
+    ) =
+        instance.kakaoLogin(KakaoLoginBody(kakaoToken, fcmToken))
+            .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
-    fun kakaoRegister(kakaoAccessToken: String?, nickname: String?, onUnsuccessful: ((Call<Token?>, Response<Token?>) -> Unit)? = null,
-                      onSuccessful: (Call<Token?>, Response<Token?>) -> Unit) = instance.kakaoRegister(
-            RegisterBody(kakaoAccessToken, nickname)
+    fun kakaoRegister(
+        kakaoAccessToken: String?,
+        nickname: String?,
+        onUnsuccessful: ((Call<Token?>, Response<Token?>) -> Unit)? = null,
+        onSuccessful: (Call<Token?>, Response<Token?>) -> Unit
+    ) = instance.kakaoRegister(
+        RegisterBody(kakaoAccessToken, nickname)
     ).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
 
     fun getUser(
-            friendCode: String,
-            onUnsuccessful: ((Call<User?>, Response<User?>) -> Unit)? = null,
-            onSuccessful: (Call<User?>, Response<User?>) -> Unit
-    ) = instance.getUser(Authentication.bearerAccessToken, friendCode).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+        friendCode: String,
+        onUnsuccessful: ((Call<User?>, Response<User?>) -> Unit)? = null,
+        onSuccessful: (Call<User?>, Response<User?>) -> Unit
+    ) = instance.getUser(Authentication.bearerAccessToken, friendCode)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getMyInfo(
-            onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
-            onSuccessful: (Call<User>, Response<User>) -> Unit
-    ) = instance.getMyInfo(Authentication.bearerAccessToken).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+        onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
+        onSuccessful: (Call<User>, Response<User>) -> Unit
+    ) = instance.getMyInfo(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getAllFriends(
-            onUnsuccessful: ((Call<ArrayList<User>>, Response<ArrayList<User>>) -> Unit)? = null,
-            onSuccessful: (Call<ArrayList<User>>, Response<ArrayList<User>>) -> Unit
-    ) = instance.getAllFriends(Authentication.bearerAccessToken).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+        onUnsuccessful: ((Call<ArrayList<User>>, Response<ArrayList<User>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<User>>, Response<ArrayList<User>>) -> Unit
+    ) = instance.getAllFriends(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getAllFriendRequests(
-            onUnsuccessful: ((Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit)? = null,
-            onSuccessful: (Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit
-    ) = instance.getAllFriendRequests(Authentication.bearerAccessToken).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+        onUnsuccessful: ((Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit
+    ) = instance.getAllFriendRequests(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
-    fun getRoom(
-            userId: Int,
-            onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
-            onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
-    ) = instance.getRooms(Authentication.bearerAccessToken, userId).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+    fun getRooms(
+        userId: Int,
+        onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
+    ) = instance.getRooms(Authentication.bearerAccessToken, userId)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun getMyFavoriteRooms(
+        onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
+    ) = instance.getMyFavoriteRooms(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
 
     fun getAllMyReservations(
-            onUnsuccessful: ((Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit)? = null,
-            onSuccessful: (Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit
-    ) = instance.getAllMyReservations(Authentication.bearerAccessToken).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+        onUnsuccessful: ((Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit
+    ) = instance.getAllMyReservations(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getMySchedules(
-        term: Int,
+        term: Int? = null,
         onUnsuccessful: ((Call<Map<String, ArrayList<Reservation>>>, Response<Map<String, ArrayList<Reservation>>>) -> Unit)? = null,
         onSuccessful: (Call<Map<String, ArrayList<Reservation>>>, Response<Map<String, ArrayList<Reservation>>>) -> Unit
-    ) = instance.getMySchedules(Authentication.bearerAccessToken, term).enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+    ) = instance.getMySchedules(Authentication.bearerAccessToken, term)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     private fun <T> defaultCallback(
-            onUnsuccessful: ((Call<T>, Response<T>) -> Unit)?,
-            onSuccessful: (Call<T>, Response<T>) -> Unit
+        onUnsuccessful: ((Call<T>, Response<T>) -> Unit)?,
+        onSuccessful: (Call<T>, Response<T>) -> Unit
     ) = object : Callback<T> {
 
         override fun onResponse(call: Call<T>, response: Response<T>) {
@@ -78,7 +101,6 @@ object RetrofitClient {
                 } ?: Util.j("실패: $response")
             }
         }
-
         override fun onFailure(call: Call<T>, t: Throwable) {
             Util.j("Fail: ${t.message}")
         }

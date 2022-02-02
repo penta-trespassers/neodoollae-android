@@ -145,6 +145,9 @@
     <string name="bookmark">즐겨찾기</string>
     <string name="see_all">전체보기</string>
     <string name="my_schedule">내 일정</string>
+    <string name="my_schedule">내 일정</string>
+    <string name="favorte_room">즐겨찾는 방</string>
+    <string name="my_room">내 방</string>
 
 
 </resources>

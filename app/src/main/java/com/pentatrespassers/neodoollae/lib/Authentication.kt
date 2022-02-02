@@ -18,6 +18,9 @@ object Authentication {
 
     var user: User? = null
 
+    val uid: Int?
+        get() = user?.id
+
     fun startMainActivity(context: Context, accessToken: String, extraCallback: () -> Unit = {}) {
         this.accessToken = accessToken
         RetrofitClient.getMyInfo{ _, response ->

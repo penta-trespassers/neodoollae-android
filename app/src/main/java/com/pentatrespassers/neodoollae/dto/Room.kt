@@ -10,6 +10,7 @@ data class Room(
     var nickname: String = "",
     var roomName: String = "",
     var address: String = "",
+    var roomImages: List<String>? = null,
     var detailAddress: String = "",
     var description: String = "",
     var latitude: Double = COORDINATE_UNDEFINED,

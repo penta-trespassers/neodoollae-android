@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
@@ -24,14 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     private val bind by lazy {
         ActivityMainBinding.inflate(layoutInflater)
-    }
-
-    private val bind2 by lazy {
-        BtmSheetAddFriendBinding.inflate(layoutInflater)
-    }
-
-    private val bind3 by lazy {
-        BtmSheetCheckFriendBinding.inflate(layoutInflater)
     }
 
     private val homeFragment by lazy {

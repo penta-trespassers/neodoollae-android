@@ -30,7 +30,7 @@ class FriendProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            RetrofitClient.getRoom(user.id) { _, response ->
+            RetrofitClient.getRooms(user.id) { _, response ->
                 roomCardRecycler.adapter =
                     RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
             }
