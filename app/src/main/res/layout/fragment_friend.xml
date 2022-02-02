@@ -7,14 +7,15 @@
     tools:context=".view.login.main.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/myReservationConstraint"
-        android:layout_width="wrap_content"
+        android:id="@+id/friendListConstraint"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/friendRequestConstraint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/myReservationText"
+            android:id="@+id/friendListText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -30,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/myReservationUnderlineConstraint"
+            android:id="@+id/friendListUnderlineConstraint"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/trespassBlue_900"
@@ -43,13 +44,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/friendRequestConstraint"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/myReservationConstraint"
-        app:layout_constraintTop_toTopOf="@+id/myReservationConstraint">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/friendListConstraint"
+        app:layout_constraintTop_toTopOf="@+id/friendListConstraint">
 
         <TextView
-            android:id="@+id/myRoomReservationText"
+            android:id="@+id/friendRequestText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -65,7 +67,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/myRoomReservationUnderlineConstraint"
+            android:id="@+id/friendRequestUnderlineConstraint"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/trespassBlue_900"
@@ -84,21 +86,79 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myReservationConstraint">
+        app:layout_constraintTop_toBottomOf="@+id/friendListConstraint"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addFriendButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/roomOXConstraint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="@color/trespassBlue_900"
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
         app:fabCustomSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_person_add_black_24dp"
-        app:tint="@color/trespassBlue_300" />
+        app:tint="@color/trespassBlue_300">
+
+        <ImageView
+            android:id="@+id/roomOImage"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+            android:backgroundTint="@color/trespassBlue_300"
+            android:backgroundTintMode="multiply"
+            app:layout_constraintBottom_toTopOf="@id/roomXImage"
+            app:layout_constraintEnd_toStartOf="@+id/roomOText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/roomOText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="방 있음"
+            android:textColor="@color/black"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/roomOImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/roomOImage"
+            app:layout_constraintTop_toTopOf="@+id/roomOImage" />
+
+        <ImageView
+            android:id="@+id/roomXImage"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="multiply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/roomOImage"
+            app:layout_constraintTop_toBottomOf="@id/roomOImage"
+            app:layout_constraintEnd_toStartOf="@+id/roomXText"/>
+
+
+        <TextView
+            android:id="@+id/roomXText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="방 없음"
+            android:textColor="@color/black"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/roomXImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/roomXImage"
+            app:layout_constraintTop_toTopOf="@+id/roomXImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

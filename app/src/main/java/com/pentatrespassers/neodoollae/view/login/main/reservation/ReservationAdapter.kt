@@ -1,16 +1,13 @@
 package com.pentatrespassers.neodoollae.view.login.main.reservation
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellReservationBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.lib.Util
-import java.util.*
 
 class ReservationAdapter(
     private val context: Context, var reservationList: ArrayList<Reservation>
@@ -28,7 +25,7 @@ class ReservationAdapter(
             with(bind) {
 
 
-                reservationStartDateText.text = Util.simpleDateFormatter.format(reservation.createdIn?.time)
+                reservationStartDateText.text = Util.simpleDateFormatter.format(reservation.checkIn?.time)
                 reservationEndDateText.text = Util.simpleDateFormatter.format(reservation.checkOut?.time)
 
                 when (reservation.status) {
