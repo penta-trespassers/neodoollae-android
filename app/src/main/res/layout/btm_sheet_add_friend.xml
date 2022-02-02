@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btm_sheet_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".view.login.main.friend.friendlist.AddFriendBtmSheet">
+
+
+    <TextView
+        android:id="@+id/guideTextFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/insert_friend_code"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/friendCodeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:autofillHints="name"
+        android:background="@android:drawable/edit_text"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideTextFriend" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/acceptButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/radio_button"
+        android:backgroundTint="@color/trespassBlue_600"
+        android:text="@string/friend_confirm"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/friendCodeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/errorTextAddFriend" />
+
+    <TextView
+        android:id="@+id/errorTextAddFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/invalid_friend_code"
+        android:textColor="@color/red"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/friendCodeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/friendCodeEditText"
+        tools:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/alreadyFriendTextAddFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="님과 이미 친구입니다."
+        android:textColor="@color/red"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/friendCodeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/friendCodeEditText"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/infoTextAddFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/info_friend_code"
+        android:textColor="@color/gray"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="@+id/friendCodeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/friendCodeEditText"
+        tools:visibility="invisible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

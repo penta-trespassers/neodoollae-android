@@ -59,31 +59,6 @@ class FriendFragment private constructor() : Fragment() {
                 }
             }
 
-
-            addFriendButton.setOnClickListener {
-                val dialogBind = DialogAddFriendBinding.inflate(layoutInflater)
-                with(dialogBind) {
-                    val mBuilder = AlertDialog.Builder(context)
-                        .setView(root)
-                        .setCancelable(false).show()
-                    acceptButton.setOnClickListener {
-                        RetrofitClient.getUser("${friendCodeEditText.text}") { _, response ->
-                            val user = response.body()!!
-                            if (user.id == User.ID_UNDEFINED) {
-                                friendCodeEditText.setText("")
-                                errorTextAddFriend.visibility = View.VISIBLE
-                            } else {
-                                showCheckDialog(user)
-                                mBuilder.dismiss()
-                            }
-                        }
-                    }
-                    cancelButton.setOnClickListener {
-                        mBuilder.dismiss()
-                    }
-                }
-            }
-
             return root
         }
     }

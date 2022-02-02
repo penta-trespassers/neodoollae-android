@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pentatrespassers.neodoollae">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -52,7 +57,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -65,23 +71,24 @@
                     android:host="oauth"
                     android:scheme="kakaoadb53e0f4981741cc20cfd3c0d6d3dfa" />
             </intent-filter>
-        </activity>
-
-        <!--        FCM-->
+        </activity> <!-- FCM -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/app_icon" />
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-     See README(https://goo.gl/l4GJaQ) for more. -->
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/trespassBlue_300" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="1234" />
-
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="7qdjutvncl" />
@@ -94,10 +101,5 @@
             </intent-filter>
         </service>
     </application>
-
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
