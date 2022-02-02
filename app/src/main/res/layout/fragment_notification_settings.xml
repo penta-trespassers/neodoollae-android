@@ -7,6 +7,7 @@
     tools:context=".view.login.main.mypage.settings.NotificationSettingsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/firstMenuNotificationSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,11 +18,162 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_common_card">
 
-        
-
+        <include
+            android:id="@+id/notificationMethod"
+            layout="@layout/cell_one_line_setting_text"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/secondMenuNotificationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/firstMenuNotificationSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_common_card">
 
+        <include
+            android:id="@+id/ns21"
+            layout="@layout/cell_one_line_setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider21"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ns21" />
+
+
+        <include
+            android:id="@+id/ns22"
+            layout="@layout/cell_one_line_setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider21" />
+
+        <View
+            android:id="@+id/divider22"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ns22" />
+
+        <include
+            android:id="@+id/ns23"
+            layout="@layout/cell_one_line_setting_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider22" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/thirdMenuNotificationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/secondMenuNotificationSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_common_card">
+
+        <include
+            android:id="@+id/ns31"
+            layout="@layout/cell_one_line_setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider31"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ns31" />
+
+
+        <include
+            android:id="@+id/ns32"
+            layout="@layout/cell_one_line_setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider31" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fourthMenuNotificationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/thirdMenuNotificationSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_common_card">
+
+        <include
+            android:id="@+id/ns41"
+            layout="@layout/cell_one_line_setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider41"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_card_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ns41" />
+
+
+        <include
+            android:id="@+id/ns42"
+            layout="@layout/cell_one_line_setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider41" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
