@@ -6,23 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_common_card">
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profileImage"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_common_account"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="40dp"
+        app:civ_border="false"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_common_bed" />
+        app:srcCompat="@drawable/ic_common_bed" />
+
 
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="24dp"
+        android:layout_marginTop="16dp"
+        android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/profileImage"
         app:layout_constraintStart_toStartOf="@+id/profileImage"
@@ -40,15 +43,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameText">
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/guestScoreImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginTop="8dp"
+            app:civ_border="false"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="1dp"
             app:layout_constraintEnd_toEndOf="@+id/guestScoreButton"
             app:layout_constraintStart_toStartOf="@+id/guestScoreButton"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_common_account" />
+            tools:srcCompat="@drawable/ic_common_account_no_padding" />
 
         <TextView
             android:id="@+id/guestScoreText"

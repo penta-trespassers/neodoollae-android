@@ -29,10 +29,13 @@ class RoomProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            roomNameText.text = roomInfo.roomName
-            addressText.text =
-                getString(R.string.full_Address, roomInfo.address, roomInfo.detailAddress)
-            descriptionText.text = roomInfo.description
+
+//            profileCellRoomProfile.nameText.text = roomInfo.roomName
+//
+//            roomAddressContent.text =
+//                getString(R.string.full_Address, roomInfo.address, roomInfo.detailAddress)
+//
+//            wordFromHostContent.text = roomInfo.description
         }
     }
 }

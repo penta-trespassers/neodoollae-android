@@ -50,10 +50,16 @@
     <string name="accept">수락하기</string>
     <string name="decline">거절하기</string>
 
+    <!-- Room profile Strings -->
+    <string name="room_state">방 운영 상태</string>
+    <string name="max_guest">최대 방문 인원</string>
+    <string name="word_from_host">방 주인의 한 마디</string>
+    <string name="room_picture">방 사진</string>
+    <string name="room_schedule">방 일정보기</string>
+
     <!-- My Page strings -->
     <string name="guest_score">손님 점수</string>
     <string name="host_score">주인 점수</string>
-
     <string name="my_code">나의 친구 코드</string>
     <string name="my_code_cell">나의 친구 코드 :\ </string>
     <string name="copy_to_clipboard">클립보드에 복사되었습니다.</string>

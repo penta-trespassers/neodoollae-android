@@ -19,6 +19,8 @@ import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
+import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
+import splitties.fragments.start
 import splitties.toast.toast
 
 class MyPageFragment private constructor() : Fragment() {
@@ -32,7 +34,7 @@ class MyPageFragment private constructor() : Fragment() {
         with(bind) {
             val user = Authentication.user!!
             Glide.with(this@MyPageFragment).load(user.profileImage)
-                .error(R.drawable.ic_common_account)
+                .error(R.drawable.ic_common_account_no_padding)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
@@ -40,7 +42,7 @@ class MyPageFragment private constructor() : Fragment() {
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        myPageProfileView.profileImage.setColorFilter(R.color.trespassGray_600)
+
                         return false
                     }
 
@@ -61,7 +63,7 @@ class MyPageFragment private constructor() : Fragment() {
             myPageProfileView.nameText.text = user.nickname
 
             myPageProfileView.guestScoreButton.setOnClickListener {
-
+                start<RoomProfileActivity>()
             }
 
             myPageProfileView.hostScoreButton.setOnClickListener {
