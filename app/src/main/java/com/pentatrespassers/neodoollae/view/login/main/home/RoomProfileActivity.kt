@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.view.login.main.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.pentatrespassers.neodoollae.R
@@ -8,11 +9,11 @@ import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserProfileImageActivity
+import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
+import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -35,7 +36,6 @@ class RoomProfileActivity : AppCompatActivity() {
 
     private lateinit var host: User
 
-
     private val bind by lazy {
         ActivityRoomProfileBinding.inflate(layoutInflater)
     }
@@ -56,8 +56,8 @@ class RoomProfileActivity : AppCompatActivity() {
                     .error(R.drawable.ic_common_bed)
                     .into(profileImage)
                 profileImage.setOnClickListener {
-                    start<UserProfileImageActivity> {
-                        putExtras(UserProfileImageActivity.Extras) {
+                    start<ShowImageActivity> {
+                        putExtras(ShowImageActivity.Extras) {
                             this.profileImage = getMainImage()
                         }
                     }
@@ -97,6 +97,13 @@ class RoomProfileActivity : AppCompatActivity() {
                 getString(R.string.full_Address, roomInfo.address, roomInfo.detailAddress)
 
             wordFromHostContent.text = roomInfo.description
+
+            roomImageConstraint.visibility = when(hasNoImage()){
+                true -> View.GONE
+                false -> View.VISIBLE
+            }
+
+            roomImageRecycler.adapter = RoomImageAdapter(this@RoomProfileActivity, roomInfo.roomImages!!)
         }
     }
     private fun setTitle() : String {
@@ -107,9 +114,13 @@ class RoomProfileActivity : AppCompatActivity() {
     }
 
     private fun getMainImage(): String {
-        return when(roomInfo.roomImages.isNullOrEmpty()){
+        return when(hasNoImage()){
             true -> R.drawable.ic_common_bed.toString()
             false -> roomInfo.roomImages!![0]
         }
+    }
+
+    private fun hasNoImage(): Boolean {
+        return roomInfo.roomImages.isNullOrEmpty()
     }
 }

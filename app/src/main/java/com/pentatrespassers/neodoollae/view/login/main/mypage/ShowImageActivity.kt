@@ -10,7 +10,7 @@ import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.withExtras
 
-class UserProfileImageActivity : AppCompatActivity() {
+class ShowImageActivity : AppCompatActivity() {
 
     object Extras : BundleSpec() {
         var profileImage: String by bundle()

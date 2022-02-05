@@ -1,13 +1,8 @@
 package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
@@ -15,8 +10,7 @@ import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserProfileImageActivity
-import retrofit2.Retrofit
+import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -62,8 +56,8 @@ class FriendProfileActivity : AppCompatActivity() {
                     .into(profileImage)
 
                 profileImage.setOnClickListener {
-                    start<UserProfileImageActivity>{
-                        putExtras(UserProfileImageActivity.Extras){
+                    start<ShowImageActivity>{
+                        putExtras(ShowImageActivity.Extras){
                             this.profileImage = user.profileImage
                         }
                     }

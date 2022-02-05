@@ -199,7 +199,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/roomPictureConstraint"
+                android:id="@+id/roomImageConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -211,7 +211,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/wordFromHostConstraint">
 
                 <TextView
-                    android:id="@+id/roomPictureTitle"
+                    android:id="@+id/roomImageTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -224,7 +224,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/roomPictureRecycler"
+                    android:id="@+id/roomImageRecycler"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -236,7 +236,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/roomPictureTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/roomImageTitle"
                     tools:listitem="@layout/cell_room_card" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,7 +249,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/roomPictureConstraint">
+                app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint">
 
                 <TextView
                     android:id="@+id/watchRoomScheduleTitle"

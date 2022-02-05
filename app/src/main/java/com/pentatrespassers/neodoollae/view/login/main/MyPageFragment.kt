@@ -3,29 +3,19 @@ package com.pentatrespassers.neodoollae.view.login.main
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context.CLIPBOARD_SERVICE
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
-import com.pentatrespassers.neodoollae.view.login.RegisterActivity
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
-import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.UserProfileImageActivity
-import splitties.activities.start
-import splitties.bundle.put
+import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.bundle.putExtras
 import splitties.fragments.start
 import splitties.toast.toast
@@ -65,8 +55,8 @@ class MyPageFragment private constructor() : Fragment() {
 
             with(myPageProfileView) {
                 profileImage.setOnClickListener {
-                    start<UserProfileImageActivity> {
-                        putExtras(UserProfileImageActivity.Extras) {
+                    start<ShowImageActivity> {
+                        putExtras(ShowImageActivity.Extras) {
                             this.profileImage = user.profileImage
                         }
                     }
@@ -88,8 +78,8 @@ class MyPageFragment private constructor() : Fragment() {
             }
 
             myPageProfileView.profileImage.setOnClickListener {
-                start<UserProfileImageActivity> {
-                    putExtras(UserProfileImageActivity.Extras) {
+                start<ShowImageActivity> {
+                    putExtras(ShowImageActivity.Extras) {
                         this.profileImage = user.profileImage
                     }
                 }

@@ -23,7 +23,7 @@
             android:name=".view.login.main.friend.friendlist.friendprofile.ReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".view.login.main.mypage.UserProfileImageActivity"
+            android:name=".view.login.main.mypage.ShowImageActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.main.mypage.EditMyInfoActivity"
