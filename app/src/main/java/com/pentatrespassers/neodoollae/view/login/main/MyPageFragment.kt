@@ -19,7 +19,12 @@ import com.pentatrespassers.neodoollae.R.string.my_code_cell
 import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
+import com.pentatrespassers.neodoollae.view.login.RegisterActivity
+import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.UserProfileImageActivity
+import splitties.bundle.put
+import splitties.bundle.putExtras
 import splitties.fragments.start
 import splitties.toast.toast
 
@@ -30,9 +35,10 @@ class MyPageFragment private constructor() : Fragment() {
     private lateinit var clipData : ClipData
     private lateinit var clipboardManager : ClipboardManager
 
+    private val user = Authentication.user!!
+
     private fun reloadInformation() {
         with(bind) {
-            val user = Authentication.user!!
             Glide.with(this@MyPageFragment).load(user.profileImage)
                 .error(R.drawable.ic_common_account_no_padding)
                 .listener(object : RequestListener<Drawable> {
@@ -62,14 +68,6 @@ class MyPageFragment private constructor() : Fragment() {
 
             myPageProfileView.nameText.text = user.nickname
 
-            myPageProfileView.guestScoreButton.setOnClickListener {
-                start<RoomProfileActivity>()
-            }
-
-            myPageProfileView.hostScoreButton.setOnClickListener {
-
-            }
-
             with(myCodeCell){
                 oneLineMenuImage.setImageResource(R.drawable.ic_mypage_copy)
                 oneLineMenuText.text = resources.getString(my_code_cell) + user.friendCode
@@ -86,6 +84,23 @@ class MyPageFragment private constructor() : Fragment() {
         with(bind) {
             reloadInformation()
 
+            myPageProfileView.profileImage.setOnClickListener {
+
+                start<UserProfileImageActivity>{
+                    putExtras(UserProfileImageActivity.Extras){
+                        this.profileImage = user.profileImage
+                    }
+                }
+            }
+
+            myPageProfileView.guestScoreButton.setOnClickListener {
+                start<ReviewActivity>()
+            }
+
+            myPageProfileView.hostScoreButton.setOnClickListener {
+                start<ReviewActivity>()
+            }
+
             with(myCodeCell){
                 oneLineMenuConstraint.setOnClickListener {
                     clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -98,6 +113,8 @@ class MyPageFragment private constructor() : Fragment() {
                 setOneLineMenu(this, R.drawable.ic_mypage_review, R.string.manage_review)
                 oneLineMenuConstraint.setOnClickListener {
                     // TODO : MANAGE REVIEWS
+
+                    start<RoomProfileActivity>()
                 }
             }
 

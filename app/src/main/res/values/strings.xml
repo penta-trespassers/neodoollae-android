@@ -50,6 +50,9 @@
     <string name="accept">수락하기</string>
     <string name="decline">거절하기</string>
 
+    <!-- Review Strings -->
+    <string name="watch_reviews">리뷰 보기</string>
+
     <!-- Room profile Strings -->
     <string name="room_state">방 운영 상태</string>
     <string name="max_guest">최대 방문 인원</string>
