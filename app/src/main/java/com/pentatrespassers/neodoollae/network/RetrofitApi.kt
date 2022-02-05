@@ -30,6 +30,14 @@ interface RetrofitApi {
         friendCode: String
     ): Call<User>
 
+    @GET("/v1/users/{id}")
+    fun getUserById(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Path("id")
+        userId: Int?
+    ): Call<User>
+
     @GET("/v1/users/my/")
     fun getMyInfo(
         @Header("Authorization")

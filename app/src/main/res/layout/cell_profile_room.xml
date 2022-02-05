@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_common_card">
 
     <com.mikhaellopez.circularimageview.CircularImageView
@@ -33,7 +33,7 @@
         tools:text="이름" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/guestScoreButton"
+        android:id="@+id/hostButtonRoomProfileCell"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
@@ -44,28 +44,28 @@
         app:layout_constraintTop_toBottomOf="@id/nameText">
 
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/guestScoreImage"
+            android:id="@+id/hostImageRoomProfileCell"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="8dp"
             app:civ_border="false"
             app:civ_border_color="@color/black"
             app:civ_border_width="1dp"
-            app:layout_constraintEnd_toEndOf="@+id/guestScoreButton"
-            app:layout_constraintStart_toStartOf="@+id/guestScoreButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@drawable/ic_common_account_no_padding" />
 
         <TextView
-            android:id="@+id/guestScoreText"
+            android:id="@+id/hostNameTextRoomProfileCell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="@+id/guestScoreButton"
-            app:layout_constraintEnd_toEndOf="@+id/guestScoreImage"
-            app:layout_constraintStart_toStartOf="@+id/guestScoreImage"
-            app:layout_constraintTop_toBottomOf="@+id/guestScoreImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/hostImageRoomProfileCell"
+            app:layout_constraintStart_toStartOf="@+id/hostImageRoomProfileCell"
+            app:layout_constraintTop_toBottomOf="@+id/hostImageRoomProfileCell"
             tools:text="주인 이름" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,12 +75,12 @@
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:background="@color/trespassGray_300"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/nameText"
-        app:layout_constraintStart_toStartOf="@id/nameText"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/nameText" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/hostScoreButton"
+        android:id="@+id/roomScoreButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
@@ -91,26 +91,26 @@
         app:layout_constraintTop_toBottomOf="@+id/nameText">
 
         <ImageView
-            android:id="@+id/hostScoreImage"
+            android:id="@+id/roomScoreImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/hostScoreButton"
-            app:layout_constraintStart_toStartOf="@+id/hostScoreButton"
-            app:layout_constraintTop_toTopOf="@+id/hostScoreButton"
+            app:layout_constraintEnd_toEndOf="@+id/roomScoreButton"
+            app:layout_constraintStart_toStartOf="@+id/roomScoreButton"
+            app:layout_constraintTop_toTopOf="@+id/roomScoreButton"
             app:srcCompat="@drawable/ic_sentiment_very_satisfied" />
 
         <TextView
-            android:id="@+id/hostScoreText"
+            android:id="@+id/roomScoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/room_score"
             android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="@+id/hostScoreButton"
-            app:layout_constraintEnd_toEndOf="@+id/hostScoreImage"
-            app:layout_constraintStart_toStartOf="@+id/hostScoreImage"
-            app:layout_constraintTop_toBottomOf="@+id/hostScoreImage" />
+            app:layout_constraintBottom_toBottomOf="@+id/roomScoreButton"
+            app:layout_constraintEnd_toEndOf="@+id/roomScoreImage"
+            app:layout_constraintStart_toStartOf="@+id/roomScoreImage"
+            app:layout_constraintTop_toBottomOf="@+id/roomScoreImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

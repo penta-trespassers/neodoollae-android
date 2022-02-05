@@ -20,9 +20,11 @@ import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
 import com.pentatrespassers.neodoollae.view.login.RegisterActivity
+import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.UserProfileImageActivity
+import splitties.activities.start
 import splitties.bundle.put
 import splitties.bundle.putExtras
 import splitties.fragments.start
@@ -32,8 +34,8 @@ class MyPageFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentMyPageBinding
 
-    private lateinit var clipData : ClipData
-    private lateinit var clipboardManager : ClipboardManager
+    private lateinit var clipData: ClipData
+    private lateinit var clipboardManager: ClipboardManager
 
     private val user = Authentication.user!!
 
@@ -41,34 +43,11 @@ class MyPageFragment private constructor() : Fragment() {
         with(bind) {
             Glide.with(this@MyPageFragment).load(user.profileImage)
                 .error(R.drawable.ic_common_account_no_padding)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-
-                        return false
-                    }
-
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        myPageProfileView.profileImage.imageTintList = null
-                        return false
-                    }
-
-                })
                 .into(myPageProfileView.profileImage)
 
             myPageProfileView.nameText.text = user.nickname
 
-            with(myCodeCell){
+            with(myCodeCell) {
                 oneLineMenuImage.setImageResource(R.drawable.ic_mypage_copy)
                 oneLineMenuText.text = resources.getString(my_code_cell) + user.friendCode
                 clipData = ClipData.newPlainText("friend code", user.friendCode)
@@ -84,37 +63,51 @@ class MyPageFragment private constructor() : Fragment() {
         with(bind) {
             reloadInformation()
 
-            myPageProfileView.profileImage.setOnClickListener {
+            with(myPageProfileView) {
+                profileImage.setOnClickListener {
+                    start<UserProfileImageActivity> {
+                        putExtras(UserProfileImageActivity.Extras) {
+                            this.profileImage = user.profileImage
+                        }
+                    }
+                }
+                guestScoreButton.setOnClickListener {
+                    start<ReviewActivity> {
+                        putExtras(ReviewActivity.Extras) {
+                            this.user = this@MyPageFragment.user
+                        }
+                    }
+                }
+                hostScoreButton.setOnClickListener {
+                    start<ReviewActivity> {
+                        putExtras(ReviewActivity.Extras) {
+                            this.user = this@MyPageFragment.user
+                        }
+                    }
+                }
+            }
 
-                start<UserProfileImageActivity>{
-                    putExtras(UserProfileImageActivity.Extras){
+            myPageProfileView.profileImage.setOnClickListener {
+                start<UserProfileImageActivity> {
+                    putExtras(UserProfileImageActivity.Extras) {
                         this.profileImage = user.profileImage
                     }
                 }
             }
 
-            myPageProfileView.guestScoreButton.setOnClickListener {
-                start<ReviewActivity>()
-            }
-
-            myPageProfileView.hostScoreButton.setOnClickListener {
-                start<ReviewActivity>()
-            }
-
-            with(myCodeCell){
+            with(myCodeCell) {
                 oneLineMenuConstraint.setOnClickListener {
-                    clipboardManager = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                    clipboardManager =
+                        context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
                     clipboardManager.setPrimaryClip(clipData)
                     toast(R.string.copy_to_clipboard)
                 }
             }
 
-            with(manageReviewCell){
+            with(manageReviewCell) {
                 setOneLineMenu(this, R.drawable.ic_mypage_review, R.string.manage_review)
                 oneLineMenuConstraint.setOnClickListener {
                     // TODO : MANAGE REVIEWS
-
-                    start<RoomProfileActivity>()
                 }
             }
 

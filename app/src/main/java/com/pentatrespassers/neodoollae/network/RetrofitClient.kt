@@ -42,6 +42,13 @@ object RetrofitClient {
     ) = instance.getUser(Authentication.bearerAccessToken, friendCode)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
+    fun getUserById(
+        userId: Int,
+        onUnsuccessful: ((Call<User?>, Response<User?>) -> Unit)? = null,
+        onSuccessful: (Call<User?>, Response<User?>) -> Unit
+    ) = instance.getUserById(Authentication.bearerAccessToken, userId)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
     fun getMyInfo(
         onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
         onSuccessful: (Call<User>, Response<User>) -> Unit

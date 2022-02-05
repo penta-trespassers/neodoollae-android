@@ -1,13 +1,26 @@
 package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
 import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.UserProfileImageActivity
+import retrofit2.Retrofit
+import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
+import splitties.bundle.putExtras
 import splitties.bundle.withExtras
 
 class FriendProfileActivity : AppCompatActivity() {
@@ -22,6 +35,8 @@ class FriendProfileActivity : AppCompatActivity() {
         }
     }
 
+    private val myId: Int = Authentication.user!!.id
+
     private val bind by lazy {
         ActivityFriendProfileBinding.inflate(layoutInflater)
     }
@@ -29,16 +44,46 @@ class FriendProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
-            setContentView(root)
+            backButtonFriendProfile.setOnClickListener {
+                finish()
+            }
+
+            titleTextFriendProfile.text = when (user.id) {
+                myId -> getString(R.string.my_profile)
+                else -> getString(R.string.friend_profile)
+            }
+
+            with(profileCellFriendProfile) {
+                nameText.text = user.nickname
+
+                Glide.with(this@FriendProfileActivity)
+                    .load(user.profileImage)
+                    .error(R.drawable.ic_common_account_no_padding)
+                    .into(profileImage)
+
+                profileImage.setOnClickListener {
+                    start<UserProfileImageActivity>{
+                        putExtras(UserProfileImageActivity.Extras){
+                            this.profileImage = user.profileImage
+                        }
+                    }
+                }
+
+                guestScoreButton.setOnClickListener {
+                    start<ReviewActivity>()
+                }
+
+                hostScoreButton.setOnClickListener {
+                    start<ReviewActivity>()
+                }
+            }
+
             RetrofitClient.getRooms(user.id) { _, response ->
                 roomCardRecycler.adapter =
                     RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
             }
 
-            nicknameTextFriendProfile.text = user.nickname
-            backButton.setOnClickListener {
-                finish()
-            }
+            setContentView(root)
         }
 
     }

@@ -12,7 +12,7 @@ import splitties.bundle.withExtras
 
 class UserProfileImageActivity : AppCompatActivity() {
 
-    object Extras : BundleSpec(){
+    object Extras : BundleSpec() {
         var profileImage: String by bundle()
     }
 
@@ -25,10 +25,11 @@ class UserProfileImageActivity : AppCompatActivity() {
     private val bind by lazy {
         ActivityUserProfileImageBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        with(bind){
-            backButtonRoomUserProfileImage.setOnClickListener{
+        with(bind) {
+            backButtonRoomUserProfileImage.setOnClickListener {
                 onBackPressed()
             }
 
