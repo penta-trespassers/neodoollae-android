@@ -13,6 +13,7 @@ import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.BtmSheetCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
 import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
@@ -73,7 +74,12 @@ class FriendFragment private constructor() : Fragment() {
                 acceptButton.setOnClickListener {
                     acceptButton.isClickable = false
                     RetrofitClient.getUser(friendCodeEditText.text.toString()) { _, response ->
-
+                        val user = response.body()
+                        if (user == null) {
+                            errorTextAddFriend.show()
+                        } else {
+                            checkFriendDialog.show()
+                        }
                         acceptButton.isClickable = true
                     }
                 }
