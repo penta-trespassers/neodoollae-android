@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".GlobalApplication"
@@ -16,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Neodoollae"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.login.main.home.EntireScheduleActivity"
+            android:exported="true" />
         <activity
             android:name=".view.login.main.mypage.EditMyInfoActivity"
             android:exported="false" />
@@ -92,7 +98,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="1234" />
-
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="7qdjutvncl" />
@@ -105,10 +110,5 @@
             </intent-filter>
         </service>
     </application>
-
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

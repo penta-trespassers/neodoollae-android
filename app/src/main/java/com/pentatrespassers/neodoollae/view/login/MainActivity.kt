@@ -9,6 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
+import com.pentatrespassers.neodoollae.view.login.main.home.EntireScheduleActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
@@ -142,6 +143,10 @@ class MainActivity : AppCompatActivity() {
             }
             settingButton.setOnClickListener {
                 start<SettingsActivity>()
+            }
+
+            scheduleButton.setOnClickListener {
+                start<EntireScheduleActivity>()
             }
 
             addfriendButton.setOnClickListener {
