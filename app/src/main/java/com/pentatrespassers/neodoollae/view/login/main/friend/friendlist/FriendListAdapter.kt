@@ -10,14 +10,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.network.body.FavoriteBody
 import splitties.activities.start
 import splitties.bundle.putExtras
-import splitties.toast.toast
 
-class FriendListAdapter(private var context: Context, private var userList: ArrayList<User>) :
+class FriendListAdapter(private var context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
+    var userList: ArrayList<User> = arrayListOf()
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
+    private lateinit var differentAdapter: FriendListAdapter
+    var forFavorite: Boolean = true
+
+    fun init(differentAdapter: FriendListAdapter, forFavorite: Boolean) {
+        this.differentAdapter = differentAdapter
+        this.forFavorite = forFavorite
+    }
 
     private var users: ArrayList<User> = userList
 
@@ -33,23 +42,40 @@ class FriendListAdapter(private var context: Context, private var userList: Arra
                         }
                     }
                 }
-                itemView.setOnLongClickListener {
-                    toast("this is long click")
-
-                    val pop = PopupMenu(itemView.context, it)
-                    pop.inflate(R.menu.friend_list_menu)
-
-                    pop.setOnMenuItemClickListener { item ->
-
-                        when (item.itemId) {
-                            R.id.bookmarkItem -> {
-                                toast("즐겨찾기에 추가되었습니다.")
+                val pop = PopupMenu(itemView.context, itemView)
+                pop.inflate(R.menu.friend_list_menu)
+                // 즐겨찾기
+                pop.menu.getItem(0).apply {
+                    if (forFavorite) {
+                        title = context.getString(R.string.removeFavorite)
+                        setOnMenuItemClickListener {
+                            RetrofitClient.setFavorite(FavoriteBody(user.id, false)) { _, _ ->
+                                differentAdapter.apply {
+                                    userList.add(user)
+                                    refresh()
+                                }
+                                userList.remove(user)
+                                refresh()
                             }
-
-                            R.id.deleteItem -> {}
+                            true
                         }
-                        true
+                    } else {
+                        title = context.getString(R.string.addFavorite)
+                        setOnMenuItemClickListener {
+                            RetrofitClient.setFavorite(FavoriteBody(user.id, true)) { _, _ ->
+                                differentAdapter.apply {
+                                    userList.add(user)
+                                    refresh()
+                                }
+                                userList.remove(user)
+                                refresh()
+                            }
+                            true
+                        }
                     }
+
+                }
+                itemView.setOnLongClickListener {
                     pop.show()
                     true
                 }
@@ -71,34 +97,42 @@ class FriendListAdapter(private var context: Context, private var userList: Arra
         return users.size
     }
 
+    fun refresh() {
+        filter.filter(lastConstraint)
+    }
+
     fun refresh(userList: ArrayList<User>) {
         this.userList = userList
-        notifyDataSetChanged()
+        refresh()
+    }
+
+    var lastConstraint = ""
+
+    private val searchFilter = object : Filter() {
+        override fun performFiltering(constraint: CharSequence): FilterResults {
+            lastConstraint = constraint.toString()
+            users = if (lastConstraint.isEmpty()) {
+                userList
+            } else {
+                val filteredList = ArrayList<User>()
+                for (user in userList) {
+                    if (user.nickname.lowercase()
+                            .contains(lastConstraint.lowercase())
+                    ) {
+                        filteredList.add(user);
+                    }
+                }
+                filteredList
+            }
+            return FilterResults()
+        }
+
+        override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
+            notifyDataSetChanged()
+        }
     }
 
     override fun getFilter(): Filter {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence): FilterResults {
-                val charString = constraint.toString()
-                users = if (charString.isEmpty()) {
-                    userList
-                } else {
-                    val filteredList = ArrayList<User>()
-                    for (user in userList) {
-                        if (user.nickname.lowercase()
-                                .contains(charString.lowercase())
-                        ) {
-                            filteredList.add(user);
-                        }
-                    }
-                    filteredList
-                }
-                return FilterResults()
-            }
-
-            override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                notifyDataSetChanged()
-            }
-        }
+        return searchFilter
     }
 }

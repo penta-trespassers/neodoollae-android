@@ -64,13 +64,13 @@
         android:layout_marginStart="10dp"
         android:visibility="gone"
         android:text="@string/bookmark"
-        app:layout_constraintBottom_toTopOf="@id/bookMarkRecycler"
+        app:layout_constraintBottom_toTopOf="@id/favoriteUserRecycler"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/border1" />
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bookMarkRecycler"
+        android:id="@+id/favoriteUserRecycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -91,7 +91,7 @@
         android:background="@drawable/bg_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookMarkRecycler"
+        app:layout_constraintTop_toBottomOf="@+id/favoriteUserRecycler"
         app:layout_constraintBottom_toTopOf="@+id/TextView2"/>
 
     <TextView
