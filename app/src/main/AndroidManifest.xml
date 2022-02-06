@@ -6,9 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".GlobalApplication"
@@ -25,6 +22,9 @@
         <activity
             android:name=".view.login.main.mypage.ShowImageActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.login.main.home.EntireScheduleActivity"
+            android:exported="true" />
         <activity
             android:name=".view.login.main.mypage.EditMyInfoActivity"
             android:exported="false" />
