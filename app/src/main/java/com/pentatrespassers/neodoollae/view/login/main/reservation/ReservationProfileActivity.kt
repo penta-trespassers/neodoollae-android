@@ -38,6 +38,7 @@ class ReservationProfileActivity: AppCompatActivity() {
             reservationVisitorNameText.text = reservation.nickname
 
 
+
             reservationProfileEditButton.setOnClickListener{
                 var intent = Intent(this@ReservationProfileActivity,ReservationEditActivity::class.java)
                 intent.putExtra("Reservation",reservation)

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
 import com.naver.maps.geometry.LatLng
@@ -26,6 +27,7 @@ import android.widget.Toast
 import com.naver.maps.map.util.MarkerIcons
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.network.RetrofitClient
+import java.util.Locale.filter
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
@@ -71,6 +73,26 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             // 위치를 반환하는 구현체인 FusedLocationSource 생성
 
             mLocationSource = FusedLocationSource(this@AroundFragment, PERMISSION_REQUEST_CODE)
+
+
+            //서치바 구현
+            mapSearchViewAround.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+                androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    mapListAdapter.filter!!.filter(query)
+
+
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    mapListAdapter.filter!!.filter(newText)
+
+                    return false
+                }
+            })
+
+
 
 
 
