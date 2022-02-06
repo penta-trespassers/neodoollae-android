@@ -10,6 +10,10 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellRoomCardBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.lib.Util.hide
+import com.pentatrespassers.neodoollae.view.login.main.home.AddRoomActivity
+import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
+import splitties.activities.start
+import splitties.bundle.putExtras
 
 class RoomCardAdapter(
     private val context: Context,
@@ -43,9 +47,21 @@ class RoomCardAdapter(
                     roomRatingImage.hide()
                     roomNameTextRoomCard.hide()
                     nicknameTextRoomCard.hide()
+
+                    itemView.setOnClickListener {
+                        context.start<AddRoomActivity>()
+                    }
                 } else {
                     roomNameTextRoomCard.text = room.roomName
                     nicknameTextRoomCard.text = room.nickname
+
+                    itemView.setOnClickListener {
+                        context.start<RoomProfileActivity> {
+                            putExtras(RoomProfileActivity.Extras) {
+                                this.room = room
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="120dp"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp">
+    android:layout_marginEnd="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/roomImageConstraint"
@@ -28,8 +28,8 @@
 
     <ImageView
         android:id="@+id/roomRatingImage"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint"
@@ -42,8 +42,8 @@
         android:layout_marginStart="4dp"
         android:text="@string/room_name"
         android:textColor="@color/black"
-        android:textSize="12dp"
-        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/roomRatingImage"
         app:layout_constraintStart_toEndOf="@+id/roomRatingImage"
         app:layout_constraintTop_toTopOf="@+id/roomRatingImage" />
@@ -54,7 +54,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/nickname"
+        android:textSize="10dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/roomRatingImage"
         app:layout_constraintTop_toBottomOf="@+id/roomRatingImage" />
 
+    <ImageView
+        android:id="@+id/roomStatusRoomCard"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint"
+        app:srcCompat="@drawable/ic_common_room_open"
+        app:tint="@color/trespassBlue_900" />
 </androidx.constraintlayout.widget.ConstraintLayout>

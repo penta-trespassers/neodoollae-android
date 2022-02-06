@@ -4,55 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_common_button_menu_cell"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/profileImageReviewCell"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:civ_border="false"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp"
-        app:tint="#AAAAAA" />
+        app:srcCompat="@drawable/ic_common_account_no_padding" />
+
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/emojiReviewCell"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImageReviewCell"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/profileImageReviewCell"
         app:srcCompat="@drawable/ic_sentiment_very_satisfied"
         app:tint="#3E5AE6" />
 
     <TextView
-        android:id="@+id/reviewGuestNameText"
+        android:id="@+id/friendNameReviewCell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="윤건우"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        android:layout_marginStart="16dp"
+        tools:text="@string/friend_name"
+        app:layout_constraintStart_toEndOf="@+id/profileImageReviewCell"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/dateReviewCell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2021.08.25"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImageReviewCell"
+        app:layout_constraintStart_toStartOf="@+id/friendNameReviewCell" />
+
+    <View
+        android:id="@+id/dividerReviewCell"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/dateReviewCell"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/color_card_divider"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
         android:id="@+id/guestReviewTextView"
-        android:layout_width="370dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="방 주인분께서 라면도 직접 끓여주시고 설거지를 안 시키셔서 좋았습니다. 다음 번에도 또 가고 싶네요~담에는 떡볶이 해주세요:)"
-        android:textSize="13dp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reviewDatetextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dividerReviewCell" />
 
-    <TextView
-        android:id="@+id/reviewDatetextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="2021.08.25"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/reviewGuestNameText" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

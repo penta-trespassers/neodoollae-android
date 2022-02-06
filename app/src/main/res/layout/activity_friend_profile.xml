@@ -6,127 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".view.login.main.friend.friendlist.FriendProfileActivity">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
-
-    <ImageButton
-        android:id="@+id/favoriteButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_button_star" />
-
-    <ImageView
-        android:id="@+id/hostImageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nicknameTextFriendProfile"
-        app:srcCompat="@drawable/ic_sentiment_neutral" />
-
-    <ImageView
-        android:id="@+id/leftArrowImageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hostImageView"
-        app:srcCompat="@drawable/ic_sentiment_neutral" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBarConstraint"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/friend_list"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/backButton"
-        app:layout_constraintStart_toEndOf="@+id/backButton"
-        app:layout_constraintTop_toTopOf="@+id/backButton" />
-
-    <TextView
-        android:id="@+id/nicknameTextFriendProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="@string/nickname"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circularImageView" />
-
-    <TextView
-        android:id="@+id/guestRatingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="손님 평가"
-        app:layout_constraintEnd_toEndOf="@+id/hostImageView"
-        app:layout_constraintStart_toStartOf="@+id/hostImageView"
-        app:layout_constraintTop_toBottomOf="@+id/hostImageView" />
-
-    <TextView
-        android:id="@+id/ownerRatingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="주인 평가"
-        app:layout_constraintEnd_toEndOf="@+id/leftArrowImageView"
-        app:layout_constraintStart_toStartOf="@+id/leftArrowImageView"
-        app:layout_constraintTop_toBottomOf="@+id/leftArrowImageView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/roomCardRecycler"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_border"
-        android:orientation="horizontal"
-        android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:paddingEnd="8dp"
         android:paddingBottom="8dp"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guestRatingText"
-        tools:listitem="@layout/cell_room_card" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/circularImageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="120dp"
-        app:civ_border="true"
-        app:civ_border_color="@color/black"
-        app:civ_border_width="1dp"
+        <ImageButton
+            android:id="@+id/backButtonFriendProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_common_button_app_bar"
+            android:scaleType="center"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/titleTextFriendProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/friend_profile"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/backButtonFriendProfile"
+            app:layout_constraintStart_toEndOf="@+id/backButtonFriendProfile"
+            app:layout_constraintTop_toTopOf="@+id/backButtonFriendProfile"
+            tools:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/favoriteButtonFriendProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_common_button_app_bar"
+            android:scaleType="center"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_friend_star"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/profileCellFriendProfile"
+        layout="@layout/cell_profile_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarConstraint" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/roomListConstraintFriendProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_common_card"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileCellFriendProfile">
+
+        <TextView
+            android:id="@+id/roomListTextFriendProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/friend_room_list"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/roomCardRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomListTextFriendProfile"
+            tools:listitem="@layout/cell_room_card" />
+
+        <TextView
+            android:id="@+id/hasNoRoomText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:text="@string/has_no_room"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/roomCardRecycler"
+            app:layout_constraintEnd_toEndOf="@id/roomCardRecycler"
+            app:layout_constraintStart_toStartOf="@id/roomCardRecycler"
+            app:layout_constraintTop_toTopOf="@id/roomCardRecycler" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

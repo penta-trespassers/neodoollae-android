@@ -33,8 +33,8 @@
 
     <!-- Google Material 3 @ Neodoallae-->
 
-    <color name="color_card">#FFF0EFFA</color>
-    <color name="color_card_pressed">#FFE2E1EC</color>
+    <color name="color_card">#FFEBF1F8</color>
+    <color name="color_card_pressed">#FFDDE3EA</color>
     <color name="color_card_divider">#FFE2E1EC</color>
 
     <color name="color_button">#FF7A8BE0</color>
@@ -45,5 +45,6 @@
 
     <color name="color_text_title">#FF43465A</color>
 
-    <color name="material_neutral_variant95">#FFF0EFFA</color>
+    <color name="material_neutral_variant95">#FFEBF1F8</color>
+    <color name="material_neutral_variant80">#FFC1C7CE</color>
 </resources>
