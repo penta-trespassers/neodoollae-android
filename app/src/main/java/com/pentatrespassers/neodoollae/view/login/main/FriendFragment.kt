@@ -60,6 +60,7 @@ class FriendFragment private constructor() : Fragment() {
                     friendListUnderlineConstraint.visibility = View.GONE
                 }
             }
+
             // 하단 친구 추가 창
             val addFriendBind = BtmSheetAddFriendBinding.inflate(layoutInflater)
             val addFriendDialog = BottomSheetDialog(requireContext())

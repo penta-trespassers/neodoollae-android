@@ -3,9 +3,7 @@ package com.pentatrespassers.neodoollae.view.login
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
 import com.pentatrespassers.neodoollae.view.login.main.*
@@ -14,7 +12,6 @@ import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
 import splitties.fragments.fragmentTransaction
-import splitties.toast.toast
 
 class MainActivity : AppCompatActivity() {
 

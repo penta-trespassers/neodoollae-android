@@ -37,4 +37,12 @@ interface UserApi {
         @Body
         favoriteBody: FavoriteBody
     ): Call<Void>
+
+    @GET("/v1/users/{id}")
+    fun getUserById(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Path("id")
+        userId: Int?
+    ): Call<User>
 }
