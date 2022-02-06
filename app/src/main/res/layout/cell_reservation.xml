@@ -5,8 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
-    android:padding="18dp"
+    android:padding="8dp"
     tools:ignore="SpUsage">
+
+    <ImageView
+        android:id="@+id/cellBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_common_button_menu_cell" />
 
     <ImageView
         android:id="@+id/friendImageReservation"
@@ -17,6 +29,7 @@
         android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_common_bed"
         app:tint="@color/trespassGray_600" />
 
     <TextView
@@ -42,28 +55,16 @@
         app:layout_constraintStart_toStartOf="@+id/reservationRoomText" />
 
 
-    <ImageView
-        android:id="@+id/cellBackgroundImageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg_my_schedule" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/reservationDetailConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
-        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/cellBackgroundImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friendImageReservation"
-        tools:visibility="visible">
+        app:layout_constraintTop_toBottomOf="@+id/friendImageReservation">
 
         <TextView
             android:id="@+id/reservationStartDateText"
@@ -71,8 +72,9 @@
             android:layout_height="wrap_content"
             android:text="20YY.MM.DD"
             android:textColor="@color/trespassGray_900"
-            android:textSize="14dp"
+            android:textSize="10dp"
             android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,9 +84,10 @@
             android:layout_height="wrap_content"
             android:text="20YY.MM.DD"
             android:textColor="@color/black"
-            android:textSize="14dp"
+            android:textSize="10dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@id/reservationStartDateText" />
 
         <TextView
@@ -93,20 +96,24 @@
             android:layout_height="wrap_content"
             android:text="오후 HH:MM"
             android:textColor="@color/black"
-            android:textSize="14dp"
+            android:textSize="12dp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@id/reservationStartTimeText" />
 
         <TextView
             android:id="@+id/reservationStartTimeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="0dp"
             android:text="오전 HH:MM"
             android:textColor="@color/trespassGray_900"
-            android:textSize="14dp"
+            android:textSize="12dp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reservationStartDateText" />
 

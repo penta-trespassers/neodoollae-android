@@ -1,7 +1,10 @@
 package com.pentatrespassers.neodoollae.dto
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.sql.Timestamp
 
+@Parcelize
 data class Reservation(
     var id: Int = UNDEFINED,
     var userId: Int = UNDEFINED,
@@ -14,8 +17,9 @@ data class Reservation(
     var requestMessage: String = "",
     var responseMessage: String = "",
     var status: Int = STATUS_UNDEFINED,
-    var type: Int = TYPE_UNDEFINED
-) {
+    var type: Int = TYPE_UNDEFINED,
+    var member: Int = UNDEFINED
+) : Parcelable {
     companion object {
         const val UNDEFINED = -1
 

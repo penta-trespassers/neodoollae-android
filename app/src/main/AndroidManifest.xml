@@ -58,6 +58,19 @@
             android:exported="true"
             android:noHistory="true" />
         <activity
+        android:name=".view.login.main.reservation.ReservationProfileActivity"
+        android:exported="true"
+        android:noHistory="true" />
+        <activity
+            android:name=".view.login.main.reservation.ReservationEditActivity"
+            android:exported="true"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.login.main.invite.InvitationActivity"
+            android:exported="true"
+            android:noHistory="true" />
+
+        <activity
             android:name=".view.login.MainActivity"
             android:exported="true" />
         <activity

@@ -116,23 +116,26 @@
         android:id="@+id/reservationLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myReservationConstraint"
+        app:layout_constraintTop_toBottomOf="@+id/waitingReservationConstraint"
+
         tools:context=".view.login.main.ReservationFragment">
 
         <androidx.recyclerview.widget.RecyclerView
 
             android:id="@+id/reservationRecycler"
             android:layout_width="match_parent"
-            android:layout_height="731dp"
-            android:paddingBottom="0dp"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="0dp"
             tools:listitem="@layout/cell_reservation">
 
         </androidx.recyclerview.widget.RecyclerView>
