@@ -47,6 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSchedule">
 
         <CalendarView
+            android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/color_card"
@@ -178,7 +179,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favoriteRoomRecycler"
+                android:id="@+id/bookableRoomRecycler"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -192,6 +193,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bookableTextSchedule"
                 tools:listitem="@layout/cell_room_card" />
+
+
+            <TextView
+                android:id="@+id/notBookableTextSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="32dp"
+                android:text="예약 가능한 방이 없습니다."
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookableTextSchedule"
+                android:visibility="invisible"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
