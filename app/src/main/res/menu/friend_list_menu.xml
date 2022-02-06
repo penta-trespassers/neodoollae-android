@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/bookmarkItem"
-        android:title="즐겨찾기" />
+        android:title="@string/removeFavorite" />
     <item
         android:id="@+id/deleteItem"
         android:title="친구 삭제" />

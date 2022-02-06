@@ -1,14 +1,15 @@
-package com.pentatrespassers.neodoollae.network
+package com.pentatrespassers.neodoollae.network.api
 
 import com.pentatrespassers.neodoollae.dto.*
-import com.pentatrespassers.neodoollae.dto.body.KakaoLoginBody
-import com.pentatrespassers.neodoollae.dto.body.RegisterBody
+import com.pentatrespassers.neodoollae.network.api.v1.UserApi
+import com.pentatrespassers.neodoollae.network.body.KakaoLoginBody
+import com.pentatrespassers.neodoollae.network.body.RegisterBody
 import retrofit2.Call
 import retrofit2.http.*
 
 
 // 여기서 구현
-interface RetrofitApi {
+interface RetrofitApi: UserApi {
 
     @POST("/v1/auth/kakao/login/")
     fun kakaoLogin(
@@ -21,28 +22,6 @@ interface RetrofitApi {
         @Body
         registerBody: RegisterBody
     ): Call<Token>
-
-    @GET("/v1/users/")
-    fun getUser(
-        @Header("Authorization")
-        bearerAccessToken: String?,
-        @Query("friendCode")
-        friendCode: String
-    ): Call<User>
-
-    @GET("/v1/users/my/")
-    fun getMyInfo(
-        @Header("Authorization")
-        bearerAccessToken: String?
-    ): Call<User>
-
-    @POST("v1/users/fcm/")
-    fun uploadFCMToken(
-        @Header("Authorization")
-        bearerAccessToken: String?,
-        @Body
-        token: Token
-    ): Call<User>
 
     @GET("/v1/friends/")
     fun getAllFriends(

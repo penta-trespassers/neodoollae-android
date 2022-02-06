@@ -14,7 +14,9 @@ class FriendListFragment private constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendListBinding
-    private val friendListAdapter by lazy { FriendListAdapter(requireContext(), arrayListOf()) }
+
+    lateinit var friendListAdapter: FriendListAdapter
+    lateinit var favoriteUserAdapter: FriendListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,8 +24,12 @@ class FriendListFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentFriendListBinding.inflate(inflater, container, false)
         with(bind) {
+            friendListAdapter = FriendListAdapter(requireContext())
+            favoriteUserAdapter = FriendListAdapter(requireContext())
+            friendListAdapter.init(favoriteUserAdapter, false)
+            favoriteUserAdapter.init(friendListAdapter, true)
             friendListRecycler.adapter = friendListAdapter
-            refreshFriendList()
+            favoriteUserRecycler.adapter = favoriteUserAdapter
             friendSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
@@ -31,6 +37,7 @@ class FriendListFragment private constructor() : Fragment() {
 
                 override fun onQueryTextChange(p0: String?): Boolean {
                     friendListAdapter.filter.filter(p0)
+                    favoriteUserAdapter.filter.filter(p0)
                     return false
                 }
             })
@@ -47,7 +54,6 @@ class FriendListFragment private constructor() : Fragment() {
     fun refreshFriendList() {
         RetrofitClient.getAllFriends { _, response ->
             friendListAdapter.refresh(response.body()!!)
-            friendListAdapter.filter.filter("")
         }
     }
 

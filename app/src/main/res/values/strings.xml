@@ -147,6 +147,8 @@
     <string name="my_schedule">내 일정</string>
     <string name="favorite_room">즐겨찾는 방</string>
     <string name="my_room">내 방</string>
+    <string name="addFavorite">즐겨찾기 추가</string>
+    <string name="removeFavorite">즐겨찾기 삭제</string>
 
 
 </resources>

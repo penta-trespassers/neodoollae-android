@@ -1,11 +1,13 @@
 package com.pentatrespassers.neodoollae.network
 
 import com.pentatrespassers.neodoollae.dto.*
-import com.pentatrespassers.neodoollae.dto.body.KakaoLoginBody
-import com.pentatrespassers.neodoollae.dto.body.RegisterBody
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Param
 import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.network.api.RetrofitApi
+import com.pentatrespassers.neodoollae.network.body.FavoriteBody
+import com.pentatrespassers.neodoollae.network.body.KakaoLoginBody
+import com.pentatrespassers.neodoollae.network.body.RegisterBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,6 +48,13 @@ object RetrofitClient {
         onUnsuccessful: ((Call<User>, Response<User>) -> Unit)? = null,
         onSuccessful: (Call<User>, Response<User>) -> Unit
     ) = instance.getMyInfo(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun setFavorite(
+        favoriteBody: FavoriteBody,
+        onUnsuccessful: ((Call<Void>, Response<Void>) -> Unit)? = null,
+        onSuccessful: (Call<Void>, Response<Void>) -> Unit
+    ) = instance.setFavorite(Authentication.bearerAccessToken, favoriteBody)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getAllFriends(

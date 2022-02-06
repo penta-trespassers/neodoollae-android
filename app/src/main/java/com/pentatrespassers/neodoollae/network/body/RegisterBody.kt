@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.dto.body
+package com.pentatrespassers.neodoollae.network.body
 
 data class RegisterBody(
     var access: String?,
