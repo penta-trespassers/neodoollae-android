@@ -45,12 +45,26 @@
             app:layout_constraintTop_toTopOf="@+id/backButtonFriendProfile"
             tools:visibility="visible" />
 
+        <ImageButton
+            android:id="@+id/favoriteButtonFriendProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_common_button_app_bar"
+            android:scaleType="center"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_friend_star"
+            tools:visibility="visible" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
         android:id="@+id/profileCellFriendProfile"
         layout="@layout/cell_profile_person"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -67,6 +81,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_common_card"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileCellFriendProfile">
@@ -97,6 +112,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/roomListTextFriendProfile"
             tools:listitem="@layout/cell_room_card" />
+
+        <TextView
+            android:id="@+id/hasNoRoomText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:text="@string/has_no_room"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/roomCardRecycler"
+            app:layout_constraintEnd_toEndOf="@id/roomCardRecycler"
+            app:layout_constraintStart_toStartOf="@id/roomCardRecycler"
+            app:layout_constraintTop_toTopOf="@id/roomCardRecycler" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

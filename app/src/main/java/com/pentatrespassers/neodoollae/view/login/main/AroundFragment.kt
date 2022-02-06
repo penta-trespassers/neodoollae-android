@@ -24,6 +24,8 @@ import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerViewAdapter
 import android.widget.Toast
 import com.naver.maps.map.util.MarkerIcons
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
@@ -144,8 +146,13 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                         previousPanelHeight = slidingUpPanel.panelHeight
                         slidingUpPanel.panelHeight = 0
 
-
-                        singleRoomInfoConstraintLayout.visibility = View.VISIBLE
+                        with(singleRoomInfoConstraintLayout){
+                            visibility = View.VISIBLE
+                            singleRoomNameTextView.text = it.roomName
+                            singleRoomHostNameTextView.text = it.nickname
+                            singleRoomAddressTextView.text = it.address
+                            singleRoomDetailAddressTextView.text = it.detailAddress
+                        }
 
                         true
                     }

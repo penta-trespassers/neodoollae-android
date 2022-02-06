@@ -34,7 +34,7 @@
     <!-- Google Material 3 @ Neodoallae-->
 
     <color name="color_card">#FFEBF1F8</color>
-    <color name="color_card_pressed">#FFE2E1EC</color>
+    <color name="color_card_pressed">#FFDDE3EA</color>
     <color name="color_card_divider">#FFE2E1EC</color>
 
     <color name="color_button">#FF7A8BE0</color>

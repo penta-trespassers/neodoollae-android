@@ -8,6 +8,10 @@ import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.hide
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
@@ -42,9 +46,19 @@ class FriendProfileActivity : AppCompatActivity() {
                 finish()
             }
 
-            titleTextFriendProfile.text = when (user.id) {
-                myId -> getString(R.string.my_profile)
-                else -> getString(R.string.friend_profile)
+            when (user.id) {
+                myId -> {
+                    titleTextFriendProfile.text = getString(R.string.my_profile)
+                    favoriteButtonFriendProfile.gone()
+                }
+                else -> {
+                    titleTextFriendProfile.text = getString(R.string.friend_profile)
+                    favoriteButtonFriendProfile.show()
+                }
+            }
+
+            favoriteButtonFriendProfile.setOnClickListener {
+
             }
 
             with(profileCellFriendProfile) {
@@ -56,8 +70,8 @@ class FriendProfileActivity : AppCompatActivity() {
                     .into(profileImage)
 
                 profileImage.setOnClickListener {
-                    start<ShowImageActivity>{
-                        putExtras(ShowImageActivity.Extras){
+                    start<ShowImageActivity> {
+                        putExtras(ShowImageActivity.Extras) {
                             this.profileImage = user.profileImage
                         }
                     }
@@ -73,8 +87,18 @@ class FriendProfileActivity : AppCompatActivity() {
             }
 
             RetrofitClient.getRooms(user.id) { _, response ->
-                roomCardRecycler.adapter =
-                    RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
+                when(response.body().isNullOrEmpty()){
+                    true -> {
+                        roomCardRecycler.gone()
+                        hasNoRoomText.show()
+                    }
+                    false -> {
+                        roomCardRecycler.adapter =
+                            RoomCardAdapter(this@FriendProfileActivity, response.body()!!)
+                        hasNoRoomText.gone()
+                    }
+                }
+
             }
 
             setContentView(root)

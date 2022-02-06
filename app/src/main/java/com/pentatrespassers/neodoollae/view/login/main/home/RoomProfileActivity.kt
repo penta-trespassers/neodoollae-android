@@ -1,14 +1,22 @@
 package com.pentatrespassers.neodoollae.view.login.main.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.geometry.Utmk
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
@@ -50,6 +58,32 @@ class RoomProfileActivity : AppCompatActivity() {
             }
 
             titleTextRoomProfile.text = setTitle()
+
+            when (roomInfo.userId) {
+                user.id -> {
+                    editButtonRoomProfile.show()
+                    deleteButtonRoomProfile.show()
+                    favoriteButtonRoomProfile.gone()
+                }
+                else -> {
+                    editButtonRoomProfile.gone()
+                    deleteButtonRoomProfile.gone()
+                    favoriteButtonRoomProfile.show()
+                }
+            }
+
+            editButtonRoomProfile.setOnClickListener {
+                // TODO : edit my room
+            }
+
+            deleteButtonRoomProfile.setOnClickListener {
+                // TODO : delete my room
+            }
+
+            favoriteButtonRoomProfile.setOnClickListener {
+                // TODO : favorite room button
+            }
+
             with(profileCellRoomProfile) {
                 Glide.with(this@RoomProfileActivity)
                     .load(getMainImage())
@@ -98,15 +132,37 @@ class RoomProfileActivity : AppCompatActivity() {
 
             wordFromHostContent.text = roomInfo.description
 
-            roomImageConstraint.visibility = when(hasNoImage()){
+            roomImageConstraint.visibility = when (hasNoImage()) {
                 true -> View.GONE
                 false -> View.VISIBLE
             }
 
-            roomImageRecycler.adapter = RoomImageAdapter(this@RoomProfileActivity, roomInfo.roomImages!!)
+            roomImageRecycler.adapter =
+                RoomImageAdapter(this@RoomProfileActivity, roomInfo.roomImages!!)
+
+            showMapButtonRoomProfile.text = getString(R.string.view_on_map)
+
+            showMapButtonRoomProfile.setOnClickListener {
+                hyperlink(
+                    "http://www.google.co.kr/maps/@" +
+                            roomInfo.latitude.toString() + "," +
+                            roomInfo.longitude.toString() + ",14z"
+                )
+            }
+
+            reserveButtonRoomProfile.text = when (roomInfo.userId) {
+                user.id -> getString(R.string.make_invitation)
+                else -> getString(R.string.make_reservation)
+            }
+
+            reserveButtonRoomProfile.setOnClickListener {
+
+            }
+
         }
     }
-    private fun setTitle() : String {
+
+    private fun setTitle(): String {
         return when (roomInfo.userId) {
             user.id -> getString(R.string.room_of_mine)
             else -> getString(R.string.room_of_friend)
@@ -114,7 +170,7 @@ class RoomProfileActivity : AppCompatActivity() {
     }
 
     private fun getMainImage(): String {
-        return when(hasNoImage()){
+        return when (hasNoImage()) {
             true -> R.drawable.ic_common_bed.toString()
             false -> roomInfo.roomImages!![0]
         }
@@ -122,5 +178,10 @@ class RoomProfileActivity : AppCompatActivity() {
 
     private fun hasNoImage(): Boolean {
         return roomInfo.roomImages.isNullOrEmpty()
+    }
+
+    private fun hyperlink(url: String) {
+        intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 }

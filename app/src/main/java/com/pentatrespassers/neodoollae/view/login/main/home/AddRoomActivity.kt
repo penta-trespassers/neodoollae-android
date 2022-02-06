@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
 import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.lib.Authentication.user
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.*
 import splitties.activities.start
 import splitties.bundle.putExtras
@@ -33,6 +34,14 @@ class AddRoomActivity : AppCompatActivity() {
         )
     private var currentFragmentIndex = 0
 
+    private val titleList =
+        arrayListOf(
+            R.string.insert_address,
+            R.string.insert_room_info,
+            R.string.room_operation_settings,
+            R.string.upload_picture,
+            R.string.room_registration_complete
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +57,19 @@ class AddRoomActivity : AppCompatActivity() {
                 }
             }
 
-            homeButton.setOnClickListener {
-                finish()
+            titleTextAddRoom.text = getString(titleList[currentFragmentIndex])
+
+
+            backButtonAddRoom.setOnClickListener {
+                fragmentTransaction {
+                    if (currentFragmentIndex == 0) {
+                        onBackPressed()
+                    } else {
+                        hide(fragmentList[currentFragmentIndex])
+                        show(fragmentList[--currentFragmentIndex])
+                        titleTextAddRoom.text = getString(titleList[currentFragmentIndex])
+                    }
+                }
             }
             prevButton.setOnClickListener {
                 fragmentTransaction {
@@ -58,6 +78,7 @@ class AddRoomActivity : AppCompatActivity() {
                     }
                     hide(fragmentList[currentFragmentIndex])
                     show(fragmentList[--currentFragmentIndex])
+                    titleTextAddRoom.text = getString(titleList[currentFragmentIndex])
                     if (currentFragmentIndex == 0) {
                         prevButton.visibility = View.GONE
                     }
@@ -65,20 +86,23 @@ class AddRoomActivity : AppCompatActivity() {
             }
             nextButton.setOnClickListener {
                 if (currentFragmentIndex == fragmentList.lastIndex) {
-                    start<RoomProfileActivity> {
-                        putExtras(RoomProfileActivity.Extras) {
-                            room = Room(
-                                roomName = roomInfoFragment.roomName,
-                                address = addressFragment.address,
-                                detailAddress = addressFragment.detailAddress,
-                                description = roomInfoFragment.description
-                            )
-                        }
-                    }
+                    finish()
+//                    start<RoomProfileActivity> {
+//                        putExtras(RoomProfileActivity.Extras) {
+//                            room = Room(
+//                                userId = user!!.id,
+//                                roomName = roomInfoFragment.roomName,
+//                                address = addressFragment.address,
+//                                detailAddress = addressFragment.detailAddress,
+//                                description = roomInfoFragment.description
+//                            )
+//                        }
+//                    }
                 } else {
                     fragmentTransaction {
                         hide(fragmentList[currentFragmentIndex])
                         show(fragmentList[++currentFragmentIndex])
+                        titleTextAddRoom.text = getString(titleList[currentFragmentIndex])
                         if (currentFragmentIndex == 1) {
                             prevButton.visibility = View.VISIBLE
                         } else if (currentFragmentIndex == fragmentList.lastIndex) {
