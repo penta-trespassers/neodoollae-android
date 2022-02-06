@@ -14,7 +14,7 @@ interface UserApi {
         bearerAccessToken: String?,
         @Query("friendCode")
         friendCode: String
-    ): Call<User>
+    ): Call<User?>
 
     @GET("/v1/users/my/")
     fun getMyInfo(

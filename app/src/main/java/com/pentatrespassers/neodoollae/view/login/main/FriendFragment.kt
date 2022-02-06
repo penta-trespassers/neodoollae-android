@@ -1,17 +1,17 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.DialogAddFriendBinding
-import com.pentatrespassers.neodoollae.databinding.DialogCheckFriendBinding
+import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
+import com.pentatrespassers.neodoollae.databinding.BtmSheetCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
-import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
@@ -26,6 +26,7 @@ class FriendFragment private constructor() : Fragment() {
     private val friendListFragment = FriendListFragment.newInstance()
     private val friendRequestFragment = FriendRequestFragment.newInstance()
 
+    lateinit var addFriendButton: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,31 +59,42 @@ class FriendFragment private constructor() : Fragment() {
                     friendListUnderlineConstraint.visibility = View.GONE
                 }
             }
+            // 하단 친구 추가 창
+            val addFriendBind = BtmSheetAddFriendBinding.inflate(layoutInflater)
+            val addFriendDialog = BottomSheetDialog(requireContext())
+            addFriendDialog.setContentView(addFriendBind.root)
+
+            // 하단 친구 확인 창
+            val checkFriendBind = BtmSheetCheckFriendBinding.inflate(layoutInflater)
+            val checkFriendDialog = BottomSheetDialog(requireContext())
+            checkFriendDialog.setContentView(checkFriendBind.root)
+
+            addFriendBind.apply {
+                acceptButton.setOnClickListener {
+                    acceptButton.isClickable = false
+                    RetrofitClient.getUser(friendCodeEditText.text.toString()) { _, response ->
+
+                        acceptButton.isClickable = true
+                    }
+                }
+            }
+
+            checkFriendBind.cancelButtonCheckFriend.setOnClickListener {
+                checkFriendDialog.dismiss()
+            }
+            checkFriendBind.sendButtonCheckFriend.setOnClickListener {
+                addFriendDialog.dismiss()
+                checkFriendDialog.dismiss()
+                toast("친구 신청 완료!")
+            }
+
+            addFriendButton.setOnClickListener {
+                addFriendDialog.show()
+            }
 
             return root
         }
     }
-
-
-    private fun showCheckDialog(user: User) {
-        val dialogBind = DialogCheckFriendBinding.inflate(layoutInflater)
-        with(dialogBind) {
-            friendNameTextCheckFriend.text = user.nickname
-            val mBuilder = AlertDialog.Builder(context)
-                .setView(root)
-                .setCancelable(false).show()
-
-            sendButtonCheckFriend.setOnClickListener {
-                toast("친구 신청 완료")
-                mBuilder.dismiss()
-            }
-
-            cancelButtonCheckFriend.setOnClickListener {
-                mBuilder.dismiss()
-            }
-        }
-    }
-
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
@@ -95,7 +107,9 @@ class FriendFragment private constructor() : Fragment() {
 
 
     companion object {
-        fun newInstance() = FriendFragment()
+        fun newInstance(addFriendButton: ImageButton) = FriendFragment().apply {
+            this.addFriendButton = addFriendButton
+        }
     }
 
 

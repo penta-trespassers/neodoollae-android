@@ -53,7 +53,7 @@ class FriendListFragment private constructor() : Fragment() {
 
     fun refreshFriendList() {
         RetrofitClient.getAllFriends { _, response ->
-            friendListAdapter.refresh(response.body()!!)
+//            friendListAdapter.refresh(response.body()!!)
         }
     }
 
