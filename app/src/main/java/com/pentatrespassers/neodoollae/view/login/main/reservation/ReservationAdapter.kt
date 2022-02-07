@@ -31,13 +31,53 @@ class ReservationAdapter(
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
-    private var reservations : ArrayList<Reservation> = reservationList
+    companion object {
+        var reservations = makeDummyReservationData()
+
+        fun appendReservations(new : Reservation){
+            reservations.add(new)
+        }
+
+        fun editReservations(edit : Reservation){
+            for (i in 0..reservations.size-1){
+                if(edit.id == reservations[i].id){
+                    reservations[i] = edit
+                }
+            }
+        }
+
+        fun deleteReservations(delete : Reservation){
+            for (i in 0..reservations.size-1){
+                if(delete.id == reservations[i].id){
+                    reservations.remove(reservations[i])
+                    break
+                }
+            }
+        }
+
+        @JvmName("setReservations1")
+        fun setReservations(list : ArrayList<Reservation>){
+            reservations = list
+        }
+
+        fun makeDummyReservationData(): ArrayList<Reservation> {
+            val data: ArrayList<Reservation> = arrayListOf(
+                Reservation(1,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다"),
+                Reservation(2,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다"),
+                Reservation(3,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다"),
+                Reservation(4,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다")
 
 
-    inner class CellReservationHolder(
-        private val bind: CellReservationBinding
-    ) :
-        RecyclerView.ViewHolder(bind.root) {
+            )
+
+
+            return data
+        }
+
+    }
+
+    inner class CellReservationHolder(private val bind: CellReservationBinding) : RecyclerView.ViewHolder(bind.root) {
+
         fun binding(reservation: Reservation) {
             with(bind) {
 
@@ -94,7 +134,7 @@ class ReservationAdapter(
     }
 
     fun refresh(reservationList: ArrayList<Reservation>) {
-        this.reservations = reservationList
+      //  reservations = reservationList
         notifyDataSetChanged()
     }
 
@@ -106,4 +146,7 @@ class ReservationAdapter(
 
 
 
+
+
 }
+

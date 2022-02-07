@@ -8,8 +8,13 @@ import android.view.View
 import androidx.annotation.Size
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.gson.internal.bind.util.ISO8601Utils.format
 import com.pentatrespassers.neodoollae.databinding.CellOneLineMenuBinding
 import com.pentatrespassers.neodoollae.databinding.CellTwoLineBinding
+import okhttp3.internal.Util.format
+import java.lang.String.format
+import java.text.DateFormat
+import java.text.MessageFormat.format
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -75,4 +80,6 @@ object Util {
      */
     fun ppString(string: String, postposition1: String, postposition2: String) =
         string + if ((string.last().code - 0xAC00) % 28 > 0) postposition1 else postposition2
+
+
 }

@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     reservationFragment -> {
                         titleText.text = getString(R.string.reservation_history)
-                        showViews(titleText)
+                        showViews(titleText,notificationButton)
                     }
                     myPageFragment -> {
                         titleText.text = getString(R.string.my_page)

@@ -121,6 +121,7 @@
                     android:layout_height="72dp"
                     android:layout_marginStart="56dp"
                     android:layout_marginTop="12dp"
+                    app:tint="@color/material_neutral_variant80"
                     app:layout_constraintStart_toStartOf="@+id/reservationImageView1"
                     app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
@@ -131,6 +132,7 @@
                     android:layout_height="72dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="64dp"
+                    app:tint="@color/material_neutral_variant80"
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView1"
                     app:layout_constraintTop_toBottomOf="@+id/visitorNameTextTitle"
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
@@ -259,7 +261,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="vertical"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@+id/reservationImageView3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -267,7 +269,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_common_card">
 
                     <TextView
                         android:id="@+id/reservationChoosDateText"
@@ -283,26 +286,21 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/backGroundImageView3"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginBottom="0dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/bg_common_card" />
-
                     <CalendarView
                         android:id="@+id/reservationCalendarView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusedMonthDateColor="@color/color_button"
+                        android:unfocusedMonthDateColor="@color/trespassGray_600"
+                        android:visibility="visible"
+                        android:weekNumberColor="@color/trespassGray_900"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -690,6 +688,7 @@
                     android:layout_height="24dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/ic_add_circle_black_24dp"
+                    app:iconTint="@color/trespassBlue_600"
                     app:layout_constraintBottom_toBottomOf="@+id/reservationImageView3"
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView3"
                     app:layout_constraintStart_toEndOf="@+id/reservationVisitNumberText"
@@ -711,7 +710,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_add_circle_black_24dp"
+                    android:background="@drawable/ic_common_remove_circle"
+                    app:iconTint="@color/trespassBlue_600"
                     app:layout_constraintBottom_toBottomOf="@+id/reservationImageView3"
                     app:layout_constraintEnd_toStartOf="@+id/reservationVisitNumberText"
                     app:layout_constraintTop_toTopOf="@+id/reservationImageView3"
@@ -760,6 +760,8 @@
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView4"
                     app:layout_constraintStart_toStartOf="@+id/toHostTextTitle"
                     app:layout_constraintTop_toBottomOf="@+id/toHostTextTitle" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

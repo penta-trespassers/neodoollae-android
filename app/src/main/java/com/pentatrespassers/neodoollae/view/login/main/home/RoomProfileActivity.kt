@@ -22,6 +22,7 @@ import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendP
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationEditActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -156,8 +157,11 @@ class RoomProfileActivity : AppCompatActivity() {
             }
 
             reserveButtonRoomProfile.setOnClickListener {
-
+                var intent = Intent(this@RoomProfileActivity, ReservationEditActivity::class.java)
+             //   intent.putExtra("Reservation",nil)
+                startActivity(intent)
             }
+
 
         }
     }

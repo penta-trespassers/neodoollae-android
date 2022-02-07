@@ -2,15 +2,20 @@ package com.pentatrespassers.neodoollae.view.login.main.reservation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.CalendarView
+import android.widget.CalendarView.OnDateChangeListener
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.lib.Util.hide
-import com.pentatrespassers.neodoollae.view.login.main.ReservationFragment
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter.Companion.editReservations
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter.Companion.reservations
 import splitties.toast.toast
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class ReservationEditActivity : AppCompatActivity() {
     var reservation : Reservation = Reservation()
@@ -18,7 +23,12 @@ class ReservationEditActivity : AppCompatActivity() {
     var isDateExpanded : Boolean = false
     var isTimeExpanded : Boolean = false
 
-    var num : Int = 0
+    var isStartDateSet = false
+
+    var isCreate = false
+
+    var toastWord = "수정"
+
 
 
 
@@ -33,22 +43,57 @@ class ReservationEditActivity : AppCompatActivity() {
 
             var intent : Intent = getIntent()
             reservation = intent.getParcelableExtra("Reservation")!!
+            if(reservation == null){
+                isCreate = true
+                toastWord = "예약이"
+            }else{
+                isCreate = false
+                toastWord = "수정이"
+            }
 
             reservationRoomNameText.text = reservation.roomName
             reservationVisitorNameText.text = reservation.nickname
+            vistStartDatetext.text = reservation.checkIn.toString()
+            visitStartTimeText.text = reservation.checkIn.toString()
+            visitEndDateText.text = reservation.checkOut.toString()
+            visitEndTimeText.text = reservation.checkOut.toString()
 
-            reservationVisitNumberText.text ="$num"
+            reservationVisitNumberText.text =reservation.member.toString()
 
+            toHostEditText.setText(reservation.requestMessage)
+
+            reservationCalendarView.setClickable(true)
+
+            reservationAddButton.text = when (isCreate) {
+                true -> "예약하기"
+                false -> "수정하기"
+            }
 
             settingDateAndTimeConstraintLayout.setOnClickListener {
-                 toggleLayout(!isDateExpanded, it, layoutExpandDate)
-                isDateExpanded = true
-            }
+                 isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
 
-            reservationCalendarView.setOnDateChangeListener { calendarView, i, i2, i3 ->
-               toggleLayout(!isTimeExpanded, calendarView, layoutExpandTime)
                 isTimeExpanded = true
             }
+
+            reservationCalendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
+                val month = month + 1
+                val calendar = Calendar.getInstance()
+                calendar.set(year, month, dayOfMonth)
+                val date = calendar.time
+                val simpledateformat = SimpleDateFormat("EEEE", Locale.getDefault())
+                val dayName: String = simpledateformat.format(date)
+
+                toggleLayout(!isTimeExpanded, view, layoutExpandTime)
+                isTimeExpanded = true
+
+                if(isStartDateSet == false) {
+                    vistStartDatetext.text = "$year.$month.$dayOfMonth.$dayName"
+                }
+                else{
+                    visitEndDateText.text = "$year.$month.$dayOfMonth.$dayName"
+
+                }
+            })
 
             SetTimeEndbutton.setOnClickListener{
                 toggleLayout(!isDateExpanded, it, layoutExpandDate)
@@ -60,21 +105,25 @@ class ReservationEditActivity : AppCompatActivity() {
 
 
             reservationAddButton.setOnClickListener {
-                toast("예약이 완료되었습니다.")
-             //   var intent = Intent(this@ReservationEditActivity,ReservationFragment)
-               // startActivity(intent)
+                toast("${toastWord} 완료되었습니다.")
+              //  reservation.checkIn =
+                // reservation.checkOut =
+                reservation.member = (reservationVisitNumberText.text as String).toInt()
+                reservation.requestMessage = toHostEditText.text.toString()
+                editReservations(reservation)
+                print(reservation.member)
                 finish()
 
             }
 
             visitNumPlusButton.setOnClickListener {
-                num++
-               reservationVisitNumberText.text = "$num"
+                reservation.member++
+               reservationVisitNumberText.text = "${reservation.member}"
             }
 
             visitNumMinusButton.setOnClickListener {
-               num--
-               reservationVisitNumberText.text = "$num"
+                reservation.member++
+               reservationVisitNumberText.text = "${reservation.member}"
             }
 
             editToReservationListButton.setOnClickListener {
@@ -85,7 +134,7 @@ class ReservationEditActivity : AppCompatActivity() {
 
     }
 
-    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout) {
+    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout) : Boolean {
 
         ToggleAnimation.toggleArrow(view, isExpanded)
         if (isExpanded) {
@@ -93,5 +142,6 @@ class ReservationEditActivity : AppCompatActivity() {
         }else{
             ToggleAnimation.collapse(layoutExpand)
         }
+        return isExpanded
     }
 }
