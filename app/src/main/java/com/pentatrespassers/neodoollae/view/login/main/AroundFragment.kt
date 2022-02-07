@@ -25,6 +25,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.updateLayoutParams
 import com.bumptech.glide.Glide
 import com.naver.maps.map.util.MarkerIcons
+import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_CLOSED
+import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_OPEN
+import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_RESTRICTED
 import com.pentatrespassers.neodoollae.lib.Util.show
 
 
@@ -41,10 +44,10 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     private val TAG = "MainActivity"
 
-    private val PERMISSION_REQUEST_CODE = 100
+    private val PERMISSION_REQUEST_CODE = 1000
 
-    private var mLocationSource: FusedLocationSource? = null
-    private var mNaverMap: NaverMap? = null
+    private lateinit var mLocationSource: FusedLocationSource
+    private lateinit var mNaverMap: NaverMap
 
 
     override fun onCreateView(
@@ -53,26 +56,24 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     ): View {
         bind = FragmentAroundBinding.inflate(inflater, container, false)
         with(bind) {
+            // set mapFragment
             val fm = childFragmentManager
             val mapFragment = fm.findFragmentById(R.id.naverMap) as MapFragment?
                 ?: MapFragment.newInstance().also {
                     fm.beginTransaction().add(R.id.naverMap, it).commit()
                 }
-            mapFragment.getMapAsync(this@AroundFragment)
-
-            mapListRecyclerViewAround.adapter = mapListAdapter
-
 
             // getMapAsync를 호출하여 비동기로 onMapReady 콜백 메서드 호출
             // onMapReady에서 NaverMap 객체를 받음
             mapFragment.getMapAsync(this@AroundFragment)
+            mapFragment.getMapAsync {
+                location.map = mNaverMap
+                compass.map = mNaverMap
+            }
 
+            mapListRecyclerViewAround.adapter = mapListAdapter
             // 위치를 반환하는 구현체인 FusedLocationSource 생성
-
             mLocationSource = FusedLocationSource(this@AroundFragment, PERMISSION_REQUEST_CODE)
-
-
-
 
             return root
         }
@@ -84,6 +85,10 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     @UiThread
     override fun onMapReady(naverMap: NaverMap) {
         with(bind) {
+            val uiSettings = naverMap.uiSettings
+            uiSettings.isLocationButtonEnabled = false
+            uiSettings.isCompassEnabled = false
+
             naverMap.setOnMapClickListener { pointF, latLng ->
                 if (mapSearchViewAround.visibility == View.VISIBLE) {
                     mapSearchViewAround.visibility = View.GONE
@@ -94,17 +99,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                     slidingUpPanel.panelHeight = previousPanelHeight
                     singleRoomInfoConstraintLayout.visibility = View.INVISIBLE
                 }
-
             }
-
-            naverMap.uiSettings.isLocationButtonEnabled = false
-            naverMap.uiSettings.isCompassEnabled = false
-            location.map = naverMap
-            compass.map = naverMap
-
-
-            Log.d(TAG, "onMapReady")
-
             // 지도상에 마커 표시
             val mapList = makeDummyData()
 
@@ -203,15 +198,15 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
         return arrayListOf(
             Room(
                 1, 1, "써니", "sunnyRoom", "한양대학교 어딘가", null, "000호",
-                "샘플 데이터입니다", 37.5670135, 126.9783740
+                "샘플 데이터입니다", 37.5670135, 126.9783740, STATUS_RESTRICTED
             ),
             Room(
                 2, 2, "서진", "seojinRoom", "한양대학교 어딘가", null, "000호",
-                "샘플 데이터입니다", 37.5680136, 126.9783740
+                "샘플 데이터입니다", 37.5680136, 126.9783740, STATUS_CLOSED
             ),
             Room(
                 3, 3, "진하", "recasterRoom", "한양대학교 어딘가", null, "000호",
-                "샘플 데이터입니다", 37.5670135, 126.9793743
+                "샘플 데이터입니다", 37.5670135, 126.9793743, STATUS_OPEN
             )
         )
     }

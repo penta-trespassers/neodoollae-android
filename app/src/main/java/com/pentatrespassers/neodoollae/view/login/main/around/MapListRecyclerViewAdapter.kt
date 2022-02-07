@@ -1,8 +1,13 @@
 package com.pentatrespassers.neodoollae.view.login.main.around
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
+import androidx.core.widget.ImageViewCompat.setImageTintList
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
@@ -23,6 +28,34 @@ class MapListRecyclerViewAdapter(
                 roomHostNametextViewAround.text = roomData.nickname
                 roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
                 distanceTextView.text = "300m"
+                when (roomData.status) {
+                    0, 1 -> {
+                        roomConditionImageView.setImageResource(R.drawable.ic_common_room_open)
+                        setImageTintList(
+                            roomConditionImageView,
+                            ColorStateList.valueOf(
+                                ContextCompat.getColor(
+                                    context,
+                                    R.color.trespassBlue_900
+                                )
+                            )
+                        )
+                    }
+                    2 -> {
+                        roomConditionImageView.setImageResource(R.drawable.ic_common_room_close)
+                        setImageTintList(
+                            roomConditionImageView,
+                            ColorStateList.valueOf(
+                                ContextCompat.getColor(
+                                    context,
+                                    R.color.trespassRed_900
+                                )
+                            )
+                        )
+                    }
+
+                }
+
                 when (roomData.roomImages.isNullOrEmpty()) {
                     true -> {
                         roomCardRecyclerMapListItem.adapter = RoomImageAdapter(

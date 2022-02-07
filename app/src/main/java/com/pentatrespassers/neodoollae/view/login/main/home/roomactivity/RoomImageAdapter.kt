@@ -48,13 +48,13 @@ class RoomImageAdapter(private val context: Context, private var imageList: List
                             .load(image)
                             .error(R.drawable.ic_common_bed)
                             .into(roomImage)
-                    }
-                }
 
-                itemView.setOnClickListener {
-                    context.start<ShowImageActivity> {
-                        putExtras(ShowImageActivity.Extras) {
-                            this.profileImage = image
+                        itemView.setOnClickListener {
+                            context.start<ShowImageActivity> {
+                                putExtras(ShowImageActivity.Extras) {
+                                    this.profileImage = image
+                                }
+                            }
                         }
                     }
                 }
