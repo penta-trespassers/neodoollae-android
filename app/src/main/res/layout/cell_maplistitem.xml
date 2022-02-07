@@ -35,9 +35,9 @@
         android:id="@+id/roomHostNametextViewAround"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="TextView"
         android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/roomCardRecyclerHome"
         app:layout_constraintStart_toStartOf="@+id/roomRateImageView"
         app:layout_constraintTop_toBottomOf="@+id/roomTitleTextViewAround" />
 
@@ -73,8 +73,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomHostNametextViewAround"
-        tools:listitem="@layout/cell_room_image" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_home_outline_black_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

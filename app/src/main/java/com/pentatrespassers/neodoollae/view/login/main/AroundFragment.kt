@@ -29,6 +29,9 @@ import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_CLOSED
 import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_OPEN
 import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_RESTRICTED
 import com.pentatrespassers.neodoollae.lib.Util.show
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.network.RetrofitClient
+import java.util.Locale.filter
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
@@ -74,6 +77,29 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             mapListRecyclerViewAround.adapter = mapListAdapter
             // 위치를 반환하는 구현체인 FusedLocationSource 생성
             mLocationSource = FusedLocationSource(this@AroundFragment, PERMISSION_REQUEST_CODE)
+
+
+            //서치바 구현
+            mapSearchViewAround.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+                androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    mapListAdapter.filter!!.filter(query)
+
+
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    mapListAdapter.filter!!.filter(newText)
+
+                    return false
+                }
+            })
+
+
+
+
+
 
             return root
         }
@@ -176,6 +202,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                     marker.onClickListener = listener
                 }
             }
+
 
 
             // NaverMap 객체 받아서 NaverMap 객체에 위치 소스 지정
