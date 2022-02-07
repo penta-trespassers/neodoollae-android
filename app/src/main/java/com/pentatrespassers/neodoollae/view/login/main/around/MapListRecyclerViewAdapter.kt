@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
 import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
 
 class MapListRecyclerViewAdapter(
     private val context: Context,
@@ -21,8 +22,19 @@ class MapListRecyclerViewAdapter(
                 roomTitleTextViewAround.text = roomData.roomName
                 roomHostNametextViewAround.text = roomData.nickname
                 roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
-
                 distanceTextView.text = "300m"
+                when (roomData.roomImages.isNullOrEmpty()) {
+                    true -> {
+                        roomCardRecyclerMapListItem.adapter = RoomImageAdapter(
+                            context, listOf("no_image")
+                        )
+                    }
+                    false -> {
+                        roomCardRecyclerMapListItem.adapter = RoomImageAdapter(
+                            context, roomData.roomImages!!
+                        )
+                    }
+                }
             }
         }
     }

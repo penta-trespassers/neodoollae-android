@@ -18,14 +18,14 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.util.FusedLocationSource
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerViewAdapter
-import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.updateLayoutParams
+import com.bumptech.glide.Glide
 import com.naver.maps.map.util.MarkerIcons
-import com.pentatrespassers.neodoollae.lib.Util.gone
-import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.lib.Util.show
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
@@ -45,7 +45,6 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     private var mLocationSource: FusedLocationSource? = null
     private var mNaverMap: NaverMap? = null
-
 
 
     override fun onCreateView(
@@ -146,20 +145,42 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                         previousPanelHeight = slidingUpPanel.panelHeight
                         slidingUpPanel.panelHeight = 0
 
-                        with(singleRoomInfoConstraintLayout){
-                            visibility = View.VISIBLE
-                            singleRoomNameTextView.text = it.roomName
-                            singleRoomHostNameTextView.text = it.nickname
-                            singleRoomAddressTextView.text = it.address
-                            singleRoomDetailAddressTextView.text = it.detailAddress
+                        singleRoomInfoConstraintLayout.show()
+                        when (it.roomImages.isNullOrEmpty()) {
+                            true -> {
+                                singleRoomImageView.apply {
+                                    background = AppCompatResources.getDrawable(
+                                        context,
+                                        R.drawable.ic_common_bed
+                                    )
+                                    updateLayoutParams {
+                                        width = 96
+                                        height = 96
+                                    }
+                                }
+                            }
+                            false -> {
+                                singleRoomImageView.apply {
+                                    updateLayoutParams {
+                                        width = 0
+                                        height = 0
+                                    }
+                                }
+                                Glide.with(requireContext())
+                                    .load(it.roomImages?.get(0))
+                                    .into(singleRoomImageView)
+                            }
                         }
+                        singleRoomNameTextView.text = it.roomName
+                        singleRoomHostNameTextView.text = it.nickname
+                        singleRoomAddressTextView.text = it.address
+                        singleRoomDetailAddressTextView.text = it.detailAddress
 
                         true
                     }
                     marker.onClickListener = listener
                 }
             }
-
 
 
             // NaverMap 객체 받아서 NaverMap 객체에 위치 소스 지정
@@ -178,24 +199,21 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     }
 
     //더미데이터 만든 함수 하나 선언
-    fun makeDummyData(): List<Room> {
-        val data: List<Room> = arrayListOf(
+    private fun makeDummyData(): List<Room> {
+        return arrayListOf(
             Room(
-                1, 1, "써니", "sunnyRoom", "한양대학교 어딘가", null,"000호",
+                1, 1, "써니", "sunnyRoom", "한양대학교 어딘가", null, "000호",
                 "샘플 데이터입니다", 37.5670135, 126.9783740
             ),
             Room(
-                2, 2, "서진", "seojinRoom", "한양대학교 어딘가", null,"000호",
+                2, 2, "서진", "seojinRoom", "한양대학교 어딘가", null, "000호",
                 "샘플 데이터입니다", 37.5680136, 126.9783740
             ),
             Room(
-                3, 3, "진하", "recasterRoom", "한양대학교 어딘가",null, "000호",
+                3, 3, "진하", "recasterRoom", "한양대학교 어딘가", null, "000호",
                 "샘플 데이터입니다", 37.5670135, 126.9793743
             )
         )
-
-
-        return data
     }
 
     companion object {
@@ -219,26 +237,5 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-
-//    override fun onClick(p0: Overlay): Boolean {
-//        if (overlay is Marker) {
-//            val marker = overlay as Marker
-//            if (marker.infoWindow != null) {
-//                mInfoWindow.close()
-//                Toast.makeText(this.getApplicationContext(), "InfoWindow Close.", Toast.LENGTH_LONG)
-//                    .show()
-//            } else {
-//                mInfoWindow.open(marker)
-//                Toast.makeText(this.getApplicationContext(), "InfoWindow Open.", Toast.LENGTH_LONG)
-//                    .show()
-//            }
-//            return true
-//        }
-//        else{}
-//
-//        return false
-//    }
-
-
 }
 

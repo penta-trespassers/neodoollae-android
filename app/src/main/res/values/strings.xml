@@ -35,6 +35,10 @@
     <string name="room_score">방 점수</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <!-- Home Strings -->
+    <string name="home_add_room">방 추가하기</string>
+    <string name="home_enroll_room">방을 등록해보세요</string>
+
     <!-- Add Room Strings -->
     <string name="add_room">방 추가</string>
     <string name="upload_picture">방 사진 등록</string>
