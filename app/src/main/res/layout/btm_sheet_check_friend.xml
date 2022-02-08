@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
-            tools:text="윤건우"
+            android:text="@string/friend_name"
             android:textColor="@color/black"
             android:textSize="16dp"
             android:textStyle="normal"
@@ -80,7 +80,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelButtonCheckFriend"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/common_button"
@@ -91,11 +91,11 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sendButtonCheckFriend"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:background="@drawable/common_button"
-            android:text="친구 신청"
+            android:text="@string/friend_request"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_goneMarginStart="30dp" />
