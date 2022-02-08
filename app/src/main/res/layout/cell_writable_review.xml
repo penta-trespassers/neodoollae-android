@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutNotice"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:padding="18dp">
 
+    <ImageView
+        android:id="@+id/friendImageNotice"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/trespassGray_600" />
+
+    <TextView
+        android:id="@+id/reviewRequestText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="(친구)님의 손님 리뷰를 작성해주세요."
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/friendImageNotice"
+        app:layout_constraintTop_toTopOf="@+id/friendImageNotice" />
+
+    <TextView
+        android:id="@+id/notificationTimeTextNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reserve_date"
+        android:textColor="@color/trespassGray_600"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/friendImageNotice"
+        app:layout_constraintStart_toStartOf="@+id/reviewRequestText" />
+
+    <ImageView
+        android:id="@+id/notificationImageNotice"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_check_circle_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/friendImageNotice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/friendImageNotice"
+        app:srcCompat="@drawable/ic_edit_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
