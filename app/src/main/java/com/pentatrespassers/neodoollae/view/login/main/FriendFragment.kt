@@ -12,12 +12,12 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.BtmSheetCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
-import splitties.toast.toast
 
 class FriendFragment private constructor() : Fragment() {
 
@@ -36,17 +36,27 @@ class FriendFragment private constructor() : Fragment() {
         bind = FragmentFriendBinding.inflate(inflater, container, false)
         with(bind) {
             fragmentTransaction {
-                add(R.id.friendFrame,friendListFragment)
-                add(R.id.friendFrame,friendRequestFragment)
+                add(R.id.friendFrame, friendListFragment)
+                add(R.id.friendFrame, friendRequestFragment)
                 hide(friendRequestFragment)
             }
             friendListConstraint.setOnClickListener {
                 fragmentTransaction {
                     hide(friendRequestFragment)
                     show(friendListFragment)
-                    friendListText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassBlue_900))
+                    friendListText.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.trespassBlue_900
+                        )
+                    )
                     friendListUnderlineConstraint.visibility = View.VISIBLE
-                    friendRequestText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassGray_900))
+                    friendRequestText.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.trespassGray_900
+                        )
+                    )
                     friendRequestUnderlineConstraint.visibility = View.GONE
                 }
             }
@@ -54,9 +64,19 @@ class FriendFragment private constructor() : Fragment() {
                 fragmentTransaction {
                     hide(friendListFragment)
                     show(friendRequestFragment)
-                    friendRequestText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassBlue_900))
+                    friendRequestText.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.trespassBlue_900
+                        )
+                    )
                     friendRequestUnderlineConstraint.visibility = View.VISIBLE
-                    friendListText.setTextColor(ContextCompat.getColor(requireContext(), R.color.trespassGray_900))
+                    friendListText.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.trespassGray_900
+                        )
+                    )
                     friendListUnderlineConstraint.visibility = View.GONE
                 }
             }
@@ -79,6 +99,7 @@ class FriendFragment private constructor() : Fragment() {
                         if (user == null) {
                             errorTextAddFriend.show()
                         } else {
+                            checkFriendBind.friendNameTextCheckFriend.text = user.nickname
                             checkFriendDialog.show()
                         }
                         acceptButton.isClickable = true
@@ -90,9 +111,20 @@ class FriendFragment private constructor() : Fragment() {
                 checkFriendDialog.dismiss()
             }
             checkFriendBind.sendButtonCheckFriend.setOnClickListener {
-                addFriendDialog.dismiss()
-                checkFriendDialog.dismiss()
-                toast("친구 신청 완료!")
+                RetrofitClient.sendFriendRequest(addFriendBind.friendCodeEditText.text.toString(),
+                    { _, response ->
+                        Util.j(response.errorBody()?.string())
+                        Util.j(response.message())
+                        Util.j(response.code())
+                        Util.j(response.toString())
+
+                    }) { _, response ->
+                    Util.j(response.body())
+                    Util.j("성공")
+                }
+//                addFriendDialog.dismiss()
+//                checkFriendDialog.dismiss()
+//                toast("친구 신청 완료!")
             }
 
             addFriendButton.setOnClickListener {
@@ -110,7 +142,6 @@ class FriendFragment private constructor() : Fragment() {
             friendRequestFragment.refreshFriendRequest()
         }
     }
-
 
 
     companion object {

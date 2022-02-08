@@ -33,18 +33,18 @@
         app:layout_constraintTop_toTopOf="@+id/friendPicImageViewFriendRequest" />
 
     <ImageView
-        android:id="@+id/acceptIconImageViewFriendRequest"
+        android:id="@+id/acceptButtonFriendRequest"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rejectIconImageViewFriendRequest"
+        app:layout_constraintEnd_toStartOf="@+id/declineButtonFriendRequest"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_check_circle_24dp"
         app:tint="#317AF0" />
 
     <ImageView
-        android:id="@+id/rejectIconImageViewFriendRequest"
+        android:id="@+id/declineButtonFriendRequest"
         android:layout_width="24dp"
         android:layout_height="24dp"
         app:layout_constraintBottom_toBottomOf="parent"

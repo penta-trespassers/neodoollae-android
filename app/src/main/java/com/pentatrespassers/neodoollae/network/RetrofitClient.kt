@@ -5,9 +5,7 @@ import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Param
 import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.network.api.RetrofitApi
-import com.pentatrespassers.neodoollae.network.body.FavoriteBody
-import com.pentatrespassers.neodoollae.network.body.KakaoLoginBody
-import com.pentatrespassers.neodoollae.network.body.RegisterBody
+import com.pentatrespassers.neodoollae.network.body.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -74,6 +72,21 @@ object RetrofitClient {
         onUnsuccessful: ((Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit)? = null,
         onSuccessful: (Call<ArrayList<FriendRequest>>, Response<ArrayList<FriendRequest>>) -> Unit
     ) = instance.getAllFriendRequests(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun sendFriendRequest(
+        friendCode: String,
+        onUnsuccessful: ((Call<MessageBody>, Response<MessageBody>) -> Unit)? = null,
+        onSuccessful: (Call<MessageBody>, Response<MessageBody>) -> Unit
+    ) = instance.sendFriendRequest(Authentication.bearerAccessToken, FriendRequestBody(friendCode))
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun approveFriendRequest(
+        id: Int?,
+        approve: Boolean,
+        onUnsuccessful: ((Call<Void>, Response<Void>) -> Unit)? = null,
+        onSuccessful: (Call<Void>, Response<Void>) -> Unit
+    ) = instance.approveFriendRequest(Authentication.bearerAccessToken, hashMapOf("id" to id, "approve" to approve))
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getRooms(

@@ -1,3 +1,3 @@
 package com.pentatrespassers.neodoollae.dto
 
-data class FriendRequest(var id: Int? = null, var friend: User = User())
+data class FriendRequest(var id: Int? = null, val friend: User = User())
