@@ -12,12 +12,12 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
 import com.pentatrespassers.neodoollae.databinding.BtmSheetCheckFriendBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendBinding
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
+import splitties.resources.str
 
 class FriendFragment private constructor() : Fragment() {
 
@@ -97,7 +97,7 @@ class FriendFragment private constructor() : Fragment() {
                     RetrofitClient.getUser(friendCodeEditText.text.toString()) { _, response ->
                         val user = response.body()
                         if (user == null) {
-                            errorTextAddFriend.show()
+                            errorTextAddFriend.apply { text = str(R.string.invalid_friend_code) }.show()
                         } else {
                             checkFriendBind.friendNameTextCheckFriend.text = user.nickname
                             checkFriendDialog.show()
@@ -113,18 +113,14 @@ class FriendFragment private constructor() : Fragment() {
             checkFriendBind.sendButtonCheckFriend.setOnClickListener {
                 RetrofitClient.sendFriendRequest(addFriendBind.friendCodeEditText.text.toString(),
                     { _, response ->
-                        Util.j(response.errorBody()?.string())
-                        Util.j(response.message())
-                        Util.j(response.code())
-                        Util.j(response.toString())
+                        addFriendBind.errorTextAddFriend.apply { text = str(R.string.already_friend) }.show()
+                        checkFriendDialog.dismiss()
 
-                    }) { _, response ->
-                    Util.j(response.body())
-                    Util.j("성공")
+                    }) { _, _ ->
+                    addFriendDialog.dismiss()
+                    checkFriendDialog.dismiss()
                 }
-//                addFriendDialog.dismiss()
-//                checkFriendDialog.dismiss()
-//                toast("친구 신청 완료!")
+
             }
 
             addFriendButton.setOnClickListener {
