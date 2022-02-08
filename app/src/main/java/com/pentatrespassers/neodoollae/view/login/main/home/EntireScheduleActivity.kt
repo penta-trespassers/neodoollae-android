@@ -45,11 +45,11 @@ class EntireScheduleActivity : AppCompatActivity() {
                 val dayName: String = simpledateformat.format(date)
 
                 dateTextSchedule.text = "$year.$month.$dayOfMonth.$dayName"
-
-                backButtonSchedule.setOnClickListener {
-                    finish()
-                }
             })
+
+            backButtonSchedule.setOnClickListener {
+                finish()
+            }
 
         }
     }

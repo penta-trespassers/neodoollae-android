@@ -17,6 +17,18 @@
         android:theme="@style/Theme.Neodoollae"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.login.main.mypage.managereview.WrittenReviewFragment"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.main.mypage.managereview.WritableReviewFragment"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.main.mypage.VisitHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.main.mypage.ManageReveiwActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.login.main.friend.friendlist.friendprofile.ReviewActivity"
             android:exported="false" />
         <activity
@@ -58,9 +70,9 @@
             android:exported="true"
             android:noHistory="true" />
         <activity
-        android:name=".view.login.main.reservation.ReservationProfileActivity"
-        android:exported="true"
-        android:noHistory="true" />
+            android:name=".view.login.main.reservation.ReservationProfileActivity"
+            android:exported="true"
+            android:noHistory="true" />
         <activity
             android:name=".view.login.main.reservation.ReservationEditActivity"
             android:exported="true"
@@ -69,7 +81,6 @@
             android:name=".view.login.main.invite.InvitationActivity"
             android:exported="true"
             android:noHistory="true" />
-
         <activity
             android:name=".view.login.MainActivity"
             android:exported="true" />

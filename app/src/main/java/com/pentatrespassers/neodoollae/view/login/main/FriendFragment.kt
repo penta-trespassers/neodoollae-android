@@ -1,5 +1,7 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
@@ -29,6 +33,7 @@ class FriendFragment private constructor() : Fragment() {
 
     lateinit var addFriendButton: ImageButton
 
+    @SuppressLint("UnsafeOptInUsageError")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -99,7 +104,20 @@ class FriendFragment private constructor() : Fragment() {
                 addFriendDialog.show()
             }
 
-            return root
+            BadgeDrawable.create(requireContext()).apply {
+                    number = 5
+                backgroundColor = ContextCompat.getColor(requireContext(), R.color.app_theme)
+                badgeTextColor = ContextCompat.getColor(requireContext(), R.color.white)
+                badgeGravity = BadgeDrawable.TOP_END
+            }.let {
+                bind.badgeFrame.foreground = it
+                bind.badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+                    BadgeUtils.attachBadgeDrawable(it, bind.friendRequestText, bind.badgeFrame)
+                }
+
+
+                return root
+            }
         }
     }
 
