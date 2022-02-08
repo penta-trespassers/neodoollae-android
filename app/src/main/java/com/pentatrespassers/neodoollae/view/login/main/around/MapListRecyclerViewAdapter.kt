@@ -4,9 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
-import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.ImageViewCompat.setImageTintList
 import android.widget.Filter
 import android.widget.Filterable
@@ -16,13 +14,13 @@ import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
-import com.pentatrespassers.neodoollae.view.login.main.home.addroom.RoomInfoFragment
 import splitties.activities.start
 import splitties.bundle.putExtras
+import kotlin.math.*
 
 class MapListRecyclerViewAdapter(
     private val context: Context,
-    private val mapItemList: List<Room>
+    private val mapItemList: List<Room>,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
@@ -35,7 +33,16 @@ class MapListRecyclerViewAdapter(
                 roomTitleTextViewAround.text = roomData.roomName
                 roomHostNametextViewAround.text = roomData.nickname
                 roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
-                distanceTextView.text = "300m"
+
+                // set distance
+
+
+
+                distanceTextView.text = getDistance(
+                    roomData.latitude,
+                    roomData.longitude,
+                    37.5670135, 126.9783740
+                )
                 when (roomData.status) {
                     0, 1 -> {
                         roomConditionImageView.setImageResource(R.drawable.ic_common_room_open)
@@ -145,5 +152,21 @@ class MapListRecyclerViewAdapter(
         }
     }
 
-
+    /**
+     * 두 좌표의 거리를 계산한다.
+     *
+     * @param lat1 위도1
+     * @param lon1 경도1
+     * @param lat2 위도2
+     * @param lon2 경도2
+     * @return 두 좌표의 거리(m)
+     */
+    fun getDistance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): String {
+        val r = 6372.8 * 1000
+        val dLat = Math.toRadians(lat2 - lat1)
+        val dLon = Math.toRadians(lon2 - lon1)
+        val a = sin(dLat / 2).pow(2.0) + sin(dLon / 2).pow(2.0) * cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2))
+        val c = 2 * asin(sqrt(a))
+        return (r * c).toInt().toString() + "m"
+    }
 }
