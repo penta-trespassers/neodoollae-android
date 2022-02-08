@@ -2,10 +2,10 @@ package com.pentatrespassers.neodoollae.view.login.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
 import com.naver.maps.geometry.LatLng
@@ -30,8 +30,8 @@ import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_OPEN
 import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_RESTRICTED
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.lib.Util.gone
-import com.pentatrespassers.neodoollae.network.RetrofitClient
-import java.util.Locale.filter
+import com.pentatrespassers.neodoollae.lib.Util.hide
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
@@ -44,14 +44,16 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
         )
     }
 
-
-    private val TAG = "MainActivity"
-
     private val PERMISSION_REQUEST_CODE = 1000
+    private val PRIMARY_PANEL_HEIGHT = 744
 
     private lateinit var mLocationSource: FusedLocationSource
     private lateinit var mNaverMap: NaverMap
+    private var previousPanelHeight = PRIMARY_PANEL_HEIGHT
 
+    private var mapList = makeDummyData()
+    private var markerList = mutableListOf<Marker>()
+    private var infoWindowList = mutableListOf<InfoWindow>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +61,10 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     ): View {
         bind = FragmentAroundBinding.inflate(inflater, container, false)
         with(bind) {
+            slidingUpPanel.addPanelSlideListener(this@AroundFragment.PanelEventListener())
+            slidingUpPanel.panelHeight = previousPanelHeight
+            singleRoomInfoConstraintLayout.gone()
+
             // set mapFragment
             val fm = childFragmentManager
             val mapFragment = fm.findFragmentById(R.id.naverMap) as MapFragment?
@@ -73,10 +79,10 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                 location.map = mNaverMap
                 compass.map = mNaverMap
             }
-
-            mapListRecyclerViewAround.adapter = mapListAdapter
             // 위치를 반환하는 구현체인 FusedLocationSource 생성
             mLocationSource = FusedLocationSource(this@AroundFragment, PERMISSION_REQUEST_CODE)
+
+            mapListRecyclerViewAround.adapter = mapListAdapter
 
 
             //서치바 구현
@@ -84,29 +90,20 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                 androidx.appcompat.widget.SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     mapListAdapter.filter!!.filter(query)
-
-
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
                     mapListAdapter.filter!!.filter(newText)
-
                     return false
                 }
-            })
-
-
-
-
-
-
+            }
+            )
             return root
         }
 
     }
 
-    private var previousPanelHeight = 0
 
     @UiThread
     override fun onMapReady(naverMap: NaverMap) {
@@ -115,95 +112,61 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             uiSettings.isLocationButtonEnabled = false
             uiSettings.isCompassEnabled = false
 
-            naverMap.setOnMapClickListener { pointF, latLng ->
-                if (mapSearchViewAround.visibility == View.VISIBLE) {
-                    mapSearchViewAround.visibility = View.GONE
-                    previousPanelHeight = slidingUpPanel.panelHeight
-                    slidingUpPanel.panelHeight = 0
-                } else {
-                    mapSearchViewAround.visibility = View.VISIBLE
-                    slidingUpPanel.panelHeight = previousPanelHeight
-                    singleRoomInfoConstraintLayout.visibility = View.INVISIBLE
-                }
-            }
-            // 지도상에 마커 표시
-            val mapList = makeDummyData()
-
-            var markerList = mutableListOf<Marker>()
-            context?.let { it1 ->
-                mapList.forEach {
-                    val marker = Marker()
-                    marker.position = LatLng(it.latitude, it.longitude)
-                    //이미지 설정
-                    // marker.setIcon(OverlayImage.fromResource(R.drawable.ic_done_24dp));
-                    marker.icon = MarkerIcons.GRAY
-                    marker.iconTintColor = Color.BLUE
-                    marker.map = naverMap
-                    markerList.add(marker)
-                    val infoWindow = InfoWindow()
-
-                    infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(it1) {
-                        override fun getText(infoWindow: InfoWindow): CharSequence {
-                            return it.roomName
-                        }
-                    }
-                    infoWindow.alpha = 0.7f
-                    infoWindow.open(marker)
-
-                    // 마커를 클릭하면:
-                    val listener = Overlay.OnClickListener { overlay ->
-                        val marker = overlay as Marker
-
-                        if (marker.infoWindow == null) {
-                            // 현재 마커에 정보 창이 열려있지 않을 경우 엶
-                            infoWindow.open(marker)
-                        } else {
-                            // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-                            infoWindow.close()
-                        }
-                        //sliding layout 내리기
-                        mapSearchViewAround.visibility = View.GONE
-                        previousPanelHeight = slidingUpPanel.panelHeight
-                        slidingUpPanel.panelHeight = 0
-
-                        singleRoomInfoConstraintLayout.show()
-                        when (it.roomImages.isNullOrEmpty()) {
-                            true -> {
-                                singleRoomImageView.apply {
-                                    background = AppCompatResources.getDrawable(
-                                        context,
-                                        R.drawable.ic_common_bed
-                                    )
-                                    updateLayoutParams {
-                                        width = 96
-                                        height = 96
-                                    }
-                                }
+            naverMap.setOnMapClickListener { _, _ ->
+                infoWindowListTransparent(infoWindowList)
+                when (mapSearchViewAround.visibility) {
+                    View.VISIBLE -> {
+                        when (slidingUpPanel.panelHeight) {
+                            0 -> {
+                                mapSearchViewAround.hide()
                             }
-                            false -> {
-                                singleRoomImageView.apply {
-                                    updateLayoutParams {
-                                        width = 0
-                                        height = 0
-                                    }
-                                }
-                                Glide.with(requireContext())
-                                    .load(it.roomImages?.get(0))
-                                    .into(singleRoomImageView)
+                            else -> {
+                                previousPanelHeight = slidingUpPanel.panelHeight
+                                slidingUpPanel.panelHeight = 0
                             }
                         }
-                        singleRoomNameTextView.text = it.roomName
-                        singleRoomHostNameTextView.text = it.nickname
-                        singleRoomAddressTextView.text = it.address
-                        singleRoomDetailAddressTextView.text = it.detailAddress
-
-                        true
                     }
-                    marker.onClickListener = listener
+                    else -> {
+                        when (singleRoomInfoConstraintLayout.visibility) {
+                            View.VISIBLE -> singleRoomInfoConstraintLayout.gone()
+                            else -> {
+                                mapSearchViewAround.show()
+                                slidingUpPanel.panelHeight = PRIMARY_PANEL_HEIGHT
+                            }
+                        }
+                    }
                 }
             }
 
+            // Set Markers
+            for (room: Room in mapList) {
+                markerList.add(
+                    Marker().apply {
+                        position = LatLng(room.latitude, room.longitude)
+                        icon = MarkerIcons.GRAY
+                        iconTintColor = Color.BLUE
+                        map = naverMap
+                        onClickListener = markerListener(room)
+                    }
+                )
+                infoWindowList.add(
+                    InfoWindow().apply {
+                        adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
+                            override fun getText(infoWindow: InfoWindow): CharSequence {
+                                return room.roomName
+                            }
+                        }
+                        alpha = 0.7F
+                    }
+                )
+            }
 
+            for (marker: Marker in markerList) {
+                marker.map = naverMap
+                infoWindowList.run {
+                    get(markerList.indexOf(marker)).open(marker)
+                }
+            }
 
             // NaverMap 객체 받아서 NaverMap 객체에 위치 소스 지정
             mNaverMap = naverMap
@@ -232,7 +195,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                 "샘플 데이터입니다", 37.5680136, 126.9783740, STATUS_CLOSED
             ),
             Room(
-                3, 3, "진하", "recasterRoom", "한양대학교 어딘가", null, "000호",
+                4, 25, "황진하", "진하꺼", "한양대학교 어딘가", null, "000호",
                 "샘플 데이터입니다", 37.5670135, 126.9793743, STATUS_OPEN
             )
         )
@@ -240,6 +203,26 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     companion object {
         fun newInstance() = AroundFragment()
+    }
+
+    inner class PanelEventListener : SlidingUpPanelLayout.PanelSlideListener {
+        // 패널이 슬라이드 중일 때
+        override fun onPanelSlide(panel: View?, slideOffset: Float) {
+
+        }
+
+        // 패널의 상태가 변했을 때
+        override fun onPanelStateChanged(
+            panel: View?,
+            previousState: SlidingUpPanelLayout.PanelState?,
+            newState: SlidingUpPanelLayout.PanelState?
+        ) {
+            if (newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+
+            } else if (newState == SlidingUpPanelLayout.PanelState.EXPANDED) {
+
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(
@@ -258,6 +241,69 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             return
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    private fun markerListener(room: Room) = Overlay.OnClickListener { overlay ->
+        with(bind) {
+            infoWindowListTransparent(infoWindowList)
+
+            val marker = overlay as Marker
+
+            if (marker.infoWindow == null) {
+                // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+                infoWindowList.run {
+                    get(markerList.indexOf(marker)).open(marker)
+                }
+            } else {
+                marker.infoWindow?.alpha = 1F
+                marker.infoWindow?.zIndex = 0
+            }
+
+            // Show Room Info Constraint
+            singleRoomInfoConstraintLayout.show()
+            when (room.roomImages.isNullOrEmpty()) {
+                true -> {
+                    singleRoomImageView.apply {
+                        background = AppCompatResources.getDrawable(
+                            context,
+                            R.drawable.ic_common_bed
+                        )
+                        updateLayoutParams {
+                            width = 96
+                            height = 96
+                        }
+                    }
+                }
+                false -> {
+                    singleRoomImageView.apply {
+                        updateLayoutParams {
+                            width = 0
+                            height = 0
+                        }
+                    }
+                    Glide.with(requireContext())
+                        .load(room.roomImages?.get(0))
+                        .into(singleRoomImageView)
+                }
+            }
+            singleRoomNameTextView.text = room.roomName
+            singleRoomHostNameTextView.text = room.nickname
+            singleRoomAddressTextView.text = room.address
+            singleRoomDetailAddressTextView.text = room.detailAddress
+
+            //sliding layout 내리기
+            mapSearchViewAround.hide()
+            previousPanelHeight = slidingUpPanel.panelHeight
+            slidingUpPanel.panelHeight = 0
+
+            true
+        }
+    }
+
+    private fun infoWindowListTransparent(infoWindowList : List<InfoWindow>){
+        for (infoWindow in infoWindowList) {
+            infoWindow.alpha = 0.7F
+        }
     }
 }
 

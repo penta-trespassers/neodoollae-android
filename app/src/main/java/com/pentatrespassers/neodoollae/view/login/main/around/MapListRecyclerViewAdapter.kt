@@ -14,15 +14,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
 import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.RoomInfoFragment
 import splitties.activities.start
+import splitties.bundle.putExtras
 
 class MapListRecyclerViewAdapter(
     private val context: Context,
     private val mapItemList: List<Room>
 ) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>(),Filterable {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     var filterList = mapItemList
 
@@ -76,11 +78,11 @@ class MapListRecyclerViewAdapter(
                 }
 
                 itemView.setOnClickListener {
-//                    context.start<RoomInfoFragment> {
-//                        putExtras(DetailActivity.Extras) {
-//                            DetailActivity.Extras.order = order
-//                        }
-//                    }
+                    context.start<RoomProfileActivity> {
+                        putExtras(RoomProfileActivity.Extras) {
+                            this.room = roomData
+                        }
+                    }
                 }
             }
         }
@@ -134,10 +136,9 @@ class MapListRecyclerViewAdapter(
 
         //Automatic on UI thread
         override fun publishResults(constraint: CharSequence, results: FilterResults) {
-            if(constraint == null){
+            if (constraint == null) {
                 filterList = mapItemList
-            }
-            else {
+            } else {
                 filterList = results?.values as ArrayList<Room>
             }
             notifyDataSetChanged()
