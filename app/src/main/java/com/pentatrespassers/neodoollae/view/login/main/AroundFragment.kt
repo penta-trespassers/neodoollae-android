@@ -88,7 +88,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
             mapListAdapter = MapListRecyclerViewAdapter(
                 requireContext(),
-                makeDummyData(),
+                mapList,
                 37.5670135,
                 126.9783740
             )
