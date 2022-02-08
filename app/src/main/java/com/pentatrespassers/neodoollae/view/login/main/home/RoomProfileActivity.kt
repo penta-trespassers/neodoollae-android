@@ -128,13 +128,14 @@ class RoomProfileActivity : AppCompatActivity() {
 
             wordFromHostContent.text = roomInfo.description
 
-            roomImageConstraint.visibility = when (hasNoImage()) {
-                true -> View.GONE
-                false -> View.VISIBLE
+            when (hasNoImage()) {
+                true -> roomImageConstraint.gone()
+                false -> {
+                    roomImageConstraint.show()
+                    roomImageRecycler.adapter =
+                        RoomImageAdapter(this@RoomProfileActivity, roomInfo.roomImages!!)
+                }
             }
-
-            roomImageRecycler.adapter =
-                RoomImageAdapter(this@RoomProfileActivity, roomInfo.roomImages!!)
 
             showMapButtonRoomProfile.text = getString(R.string.view_on_map)
 

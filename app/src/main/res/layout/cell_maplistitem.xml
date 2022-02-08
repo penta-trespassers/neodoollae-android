@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginBottom="16dp"
-    android:background="@drawable/bg_common_card"
+    android:background="@drawable/bg_common_button_menu_cell"
     android:elevation="4dp">
 
     <ImageView

@@ -1,6 +1,13 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Context.LOCATION_SERVICE
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +31,7 @@ import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerVie
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.updateLayoutParams
 import com.bumptech.glide.Glide
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.naver.maps.map.util.MarkerIcons
 import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_CLOSED
 import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_OPEN
@@ -31,18 +39,16 @@ import com.pentatrespassers.neodoollae.dto.Room.Companion.STATUS_RESTRICTED
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.hide
+import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
+import splitties.bundle.putExtras
+import splitties.fragments.start
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     private lateinit var bind: FragmentAroundBinding
-    private val mapListAdapter by lazy {
-        MapListRecyclerViewAdapter(
-            requireContext(),
-            makeDummyData()
-        )
-    }
+    private lateinit var mapListAdapter: MapListRecyclerViewAdapter
 
     private val PERMISSION_REQUEST_CODE = 1000
     private val PRIMARY_PANEL_HEIGHT = 744
@@ -55,6 +61,11 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     private var markerList = mutableListOf<Marker>()
     private var infoWindowList = mutableListOf<InfoWindow>()
 
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var myLatitude : Double? = null
+    private var myLongitude : Double? = null
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,7 +73,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
         bind = FragmentAroundBinding.inflate(inflater, container, false)
         with(bind) {
             slidingUpPanel.addPanelSlideListener(this@AroundFragment.PanelEventListener())
-            slidingUpPanel.panelHeight = previousPanelHeight
+            slidingUpPanel.panelHeight = PRIMARY_PANEL_HEIGHT
             singleRoomInfoConstraintLayout.gone()
 
             // set mapFragment
@@ -82,8 +93,13 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             // 위치를 반환하는 구현체인 FusedLocationSource 생성
             mLocationSource = FusedLocationSource(this@AroundFragment, PERMISSION_REQUEST_CODE)
 
+            mapListAdapter = MapListRecyclerViewAdapter(
+                requireContext(),
+                makeDummyData(),
+                37.5670135,
+                126.9783740
+            )
             mapListRecyclerViewAround.adapter = mapListAdapter
-
 
             //서치바 구현
             mapSearchViewAround.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
@@ -290,6 +306,13 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             singleRoomHostNameTextView.text = room.nickname
             singleRoomAddressTextView.text = room.address
             singleRoomDetailAddressTextView.text = room.detailAddress
+            singleRoomInfoConstraintLayout.setOnClickListener {
+                start<RoomProfileActivity> {
+                    putExtras(RoomProfileActivity.Extras) {
+                        this.room = room
+                    }
+                }
+            }
 
             //sliding layout 내리기
             mapSearchViewAround.hide()
@@ -300,7 +323,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
         }
     }
 
-    private fun infoWindowListTransparent(infoWindowList : List<InfoWindow>){
+    private fun infoWindowListTransparent(infoWindowList: List<InfoWindow>) {
         for (infoWindow in infoWindowList) {
             infoWindow.alpha = 0.7F
         }

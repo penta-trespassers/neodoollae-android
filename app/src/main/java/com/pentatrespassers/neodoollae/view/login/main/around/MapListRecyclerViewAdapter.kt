@@ -8,12 +8,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat.setImageTintList
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
 import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
+import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
 import splitties.bundle.putExtras
 import kotlin.math.*
@@ -21,6 +24,8 @@ import kotlin.math.*
 class MapListRecyclerViewAdapter(
     private val context: Context,
     private val mapItemList: List<Room>,
+    private var myLat : Double,
+    private var myLon : Double,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
@@ -35,13 +40,10 @@ class MapListRecyclerViewAdapter(
                 roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
 
                 // set distance
-
-
-
                 distanceTextView.text = getDistance(
                     roomData.latitude,
                     roomData.longitude,
-                    37.5670135, 126.9783740
+                    myLat, myLon
                 )
                 when (roomData.status) {
                     0, 1 -> {
