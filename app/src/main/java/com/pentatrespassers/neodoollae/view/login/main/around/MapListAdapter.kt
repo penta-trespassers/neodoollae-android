@@ -11,7 +11,7 @@ import android.widget.Filterable
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.CellMapListBinding
+import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
@@ -22,14 +22,13 @@ import splitties.bundle.putExtras
 import kotlin.math.*
 
 class MapListAdapter(
-    private val context: Context,
-    private val mapItemList: List<Room>,
-    private var myLat : Double,
-    private var myLon : Double,
+    private val context: Context
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
-    var filterList = mapItemList
+    var mapItemList = arrayListOf<Room>()
+
+    private var filterList = mapItemList
 
     inner class MapListItemHolder(private val bind: CellMapListBinding) :
         RecyclerView.ViewHolder(bind.root) {
@@ -40,11 +39,10 @@ class MapListAdapter(
                 roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
 
                 // set distance
-                distanceTextView.text = getDistance(
-                    roomData.latitude,
-                    roomData.longitude,
-                    myLat, myLon
-                )
+//                distanceTextView.text = getDistance(
+//                    roomData.latitude,
+//                    roomData.longitude
+//                )
                 when (roomData.status) {
                     0, 1 -> {
                         roomConditionImageView.setImageResource(R.drawable.ic_common_room_open)
@@ -100,7 +98,7 @@ class MapListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         return MapListItemHolder(
-            CellMapListBinding.inflate(layoutInflater, parent, false)
+            CellMaplistitemBinding.inflate(layoutInflater, parent, false)
         )
     }
 
@@ -113,11 +111,7 @@ class MapListAdapter(
     }
 
     // 데이터 필터 검색 Filterable implement ---------------------------------
-    override fun getFilter(): Filter? {
-        return exampleFilter
-    }
-
-    private val exampleFilter: Filter = object : Filter() {
+    override fun getFilter() = object : Filter() {
         //Automatic on background thread
         override fun performFiltering(constraint: CharSequence): FilterResults {
             val filterResult = ArrayList<Room>()
@@ -154,21 +148,7 @@ class MapListAdapter(
         }
     }
 
-    /**
-     * 두 좌표의 거리를 계산한다.
-     *
-     * @param lat1 위도1
-     * @param lon1 경도1
-     * @param lat2 위도2
-     * @param lon2 경도2
-     * @return 두 좌표의 거리(m)
-     */
-    fun getDistance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): String {
-        val r = 6372.8 * 1000
-        val dLat = Math.toRadians(lat2 - lat1)
-        val dLon = Math.toRadians(lon2 - lon1)
-        val a = sin(dLat / 2).pow(2.0) + sin(dLon / 2).pow(2.0) * cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2))
-        val c = 2 * asin(sqrt(a))
-        return (r * c).toInt().toString() + "m"
-    }
+
+
+
 }
