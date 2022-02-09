@@ -2,9 +2,12 @@ package com.pentatrespassers.neodoollae.lib
 
 
 import android.graphics.Color
+import android.graphics.Outline
 import android.graphics.drawable.GradientDrawable
 import android.util.Log
 import android.view.View
+import android.view.ViewOutlineProvider
+import android.widget.ImageView
 import androidx.annotation.Size
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -33,12 +36,23 @@ object Util {
         (background as? GradientDrawable)?.cornerRadius = radius
     }
 
+    fun ImageView.setImageCornerRadius(radius: Float) {
+        this.outlineProvider = object : ViewOutlineProvider() {
+            override fun getOutline(view: View?, outline: Outline?) {
+                outline?.setRoundRect(0, 0, view!!.width, view.height, radius)
+            }
+        }
+        this.clipToOutline = true
+    }
+
     fun View.show() {
         visibility = View.VISIBLE
     }
+
     fun View.hide() {
         visibility = View.INVISIBLE
     }
+
     fun View.gone() {
         visibility = View.GONE
     }
@@ -47,7 +61,9 @@ object Util {
     fun j(msg: Any?) = Log.d("jinha", "$msg")
 
     fun getDateFormatter(pattern: String) = SimpleDateFormat(pattern, Locale.getDefault())
-    fun getDateFormat(obj: Any, pattern: String) = SimpleDateFormat(pattern, Locale.getDefault()).format(obj)
+    fun getDateFormat(obj: Any, pattern: String) =
+        SimpleDateFormat(pattern, Locale.getDefault()).format(obj)
+
     var simpleDateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 
 
@@ -57,8 +73,9 @@ object Util {
             oneLineMenuText.setText(mainText)
         }
     }
-    fun setTwoLineCell(cell: CellTwoLineBinding, image: Int, mainText: Int, subText: Int){
-        with(cell){
+
+    fun setTwoLineCell(cell: CellTwoLineBinding, image: Int, mainText: Int, subText: Int) {
+        with(cell) {
             twoLineImage.setImageResource(image)
             twoLineMainText.setText(mainText)
             twoLineSubText.setText(subText)

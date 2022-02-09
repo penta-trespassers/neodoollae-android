@@ -15,7 +15,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="friend_list">친구 목록</string>
-    <string name="friend_request">친구 요청</string>
+    <string name="friend_request">친구 신청</string>
     <string name="previous">이전</string>
     <string name="room_name">방 이름</string>
     <string name="address">주소</string>
@@ -34,6 +34,10 @@
     <string name="host_Rate">주인 평가</string>
     <string name="room_score">방 점수</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Home Strings -->
+    <string name="home_add_room">방 추가하기</string>
+    <string name="home_enroll_room">방을 등록해보세요</string>
 
     <!-- Add Room Strings -->
     <string name="add_room">방 추가</string>
@@ -61,6 +65,7 @@
     <string name="my_profile">내 프로필</string>
     <string name="friend_room_list">방 목록</string>
     <string name="has_no_room">방이 없습니다.</string>
+    <string name="only_has_room">자취러만 보기</string>
 
     <!-- Notice Strings -->
     <string name="message_to_guest">수락/거절 메시지</string>
@@ -189,6 +194,7 @@
     <string name="my_room">내 방</string>
     <string name="addFavorite">즐겨찾기 추가</string>
     <string name="removeFavorite">즐겨찾기 삭제</string>
+    <string name="already_friend">이미 친구이거나 친구 신청중입니다.</string>
 
 
 </resources>

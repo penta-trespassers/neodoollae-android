@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cellFriendRequest"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="5dp"
-    android:padding="4dp"
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
 
@@ -13,6 +12,8 @@
         android:id="@+id/friendPicImageViewFriendRequest"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,33 +25,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="윤건우"
-        android:textColor="#000000"
+        tools:text="윤건우"
+        android:textColor="@color/black"
         android:textSize="16dp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/friendPicImageViewFriendRequest"
         app:layout_constraintStart_toEndOf="@+id/friendPicImageViewFriendRequest"
         app:layout_constraintTop_toTopOf="@+id/friendPicImageViewFriendRequest" />
 
     <ImageView
-        android:id="@+id/acceptIconImageViewFriendRequest"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:id="@+id/acceptButtonFriendRequest"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rejectIconImageViewFriendRequest"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_check_circle_24dp"
-        app:tint="#317AF0" />
+        android:scaleType="center"
+        android:background="@drawable/bg_common_button_app_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/declineButtonFriendRequest"
+        app:layout_constraintEnd_toStartOf="@+id/declineButtonFriendRequest"
+        app:layout_constraintTop_toTopOf="@+id/declineButtonFriendRequest"
+        app:srcCompat="@drawable/ic_common_notification_check"
+        app:tint="@color/trespassBlue_900" />
 
     <ImageView
-        android:id="@+id/rejectIconImageViewFriendRequest"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:id="@+id/declineButtonFriendRequest"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="center"
+        android:background="@drawable/bg_common_button_app_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cancel_24dp" />
+        app:srcCompat="@drawable/ic_common_notification_cancel"
+        app:tint="@color/trespassRed_900" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
