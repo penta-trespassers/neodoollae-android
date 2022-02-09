@@ -1,11 +1,20 @@
 package com.pentatrespassers.neodoollae.view.login
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.firebase.dynamiclinks.PendingDynamicLinkData
+import com.google.firebase.dynamiclinks.ktx.androidParameters
+import com.google.firebase.dynamiclinks.ktx.dynamicLink
+import com.google.firebase.dynamiclinks.ktx.dynamicLinks
+import com.google.firebase.dynamiclinks.ktx.socialMetaTagParameters
+import com.google.firebase.ktx.Firebase
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.view.login.main.*
 import com.pentatrespassers.neodoollae.view.login.main.home.EntireScheduleActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
@@ -122,6 +131,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
+            val dynamicLink = Firebase.dynamicLinks.dynamicLink {
+                link = Uri.parse("https://neodoollae.page.com/진하")
+                domainUriPrefix = "https://neodoollae.page.link/"
+                androidParameters {
+                    fallbackUrl = Uri.parse("https://google.com")
+                }
+                socialMetaTagParameters {
+                    title = "제목"
+                    description = "설명"
+                    imageUrl =
+                        Uri.parse("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMDNfMTc5%2FMDAxNjM4NTI1OTg5Njgw.7piDrxLvr8aJhZnVfGXO-AzMwg6VD5WfBy839ByV4M4g.GWnAUlG2Cz2dTbioPYYlnh6gXnMyGVVrB6RqXXLFNikg.JPEG.hihaho57%2F20211203%25A3%25DF190531.jpg&type=sc960_832")
+                }
+            }
+            startActivity(Intent.createChooser(Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, dynamicLink.uri.toString())
+                type = "text/plain"
+            }, "Share"))
+            Firebase.dynamicLinks
+                .getDynamicLink(intent)
+                .addOnSuccessListener(this@MainActivity) { data: PendingDynamicLinkData? ->
+                    data?.link?.lastPathSegment?.let {
+                        Util.j(it)
+                    }
+                }
             fragmentTransaction {
                 for (i in fragmentList.indices) {
                     add(R.id.mainFrame, fragmentList[i])

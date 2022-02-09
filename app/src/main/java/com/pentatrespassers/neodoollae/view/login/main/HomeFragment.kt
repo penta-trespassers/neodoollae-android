@@ -1,14 +1,23 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.firebase.dynamiclinks.PendingDynamicLinkData
+import com.google.firebase.dynamiclinks.ktx.androidParameters
+import com.google.firebase.dynamiclinks.ktx.dynamicLink
+import com.google.firebase.dynamiclinks.ktx.dynamicLinks
+import com.google.firebase.dynamiclinks.ktx.socialMetaTagParameters
+import com.google.firebase.ktx.Firebase
 import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentHomeBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -42,6 +51,8 @@ class HomeFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentHomeBinding.inflate(inflater, container, false)
         with(bind) {
+
+
             RetrofitClient.getMySchedules(MAX_ITEM_COUNT) { _, response ->
                 myScheduleAdapter = MyScheduleAdapter(requireContext(), response.body()!!.toList())
                 myScheduleRecycler.adapter = myScheduleAdapter
