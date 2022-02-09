@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellFriendRequestBinding
 import com.pentatrespassers.neodoollae.dto.FriendRequest
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 
 class FriendRequestAdapter(
     private val context: Context,
@@ -20,6 +21,19 @@ class FriendRequestAdapter(
         fun binding(friendRequest: FriendRequest) {
             with(bind) {
                 nicknameTextFriendRequest.text = friendRequest.friend.nickname
+                acceptButtonFriendRequest.setOnClickListener {
+                    RetrofitClient.approveFriendRequest(friendRequest.id, true) { _, _ ->
+                        friendRequestList.remove(friendRequest)
+                        notifyDataSetChanged()
+                    }
+                }
+                declineButtonFriendRequest.setOnClickListener {
+                    RetrofitClient.approveFriendRequest(friendRequest.id, false) { _, _ ->
+                        friendRequestList.remove(friendRequest)
+                        notifyDataSetChanged()
+                    }
+                }
+
             }
         }
     }

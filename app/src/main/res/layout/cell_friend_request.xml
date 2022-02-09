@@ -35,20 +35,20 @@
         app:layout_constraintTop_toTopOf="@+id/friendPicImageViewFriendRequest" />
 
     <ImageView
-        android:id="@+id/acceptIconImageViewFriendRequest"
+        android:id="@+id/acceptButtonFriendRequest"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:scaleType="center"
         android:background="@drawable/bg_common_button_app_bar"
-        app:layout_constraintBottom_toBottomOf="@+id/rejectIconImageViewFriendRequest"
-        app:layout_constraintEnd_toStartOf="@+id/rejectIconImageViewFriendRequest"
-        app:layout_constraintTop_toTopOf="@+id/rejectIconImageViewFriendRequest"
+        app:layout_constraintBottom_toBottomOf="@+id/declineButtonFriendRequest"
+        app:layout_constraintEnd_toStartOf="@+id/declineButtonFriendRequest"
+        app:layout_constraintTop_toTopOf="@+id/declineButtonFriendRequest"
         app:srcCompat="@drawable/ic_common_notification_check"
         app:tint="@color/trespassBlue_900" />
 
     <ImageView
-        android:id="@+id/rejectIconImageViewFriendRequest"
+        android:id="@+id/declineButtonFriendRequest"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:scaleType="center"

@@ -194,6 +194,7 @@
     <string name="my_room">내 방</string>
     <string name="addFavorite">즐겨찾기 추가</string>
     <string name="removeFavorite">즐겨찾기 삭제</string>
+    <string name="already_friend">이미 친구이거나 친구 신청중입니다.</string>
 
 
 </resources>
