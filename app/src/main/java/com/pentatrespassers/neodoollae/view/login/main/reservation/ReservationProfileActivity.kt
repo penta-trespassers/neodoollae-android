@@ -35,6 +35,7 @@ class ReservationProfileActivity: AppCompatActivity() {
             reservationVisitorNameText.text = reservation.nickname
 
 
+
             reservationProfileEditButton.setOnClickListener{
                 start<ReservationEditActivity> {
                     putExtras(ReservationEditActivity.Extras) {

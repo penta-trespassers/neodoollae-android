@@ -5,23 +5,20 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_common_card"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp">
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/bg_common_button_menu_cell"
+    android:elevation="4dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/roomCardRecyclerHome"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/roomRateImageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_common_sentiment_5"
+        app:layout_constraintBottom_toBottomOf="@+id/roomTitleTextViewAround"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomHostNametextViewAround"
-        tools:listitem="@layout/cell_room_card" />
+        app:layout_constraintTop_toTopOf="@+id/roomTitleTextViewAround" />
 
     <TextView
         android:id="@+id/roomTitleTextViewAround"
@@ -39,41 +36,46 @@
         android:id="@+id/roomHostNametextViewAround"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/roomCardRecyclerHome"
         app:layout_constraintStart_toStartOf="@+id/roomRateImageView"
-        app:layout_constraintTop_toBottomOf="@+id/roomRateImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/roomTitleTextViewAround" />
 
     <ImageView
-        android:id="@+id/roomRateImageView"
+        android:id="@+id/roomConditionImageView"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_common_sentiment_5" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roomTitleTextViewAround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/roomTitleTextViewAround"
+        app:srcCompat="@drawable/ic_common_room_open"
+        app:tint="@color/trespassBlue_900" />
 
     <TextView
         android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/roomConditionImageView"
+        app:layout_constraintTop_toBottomOf="@+id/roomConditionImageView" />
 
-    <ImageView
-        android:id="@+id/roomConditionImageView"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/roomCardRecyclerMapListItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:paddingVertical="16dp"
+        android:paddingStart="16dp"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_home_outline_black_24dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomHostNametextViewAround"
+        tools:listitem="@layout/cell_room_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

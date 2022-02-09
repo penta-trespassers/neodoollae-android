@@ -15,24 +15,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
             android:id="@+id/roomImage"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@tools:sample/avatars"/>
+            tools:background="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/roomRatingImage"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roomNameTextRoomCard"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint"
+        app:layout_constraintTop_toTopOf="@+id/roomNameTextRoomCard"
         app:srcCompat="@drawable/ic_sentiment_satisfied" />
 
     <TextView
@@ -40,32 +41,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:text="@string/room_name"
         android:textColor="@color/black"
         android:textSize="14dp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/roomRatingImage"
         app:layout_constraintStart_toEndOf="@+id/roomRatingImage"
-        app:layout_constraintTop_toTopOf="@+id/roomRatingImage" />
+        app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint" />
 
     <TextView
         android:id="@+id/nicknameTextRoomCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/nickname"
-        android:textSize="10dp"
         android:textColor="@color/black"
+        android:textSize="10dp"
         app:layout_constraintStart_toStartOf="@+id/roomRatingImage"
-        app:layout_constraintTop_toBottomOf="@+id/roomRatingImage" />
+        app:layout_constraintTop_toBottomOf="@+id/roomNameTextRoomCard" />
 
     <ImageView
         android:id="@+id/roomStatusRoomCard"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roomNameTextRoomCard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomImageConstraint"
+        app:layout_constraintTop_toTopOf="@+id/roomNameTextRoomCard"
         app:srcCompat="@drawable/ic_common_room_open"
         app:tint="@color/trespassBlue_900" />
 </androidx.constraintlayout.widget.ConstraintLayout>

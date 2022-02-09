@@ -106,7 +106,7 @@ class AddRoomActivity : AppCompatActivity() {
                         if (currentFragmentIndex == 1) {
                             prevButton.visibility = View.VISIBLE
                         } else if (currentFragmentIndex == fragmentList.lastIndex) {
-                            nextButton.setImageResource(R.drawable.ic_done_24dp)
+                            nextButton.setImageResource(R.drawable.ic_common_check)
                         }
                     }
                 }
