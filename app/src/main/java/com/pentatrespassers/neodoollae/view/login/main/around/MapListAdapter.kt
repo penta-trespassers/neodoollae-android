@@ -4,22 +4,18 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.core.widget.ImageViewCompat.setImageTintList
 import android.widget.Filter
 import android.widget.Filterable
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat.setImageTintList
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
+import com.pentatrespassers.neodoollae.databinding.CellMapListBinding
 import com.pentatrespassers.neodoollae.dto.Room
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
-import com.pentatrespassers.neodoollae.view.login.main.mypage.SettingsActivity
 import splitties.activities.start
 import splitties.bundle.putExtras
-import kotlin.math.*
 
 class MapListAdapter(
     private val context: Context
@@ -28,7 +24,7 @@ class MapListAdapter(
 
     var mapItemList = arrayListOf<Room>()
 
-    private var filterList = mapItemList
+    private var filteredList = mapItemList
 
     inner class MapListItemHolder(private val bind: CellMapListBinding) :
         RecyclerView.ViewHolder(bind.root) {
@@ -98,57 +94,50 @@ class MapListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         return MapListItemHolder(
-            CellMaplistitemBinding.inflate(layoutInflater, parent, false)
+            CellMapListBinding.inflate(layoutInflater, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as MapListItemHolder).binding(filterList[position])
+        (holder as MapListItemHolder).binding(filteredList[position])
     }
 
     override fun getItemCount(): Int {
-        return filterList.size
+        return filteredList.size
     }
 
-    // 데이터 필터 검색 Filterable implement ---------------------------------
+    var lastConstraint = ""
+
+    fun refresh() {
+        filter.filter(lastConstraint)
+    }
+
+    fun refresh(mapItemList: ArrayList<Room>) {
+        this.mapItemList = mapItemList
+        refresh()
+    }
+
     override fun getFilter() = object : Filter() {
-        //Automatic on background thread
         override fun performFiltering(constraint: CharSequence): FilterResults {
-            val filterResult = ArrayList<Room>()
-
-
-            print("안녕 필터")
-
-            if (constraint.isEmpty()) {
-                filterList = mapItemList
+            lastConstraint = constraint.toString()
+            filteredList = if (lastConstraint.isEmpty()) {
+                mapItemList
             } else {
-                val filterPattern = constraint.toString()
-
-                for (item in mapItemList) {
-                    if (item.roomName?.contains(filterPattern) == true) {
-                        print("나는 써니")
-                        filterResult.add(item)
+                val filteredList = ArrayList<Room>()
+                for (room in mapItemList) {
+                    if (room.roomName.lowercase()
+                            .contains(lastConstraint.lowercase())
+                    ) {
+                        filteredList.add(room);
                     }
                 }
-                filterList = filterResult
+                filteredList
             }
-            val results = FilterResults()
-            results.values = filterList
-            return results
+            return FilterResults()
         }
 
-        //Automatic on UI thread
-        override fun publishResults(constraint: CharSequence, results: FilterResults) {
-            if (constraint == null) {
-                filterList = mapItemList
-            } else {
-                filterList = results?.values as ArrayList<Room>
-            }
+        override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
             notifyDataSetChanged()
         }
     }
-
-
-
-
 }

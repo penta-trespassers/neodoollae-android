@@ -1,5 +1,6 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.LocationTrackingMode
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
@@ -19,12 +21,14 @@ import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.util.FusedLocationSource
+import com.naver.maps.map.util.MarkerIcons
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.hide
 import com.pentatrespassers.neodoollae.lib.Util.show
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.around.MapListAdapter
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
@@ -105,6 +109,40 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     }
 
+    private fun refresh() {
+        RetrofitClient.getRooms { _, response ->
+            markerList.clear()
+            infoWindowList.clear()
+
+            response.body()?.let {
+                mapListAdapter.refresh(it)
+                it.forEach { room ->
+                    val marker = Marker().apply {
+                        position = LatLng(room.latitude, room.longitude)
+                        icon = MarkerIcons.GRAY
+                        iconTintColor = Color.BLUE
+                        map = naverMap
+                        onClickListener = markerListener(room)
+                    }
+                    markerList.add(marker)
+                    infoWindowList.add(
+                        InfoWindow().apply {
+                            adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
+                                override fun getText(infoWindow: InfoWindow): CharSequence {
+                                    return room.roomName
+                                }
+                            }
+                            alpha = 0.7F
+                            open(marker)
+                        }
+                    )
+                }
+            }
+
+        }
+
+    }
+
 
     @UiThread
     override fun onMapReady(naverMap: NaverMap) {
@@ -139,29 +177,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
                     }
                 }
             }
-
-            // Set Markers
-//            for (room: Room in mapList) {
-//                markerList.add(
-//                    Marker().apply {
-//                        position = LatLng(room.latitude, room.longitude)
-//                        icon = MarkerIcons.GRAY
-//                        iconTintColor = Color.BLUE
-//                        map = naverMap
-//                        onClickListener = markerListener(room)
-//                    }
-//                )
-//                infoWindowList.add(
-//                    InfoWindow().apply {
-//                        adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
-//                            override fun getText(infoWindow: InfoWindow): CharSequence {
-//                                return room.roomName
-//                            }
-//                        }
-//                        alpha = 0.7F
-//                    }
-//                )
-//            }
+            refresh()
 
             for (marker: Marker in markerList) {
                 marker.map = naverMap
