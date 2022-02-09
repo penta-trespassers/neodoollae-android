@@ -184,7 +184,8 @@
         android:id="@+id/slidingLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/round_shape">
+        android:background="@drawable/round_shape"
+        tools:translationY="1200dp">
 
         <View
             android:id="@+id/slidingLayoutHandle"

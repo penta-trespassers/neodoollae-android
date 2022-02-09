@@ -29,9 +29,10 @@ object Authentication {
             extraCallback()
         }
     }
-    fun refreshUser() {
+    fun refreshUser(callback: (User) -> Unit = {}) {
         RetrofitClient.getMyInfo { _, response ->
             user = response.body()
+            callback(user!!)
         }
     }
 
