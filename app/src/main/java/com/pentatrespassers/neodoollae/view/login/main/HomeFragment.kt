@@ -54,7 +54,7 @@ class HomeFragment private constructor() : Fragment() {
                 favoriteRoomAdapter.refresh(response.body())
             }
 
-            RetrofitClient.getRooms(Authentication.user?.id ?: -1) { _, response ->
+            RetrofitClient.getRoom(Authentication.user?.id ?: -1) { _, response ->
                 myRoomAdapter.refresh(response.body()?.apply {
                     add(Room(status = Room.STATUS_UNDEFINED))
                 })

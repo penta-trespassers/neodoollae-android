@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.CellMaplistitemBinding
+import com.pentatrespassers.neodoollae.databinding.CellMapListBinding
 import com.pentatrespassers.neodoollae.dto.Room
 
-class MapListRecyclerViewAdapter(
+class MapListAdapter(
     private val context: Context,
     private val mapItemList: List<Room>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    inner class MapListItemHolder(private val bind: CellMaplistitemBinding) :
+    inner class MapListItemHolder(private val bind: CellMapListBinding) :
         RecyclerView.ViewHolder(bind.root) {
         fun binding(roomData: Room) {
             with(bind) {
@@ -30,7 +30,7 @@ class MapListRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         return MapListItemHolder(
-            CellMaplistitemBinding.inflate(layoutInflater, parent, false)
+            CellMapListBinding.inflate(layoutInflater, parent, false)
         )
     }
 

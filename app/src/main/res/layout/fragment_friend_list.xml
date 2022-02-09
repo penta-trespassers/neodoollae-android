@@ -49,24 +49,26 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginTop="12dp"
-        android:visibility="gone"
         android:background="@drawable/bg_border"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/TextView1"
+        android:id="@+id/favoriteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
-        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/bookmark"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/favoriteUserRecycler"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/border1" />
+        app:layout_constraintTop_toBottomOf="@+id/border1"
+        tools:visibility="visible" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -78,7 +80,7 @@
         app:layout_constraintBottom_toTopOf="@id/border2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView1"
+        app:layout_constraintTop_toBottomOf="@+id/favoriteText"
         tools:itemCount="3"
         tools:listitem="@layout/cell_friend_list" />
 

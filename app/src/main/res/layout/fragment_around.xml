@@ -172,7 +172,9 @@
         android:id="@+id/slidingLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:minHeight="336dp">
+        android:minHeight="336dp"
+        tools:translationY="1000dp"
+        >
 
         <!-- 스크롤 해서 보여줄 부분은 listview 또는 custom listview 또는 recyclerview를 사용 -->
 
@@ -217,7 +219,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/cell_maplistitem">
+                tools:listitem="@layout/cell_map_list"
+                >
 
             </androidx.recyclerview.widget.RecyclerView>
 

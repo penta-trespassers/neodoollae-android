@@ -25,7 +25,7 @@ class FriendListFragment private constructor() : Fragment() {
         bind = FragmentFriendListBinding.inflate(inflater, container, false)
         with(bind) {
             friendListAdapter = FriendListAdapter(requireContext())
-            favoriteUserAdapter = FriendListAdapter(requireContext())
+            favoriteUserAdapter = FriendListAdapter(requireContext(), listOf(border1, favoriteText))
             friendListAdapter.init(favoriteUserAdapter, false)
             favoriteUserAdapter.init(friendListAdapter, true)
             friendListRecycler.adapter = friendListAdapter

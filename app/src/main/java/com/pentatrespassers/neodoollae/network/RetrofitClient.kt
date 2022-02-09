@@ -89,11 +89,18 @@ object RetrofitClient {
     ) = instance.approveFriendRequest(Authentication.bearerAccessToken, hashMapOf("id" to id, "approve" to approve))
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
-    fun getRooms(
+
+    fun getRoom(
         userId: Int,
         onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
         onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
     ) = instance.getRooms(Authentication.bearerAccessToken, userId)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun getRooms(
+        onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
+    ) = instance.getRooms(Authentication.bearerAccessToken, null)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getMyFavoriteRooms(

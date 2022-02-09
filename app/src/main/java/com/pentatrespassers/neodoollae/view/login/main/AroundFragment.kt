@@ -17,26 +17,17 @@ import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.util.FusedLocationSource
+import com.naver.maps.map.util.MarkerIcons
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
-import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerViewAdapter
-import android.widget.Toast
-import com.naver.maps.map.util.MarkerIcons
-import com.pentatrespassers.neodoollae.lib.Util.gone
-import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.main.around.MapListAdapter
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     private lateinit var bind: FragmentAroundBinding
-    private val mapListAdapter by lazy {
-        MapListRecyclerViewAdapter(
-            requireContext(),
-            makeDummyData()
-        )
-    }
+
 
 
     private val TAG = "MainActivity"
@@ -45,6 +36,13 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     private var mLocationSource: FusedLocationSource? = null
     private var mNaverMap: NaverMap? = null
+
+    private val mapListAdapter by lazy {
+        MapListAdapter(
+            requireContext(),
+            listOf(Room())
+        )
+    }
 
 
 
@@ -107,7 +105,7 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
             Log.d(TAG, "onMapReady")
 
             // 지도상에 마커 표시
-            val mapList = makeDummyData()
+            val mapList = listOf(Room())
 
             var markerList = mutableListOf<Marker>()
             context?.let { it1 ->
@@ -175,27 +173,6 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
 
         }
 
-    }
-
-    //더미데이터 만든 함수 하나 선언
-    fun makeDummyData(): List<Room> {
-        val data: List<Room> = arrayListOf(
-            Room(
-                1, 1, "써니", "sunnyRoom", "한양대학교 어딘가", null,"000호",
-                "샘플 데이터입니다", 37.5670135, 126.9783740
-            ),
-            Room(
-                2, 2, "서진", "seojinRoom", "한양대학교 어딘가", null,"000호",
-                "샘플 데이터입니다", 37.5680136, 126.9783740
-            ),
-            Room(
-                3, 3, "진하", "recasterRoom", "한양대학교 어딘가",null, "000호",
-                "샘플 데이터입니다", 37.5670135, 126.9793743
-            )
-        )
-
-
-        return data
     }
 
     companion object {
