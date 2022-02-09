@@ -34,14 +34,9 @@ class MyPageFragment private constructor() : Fragment() {
             Glide.with(this@MyPageFragment).load(user.profileImage)
                 .error(R.drawable.ic_common_account_no_padding)
                 .into(myPageProfileView.profileImage)
-
             myPageProfileView.nameText.text = user.nickname
 
-            with(myCodeCell) {
-                oneLineMenuImage.setImageResource(R.drawable.ic_mypage_copy)
-                oneLineMenuText.text = resources.getString(my_code_cell) + user.friendCode
-                clipData = ClipData.newPlainText("friend code", user.friendCode)
-            }
+            myCodeCell.mainText = resources.getString(my_code_cell) + user.friendCode
         }
     }
 
@@ -85,28 +80,18 @@ class MyPageFragment private constructor() : Fragment() {
                 }
             }
 
-            with(myCodeCell) {
-                oneLineMenuConstraint.setOnClickListener {
-                    clipboardManager =
-                        context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-                    clipboardManager.setPrimaryClip(clipData)
-                    toast(R.string.copy_to_clipboard)
-                }
+            myCodeCell.setOnClickListener {
+
             }
 
-            with(manageReviewCell) {
-                setOneLineMenu(this, R.drawable.ic_mypage_review, R.string.manage_review)
-                oneLineMenuConstraint.setOnClickListener {
-                    // TODO : MANAGE REVIEWS
-                }
+            manageReviewCell.setOnClickListener {
+
             }
 
-            with(visitHistoryCell) {
-                setOneLineMenu(this, R.drawable.ic_mypage_inventory, R.string.visit_history)
-                oneLineMenuConstraint.setOnClickListener {
-                    // TODO : VISIT HISTORY
-                }
+            visitHistoryCell.setOnClickListener {
+
             }
+
 
             return root
         }

@@ -18,9 +18,17 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_common_card">
 
-        <include
-            android:id="@+id/notificationMethod"
-            layout="@layout/cell_one_line_setting_text"/>
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:mainText="@string/notification_method"
+            app:isTextSetting="true"
+            app:settingText="@string/settings"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -36,14 +44,15 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_common_card">
 
-        <include
-            android:id="@+id/ns21"
-            layout="@layout/cell_one_line_setting_switch"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiReservationRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mainText="@string/notification_reservation_request"
+            app:isSwitchSetting="true"/>
 
         <View
             android:id="@+id/divider21"
@@ -54,17 +63,18 @@
             android:background="@color/color_card_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ns21" />
+            app:layout_constraintTop_toBottomOf="@id/notiReservationRequest" />
 
 
-        <include
-            android:id="@+id/ns22"
-            layout="@layout/cell_one_line_setting_switch"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiReservationResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider21" />
+            app:layout_constraintTop_toBottomOf="@+id/divider21"
+            app:mainText="@string/notification_reservation_result"
+            app:isSwitchSetting="true"/>
 
         <View
             android:id="@+id/divider22"
@@ -75,16 +85,18 @@
             android:background="@color/color_card_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ns22" />
+            app:layout_constraintTop_toBottomOf="@id/notiReservationResult" />
 
-        <include
-            android:id="@+id/ns23"
-            layout="@layout/cell_one_line_setting_text"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiBeforePromise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider22" />
+            app:layout_constraintTop_toBottomOf="@+id/divider22"
+            app:mainText="@string/notification_before_promise"
+            app:isTextSetting="true"
+            app:settingText="@string/settings"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -100,14 +112,15 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_common_card">
 
-        <include
-            android:id="@+id/ns31"
-            layout="@layout/cell_one_line_setting_switch"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiFriendRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mainText="@string/friend_request"
+            app:isSwitchSetting="true"/>
 
         <View
             android:id="@+id/divider31"
@@ -118,17 +131,18 @@
             android:background="@color/color_card_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ns31" />
+            app:layout_constraintTop_toBottomOf="@id/notiFriendRequest" />
 
 
-        <include
-            android:id="@+id/ns32"
-            layout="@layout/cell_one_line_setting_switch"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiBecomeFriend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider31" />
+            app:layout_constraintTop_toBottomOf="@+id/divider31"
+            app:mainText="@string/notification_become_friend"
+            app:isSwitchSetting="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -144,14 +158,15 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_common_card">
 
-        <include
-            android:id="@+id/ns41"
-            layout="@layout/cell_one_line_setting_switch"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiReviewRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mainText="@string/notification_review_request"
+            app:isSwitchSetting="true"/>
 
         <View
             android:id="@+id/divider41"
@@ -162,17 +177,18 @@
             android:background="@color/color_card_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ns41" />
+            app:layout_constraintTop_toBottomOf="@id/notiReviewRequest" />
 
 
-        <include
-            android:id="@+id/ns42"
-            layout="@layout/cell_one_line_setting_switch"
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
+            android:id="@+id/notiReviewMine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider41" />
+            app:layout_constraintTop_toBottomOf="@+id/divider41"
+            app:mainText="@string/notification_review_mine"
+            app:isSwitchSetting="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

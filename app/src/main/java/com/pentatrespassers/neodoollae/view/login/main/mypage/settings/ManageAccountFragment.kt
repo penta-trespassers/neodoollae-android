@@ -21,19 +21,15 @@ class ManageAccountFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentManageAccountBinding.inflate(inflater, container, false)
         with(bind) {
-            with(logoutCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_logout, R.string.logout)
-                oneLineMenuConstraint.setOnClickListener{
-                    // TODO : LOGOUT
-                    start<LoginActivity>()
-                }
+
+            logoutCell.setOnClickListener{
+                // TODO : LOGOUT
+                start<LoginActivity>()
             }
-            with(withdrawCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_withdraw, R.string.withdraw)
-                oneLineMenuConstraint.setOnClickListener {
-                    // TODO : WITHDRAW
-                }
+            withdrawCell.setOnClickListener {
+                // TODO : WITHDRAW
             }
+
             return root
         }
     }

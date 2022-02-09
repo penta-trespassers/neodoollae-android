@@ -54,38 +54,26 @@ class SettingsActivity : AppCompatActivity() {
                 onBackPressed()
             }
 
-            with(noticeSettingsCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_notification, R.string.notification_settings)
-                oneLineMenuConstraint.setOnClickListener {
-                    replaceSettingsFrame(notificationSettingsFragment)
-                }
-            }
-            with(manageAccountCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_manage_account, R.string.manage_account)
-                oneLineMenuConstraint.setOnClickListener {
-                    replaceSettingsFrame(manageAccountFragment)
-                }
-            }
-            with(termsOfUseCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_receipt, R.string.terms_of_use)
-                oneLineMenuConstraint.setOnClickListener {
-                    replaceSettingsFrame(termsOfUseFragment)
-                }
+            noticeSettingsCell.setOnClickListener {
+                replaceSettingsFrame(notificationSettingsFragment)
             }
 
-            with(supportDeveloperCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_cash, R.string.support_developer)
-                oneLineMenuConstraint.setOnClickListener {
-                    // TODO : support Developer
-                }
+            manageAccountCell.setOnClickListener {
+                replaceSettingsFrame(manageAccountFragment)
             }
 
-            with(developerInfoCell){
-                setOneLineMenu(this, R.drawable.ic_mypage_setting_developers, R.string.developer_info)
-                oneLineMenuConstraint.setOnClickListener {
-                    replaceSettingsFrame(developerInfoFragment)
-                }
+            termsOfUseCell.setOnClickListener {
+                replaceSettingsFrame(termsOfUseFragment)
             }
+
+            supportDeveloperCell.setOnClickListener {
+
+            }
+
+            developerInfoCell.setOnClickListener {
+                replaceSettingsFrame(developerInfoFragment)
+            }
+
 
             setContentView(root)
         }

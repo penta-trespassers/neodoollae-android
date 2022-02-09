@@ -59,15 +59,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarConstraint">
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/noticeSettingsCell"
-            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mainText="@string/notification_settings"
+            app:imageResource="@drawable/ic_mypage_setting_notification"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -83,15 +84,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/firstMenuSetting">
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/manageAccountCell"
-            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mainText="@string/manage_account"
+            app:imageResource="@drawable/ic_mypage_setting_manage_account"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,14 +113,16 @@
         app:layout_constraintTop_toBottomOf="@id/secondMenuSetting"
         app:layout_constraintVertical_bias="0.0">
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/termsOfUseCell"
             layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mainText="@string/terms_of_use"
+            app:imageResource="@drawable/ic_mypage_setting_receipt"/>
 
         <View
             android:id="@+id/divider31"
@@ -129,17 +133,19 @@
             android:background="@color/color_card_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/termsOfUseCell" />
+            app:layout_constraintTop_toBottomOf="@id/termsOfUseCell"
+            />
 
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/supportDeveloperCell"
-            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider31" />
+            app:layout_constraintTop_toBottomOf="@+id/divider31"
+            app:mainText="@string/support_developer"
+            app:imageResource="@drawable/ic_mypage_setting_cash"/>
 
         <View
             android:id="@+id/divider32"
@@ -152,14 +158,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/supportDeveloperCell" />
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/developerInfoCell"
-            layout="@layout/cell_one_line_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider32" />
+            app:layout_constraintTop_toBottomOf="@+id/divider32"
+            app:mainText="@string/developer_info"
+            app:imageResource="@drawable/ic_mypage_setting_developers"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
