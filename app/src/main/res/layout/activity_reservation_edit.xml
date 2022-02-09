@@ -37,21 +37,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:id="@+id/constraintLayout22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <Button
                     android:id="@+id/editToReservationListButton"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/ic_arrow_back_black_24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -60,28 +63,25 @@
                     android:id="@+id/reservationEditTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="72dp"
-                    android:layout_marginTop="18dp"
                     android:text="나의 예약 수정"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteY="24dp" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="212dp">
+                android:id="@+id/constraintLayout23"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayout22">
 
                 <ImageView
                     android:id="@+id/reservationImageView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="188dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/bg_common_card"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,8 +95,6 @@
                     android:id="@+id/roomTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="88dp"
-                    android:layout_marginTop="32dp"
                     android:text="방"
                     android:textColor="#828282"
                     android:textSize="10dp"
@@ -107,8 +105,6 @@
                     android:id="@+id/visitorNameTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="89dp"
                     android:text="방문자"
                     android:textColor="#828282"
                     android:textSize="10dp"
@@ -117,20 +113,16 @@
 
                 <ImageView
                     android:id="@+id/reservationRoomImageView"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginStart="56dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="@+id/reservationImageView1"
                     app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
                 <ImageView
                     android:id="@+id/reservationVisitorImageView"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="64dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView1"
                     app:layout_constraintTop_toBottomOf="@+id/visitorNameTextTitle"
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
@@ -139,8 +131,6 @@
                     android:id="@+id/reservationRoomNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="72dp"
-                    android:layout_marginTop="8dp"
                     android:text="방 이름"
                     android:textSize="14dp"
                     android:textStyle="bold"
@@ -151,8 +141,6 @@
                     android:id="@+id/reservationVisitorNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="89dp"
                     android:text="나"
                     android:textSize="14dp"
                     android:textStyle="bold"
@@ -164,19 +152,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/settingDateAndTimeConstraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayout23">
 
                 <ImageView
                     android:id="@+id/reservationImageView2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/bg_common_card"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -190,8 +175,6 @@
                     android:id="@+id/visitTimeTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
                     android:text="언제 방문하실건가요?"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/reservationImageView2"
@@ -201,7 +184,6 @@
                     android:id="@+id/vistStartDatetext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="20YY.MM.DD"
                     android:textColor="#828282"
                     android:textSize="10dp"
@@ -224,7 +206,6 @@
                     android:id="@+id/visitEndDateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="20YY.MM.DD"
                     android:textColor="#828282"
                     android:textSize="10dp"
@@ -252,67 +233,60 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_expand_date"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:orientation="vertical"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/reservationImageView3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/reservationImageView2">
+                app:layout_constraintTop_toBottomOf="@id/settingDateAndTimeConstraintLayout"
+                tools:visibility="visible">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+
+                <TextView
+                    android:id="@+id/reservationChoosDateText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="입실 날짜 선택"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/reservationCalendarView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/reservationChoosDateText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="입실 날짜 선택"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/reservationCalendarView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/backGroundImageView3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/bg_common_card" />
 
-                    <ImageView
-                        android:id="@+id/backGroundImageView3"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginBottom="0dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/bg_common_card" />
-
-                    <CalendarView
-                        android:id="@+id/reservationCalendarView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <CalendarView
+                    android:id="@+id/reservationCalendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/layout_expand_time"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
 
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -655,17 +629,14 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="64dp">
+                android:id="@+id/constraintLayout24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/reservationImageView3"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/bg_common_card"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -678,7 +649,6 @@
                     android:id="@+id/reservationVisitNumberText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="64dp"
                     android:text="3"
                     app:layout_constraintBottom_toBottomOf="@+id/reservationImageView3"
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView3"
@@ -686,9 +656,8 @@
 
                 <Button
                     android:id="@+id/visitNumPlusButton"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/ic_add_circle_black_24dp"
                     app:layout_constraintBottom_toBottomOf="@+id/reservationImageView3"
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView3"
@@ -699,8 +668,6 @@
                     android:id="@+id/visitNumberTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
                     android:text="몇 명이 방문하실건가요?"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/reservationImageView3"
@@ -708,9 +675,8 @@
 
                 <Button
                     android:id="@+id/visitNumMinusButton"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/ic_add_circle_black_24dp"
                     app:layout_constraintBottom_toBottomOf="@+id/reservationImageView3"
                     app:layout_constraintEnd_toStartOf="@+id/reservationVisitNumberText"
@@ -719,15 +685,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="104dp">
+                android:id="@+id/constraintLayout25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/reservationImageView4"
-                    android:layout_width="0dp"
-                    android:layout_height="88dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/bg_common_card"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -740,8 +705,6 @@
                     android:id="@+id/toHostTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
                     android:text="방 주인에게 한 마디"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/reservationImageView4"
@@ -749,9 +712,8 @@
 
                 <EditText
                     android:id="@+id/toHostEditText"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
                     android:ems="10"
                     android:hint="내용을 입력해주세요"
                     android:inputType="textPersonName"
@@ -762,7 +724,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/toHostTextTitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
