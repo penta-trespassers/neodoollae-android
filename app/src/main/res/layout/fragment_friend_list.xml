@@ -20,131 +20,131 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.SearchView
-            android:id="@+id/friendSearchView"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/round_shape1"
-            android:baselineAligned="true"
-            android:elevation="4dp"
-            app:iconifiedByDefault="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="검색" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/friendSearchView"
-            app:layout_constraintTop_toBottomOf="@+id/friendSearchView">
-
-            <Switch
-                android:id="@+id/filteringSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/friendSearchView"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:thumb="@drawable/common_switch_thumb"
-                android:track="@drawable/common_switch_track_selector"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/round_shape1"
+                android:baselineAligned="false"
+                android:elevation="4dp"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
+                app:queryHint="검색" />
 
-            <TextView
-                android:id="@+id/filteringText"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/only_has_room"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@id/filteringSwitch"
-                app:layout_constraintStart_toEndOf="@id/filteringSwitch"
-                app:layout_constraintTop_toTopOf="@id/filteringSwitch" />
+                app:layout_constraintStart_toStartOf="@+id/friendSearchView"
+                app:layout_constraintTop_toBottomOf="@+id/friendSearchView">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Switch
+                    android:id="@+id/filteringSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:thumb="@drawable/common_switch_thumb"
+                    android:track="@drawable/common_switch_track_selector"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/border1"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@drawable/bg_border"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                <TextView
+                    android:id="@+id/filteringText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/only_has_room"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@id/filteringSwitch"
+                    app:layout_constraintStart_toEndOf="@id/filteringSwitch"
+                    app:layout_constraintTop_toTopOf="@id/filteringSwitch" />
 
-        <TextView
-            android:id="@+id/TextView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/bookmark"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/favoriteUserRecycler"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/border1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/border1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@drawable/bg_border"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/favoriteUserRecycler"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/border2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextView1"
-            tools:itemCount="3"
-            tools:listitem="@layout/cell_friend_list" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/border2"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/trespassGray_300"
-            app:layout_constraintBottom_toTopOf="@+id/TextView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/favoriteUserRecycler" />
-
-        <TextView
-            android:id="@+id/TextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/see_all"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/border2" />
+            <TextView
+                android:id="@+id/TextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/bookmark"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/favoriteUserRecycler"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/border1" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/friendListRecycler"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextView2"
-            app:layout_constraintVertical_bias="0.0"
-            tools:itemCount="3"
-            tools:listitem="@layout/cell_friend_list" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/favoriteUserRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/border2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextView1"
+                tools:itemCount="3"
+                tools:listitem="@layout/cell_friend_list" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/border2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/trespassGray_300"
+                app:layout_constraintBottom_toTopOf="@+id/TextView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/favoriteUserRecycler" />
+
+            <TextView
+                android:id="@+id/TextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/see_all"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/border2" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friendListRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextView2"
+                app:layout_constraintVertical_bias="0.0"
+                tools:itemCount="3"
+                tools:listitem="@layout/cell_friend_list" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
