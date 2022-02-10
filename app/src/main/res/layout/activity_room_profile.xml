@@ -98,8 +98,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.pentatrespassers.neodoollae.common.view.ProfileCell
-                android:id="@+id/profileCellRoomProfile"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileCellRoomProfileConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -108,7 +108,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:profileType="room"/>
+                android:background="@drawable/bg_common_card"
+                android:elevation="4dp">
+
+                <com.pentatrespassers.neodoollae.common.view.ProfileCell
+                    android:id="@+id/profileCellRoomProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:profileType="room"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/roomStateConstraint"
@@ -120,7 +133,7 @@
                 android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profileCellRoomProfile">
+                app:layout_constraintTop_toBottomOf="@id/profileCellRoomProfileConstraint">
 
                 <TextView
                     android:id="@+id/roomStateTitle"
