@@ -17,6 +17,7 @@ import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.network.body.FavoriteBody
 import splitties.activities.start
 import splitties.bundle.putExtras
+import splitties.resources.color
 
 class FriendListAdapter(private val context: Context, private val borderViews: List<View>? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
@@ -45,6 +46,7 @@ class FriendListAdapter(private val context: Context, private val borderViews: L
                         }
                     }
                 }
+                itemView.setBackgroundColor(context.color(if (user.hasRoom) R.color.light_blue_50 else R.color.white))
                 val pop = PopupMenu(itemView.context, itemView)
                 pop.inflate(R.menu.friend_list_menu)
                 // 즐겨찾기
