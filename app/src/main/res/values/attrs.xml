@@ -22,4 +22,11 @@
         <attr name="twoLineSubText" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="ProfileCell">
+        <attr name="profileType" format="enum">
+            <enum name="user" value="0"/>
+            <enum name="room" value="1"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

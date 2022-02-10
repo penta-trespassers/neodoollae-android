@@ -31,11 +31,7 @@ class MyPageFragment private constructor() : Fragment() {
 
     private fun reloadInformation() {
         with(bind) {
-            Glide.with(this@MyPageFragment).load(user.profileImage)
-                .error(R.drawable.ic_common_account_no_padding)
-                .into(myPageProfileView.profileImage)
-            myPageProfileView.nameText.text = user.nickname
-
+            myPageProfileView.setProfileView(user)
             myCodeCell.mainText = resources.getString(my_code_cell) + user.friendCode
         }
     }
@@ -48,37 +44,24 @@ class MyPageFragment private constructor() : Fragment() {
         with(bind) {
             reloadInformation()
 
-            with(myPageProfileView) {
-                profileImage.setOnClickListener {
-                    start<ShowImageActivity> {
-                        putExtras(ShowImageActivity.Extras) {
-                            this.profileImage = user.profileImage
-                        }
-                    }
-                }
-                guestScoreButton.setOnClickListener {
-                    start<ReviewActivity> {
-                        putExtras(ReviewActivity.Extras) {
-                            this.user = this@MyPageFragment.user
-                        }
-                    }
-                }
-                hostScoreButton.setOnClickListener {
-                    start<ReviewActivity> {
-                        putExtras(ReviewActivity.Extras) {
-                            this.user = this@MyPageFragment.user
-                        }
-                    }
-                }
-            }
 
-            myPageProfileView.profileImage.setOnClickListener {
-                start<ShowImageActivity> {
-                    putExtras(ShowImageActivity.Extras) {
-                        this.profileImage = user.profileImage
-                    }
-                }
-            }
+//                guestScoreButton.setOnClickListener {
+//                    start<ReviewActivity> {
+//                        putExtras(ReviewActivity.Extras) {
+//                            this.user = this@MyPageFragment.user
+//                        }
+//                    }
+//                }
+//                hostScoreButton.setOnClickListener {
+//                    start<ReviewActivity> {
+//                        putExtras(ReviewActivity.Extras) {
+//                            this.user = this@MyPageFragment.user
+//                        }
+//                    }
+//                }
+//            }
+//
+
 
             myCodeCell.setOnClickListener {
 

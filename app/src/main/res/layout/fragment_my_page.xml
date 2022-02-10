@@ -18,17 +18,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include
-                android:id="@+id/myPageProfileView"
-                layout="@layout/cell_profile_person"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/myPageProfileConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_common_card"
+                android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.pentatrespassers.neodoollae.common.view.ProfileCell
+                    android:id="@+id/myPageProfileView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/firstMenuConstraint"
@@ -41,17 +52,17 @@
                 android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/myPageProfileView">
+                app:layout_constraintTop_toBottomOf="@id/myPageProfileConstraint">
 
                 <com.pentatrespassers.neodoollae.common.view.OneLineCell
                     android:id="@+id/myCodeCell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:oneLineImageResource="@drawable/ic_mypage_copy"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:oneLineImageResource="@drawable/ic_mypage_copy"
                     app:oneLineMainText="@string/my_code" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -75,10 +86,10 @@
                     android:id="@+id/manageReviewCell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:oneLineImageResource="@drawable/ic_mypage_review"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:oneLineImageResource="@drawable/ic_mypage_review"
                     app:oneLineMainText="@string/manage_review" />
 
                 <View
@@ -96,10 +107,10 @@
                     android:id="@+id/visitHistoryCell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:oneLineImageResource="@drawable/ic_mypage_inventory"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider1MyPage"
+                    app:oneLineImageResource="@drawable/ic_mypage_inventory"
                     app:oneLineMainText="@string/visit_history" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

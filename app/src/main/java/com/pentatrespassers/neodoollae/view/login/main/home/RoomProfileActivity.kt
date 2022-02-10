@@ -80,42 +80,43 @@ class RoomProfileActivity : AppCompatActivity() {
                 // TODO : favorite room button
             }
 
-            with(profileCellRoomProfile) {
-                Glide.with(this@RoomProfileActivity)
-                    .load(getMainImage())
-                    .error(R.drawable.ic_common_bed)
-                    .into(profileImage)
-                profileImage.setOnClickListener {
-                    start<ShowImageActivity> {
-                        putExtras(ShowImageActivity.Extras) {
-                            this.profileImage = getMainImage()
-                        }
-                    }
-                }
-                nameText.text = roomInfo.roomName
-
-                RetrofitClient.getUserById(roomInfo.userId!!) { _, response ->
-                    host = response.body()!!
-                    Glide.with(this@RoomProfileActivity)
-                        .load(host.profileImage)
-                        .into(hostImageRoomProfileCell)
-                    hostNameTextRoomProfileCell.text = host.nickname
-                }
-
-                hostButtonRoomProfileCell.setOnClickListener {
-                    start<FriendProfileActivity> {
-                        putExtras(FriendProfileActivity.Extras) {
-                            this.user = host
-                        }
-                    }
-                }
-
-                // roomScoreImage.setImageDrawable()
-                roomScoreButton.setOnClickListener {
-                    start<ReviewActivity>()
-                }
-
-            }
+            profileCellRoomProfile.setProfileView(roomInfo)
+//            with(profileCellRoomProfile) {
+//                Glide.with(this@RoomProfileActivity)
+//                    .load(getMainImage())
+//                    .error(R.drawable.ic_common_bed)
+//                    .into(profileImage)
+//                profileImage.setOnClickListener {
+//                    start<ShowImageActivity> {
+//                        putExtras(ShowImageActivity.Extras) {
+//                            this.profileImage = getMainImage()
+//                        }
+//                    }
+//                }
+//                nameText.text = roomInfo.roomName
+//
+//                RetrofitClient.getUserById(roomInfo.userId!!) { _, response ->
+//                    host = response.body()!!
+//                    Glide.with(this@RoomProfileActivity)
+//                        .load(host.profileImage)
+//                        .into(hostImageRoomProfileCell)
+//                    hostNameTextRoomProfileCell.text = host.nickname
+//                }
+//
+//                hostButtonRoomProfileCell.setOnClickListener {
+//                    start<FriendProfileActivity> {
+//                        putExtras(FriendProfileActivity.Extras) {
+//                            this.user = host
+//                        }
+//                    }
+//                }
+//
+//                // roomScoreImage.setImageDrawable()
+//                roomScoreButton.setOnClickListener {
+//                    start<ReviewActivity>()
+//                }
+//
+//            }
             roomStateContent.text = when (roomInfo.status) {
                 0 -> "개방"
                 1 -> "제한"
