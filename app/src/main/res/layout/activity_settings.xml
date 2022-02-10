@@ -67,8 +67,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/notification_settings"
-            app:imageResource="@drawable/ic_mypage_setting_notification"/>
+            app:oneLineMainText="@string/notification_settings"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_notification"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -92,8 +92,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/manage_account"
-            app:imageResource="@drawable/ic_mypage_setting_manage_account"/>
+            app:oneLineMainText="@string/manage_account"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_manage_account"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -121,8 +121,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/terms_of_use"
-            app:imageResource="@drawable/ic_mypage_setting_receipt"/>
+            app:oneLineMainText="@string/terms_of_use"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_receipt"/>
 
         <View
             android:id="@+id/divider31"
@@ -144,8 +144,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider31"
-            app:mainText="@string/support_developer"
-            app:imageResource="@drawable/ic_mypage_setting_cash"/>
+            app:oneLineMainText="@string/support_developer"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_cash"/>
 
         <View
             android:id="@+id/divider32"
@@ -165,8 +165,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider32"
-            app:mainText="@string/developer_info"
-            app:imageResource="@drawable/ic_mypage_setting_developers"/>
+            app:oneLineMainText="@string/developer_info"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_developers"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

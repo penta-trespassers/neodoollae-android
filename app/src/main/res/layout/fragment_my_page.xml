@@ -47,12 +47,12 @@
                     android:id="@+id/myCodeCell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:imageResource="@drawable/ic_mypage_copy"
+                    app:oneLineImageResource="@drawable/ic_mypage_copy"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:mainText="@string/my_code" />
+                    app:oneLineMainText="@string/my_code" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,11 +75,11 @@
                     android:id="@+id/manageReviewCell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:imageResource="@drawable/ic_mypage_review"
+                    app:oneLineImageResource="@drawable/ic_mypage_review"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:mainText="@string/manage_review" />
+                    app:oneLineMainText="@string/manage_review" />
 
                 <View
                     android:id="@+id/divider1MyPage"
@@ -96,11 +96,11 @@
                     android:id="@+id/visitHistoryCell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:imageResource="@drawable/ic_mypage_inventory"
+                    app:oneLineImageResource="@drawable/ic_mypage_inventory"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider1MyPage"
-                    app:mainText="@string/visit_history" />
+                    app:oneLineMainText="@string/visit_history" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

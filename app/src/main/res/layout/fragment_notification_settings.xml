@@ -26,9 +26,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:mainText="@string/notification_method"
+            app:oneLineMainText="@string/notification_method"
             app:isTextSetting="true"
-            app:settingText="@string/settings"/>
+            app:oneLineSettingText="@string/settings"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -51,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/notification_reservation_request"
+            app:oneLineMainText="@string/notification_reservation_request"
             app:isSwitchSetting="true"/>
 
         <View
@@ -73,7 +73,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider21"
-            app:mainText="@string/notification_reservation_result"
+            app:oneLineMainText="@string/notification_reservation_result"
             app:isSwitchSetting="true"/>
 
         <View
@@ -94,9 +94,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider22"
-            app:mainText="@string/notification_before_promise"
+            app:oneLineMainText="@string/notification_before_promise"
             app:isTextSetting="true"
-            app:settingText="@string/settings"/>
+            app:oneLineSettingText="@string/settings"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -119,7 +119,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/friend_request"
+            app:oneLineMainText="@string/friend_request"
             app:isSwitchSetting="true"/>
 
         <View
@@ -141,7 +141,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider31"
-            app:mainText="@string/notification_become_friend"
+            app:oneLineMainText="@string/notification_become_friend"
             app:isSwitchSetting="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -165,7 +165,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/notification_review_request"
+            app:oneLineMainText="@string/notification_review_request"
             app:isSwitchSetting="true"/>
 
         <View
@@ -187,7 +187,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider41"
-            app:mainText="@string/notification_review_mine"
+            app:oneLineMainText="@string/notification_review_mine"
             app:isSwitchSetting="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,11 +30,11 @@ class OneLineCell @JvmOverloads constructor(
             0, 0
         ).apply {
             try {
-                imageResource = getDrawable(R.styleable.OneLineCell_imageResource)
+                imageResource = getDrawable(R.styleable.OneLineCell_oneLineImageResource)
                 isSwitchSetting = getBoolean(R.styleable.OneLineCell_isSwitchSetting, false)
                 isTextSetting = getBoolean(R.styleable.OneLineCell_isTextSetting, false)
-                mainText = getString(R.styleable.OneLineCell_mainText).toString()
-                settingText = getString(R.styleable.OneLineCell_settingText).toString()
+                mainText = getString(R.styleable.OneLineCell_oneLineMainText).toString()
+                settingText = getString(R.styleable.OneLineCell_oneLineSettingText).toString()
             } finally {
                 recycle()
             }

@@ -9,10 +9,17 @@
     </declare-styleable>
 
     <declare-styleable name="OneLineCell">
-        <attr name="imageResource" format="integer" />
+        <attr name="oneLineImageResource" format="integer" />
         <attr name="isSwitchSetting" format="boolean" />
         <attr name="isTextSetting" format="boolean" />
-        <attr name="mainText" format="string" />
-        <attr name="settingText" format="string" />
+        <attr name="oneLineMainText" format="string" />
+        <attr name="oneLineSettingText" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="TwoLineCell">
+        <attr name="twoLineImageResource" format="integer" />
+        <attr name="twoLineMainText" format="string" />
+        <attr name="twoLineSubText" format="string" />
+    </declare-styleable>
+
 </resources>

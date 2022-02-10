@@ -30,8 +30,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mainText="@string/logout"
-            app:imageResource="@drawable/ic_mypage_setting_logout"/>
+            app:oneLineMainText="@string/logout"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_logout"/>
 
         <View
             android:id="@+id/divider"
@@ -52,8 +52,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
-            app:mainText="@string/withdraw"
-            app:imageResource="@drawable/ic_mypage_setting_withdraw"/>
+            app:oneLineMainText="@string/withdraw"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_withdraw"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
