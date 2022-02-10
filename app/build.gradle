@@ -67,6 +67,7 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-fragmentargs:$splitties_version")
     implementation("com.louiscad.splitties:splitties-resources:$splitties_version")
     implementation("com.louiscad.splitties:splitties-material-colors:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-preferences:$splitties_version")
 
 
     // https://github.com/umano/AndroidSlidingUpPanel - Sliding up panel 구현을 위한 dependency

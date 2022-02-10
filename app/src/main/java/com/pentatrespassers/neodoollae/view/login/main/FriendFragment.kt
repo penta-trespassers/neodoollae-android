@@ -29,6 +29,14 @@ class FriendFragment private constructor() : Fragment() {
 
     lateinit var addFriendButton: ImageButton
 
+    // 하단 친구 추가 창
+    private val addFriendBind by lazy { BtmSheetAddFriendBinding.inflate(layoutInflater) }
+    private val addFriendDialog by lazy { BottomSheetDialog(requireContext()) }
+
+    // 하단 친구 확인 창
+    private val checkFriendBind by lazy { BtmSheetCheckFriendBinding.inflate(layoutInflater) }
+    private val checkFriendDialog by lazy { BottomSheetDialog(requireContext()) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -81,14 +89,7 @@ class FriendFragment private constructor() : Fragment() {
                 }
             }
 
-            // 하단 친구 추가 창
-            val addFriendBind = BtmSheetAddFriendBinding.inflate(layoutInflater)
-            val addFriendDialog = BottomSheetDialog(requireContext())
             addFriendDialog.setContentView(addFriendBind.root)
-
-            // 하단 친구 확인 창
-            val checkFriendBind = BtmSheetCheckFriendBinding.inflate(layoutInflater)
-            val checkFriendDialog = BottomSheetDialog(requireContext())
             checkFriendDialog.setContentView(checkFriendBind.root)
 
             addFriendBind.apply {
@@ -124,10 +125,18 @@ class FriendFragment private constructor() : Fragment() {
             }
 
             addFriendButton.setOnClickListener {
-                addFriendDialog.show()
+                addFriend()
             }
 
             return root
+        }
+    }
+
+    fun addFriend(friendCode: String? = null) {
+        addFriendDialog.show()
+        friendCode?.let {
+            addFriendBind.friendCodeEditText.setText(it)
+            addFriendBind.acceptButton.performClick()
         }
     }
 

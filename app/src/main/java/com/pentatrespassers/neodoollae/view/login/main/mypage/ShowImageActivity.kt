@@ -1,19 +1,17 @@
 package com.pentatrespassers.neodoollae.view.login.main.mypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.pentatrespassers.neodoollae.databinding.ActivityUserProfileImageBinding
-import com.pentatrespassers.neodoollae.dto.User
-import com.pentatrespassers.neodoollae.lib.Authentication
 import splitties.bundle.BundleSpec
-import splitties.bundle.bundle
+import splitties.bundle.bundleOrNull
 import splitties.bundle.withExtras
 
 class ShowImageActivity : AppCompatActivity() {
 
     object Extras : BundleSpec() {
-        var profileImage: String by bundle()
+        var profileImage: String? by bundleOrNull()
     }
 
     private val profileImage by lazy {
