@@ -116,6 +116,12 @@ object RetrofitClient {
     ) = instance.getAllMyReservations(Authentication.bearerAccessToken)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
+    fun getAllMyRoomReservations(
+        onUnsuccessful: ((Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit)? = null,
+        onSuccessful: (Call<ArrayList<Reservation>>, Response<ArrayList<Reservation>>) -> Unit
+    ) = instance.getAllMyRoomReservations(Authentication.bearerAccessToken)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
     fun getMySchedules(
         term: Int? = null,
         onUnsuccessful: ((Call<Map<String, ArrayList<Reservation>>>, Response<Map<String, ArrayList<Reservation>>>) -> Unit)? = null,
