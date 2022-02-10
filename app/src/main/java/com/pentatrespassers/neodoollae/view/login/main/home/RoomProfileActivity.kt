@@ -11,6 +11,7 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.geometry.Utmk
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
+import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
@@ -21,6 +22,7 @@ import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
+import com.pentatrespassers.neodoollae.view.login.main.invite.InvitationEditActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationEditActivity
 import splitties.activities.start
@@ -28,6 +30,7 @@ import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.putExtras
 import splitties.bundle.withExtras
+import java.sql.Timestamp
 
 class RoomProfileActivity : AppCompatActivity() {
 
@@ -155,10 +158,9 @@ class RoomProfileActivity : AppCompatActivity() {
                 user.id -> getString(R.string.make_invitation)
                 else -> getString(R.string.make_reservation)
             }
-
             reserveButtonRoomProfile.setOnClickListener {
-                var intent = Intent(this@RoomProfileActivity, ReservationEditActivity::class.java)
-             //   intent.putExtra("Reservation",nil)
+                intent = Intent(this@RoomProfileActivity, InvitationEditActivity::class.java)
+                intent.putExtra("reservation", Reservation(0,user.id, roomInfo.id!!,user.nickname,roomInfo!!.roomName))
                 startActivity(intent)
             }
 

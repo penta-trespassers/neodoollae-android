@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.pentatrespassers.neodoollae.databinding.ActivityInvitationCreateBinding
+import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
 import splitties.toast.toast
@@ -19,10 +19,8 @@ class InvitationActivity : AppCompatActivity(){
 
     var num : Int = 0
 
-
-
     private val bind by lazy {
-        ActivityInvitationCreateBinding.inflate(layoutInflater)
+        ActivityInvitationEditBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -64,4 +64,6 @@ class FriendListFragment private constructor() : Fragment() {
         refreshFriendList()
     }
 
+
+
 }
