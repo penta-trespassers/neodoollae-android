@@ -78,6 +78,15 @@ class FriendListAdapter(private val context: Context, private val borderViews: L
                     }
 
                 }
+                pop.menu.getItem(1).apply {
+                    setOnMenuItemClickListener {
+                        RetrofitClient.deleteFriend(user.id) { _, _ ->
+                            userList.remove(user)
+                            refresh()
+                        }
+                        true
+                    }
+                }
                 itemView.setOnLongClickListener {
                     pop.show()
                     true

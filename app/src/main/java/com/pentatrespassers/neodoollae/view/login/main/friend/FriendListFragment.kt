@@ -61,7 +61,9 @@ class FriendListFragment private constructor() : Fragment() {
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
+
         refreshFriendList()
+
     }
 
 }
