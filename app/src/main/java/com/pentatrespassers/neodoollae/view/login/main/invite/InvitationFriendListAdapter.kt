@@ -12,6 +12,7 @@ import com.pentatrespassers.neodoollae.databinding.CellInvitationFriendBinding
 import com.pentatrespassers.neodoollae.dto.FriendRequest
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Util.hide
+import splitties.resources.drawable
 
 class InvitationFriendListAdapter(
     private val context: Context,
@@ -28,6 +29,9 @@ class InvitationFriendListAdapter(
                 acceptButtonFriendRequest.hide()
                 declineButtonFriendRequest.setImageResource(R.drawable.ic_check_circle_24dp)
 
+                itemView.setOnClickListener {
+
+                }
 
             }
         }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationChooseFriendBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
+import splitties.toast.toast
 
 class InvitationChooseFriendActivity : AppCompatActivity(){
     var invitation : Reservation = Reservation()
@@ -25,6 +26,18 @@ class InvitationChooseFriendActivity : AppCompatActivity(){
 
             invitationFriendAdapter.notifyDataSetChanged()
             invitationFriendListAdapter.notifyDataSetChanged()
+
+
+            invitationOkButton.setOnClickListener {
+                //
+                toast("친구선택이 완료되었습니다")
+                finish()
+            }
+            invitationDeclineButton.setOnClickListener {
+                toast("친구선택이 취되었습니다")
+                finish()
+            }
+
 
         }
     }

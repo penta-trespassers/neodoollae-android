@@ -11,6 +11,7 @@ import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationEditActivity
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
 import splitties.toast.toast
 import java.text.SimpleDateFormat
@@ -54,6 +55,10 @@ class InvitationEditActivity : AppCompatActivity(){
             invitationCalendarView.setClickable(true)
 
 
+            invitationVisitorImageView.setOnClickListener {
+                var intent = Intent(this@InvitationEditActivity, InvitationChooseFriendActivity::class.java)
+                startActivity(intent)
+            }
             settingDateAndTimeConstraintLayout.setOnClickListener {
                 isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
 
