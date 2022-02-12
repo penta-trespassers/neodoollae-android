@@ -10,7 +10,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentReservationBinding
-import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.lib.Util.hide
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -83,63 +82,6 @@ class ReservationFragment constructor() : Fragment() {
         }
     }
 
-    fun makeDummyReservationData(): ArrayList<Reservation> {
-        val data: ArrayList<Reservation> = arrayListOf(
-            Reservation(
-                1,
-                1,
-                1,
-                "sunny",
-                "써니의 방",
-                null,
-                null,
-                null,
-                "샘플 데이터입니다.",
-                "샘플 response데이터입니다"
-            ),
-            Reservation(
-                2,
-                1,
-                1,
-                "sunny",
-                "써니의 방",
-                null,
-                null,
-                null,
-                "샘플 데이터입니다.",
-                "샘플 response데이터입니다"
-            ),
-            Reservation(
-                3,
-                1,
-                1,
-                "sunny",
-                "써니의 방",
-                null,
-                null,
-                null,
-                "샘플 데이터입니다.",
-                "샘플 response데이터입니다"
-            ),
-            Reservation(
-                4,
-                1,
-                1,
-                "sunny",
-                "써니의 방",
-                null,
-                null,
-                null,
-                "샘플 데이터입니다.",
-                "샘플 response데이터입니다"
-            )
-
-
-        )
-
-
-        return data
-    }
 
     companion object {
         fun newInstance() = ReservationFragment()
