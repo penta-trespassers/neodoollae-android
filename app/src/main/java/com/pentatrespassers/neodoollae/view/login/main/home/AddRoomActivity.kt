@@ -97,9 +97,6 @@ class AddRoomActivity : AppCompatActivity() {
                         longitude = addressFragment.longitude!!,
                         status = roomOperationFragment.operation
                     ), {_, response ->
-                        Util.j(response)
-                        Util.j(response.message())
-                        Util.j(response.body())
                         Util.j(response.errorBody()?.string())
                         progressBarAddRoom.gone()
                     }) { _, response ->
