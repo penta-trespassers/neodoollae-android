@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellReservationBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationProfileActivity
+import splitties.activities.start
+import splitties.bundle.putExtras
 
 class MyVisitAdapter(private var context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -16,7 +19,7 @@ class MyVisitAdapter(private var context: Context) :
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     val formatter1 = Util.getDateFormatter("yyyy.MM.dd")
-    val formatter2 = Util.getDateFormatter("a hh:mm")
+    val formatter2 = Util.getDateFormatter("a KK:mm")
 
     inner class CellMyVisitHolder(private val bind: CellReservationBinding) :
         RecyclerView.ViewHolder(bind.root) {
@@ -30,6 +33,14 @@ class MyVisitAdapter(private var context: Context) :
 
                 reservationEndDateText.text = formatter1.format(reservation.checkOut!!)
                 reservationEndTimeText.text = formatter2.format(reservation.checkOut!!)
+                itemView.setOnClickListener {
+                    context.start<ReservationProfileActivity> {
+                        putExtras(ReservationProfileActivity.Extras) {
+                            this.reservation = reservation
+                        }
+                    }
+
+                }
             }
         }
     }
