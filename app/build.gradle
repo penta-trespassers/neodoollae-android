@@ -110,4 +110,8 @@ dependencies {
 
     // 디슈가링 - https://developer.android.com/studio/write/java8-support#library-desugaring
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
+
+
+//    // crop library
+//    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8+'
 }
