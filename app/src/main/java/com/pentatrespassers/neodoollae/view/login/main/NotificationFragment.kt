@@ -12,7 +12,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentNotificationBinding
 import com.pentatrespassers.neodoollae.dto.Notification
 import com.pentatrespassers.neodoollae.view.login.main.notification.NotificationAdapter
 
-class NotificationFragment private constructor() : Fragment() {
+class NotificationFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentNotificationBinding
 

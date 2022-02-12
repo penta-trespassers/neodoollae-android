@@ -10,7 +10,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentFriendListBinding
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendListAdapter
 
-class FriendListFragment private constructor() : Fragment() {
+class FriendListFragment constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendListBinding

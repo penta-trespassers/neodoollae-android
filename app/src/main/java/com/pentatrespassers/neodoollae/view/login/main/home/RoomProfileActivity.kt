@@ -13,7 +13,9 @@ import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.RoomImageAdapter
-import com.pentatrespassers.neodoollae.view.login.main.invite.InvitationEditActivity
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.InvitationEditActivity
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.ReservationEditActivity
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.ReservationEditActivity.Extras.reservation
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -149,9 +151,30 @@ class RoomProfileActivity : AppCompatActivity() {
                 else -> getString(R.string.make_reservation)
             }
             reserveButtonRoomProfile.setOnClickListener {
-                start<InvitationEditActivity> {
-                    putExtras(InvitationEditActivity.Extras) {
-                        invitation = Reservation(0,user.id, roomInfo.id!!,user.nickname,roomInfo.roomName)
+                if(user.id == roomInfo.userId) {
+                    start<InvitationEditActivity> {
+                        putExtras(InvitationEditActivity.Extras) {
+                            invitation = Reservation(
+                                0,
+                                user.id,
+                                roomInfo.id!!,
+                                user.nickname,
+                                roomInfo.roomName
+                            )
+                        }
+                    }
+                }
+                else{
+                    start<ReservationEditActivity> {
+                        putExtras(ReservationEditActivity.Extras) {
+                            reservation = Reservation(
+                                0,
+                                user.id,
+                                roomInfo.id!!,
+                                user.nickname,
+                                roomInfo.roomName
+                            )
+                        }
                     }
                 }
             }

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentRoomVisitBinding
 import com.pentatrespassers.neodoollae.view.login.main.mypage.visithistory.roomvisit.RoomVisitAdapter
 
-class RoomVisitFragment private constructor(): Fragment() {
+class RoomVisitFragment constructor(): Fragment() {
 
     private lateinit var bind: FragmentRoomVisitBinding
 

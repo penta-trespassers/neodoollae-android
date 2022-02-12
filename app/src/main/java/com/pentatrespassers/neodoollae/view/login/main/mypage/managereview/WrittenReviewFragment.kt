@@ -11,7 +11,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentWrittenReviewBinding
 import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writablereview.WritableReviewAdapter
 import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writtenreview.WrittenReviewAdapter
 
-class WrittenReviewFragment private constructor() : Fragment() {
+class WrittenReviewFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentWrittenReviewBinding
 

@@ -12,7 +12,7 @@ import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.Writa
 import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writablereview.WritableReviewAdapter
 import com.pentatrespassers.neodoollae.view.login.main.mypage.visithistory.myvisit.MyVisitAdapter
 
-class MyVisitFragment private constructor(): Fragment() {
+class MyVisitFragment constructor(): Fragment() {
 
     private lateinit var bind: FragmentMyVisitBinding
 

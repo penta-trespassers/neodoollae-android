@@ -24,7 +24,7 @@ import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.MyScheduleAdapter
 
 
-class HomeFragment private constructor() : Fragment() {
+class HomeFragment constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentHomeBinding

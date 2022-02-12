@@ -1,13 +1,11 @@
-package com.pentatrespassers.neodoollae.view.login.main.invite
+package com.pentatrespassers.neodoollae.view.login.main.invitation
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellInvitationFriendBinding
-import com.pentatrespassers.neodoollae.dto.FriendRequest
 import com.pentatrespassers.neodoollae.dto.User
-import com.pentatrespassers.neodoollae.network.RetrofitClient
 
 
 class InvitationFriendAdapter(

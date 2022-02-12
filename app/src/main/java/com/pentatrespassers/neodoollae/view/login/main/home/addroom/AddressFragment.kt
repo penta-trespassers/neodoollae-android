@@ -11,7 +11,7 @@ import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.address.SelectAddressAdapter
 
-class AddressFragment private constructor() : Fragment() {
+class AddressFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentAddressBinding
 
