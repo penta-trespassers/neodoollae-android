@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.login.main.mypage.managereview.WritableReviewFragment">
+    tools:context=".view.login.main.mypage.visithistory.MyVisitFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/writableReviewRecycler"
+        android:id="@+id/myVisitRecycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/cell_writable_review" />
+        tools:listitem="@layout/cell_reservation" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

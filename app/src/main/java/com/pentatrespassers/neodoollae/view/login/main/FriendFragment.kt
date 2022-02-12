@@ -110,9 +110,9 @@ class FriendFragment private constructor() : Fragment() {
                 badgeTextColor = ContextCompat.getColor(requireContext(), R.color.white)
                 badgeGravity = BadgeDrawable.TOP_END
             }.let {
-                bind.badgeFrame.foreground = it
-                bind.badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                    BadgeUtils.attachBadgeDrawable(it, bind.friendRequestText, bind.badgeFrame)
+                badgeFrame.foreground = it
+                badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+                    BadgeUtils.attachBadgeDrawable(it, friendRequestText, badgeFrame)
                 }
 
 

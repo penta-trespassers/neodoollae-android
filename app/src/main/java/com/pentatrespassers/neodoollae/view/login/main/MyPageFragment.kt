@@ -15,7 +15,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentMyPageBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.ManageReveiwActivity
+import com.pentatrespassers.neodoollae.view.login.main.mypage.ManageReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.VisitHistoryActivity
 import splitties.bundle.putExtras
@@ -99,7 +99,7 @@ class MyPageFragment private constructor() : Fragment() {
             with(manageReviewCell) {
                 setOneLineMenu(this, R.drawable.ic_mypage_review, R.string.manage_review)
                 oneLineMenuConstraint.setOnClickListener {
-                    start<ManageReveiwActivity>()
+                    start<ManageReviewActivity>()
                 }
             }
 

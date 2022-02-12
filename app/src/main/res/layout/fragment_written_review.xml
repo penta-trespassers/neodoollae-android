@@ -7,13 +7,13 @@
     tools:context=".view.login.main.mypage.managereview.WrittenReviewFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/WritableReviewRecycler"
+        android:id="@+id/writtenReviewRecycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/cell_writable_review" />
+        tools:listitem="@layout/cell_review" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,16 +17,10 @@
         android:theme="@style/Theme.Neodoollae"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.login.main.mypage.managereview.WrittenReviewFragment"
-            android:exported="false" />
-        <activity
-            android:name=".view.login.main.mypage.managereview.WritableReviewFragment"
-            android:exported="false" />
-        <activity
             android:name=".view.login.main.mypage.VisitHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.login.main.mypage.ManageReveiwActivity"
+            android:name=".view.login.main.mypage.ManageReviewActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.main.friend.friendlist.friendprofile.ReviewActivity"
@@ -46,18 +40,6 @@
             android:noHistory="true" />
         <activity
             android:name=".view.login.main.mypage.SettingsActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.RoomVisitTraceActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.RoomBookInfoActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.UserVisitTraceActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.UserBookInfoActivity"
             android:exported="true" />
         <activity
             android:name=".view.login.main.friend.friendlist.FriendProfileActivity"
