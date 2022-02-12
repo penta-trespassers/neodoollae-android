@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentWritableReviewBinding
 import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writablereview.WritableReviewAdapter
 
-class WritableReviewFragment private constructor() : Fragment() {
+class WritableReviewFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentWritableReviewBinding
 

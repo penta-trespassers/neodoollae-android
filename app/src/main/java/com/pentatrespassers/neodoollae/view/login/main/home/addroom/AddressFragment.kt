@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentAddressBinding
 
-class AddressFragment private constructor() : Fragment() {
+class AddressFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentAddressBinding
 

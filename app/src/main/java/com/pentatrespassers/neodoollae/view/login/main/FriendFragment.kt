@@ -21,7 +21,7 @@ import com.pentatrespassers.neodoollae.view.login.main.friend.FriendListFragment
 import com.pentatrespassers.neodoollae.view.login.main.friend.FriendRequestFragment
 import splitties.resources.str
 
-class FriendFragment private constructor() : Fragment() {
+class FriendFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentFriendBinding
 

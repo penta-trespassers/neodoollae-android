@@ -11,7 +11,7 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentDeveloperInfoBinding
 import com.pentatrespassers.neodoollae.lib.Util.setTwoLineCell
 
-class DeveloperInfoFragment private constructor() : Fragment() {
+class DeveloperInfoFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentDeveloperInfoBinding
     private lateinit var intent: Intent

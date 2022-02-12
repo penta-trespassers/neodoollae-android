@@ -17,7 +17,7 @@ import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
 import splitties.resources.color
 
-class ReservationFragment private constructor() : Fragment() {
+class ReservationFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentReservationBinding
 

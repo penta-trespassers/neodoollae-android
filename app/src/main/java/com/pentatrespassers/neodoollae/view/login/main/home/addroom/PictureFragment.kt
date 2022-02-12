@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentPictureBinding
 
-class PictureFragment private constructor() : Fragment() {
+class PictureFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentPictureBinding
 

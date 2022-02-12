@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentNotificationBinding
 
-class NotificationFragment private constructor() : Fragment() {
+class NotificationFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentNotificationBinding
 
