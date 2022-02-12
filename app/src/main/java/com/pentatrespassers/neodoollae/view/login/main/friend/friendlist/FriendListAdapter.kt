@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +47,10 @@ class FriendListAdapter(private val context: Context, private val borderViews: L
                         }
                     }
                 }
-                itemView.setBackgroundColor(context.color(if (user.hasRoom) R.color.light_blue_50 else R.color.white))
+                itemView.setBackgroundResource(
+                    if (user.hasRoom) R.drawable.bg_common_friend_cell_has_room
+                    else R.drawable.bg_common_friend_cell
+                )
                 val pop = PopupMenu(itemView.context, itemView)
                 pop.inflate(R.menu.friend_list_menu)
                 // 즐겨찾기

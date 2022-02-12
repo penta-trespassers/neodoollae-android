@@ -21,18 +21,18 @@ class DayScheduleAdapter(private val context: Context, private val reservationLi
             with(bind) {
                 if (reservation.userId == Authentication.uid) {
                     if (reservation.type == Reservation.TYPE_CHECK_IN) {
-                        itemView.setBackgroundColor("#B8C4FF")
+                        itemView.setBackgroundColor("#7986CB")
                         dayScheduleText.text = "내가 ${reservation.roomName} 입실"
                     } else {
-                        itemView.setBackgroundColor("#EA8594")
+                        itemView.setBackgroundColor("#E57373")
                         dayScheduleText.text = "내가 ${reservation.roomName} 퇴실"
                     }
                 } else {
                     if (reservation.type == Reservation.TYPE_CHECK_IN) {
-                        itemView.setBackgroundColor("#B8C4FF")
+                        itemView.setBackgroundColor("#7986CB")
                         dayScheduleText.text = "${Util.ppString(reservation.nickname, "이", "가")} ${reservation.roomName} 입실"
                     } else {
-                        itemView.setBackgroundColor("#FB96A5")
+                        itemView.setBackgroundColor("#E57373")
                         dayScheduleText.text = "${Util.ppString(reservation.nickname, "이", "가")} ${reservation.roomName} 퇴실"
                     }
 

@@ -32,7 +32,7 @@ class MapListAdapter(
             with(bind) {
                 roomTitleTextViewAround.text = roomData.roomName
                 roomHostNametextViewAround.text = roomData.nickname
-                roomRateImageView.setImageResource(R.drawable.ic_sentiment_very_satisfied)
+                roomRateImageView.setImageResource(R.drawable.ic_common_sentiment_5)
 
                 // set distance
 //                distanceTextView.text = getDistance(
@@ -47,7 +47,7 @@ class MapListAdapter(
                             ColorStateList.valueOf(
                                 ContextCompat.getColor(
                                     context,
-                                    R.color.trespassBlue_900
+                                    R.color.indigo_600
                                 )
                             )
                         )
@@ -59,7 +59,7 @@ class MapListAdapter(
                             ColorStateList.valueOf(
                                 ContextCompat.getColor(
                                     context,
-                                    R.color.trespassRed_900
+                                    R.color.red_600
                                 )
                             )
                         )
