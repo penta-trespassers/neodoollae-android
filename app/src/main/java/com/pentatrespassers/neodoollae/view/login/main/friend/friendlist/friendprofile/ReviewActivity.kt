@@ -3,12 +3,8 @@ package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friend
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityReviewBinding
-import com.pentatrespassers.neodoollae.databinding.FragmentWritableReviewBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.review.ReviewAdapter
-import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writablereview.WritableReviewAdapter
-import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writtenreview.WrittenReviewAdapter
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.withExtras
@@ -41,6 +37,7 @@ class ReviewActivity : AppCompatActivity() {
             1,
             2,
             1,
+            "가은",
             "seojin",
             "서진의 방",
             time2,
@@ -53,6 +50,7 @@ class ReviewActivity : AppCompatActivity() {
             2,
             2,
             1,
+            "에오스",
             "sunny",
             "써니의 방",
             time2,
@@ -65,6 +63,7 @@ class ReviewActivity : AppCompatActivity() {
             3,
             1,
             1,
+            "건녀",
             "inticoy",
             "비밀의 방",
             time2,
@@ -77,6 +76,7 @@ class ReviewActivity : AppCompatActivity() {
             4,
             1,
             1,
+            "나",
             "recaster",
             "진하의 방",
             time2,

@@ -1,22 +1,15 @@
 package com.pentatrespassers.neodoollae.view.login.main.mypage.managereview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pentatrespassers.neodoollae.databinding.FragmentWritableReviewBinding
 import com.pentatrespassers.neodoollae.databinding.FragmentWrittenReviewBinding
-import com.pentatrespassers.neodoollae.dto.Notification
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writablereview.WritableReviewAdapter
 import com.pentatrespassers.neodoollae.view.login.main.mypage.managereview.writtenreview.WrittenReviewAdapter
-import com.pentatrespassers.neodoollae.view.login.main.notification.NotificationAdapter
-import java.sql.Time
 import java.sql.Timestamp
 import java.util.*
-import kotlin.collections.ArrayList
 
 class WrittenReviewFragment constructor() : Fragment() {
 
@@ -37,6 +30,7 @@ class WrittenReviewFragment constructor() : Fragment() {
             1,
             2,
             1,
+            "가은",
             "seojin",
             "서진의 방",
             time2,
@@ -49,6 +43,7 @@ class WrittenReviewFragment constructor() : Fragment() {
             2,
             2,
             1,
+            "에오스",
             "sunny",
             "써니의 방",
             time2,
@@ -61,6 +56,7 @@ class WrittenReviewFragment constructor() : Fragment() {
             3,
             1,
             1,
+            "건ㅕ",
             "inticoy",
             "비밀의 방",
             time2,
@@ -73,6 +69,7 @@ class WrittenReviewFragment constructor() : Fragment() {
             4,
             1,
             1,
+            "낭",
             "recaster",
             "진하의 방",
             time2,
