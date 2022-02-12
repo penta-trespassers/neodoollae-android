@@ -22,24 +22,24 @@
         android:id="@+id/twoLineMainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/black"
         android:textSize="14dp"
         android:textStyle="normal"
-        android:text="TextView"
-        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/twoLineImage"
         app:layout_constraintTop_toTopOf="@id/twoLineImage"
-        android:layout_marginStart="16dp"/>
+        tools:text="MainText" />
 
     <TextView
         android:id="@+id/twoLineSubText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/trespassGray_600"
         android:textSize="10dp"
         android:textStyle="normal"
-        android:text="TextView"
-        android:textColor="@color/trespassGray_600"
-        app:layout_constraintTop_toBottomOf="@id/twoLineMainText"
         app:layout_constraintStart_toStartOf="@id/twoLineMainText"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@id/twoLineMainText"
+        tools:text="SubText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
