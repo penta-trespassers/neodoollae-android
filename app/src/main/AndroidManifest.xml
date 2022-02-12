@@ -70,6 +70,10 @@
             android:exported="true"
             android:noHistory="true" />
         <activity android:name=".view.login.main.home.roomprofile.InvitationEditActivity"/>
+        <activity
+            android:name=".view.login.main.home.roomprofile.InvitationChooseFriendActivity"
+            android:exported="true"
+            android:noHistory="true" />
 
 
         <activity

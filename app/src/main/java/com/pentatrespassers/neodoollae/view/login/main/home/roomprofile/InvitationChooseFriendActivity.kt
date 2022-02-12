@@ -22,6 +22,8 @@ class InvitationChooseFriendActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
+            invitationFriendAdapter = InvitationFriendAdapter(this@InvitationChooseFriendActivity, arrayListOf())
+            invitationFriendListAdapter = InvitationFriendListAdapter(this@InvitationChooseFriendActivity, arrayListOf())
 
             invitationFriendRecycler.adapter = invitationFriendAdapter
             invitationFriendListRecycler.adapter = invitationFriendListAdapter

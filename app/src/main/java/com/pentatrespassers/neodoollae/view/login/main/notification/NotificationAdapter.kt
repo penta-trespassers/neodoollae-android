@@ -8,6 +8,7 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellNotificationBinding
 import com.pentatrespassers.neodoollae.dto.Notification
 import com.pentatrespassers.neodoollae.dto.Notification.Companion.TYPE_FRIEND_ACCEPTED
+import com.pentatrespassers.neodoollae.dto.Notification.Companion.TYPE_FRIEND_DECLINED
 import com.pentatrespassers.neodoollae.dto.Notification.Companion.TYPE_FRIEND_REQUEST
 import com.pentatrespassers.neodoollae.dto.Notification.Companion.TYPE_RESERVE_ACCEPTED
 import com.pentatrespassers.neodoollae.dto.Notification.Companion.TYPE_RESERVE_DECLINED
@@ -39,7 +40,7 @@ class NotificationAdapter(
                     TYPE_RESERVE_ACCEPTED, TYPE_FRIEND_ACCEPTED -> {
                         notificationStatusImage.setImageResource(R.drawable.ic_common_notification_check)
                     }
-                    TYPE_RESERVE_DECLINED -> {
+                    TYPE_RESERVE_DECLINED, TYPE_FRIEND_DECLINED -> {
                         notificationStatusImage.setImageResource(R.drawable.ic_common_notification_cancel)
                     }
                     TYPE_REVIEW_HOST, TYPE_REVIEW_GUEST -> {
@@ -66,27 +67,28 @@ class NotificationAdapter(
     }
 
     fun selectType(mode: Int): NotificationAdapter {
-        this.notificationSelectedList = ArrayList<Notification>()
+        notificationSelectedList = ArrayList()
         for (notification in notificationList) {
             when (mode) {
                 1 -> {
                     if (notification.type == 0 ||
                         notification.type == 1 ||
                         notification.type == 2
-                    ) this.notificationSelectedList.add(notification)
+                    ) notificationSelectedList.add(notification)
                 }
                 2 -> {
                     if (notification.type == 3 ||
                         notification.type == 4
-                    ) this.notificationSelectedList.add(notification)
+                    ) notificationSelectedList.add(notification)
                 }
                 3 -> {
                     if (notification.type == 5 ||
-                        notification.type == 6
-                    ) this.notificationSelectedList.add(notification)
+                        notification.type == 6 ||
+                        notification.type == TYPE_FRIEND_DECLINED
+                    ) notificationSelectedList.add(notification)
                 }
                 else -> {
-                    this.notificationSelectedList = notificationList
+                    notificationSelectedList = notificationList
                 }
             }
         }

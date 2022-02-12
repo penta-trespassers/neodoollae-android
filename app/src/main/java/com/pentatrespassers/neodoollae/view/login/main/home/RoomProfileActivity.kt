@@ -12,10 +12,9 @@ import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
-import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.RoomImageAdapter
 import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.InvitationEditActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.ReservationEditActivity
-import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.ReservationEditActivity.Extras.reservation
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.RoomImageAdapter
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -34,7 +33,8 @@ class RoomProfileActivity : AppCompatActivity() {
         }
     }
 
-    private var user = Authentication.user!!
+    val user
+    get() = Authentication.user
 
     private lateinit var host: User
 
@@ -51,10 +51,10 @@ class RoomProfileActivity : AppCompatActivity() {
                 onBackPressed()
             }
 
-            titleTextRoomProfile.text =  getString(if (roomInfo.userId == user.id) R.string.room_of_mine else R.string.room_of_friend)
+            titleTextRoomProfile.text =  getString(if (roomInfo.userId == user?.id) R.string.room_of_mine else R.string.room_of_friend)
 
             when (roomInfo.userId) {
-                user.id -> {
+                user?.id -> {
                     editButtonRoomProfile.show()
                     deleteButtonRoomProfile.show()
                     favoriteButtonRoomProfile.gone()
@@ -147,18 +147,18 @@ class RoomProfileActivity : AppCompatActivity() {
             }
 
             reserveButtonRoomProfile.text = when (roomInfo.userId) {
-                user.id -> getString(R.string.make_invitation)
+                user?.id -> getString(R.string.make_invitation)
                 else -> getString(R.string.make_reservation)
             }
             reserveButtonRoomProfile.setOnClickListener {
-                if(user.id == roomInfo.userId) {
+                if(user?.id == roomInfo.userId) {
                     start<InvitationEditActivity> {
                         putExtras(InvitationEditActivity.Extras) {
                             invitation = Reservation(
                                 0,
-                                user.id,
+                                user?.id!!,
                                 roomInfo.id!!,
-                                user.nickname,
+                                user?.nickname!!,
                                 roomInfo.roomName
                             )
                         }
@@ -169,9 +169,9 @@ class RoomProfileActivity : AppCompatActivity() {
                         putExtras(ReservationEditActivity.Extras) {
                             reservation = Reservation(
                                 0,
-                                user.id,
+                                user?.id!!,
                                 roomInfo.id!!,
-                                user.nickname,
+                                user?.nickname!!,
                                 roomInfo.roomName
                             )
                         }
