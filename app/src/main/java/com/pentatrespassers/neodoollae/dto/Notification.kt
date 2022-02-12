@@ -13,8 +13,9 @@ data class Notification(
         const val TYPE_RESERVE_DECLINED = 2
         const val TYPE_REVIEW_HOST = 3
         const val TYPE_REVIEW_GUEST = 4
-        const val TYPE_FRIEND_ACCEPTED = 5
-        const val TYPE_FRIEND_REQUEST = 6
+        const val TYPE_FRIEND_REQUEST = 5
+        const val TYPE_FRIEND_ACCEPTED = 6
+        const val TYPE_FRIEND_DECLINED = 7
     }
 }
 

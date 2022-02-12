@@ -2,9 +2,7 @@ package com.pentatrespassers.neodoollae.network.api.v1
 
 import com.pentatrespassers.neodoollae.dto.Room
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface RoomApi {
     @GET("/v1/rooms/")
@@ -14,6 +12,14 @@ interface RoomApi {
         @Query("userId")
         userId: Int?
     ): Call<ArrayList<Room>>
+
+    @POST("/v1/rooms/")
+    fun createRoom(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Body
+        room: Room
+    ): Call<Void>
 
     @GET("/v1/rooms/fav")
     fun getMyFavoriteRooms(
