@@ -56,11 +56,11 @@
             android:exported="true"
             android:noHistory="true" />
         <activity
-            android:name=".view.login.main.reservation.ReservationEditActivity"
+            android:name=".view.login.main.home.roomprofile.ReservationEditActivity"
             android:exported="true"
             android:noHistory="true" />
         <activity
-            android:name=".view.login.main.invite.InvitationActivity"
+            android:name=".view.login.main.home.roomprofile.InvitationActivity"
             android:exported="true"
             android:noHistory="true" />
         <activity android:name=".view.login.main.invite.InvitationEditActivity"/>

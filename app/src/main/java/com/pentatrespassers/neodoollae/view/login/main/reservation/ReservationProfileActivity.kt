@@ -4,10 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationProfileBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Util.show
-import com.pentatrespassers.neodoollae.network.RetrofitClient
-import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter.Companion.deleteReservations
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.ReservationEditActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -15,7 +13,7 @@ import splitties.bundle.putExtras
 import splitties.bundle.withExtras
 import splitties.toast.toast
 
-class ReservationProfileActivity: AppCompatActivity() {
+class ReservationProfileActivity : AppCompatActivity() {
 
     object Extras : BundleSpec() {
         var reservation: Reservation by bundle()
@@ -47,13 +45,13 @@ class ReservationProfileActivity: AppCompatActivity() {
             visitNumberText.text = reservation.member.toString()
             toHostText.text = reservation.requestMessage
 
-           if(isWait == true){
-               buttonsConstraint.show()
+            if (isWait == true) {
+                buttonsConstraint.show()
 
-           }
+            }
 
 
-            reservationProfileEditButton.setOnClickListener{
+            reservationProfileEditButton.setOnClickListener {
                 start<ReservationEditActivity> {
                     putExtras(ReservationEditActivity.Extras) {
                         reservation = this@ReservationProfileActivity.reservation
@@ -63,15 +61,12 @@ class ReservationProfileActivity: AppCompatActivity() {
 
             reservationProfileDeleteButton.setOnClickListener {
                 toast("예약이 삭제되었습니다.")
-                deleteReservations(reservation)
                 finish()
             }
 
             backProfileToReservationListButton.setOnClickListener {
                 finish()
             }
-
-
 
 
         }

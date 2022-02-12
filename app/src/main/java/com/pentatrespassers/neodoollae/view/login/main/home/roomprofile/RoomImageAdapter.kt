@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.main.home.roomactivity
+package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellRoomImageBinding
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.setImageCornerRadius
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.activities.start

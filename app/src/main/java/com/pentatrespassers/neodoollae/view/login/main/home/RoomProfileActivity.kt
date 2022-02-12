@@ -3,9 +3,7 @@ package com.pentatrespassers.neodoollae.view.login.main.home
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
@@ -14,12 +12,8 @@ import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
-import com.pentatrespassers.neodoollae.network.RetrofitClient
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
-import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.RoomImageAdapter
 import com.pentatrespassers.neodoollae.view.login.main.invite.InvitationEditActivity
-import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -55,7 +49,7 @@ class RoomProfileActivity : AppCompatActivity() {
                 onBackPressed()
             }
 
-            titleTextRoomProfile.text = setTitle()
+            titleTextRoomProfile.text =  getString(if (roomInfo.userId == user.id) R.string.room_of_mine else R.string.room_of_friend)
 
             when (roomInfo.userId) {
                 user.id -> {
@@ -165,14 +159,6 @@ class RoomProfileActivity : AppCompatActivity() {
 
         }
     }
-
-    private fun setTitle(): String {
-        return when (roomInfo.userId) {
-            user.id -> getString(R.string.room_of_mine)
-            else -> getString(R.string.room_of_friend)
-        }
-    }
-
     private fun getMainImage(): String {
         return when (hasNoImage()) {
             true -> R.drawable.ic_common_bed.toString()

@@ -1,7 +1,6 @@
-package com.pentatrespassers.neodoollae.view.login.main.invite
+package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 
 import android.content.Intent
-import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
