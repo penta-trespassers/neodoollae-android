@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:background="@color/white"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,24 +21,13 @@
             android:id="@+id/filterSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
-
     <androidx.recyclerview.widget.RecyclerView
-
         android:id="@+id/notificationRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -44,7 +35,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:listitem="@layout/cell_review" />
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout4"
+        tools:listitem="@layout/cell_notification" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

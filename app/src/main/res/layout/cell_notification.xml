@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/notificationImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:civ_border="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_common_account_no_padding" />
+
+    <TextView
+        android:id="@+id/notificationMainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/notificationImage"
+        app:layout_constraintTop_toTopOf="@id/notificationImage"
+        tools:text="MainText" />
+
+    <TextView
+        android:id="@+id/notificationDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/trespassGray_600"
+        android:textSize="10dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/notificationMainText"
+        app:layout_constraintTop_toBottomOf="@id/notificationMainText"
+        tools:text="SubText" />
+
+    <ImageView
+        android:id="@+id/notificationStatusImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_common_notification_check"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
