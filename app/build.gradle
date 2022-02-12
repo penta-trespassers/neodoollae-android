@@ -110,8 +110,4 @@ dependencies {
 
     // 디슈가링 - https://developer.android.com/studio/write/java8-support#library-desugaring
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
-
-
-    // Badge drawable을 일반 layout에도 적용시키기 위한 MaterialDesign dependency
-    implementation "com.google.android.material:material:1.2.1"
 }
