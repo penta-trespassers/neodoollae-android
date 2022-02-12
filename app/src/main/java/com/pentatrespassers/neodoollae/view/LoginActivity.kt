@@ -36,7 +36,9 @@ class LoginActivity : AppCompatActivity() {
 
     private val permissions = listOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_FINE_LOCATION
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
 
     private val bind by lazy {
