@@ -13,7 +13,7 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMapListBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
-import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.RoomImageAdapter
 import splitties.activities.start
 import splitties.bundle.putExtras
 

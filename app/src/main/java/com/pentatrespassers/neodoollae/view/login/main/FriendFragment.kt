@@ -1,7 +1,5 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
-import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +31,14 @@ class FriendFragment private constructor() : Fragment() {
 
     lateinit var addFriendButton: ImageButton
 
-    @SuppressLint("UnsafeOptInUsageError")
+    // 하단 친구 추가 창
+    private val addFriendBind by lazy { BtmSheetAddFriendBinding.inflate(layoutInflater) }
+    private val addFriendDialog by lazy { BottomSheetDialog(requireContext()) }
+
+    // 하단 친구 확인 창
+    private val checkFriendBind by lazy { BtmSheetCheckFriendBinding.inflate(layoutInflater) }
+    private val checkFriendDialog by lazy { BottomSheetDialog(requireContext()) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -86,14 +91,7 @@ class FriendFragment private constructor() : Fragment() {
                 }
             }
 
-            // 하단 친구 추가 창
-            val addFriendBind = BtmSheetAddFriendBinding.inflate(layoutInflater)
-            val addFriendDialog = BottomSheetDialog(requireContext())
             addFriendDialog.setContentView(addFriendBind.root)
-
-            // 하단 친구 확인 창
-            val checkFriendBind = BtmSheetCheckFriendBinding.inflate(layoutInflater)
-            val checkFriendDialog = BottomSheetDialog(requireContext())
             checkFriendDialog.setContentView(checkFriendBind.root)
 
             addFriendBind.apply {
@@ -129,11 +127,10 @@ class FriendFragment private constructor() : Fragment() {
             }
 
             addFriendButton.setOnClickListener {
-                addFriendDialog.show()
+                addFriend()
             }
-
             BadgeDrawable.create(requireContext()).apply {
-                    number = 5
+                number = 5
                 backgroundColor = ContextCompat.getColor(requireContext(), R.color.app_theme)
                 badgeTextColor = ContextCompat.getColor(requireContext(), R.color.white)
                 badgeGravity = BadgeDrawable.TOP_END
@@ -142,10 +139,17 @@ class FriendFragment private constructor() : Fragment() {
                 badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
                     BadgeUtils.attachBadgeDrawable(it, friendRequestText, badgeFrame)
                 }
-
-
-                return root
             }
+
+            return root
+        }
+    }
+
+    fun addFriend(friendCode: String? = null) {
+        addFriendDialog.show()
+        friendCode?.let {
+            addFriendBind.friendCodeEditText.setText(it)
+            addFriendBind.acceptButton.performClick()
         }
     }
 

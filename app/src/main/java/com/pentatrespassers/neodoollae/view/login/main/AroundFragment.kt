@@ -60,7 +60,6 @@ class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
     var naverMap: NaverMap? = null
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

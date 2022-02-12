@@ -4,8 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.firebase.dynamiclinks.PendingDynamicLinkData
+import com.google.firebase.dynamiclinks.ktx.dynamicLinks
+import com.google.firebase.ktx.Firebase
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityMainBinding
+import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.view.LoginActivity
 import com.pentatrespassers.neodoollae.view.login.main.*
 import com.pentatrespassers.neodoollae.view.login.main.home.EntireScheduleActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.EditMyInfoActivity
@@ -96,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     reservationFragment -> {
                         titleText.text = getString(R.string.reservation_history)
-                        showViews(titleText)
+                        showViews(titleText,notificationButton)
                     }
                     myPageFragment -> {
                         titleText.text = getString(R.string.my_page)
@@ -122,6 +127,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
+            Authentication.ifLoggedIn( {
+                start<LoginActivity> {  }
+                finish()
+            })
+            Firebase.dynamicLinks
+                .getDynamicLink(intent)
+                .addOnSuccessListener(this@MainActivity) { data: PendingDynamicLinkData? ->
+                    data?.link?.lastPathSegment?.let {
+                        replaceMainFrame(friendFragment)
+                        friendFragment.addFriend(it)
+                    }
+                }
+
             fragmentTransaction {
                 for (i in fragmentList.indices) {
                     add(R.id.mainFrame, fragmentList[i])

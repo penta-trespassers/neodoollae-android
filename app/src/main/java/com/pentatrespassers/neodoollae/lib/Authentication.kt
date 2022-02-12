@@ -8,7 +8,7 @@ import com.pentatrespassers.neodoollae.view.login.MainActivity
 import splitties.activities.start
 
 object Authentication {
-    var accessToken: String? = null
+    var accessToken: String? = UserPreferences.accessToken
         set(value) {
             Util.j("액세스 토큰: $value")
             field = value
@@ -44,6 +44,20 @@ object Authentication {
             }
             // Get new FCM registration token
             callback(it.result)
+        }
+    }
+
+    fun ifLoggedIn(loggedOutCallback: () -> Unit = {}, loggedInCallback: () -> Unit = {}) {
+        if (accessToken == null) {
+            loggedOutCallback()
+            return
+        } else {
+            RetrofitClient.getMyInfo({ _, _ ->
+                loggedOutCallback()
+            }) { _, response ->
+                user = response.body()
+                loggedInCallback()
+            }
         }
     }
 }

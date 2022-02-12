@@ -15,10 +15,15 @@ import com.kakao.sdk.user.UserApiClient
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityLoginBinding
 import com.pentatrespassers.neodoollae.lib.Authentication
+import com.pentatrespassers.neodoollae.lib.UserPreferences
 import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.lib.Util.hide
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.MainActivity
 import com.pentatrespassers.neodoollae.view.login.RegisterActivity
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import splitties.activities.start
 import splitties.alertdialog.appcompat.alertDialog
 import splitties.alertdialog.appcompat.coroutines.DialogButton
@@ -38,76 +43,92 @@ class LoginActivity : AppCompatActivity() {
         ActivityLoginBinding.inflate(layoutInflater)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
         with(bind) {
             setContentView(root)
-            Util.j("키 해시: " + Utility.getKeyHash(this@LoginActivity))
-            kakaoLoginButton.setOnClickListener {
-                UserApiClient.instance.run {
-                    if (isKakaoTalkLoginAvailable(this@LoginActivity)) {
-                        loginWithKakaoTalk(this@LoginActivity, callback = kakaoLoginCallback)
-                    } else {
-                        loginWithKakaoAccount(this@LoginActivity, callback = kakaoLoginCallback)
-                    }
-                }
-            }
-            lifecycle.coroutineScope.launch {
-                ensureAllPermissions(
-                    permissions,
-                    activity = this@LoginActivity,
-                    fragmentManager = supportFragmentManager,
-                    lifecycle = lifecycle,
-                    showRationaleBeforeFirstAsk = true,
-                    showRationaleAndContinueOrReturn = {
-                        alertDialog(
-                            title = "제대로된 제목",
-                            message = "지리는 내용"
-                        ).showAndAwait(
-                            true,
-                            negativeButton = DialogButton("거절", false),
-                            dismissValue = false
-                        )
-                    },
-                    askOpenSettingsOrReturn = {
-                        alertDialog(
-                            title = "몰라 제목",
-                            message = "몰라 내용"
-                        ).showAndAwait(
-                            okValue = true,
-                            negativeButton = DialogButton("몰라 거절", false),
-                            dismissValue = true
-                        )
-                    }
-                ) {
+            if (Authentication.accessToken != null) {
+                Authentication.ifLoggedIn({
+                    progressBar.hide()
+                    init()
+                }) {
+                    start<MainActivity>()
                     finish()
-                    suspendCancellableCoroutine<Nothing> { c -> c.cancel() }
                 }
-
-
-
-
-                if (AuthApiClient.instance.hasToken()) {
-                    UserApiClient.instance.accessTokenInfo { _, error ->
-                        if (error != null) {
-                            needLogin()
-                        }
-                        // 카카오로 로그인이 되어있는 경우
-                        else {
-                            loggedInKakao()
-                        }
-                    }
-                } else {
-                    needLogin()
-                }
-
+                progressBar.show()
+            } else {
+                init()
             }
 
         }
 
+    }
+
+    private fun init(){
+
+        Util.j("키 해시: " + Utility.getKeyHash(this@LoginActivity))
+        bind.kakaoLoginButton.setOnClickListener {
+            UserApiClient.instance.run {
+                if (isKakaoTalkLoginAvailable(this@LoginActivity)) {
+                    loginWithKakaoTalk(this@LoginActivity, callback = kakaoLoginCallback)
+                } else {
+                    loginWithKakaoAccount(this@LoginActivity, callback = kakaoLoginCallback)
+                }
+            }
+        }
+        lifecycle.coroutineScope.launch {
+            ensureAllPermissions(
+                permissions,
+                activity = this@LoginActivity,
+                fragmentManager = supportFragmentManager,
+                lifecycle = lifecycle,
+                showRationaleBeforeFirstAsk = true,
+                showRationaleAndContinueOrReturn = {
+                    alertDialog(
+                        title = "제대로된 제목",
+                        message = "지리는 내용"
+                    ).showAndAwait(
+                        true,
+                        negativeButton = DialogButton("거절", false),
+                        dismissValue = false
+                    )
+                },
+                askOpenSettingsOrReturn = {
+                    alertDialog(
+                        title = "몰라 제목",
+                        message = "몰라 내용"
+                    ).showAndAwait(
+                        okValue = true,
+                        negativeButton = DialogButton("몰라 거절", false),
+                        dismissValue = true
+                    )
+                }
+            ) {
+                finish()
+                suspendCancellableCoroutine<Nothing> { c -> c.cancel() }
+            }
+
+
+
+
+            if (AuthApiClient.instance.hasToken()) {
+                UserApiClient.instance.accessTokenInfo { _, error ->
+                    if (error != null) {
+                        needLogin()
+                    }
+                    // 카카오로 로그인이 되어있는 경우
+                    else {
+                        loggedInKakao()
+                    }
+                }
+            } else {
+                needLogin()
+            }
+
+        }
     }
 
     private fun needLogin() {
@@ -122,6 +143,7 @@ class LoginActivity : AppCompatActivity() {
             Util.j("fcm 토큰: $fcmToken")
             RetrofitClient.kakaoLogin(TokenManager.instance.getToken()?.accessToken, fcmToken) { _, response ->
                 val accessToken = response.body()?.access
+                UserPreferences.accessToken = accessToken
                 // 회원 정보가 없음
                 if (accessToken == null) {
                     UserApiClient.instance.me { user, error ->

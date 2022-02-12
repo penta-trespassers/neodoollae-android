@@ -23,14 +23,15 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/logoutCell"
-            layout="@layout/cell_one_line_menu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:oneLineMainText="@string/logout"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_logout"/>
 
         <View
             android:id="@+id/divider"
@@ -43,15 +44,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logoutCell" />
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.OneLineCell
             android:id="@+id/withdrawCell"
-            layout="@layout/cell_one_line_menu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:oneLineMainText="@string/withdraw"
+            app:oneLineImageResource="@drawable/ic_mypage_setting_withdraw"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

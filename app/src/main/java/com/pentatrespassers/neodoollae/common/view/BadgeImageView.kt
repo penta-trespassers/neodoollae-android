@@ -1,28 +1,46 @@
 package com.pentatrespassers.neodoollae.common.view
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatImageView
-
-
+import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.pentatrespassers.neodoollae.R
+import com.pentatrespassers.neodoollae.databinding.CellOneLineMenuBinding
 
 
 class BadgeImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : AppCompatImageView(context, attrs, defStyleAttr) {
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
 
-    val paint = Paint()
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        canvas?.apply {
+    var mShowText = false
 
-            paint.color = Color.RED
 
-            canvas.drawCircle(0f, 0f, 1f, paint)
+    init {
+        initView()
+
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.BadgeImageView,
+            0, 0).apply {
+
+            try {
+                mShowText = getBoolean(R.styleable.BadgeImageView_showText, false)
+            } finally {
+                recycle()
+            }
+        }
+    }
+
+    private fun initView() {
+        View.inflate(context, R.layout.cell_one_line_menu, this)
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        with(CellOneLineMenuBinding.bind(this)) {
+            oneLineMenuText.text = "$mShowText"
         }
     }
 }

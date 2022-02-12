@@ -50,10 +50,12 @@ class ReservationFragment private constructor() : Fragment() {
                 reservationAdapter.refresh(response.body()!!)
             }
 
-            views[myReservationConstraint] = Pair(myReservationText, myReservationUnderlineConstraint)
-            views[myRoomReservationConstraint] = Pair(myRoomReservationText, myRoomReservationUnderlineConstraint)
-            views[waitingReservationConstraint] = Pair(waitingRerservationText, waitingReservationUnderlineConstraint)
-
+            views[myReservationConstraint] =
+                Pair(myReservationText, myReservationUnderlineConstraint)
+            views[myRoomReservationConstraint] =
+                Pair(myRoomReservationText, myRoomReservationUnderlineConstraint)
+            views[waitingReservationConstraint] =
+                Pair(waitingRerservationText, waitingReservationUnderlineConstraint)
 
 
             //나의 예약을 누른 경우
@@ -83,10 +85,54 @@ class ReservationFragment private constructor() : Fragment() {
 
     fun makeDummyReservationData(): ArrayList<Reservation> {
         val data: ArrayList<Reservation> = arrayListOf(
-            Reservation(1,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다"),
-            Reservation(2,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다"),
-            Reservation(3,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다"),
-            Reservation(4,1,1,"sunny","써니의 방",null,null,null,"샘플 데이터입니다.","샘플 response데이터입니다")
+            Reservation(
+                1,
+                1,
+                1,
+                "sunny",
+                "써니의 방",
+                null,
+                null,
+                null,
+                "샘플 데이터입니다.",
+                "샘플 response데이터입니다"
+            ),
+            Reservation(
+                2,
+                1,
+                1,
+                "sunny",
+                "써니의 방",
+                null,
+                null,
+                null,
+                "샘플 데이터입니다.",
+                "샘플 response데이터입니다"
+            ),
+            Reservation(
+                3,
+                1,
+                1,
+                "sunny",
+                "써니의 방",
+                null,
+                null,
+                null,
+                "샘플 데이터입니다.",
+                "샘플 response데이터입니다"
+            ),
+            Reservation(
+                4,
+                1,
+                1,
+                "sunny",
+                "써니의 방",
+                null,
+                null,
+                null,
+                "샘플 데이터입니다.",
+                "샘플 response데이터입니다"
+            )
 
 
         )

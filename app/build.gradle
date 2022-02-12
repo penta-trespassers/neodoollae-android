@@ -36,6 +36,9 @@ android {
         viewBinding true
 
     }
+    lintOptions {
+        disable "ResourceType"
+    }
 }
 
 dependencies {
@@ -67,6 +70,7 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-fragmentargs:$splitties_version")
     implementation("com.louiscad.splitties:splitties-resources:$splitties_version")
     implementation("com.louiscad.splitties:splitties-material-colors:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-preferences:$splitties_version")
 
 
     // https://github.com/umano/AndroidSlidingUpPanel - Sliding up panel 구현을 위한 dependency
@@ -94,17 +98,16 @@ dependencies {
     implementation 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
 
     // https://console.firebase.google.com/u/0/ - Firebase
-    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation platform('com.google.firebase:firebase-bom:29.0.4')
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // https://firebase.google.com/docs/cloud-messaging/android/client?authuser=0 - FCM
     implementation 'com.google.firebase:firebase-messaging-ktx'
 
+    // https://firebase.google.com/docs/dynamic-links/android/create?hl=ko - Firebase Dynamic Link
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
 
     // 디슈가링 - https://developer.android.com/studio/write/java8-support#library-desugaring
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
-
-
-    // Badge drawable을 일반 layout에도 적용시키기 위한 MaterialDesign dependency
-    implementation "com.google.android.material:material:1.2.1"
 }

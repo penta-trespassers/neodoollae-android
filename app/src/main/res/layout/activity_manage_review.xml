@@ -133,14 +133,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/manageReviewFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writableConstraint"/>
+        app:layout_constraintTop_toBottomOf="@+id/writableConstraint"
+        tools:layout="@layout/fragment_writable_review"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

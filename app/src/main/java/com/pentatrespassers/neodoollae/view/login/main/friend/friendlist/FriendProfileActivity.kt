@@ -59,30 +59,7 @@ class FriendProfileActivity : AppCompatActivity() {
 
             }
 
-            with(profileCellFriendProfile) {
-                nameText.text = user.nickname
-
-                Glide.with(this@FriendProfileActivity)
-                    .load(user.profileImage)
-                    .error(R.drawable.ic_common_account_no_padding)
-                    .into(profileImage)
-
-                profileImage.setOnClickListener {
-                    start<ShowImageActivity> {
-                        putExtras(ShowImageActivity.Extras) {
-                            this.profileImage = user.profileImage
-                        }
-                    }
-                }
-
-                guestScoreButton.setOnClickListener {
-                    start<ReviewActivity>()
-                }
-
-                hostScoreButton.setOnClickListener {
-                    start<ReviewActivity>()
-                }
-            }
+            profileCellFriendProfile.setProfileView(user)
 
             RetrofitClient.getRoom(user.id) { _, response ->
                 when(response.body().isNullOrEmpty()){
