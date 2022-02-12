@@ -37,14 +37,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/titleConstraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <Button
                     android:id="@+id/editToReservationListButton"
@@ -71,8 +73,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/reservationProfileConstraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="212dp">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/titleConstraintLayout"
+                android:layout_marginTop="0dp">
 
                 <ImageView
                     android:id="@+id/reservationImageView1"
@@ -88,7 +93,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_bias="1.0"
                     app:srcCompat="@drawable/bg_common_card" />
 
                 <TextView
@@ -121,10 +126,10 @@
                     android:layout_height="72dp"
                     android:layout_marginStart="56dp"
                     android:layout_marginTop="12dp"
-                    app:tint="@color/material_neutral_variant80"
                     app:layout_constraintStart_toStartOf="@+id/reservationImageView1"
                     app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
-                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                    app:tint="@color/material_neutral_variant80" />
 
                 <ImageView
                     android:id="@+id/reservationVisitorImageView"
@@ -132,10 +137,10 @@
                     android:layout_height="72dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="64dp"
-                    app:tint="@color/material_neutral_variant80"
                     app:layout_constraintEnd_toEndOf="@+id/reservationImageView1"
                     app:layout_constraintTop_toBottomOf="@+id/visitorNameTextTitle"
-                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                    app:tint="@color/material_neutral_variant80" />
 
                 <TextView
                     android:id="@+id/reservationRoomNameText"
@@ -167,9 +172,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/settingDateAndTimeConstraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/reservationProfileConstraintLayout"
+                android:layout_marginTop="0dp">
 
                 <ImageView
                     android:id="@+id/reservationImageView2"
@@ -250,396 +255,155 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_begin="207dp" />
+                    app:layout_constraintGuide_end="204dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expandDateConstraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_common_card">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/settingDateAndTimeConstraintLayout">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/bg_common_card" />
 
                 <TextView
-                    android:id="@+id/reservationChoosDateText"
+                    android:id="@+id/chooseDateTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:text="날짜 선택"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+                <CalendarView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reservationCalendarView"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseDateTitleText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expandTimeConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_common_card"
+                app:layout_constraintBottom_toTopOf="@+id/settingMemberConstraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expandDateConstraintLayout">
+
+                <TextView
+                    android:id="@+id/chooseTimeTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="입실 날짜 선택"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/reservationCalendarView"
+                    android:text="시간 선택"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="@+id/expandTimeConstraintLayout"
+                    app:layout_constraintTop_toTopOf="@+id/expandTimeConstraintLayout" />
 
-                <CalendarView
-                    android:id="@+id/reservationCalendarView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:focusedMonthDateColor="@color/color_button"
-                    android:unfocusedMonthDateColor="@color/trespassGray_600"
-                    android:visibility="visible"
-                    android:weekNumberColor="@color/trespassGray_900"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:minWidth="60dp"
+                    android:minHeight="40dp"
+                    android:text="오전"
+                    app:layout_constraintEnd_toStartOf="@+id/time00"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/chooseTimeTitleText" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="60dp"
+                    android:minHeight="40dp"
+                    android:padding="4dp"
+                    android:text="12:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintEnd_toStartOf="@+id/time01"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/textView" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="60dp"
+                    android:minHeight="40dp"
+                    android:padding="4dp"
+                    android:text="1:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time00"
+                    app:layout_constraintEnd_toStartOf="@+id/time02"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time00"
+                    app:layout_constraintTop_toTopOf="@+id/time00" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="60dp"
+                    android:minHeight="40dp"
+                    android:text="2:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time01"
+                    app:layout_constraintEnd_toStartOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time01"
+                    app:layout_constraintTop_toTopOf="@+id/time01" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="60dp"
+                    android:minHeight="40dp"
+                    android:text="3:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time02"
+                    app:layout_constraintEnd_toStartOf="@+id/chooseTimeTitleText"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time02"
+                    app:layout_constraintTop_toTopOf="@+id/time02" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/layout_expand_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="visible">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imageView14"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/bg_common_card" />
-
-                    <TextView
-                        android:id="@+id/reservationChooseTimeText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="시간 선택"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/reservationChooseTimeText">
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="6"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="5">
-
-                                <TextView
-                                    android:id="@+id/amText"
-                                    android:layout_width="50dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="오전"
-                                    android:textStyle="bold" />
-
-                                <Button
-                                    android:id="@+id/button00"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="12:00" />
-
-                                <Button
-                                    android:id="@+id/button01"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="1:00" />
-
-                                <Button
-                                    android:id="@+id/button02"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="2:00" />
-
-                                <Button
-                                    android:id="@+id/button03"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="3:00" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="5">
-
-                                <TextView
-                                    android:id="@+id/am1Text"
-                                    android:layout_width="50dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="  " />
-
-                                <Button
-                                    android:id="@+id/button04"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="4:00" />
-
-                                <Button
-                                    android:id="@+id/button05"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="5:00" />
-
-                                <Button
-                                    android:id="@+id/button06"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="6:00" />
-
-                                <Button
-                                    android:id="@+id/button07"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="7:00" />
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="5">
-
-                                <TextView
-                                    android:id="@+id/am2Text"
-                                    android:layout_width="50dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text=" " />
-
-                                <Button
-                                    android:id="@+id/button08"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="8:00" />
-
-                                <Button
-                                    android:id="@+id/button09"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="9:00" />
-
-                                <Button
-                                    android:id="@+id/button10"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="10:00" />
-
-                                <Button
-                                    android:id="@+id/button11"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="11:00" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"></LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="5">
-
-                                <TextView
-                                    android:id="@+id/pmText"
-                                    android:layout_width="50dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="오후"
-                                    android:textStyle="bold" />
-
-                                <Button
-                                    android:id="@+id/button12"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="12:00" />
-
-                                <Button
-                                    android:id="@+id/button13"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="1:00" />
-
-                                <Button
-                                    android:id="@+id/button14"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="2:00" />
-
-                                <Button
-                                    android:id="@+id/button15"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="3:00" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="5">
-
-                                <TextView
-                                    android:id="@+id/pm3Text"
-                                    android:layout_width="50dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="  " />
-
-                                <Button
-                                    android:id="@+id/button16"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="4:00" />
-
-                                <Button
-                                    android:id="@+id/button17"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="5:00" />
-
-                                <Button
-                                    android:id="@+id/button18"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="6:00" />
-
-                                <Button
-                                    android:id="@+id/button19"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="7:00" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="5">
-
-                                <TextView
-                                    android:id="@+id/pm4Text"
-                                    android:layout_width="50dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text=" " />
-
-                                <Button
-                                    android:id="@+id/button20"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="8:00" />
-
-                                <Button
-                                    android:id="@+id/button23"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="11:00" />
-
-                                <Button
-                                    android:id="@+id/button21"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="9:00" />
-
-                                <Button
-                                    android:id="@+id/button22"
-                                    android:layout_width="80dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="1"
-                                    android:text="10:00" />
-                            </LinearLayout>
-
-                            <Button
-                                android:id="@+id/SetTimeEndbutton"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:layout_weight="1"
-                                android:background="@drawable/common_switch_track_selector"
-                                android:text="확인" />
-
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settingMemberConstraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="64dp">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/expandTimeConstraintLayout"
+                android:layout_marginTop="0dp">
 
                 <ImageView
                     android:id="@+id/reservationImageView3"
@@ -704,8 +468,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toHostConstraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="104dp">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/settingMemberConstraintLayout"
+                >
 
                 <ImageView
                     android:id="@+id/reservationImageView4"
@@ -713,6 +480,8 @@
                     android:layout_height="88dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/bg_common_card"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -749,7 +518,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
