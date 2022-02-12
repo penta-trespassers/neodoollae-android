@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentTermsOfUseBinding
 
-class TermsOfUseFragment private constructor() : Fragment() {
+class TermsOfUseFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentTermsOfUseBinding
 

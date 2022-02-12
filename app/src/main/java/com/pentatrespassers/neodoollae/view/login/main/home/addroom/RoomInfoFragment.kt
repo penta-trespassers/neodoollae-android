@@ -9,7 +9,7 @@ import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentRoomInfoBinding
 import splitties.toast.toast
 
-class RoomInfoFragment private constructor() : Fragment() {
+class RoomInfoFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentRoomInfoBinding
 

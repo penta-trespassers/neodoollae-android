@@ -36,7 +36,7 @@ import splitties.bundle.putExtras
 import splitties.fragments.start
 
 
-class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
+class AroundFragment constructor() : Fragment(), OnMapReadyCallback {
 
     private lateinit var bind: FragmentAroundBinding
 

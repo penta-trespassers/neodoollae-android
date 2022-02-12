@@ -15,7 +15,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentRoomOperationBinding
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 
-class RoomOperationFragment private constructor() : Fragment() {
+class RoomOperationFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentRoomOperationBinding
 

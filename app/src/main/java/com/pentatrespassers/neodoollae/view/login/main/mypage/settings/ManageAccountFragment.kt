@@ -11,7 +11,7 @@ import com.pentatrespassers.neodoollae.lib.Util.setOneLineMenu
 import com.pentatrespassers.neodoollae.view.LoginActivity
 import splitties.fragments.start
 
-class ManageAccountFragment private constructor() : Fragment() {
+class ManageAccountFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentManageAccountBinding
 

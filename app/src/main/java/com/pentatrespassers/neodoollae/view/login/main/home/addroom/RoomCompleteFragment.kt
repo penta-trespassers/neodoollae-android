@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentRoomCompleteBinding
 
-class RoomCompleteFragment private constructor() : Fragment() {
+class RoomCompleteFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentRoomCompleteBinding
 

@@ -9,7 +9,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentFriendRequestBinding
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendrequest.FriendRequestAdapter
 
-class FriendRequestFragment private constructor() : Fragment() {
+class FriendRequestFragment constructor() : Fragment() {
 
 
     private lateinit var bind: FragmentFriendRequestBinding
