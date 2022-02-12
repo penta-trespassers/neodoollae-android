@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
+import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
@@ -17,6 +18,7 @@ import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
+import com.pentatrespassers.neodoollae.view.login.main.invite.InvitationEditActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
@@ -152,10 +154,14 @@ class RoomProfileActivity : AppCompatActivity() {
                 user.id -> getString(R.string.make_invitation)
                 else -> getString(R.string.make_reservation)
             }
-
             reserveButtonRoomProfile.setOnClickListener {
-
+                start<InvitationEditActivity> {
+                    putExtras(InvitationEditActivity.Extras) {
+                        invitation = Reservation(0,user.id, roomInfo.id!!,user.nickname,roomInfo.roomName)
+                    }
+                }
             }
+
 
         }
     }

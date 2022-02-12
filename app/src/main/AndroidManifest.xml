@@ -63,6 +63,9 @@
             android:name=".view.login.main.invite.InvitationActivity"
             android:exported="true"
             android:noHistory="true" />
+        <activity android:name=".view.login.main.invite.InvitationEditActivity"/>
+
+
         <activity
             android:name=".view.login.MainActivity"
             android:exported="true" >

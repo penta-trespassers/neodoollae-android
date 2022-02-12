@@ -66,4 +66,6 @@ class FriendListFragment private constructor() : Fragment() {
 
     }
 
+
+
 }
