@@ -126,6 +126,7 @@ class RoomProfileActivity : AppCompatActivity() {
             roomDetailAddressContent.text = roomInfo.detailAddress
             wordFromHostContent.text = roomInfo.description
 
+
             when (hasNoImage()) {
                 true -> roomImageConstraint.gone()
                 false -> {
@@ -158,6 +159,7 @@ class RoomProfileActivity : AppCompatActivity() {
                                 user?.id!!,
                                 roomInfo.id!!,
                                 user?.nickname!!,
+                                roomInfo.nickname,
                                 roomInfo.roomName
                             )
                         }
@@ -171,6 +173,7 @@ class RoomProfileActivity : AppCompatActivity() {
                                 user?.id!!,
                                 roomInfo.id!!,
                                 user?.nickname!!,
+                                roomInfo.nickname,
                                 roomInfo.roomName
                             )
                         }

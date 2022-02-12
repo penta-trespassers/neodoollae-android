@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.lib.Util.hide
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
 import splitties.activities.start
 import splitties.bundle.BundleSpec
@@ -77,7 +78,8 @@ class InvitationEditActivity : AppCompatActivity(){
 
             invitationRoomNameText.text = invitation.roomName
             invitationVisitorNameText.text = invitation.nickname
-
+            expandDateConstraintLayout.hide()
+            expandTimeConstraintLayout.hide()
 
            // toHostEditText.setText(invitation.requestMessage)
 
@@ -94,17 +96,18 @@ class InvitationEditActivity : AppCompatActivity(){
             visitEndDateText.setOnClickListener {
                 isStartDateSet = true
             }
-//            settingDateAndTimeConstraintLayout.setOnClickListener {
-//               // isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
-//
-//                isTimeExpanded = true
-//            }
+            settingDateAndTimeConstraintLayout.setOnClickListener {
+               isDateExpanded = toggleLayout(!isDateExpanded, it, expandDateConstraintLayout)
+
+                isTimeExpanded = false
+            }
             invitationCalendarView.minDate = System.currentTimeMillis() - 1000
             invitationCalendarView.setOnDateChangeListener{ view, year, month, dayOfMonth ->
                 calendar.set(year, month, dayOfMonth)
 
-
-             //   toggleLayout(!isTimeExpanded, view, layoutExpandTime)
+                if(!isTimeExpanded)
+                    toggleLayout(!isTimeExpanded, view, expandTimeConstraintLayout)
+                isTimeExpanded = true
 
                 if (isStartDateSet == false) {
                     vistStartDatetext.text = formatter.format(calendar.time)
@@ -114,8 +117,8 @@ class InvitationEditActivity : AppCompatActivity(){
             }
 
             invitationSetDateButton.setOnClickListener{
-               // toggleLayout(!isDateExpanded, it, layoutExpandDate)
-                //toggleLayout(!isTimeExpanded, it, layoutExpandTime)
+                toggleLayout(!isDateExpanded, it, expandDateConstraintLayout)
+                toggleLayout(!isTimeExpanded, it, expandTimeConstraintLayout)
                 isDateExpanded = false
                 isTimeExpanded = false
 
@@ -123,7 +126,7 @@ class InvitationEditActivity : AppCompatActivity(){
 
 
             invitationAddButton.setOnClickListener {
-                toast("예약이 완료되었습니다.")
+                toast("초대가 완료되었습니다.")
                 //  invitationn.checkIn =
                 // invitationn.checkOut =
                // invitationAdapter.editinvitations(invitation)
@@ -141,7 +144,7 @@ class InvitationEditActivity : AppCompatActivity(){
 
     }
 
-    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout) : Boolean {
+    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: View) : Boolean {
 
         ToggleAnimation.toggleArrow(view, isExpanded)
         if (isExpanded) {

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.lib.Util.hide
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -25,7 +26,6 @@ class ReservationEditActivity : AppCompatActivity() {
 
     var isStartDateSet = false
 
-    var isCreate = false
 
     var toastWord = "예약"
 
@@ -82,6 +82,9 @@ class ReservationEditActivity : AppCompatActivity() {
         with(bind) {
             setContentView(root)
 
+            expandDateConstraintLayout.hide()
+            expandTimeConstraintLayout.hide()
+
 
             reservationRoomNameText.text = reservation.roomName
             reservationVisitorNameText.text = reservation.nickname
@@ -94,15 +97,17 @@ class ReservationEditActivity : AppCompatActivity() {
 
 
             settingDateAndTimeConstraintLayout.setOnClickListener {
-//                toggleLayout(!isDateExpanded, it, layoutExpandDate)
+                toggleLayout(!isDateExpanded, it, expandDateConstraintLayout)
+                isDateExpanded = true
             }
 
 
             reservationCalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
                 calendar.set(year, month, dayOfMonth)
 
-              //  toggleLayout(!isTimeExpanded, view, layoutExpandTime)
-               // isTimeExpanded = true
+                if(!isTimeExpanded)
+                    toggleLayout(!isTimeExpanded, view, expandTimeConstraintLayout)
+                isTimeExpanded = true
 
                 if (isStartDateSet == false) {
                     vistStartDatetext.text = formatter.format(calendar.time)
@@ -113,13 +118,10 @@ class ReservationEditActivity : AppCompatActivity() {
                 }
             }
 
-
-
-
-
+            reservationCalendarView.minDate = System.currentTimeMillis() - 1000
             reservationSetTimeButton.setOnClickListener {
-//                toggleLayout(!isDateExpanded, it, layoutExpandDate)
-               /// toggleLayout(!isTimeExpanded, it, layoutExpandTime)
+                toggleLayout(!isDateExpanded, it, expandDateConstraintLayout)
+                toggleLayout(!isTimeExpanded, it, expandTimeConstraintLayout)
                 isDateExpanded = false
                 isTimeExpanded = false
 
@@ -132,7 +134,7 @@ class ReservationEditActivity : AppCompatActivity() {
                 // reservation.checkOut =
                 reservation.member = (reservationVisitNumberText.text as String).toInt()
                 reservation.requestMessage = toHostEditText.text.toString()
-//                editReservations(reservation)
+
                 print(reservation.member)
                 finish()
 
