@@ -17,13 +17,14 @@ class NotificationFragment constructor() : Fragment() {
     private lateinit var bind: FragmentNotificationBinding
 
     private val notificationList = arrayListOf(
-        Notification("메세지 예약 기다림", "메세지 예약 기다림", 0, 0),
-        Notification("메세지 예약 수락", "메세지 예약 수락", 0, 1),
-        Notification("메세지 예약 거절", "메세지 예약 거절", 0, 2),
-        Notification("메세지 방문 리뷰", "메세지 예액", 0, 3),
-        Notification("메세지 손님 리뷰", "메세지 예액", 0, 4),
-        Notification("메세지 친구 됨", "메세지 예액", 0, 5),
-        Notification("메세지 친구 요청", "메세지 예액", 0, 6)
+        Notification("황진하님의 예약 신청이 있습니다.", "메세지 예약 기다림", 0, 0),
+        Notification("현수빈님이 예약 신청을 거절했습니다.", "메세지 예약 수락", 0, 1),
+        Notification("착한유저님이 예약 신청을 수락했습니다.", "메세지 예약 거절", 0, 2),
+        Notification("진하의 방문 리뷰를 작성해주세요.", "메세지 예액", 0, 3),
+        Notification("관리자2의 손님 리뷰를 작성해주세요.", "메세지 예액", 0, 4),
+        Notification("서진님의 친구 요청이 있습니다.", "메세지 예액", 0, 5),
+        Notification("현수빈님과 친구가 되었습니다.", "메세지 예액", 0, 6),
+        Notification("성준님이 친구 요청을 거절했습니다.", "메세지 예액", 0, 6)
     )
 
     private val notificationAdapter by lazy {
