@@ -27,25 +27,29 @@ class MapListAdapter(
 
     private var filteredList = mapItemList
 
-    var location = Util.getLocation(context)!!
+
 
     inner class MapListItemHolder(private val bind: CellMapListBinding) :
         RecyclerView.ViewHolder(bind.root) {
         fun binding(roomData: Room) {
             with(bind) {
+                val location = Util.getLocation(context)
                 roomTitleTextViewAround.text = roomData.roomName
                 roomHostNametextViewAround.text = roomData.nickname
                 roomRateImageView.setImageResource(R.drawable.ic_common_sentiment_5)
 
                 // set distance
-                distanceTextView.text = "${
-                    Util.getDistance(
-                        roomData.latitude,
-                        roomData.longitude,
-                        location.latitude,
-                        location.longitude
-                    ).toInt()
-                }m"
+                location?.let {
+                    distanceTextView.text = "${
+                        Util.getDistance(
+                            roomData.latitude,
+                            roomData.longitude,
+                            it.latitude,
+                            it.longitude
+                        ).toInt()
+                    }m"
+                }
+
                 when (roomData.status) {
                     0, 1 -> {
                         roomConditionImageView.setImageResource(R.drawable.ic_common_room_open)

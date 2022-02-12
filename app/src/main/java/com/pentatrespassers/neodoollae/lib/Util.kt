@@ -105,6 +105,7 @@ object Util {
         string + if ((string.last().code - 0xAC00) % 28 > 0) postposition1 else postposition2
 
     fun getLocation(context: Context): Location? {
+
         with(context) {
             if (ContextCompat.checkSelfPermission(
                     this,
