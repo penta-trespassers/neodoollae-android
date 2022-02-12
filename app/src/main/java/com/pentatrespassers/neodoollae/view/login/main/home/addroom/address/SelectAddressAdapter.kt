@@ -22,10 +22,6 @@ class SelectAddressAdapter(private val context: Context, private val fragmentAdd
         RecyclerView.ViewHolder(bind.root) {
         fun binding(documentBody: DocumentBody) {
             with(bind) {
-                if (documentBody.roadAddressName.isBlank()) {
-                    itemView.gone()
-                    return
-                }
                 addressText.text = documentBody.addressName
                 roadAddressText.text = documentBody.roadAddressName
                 itemView.setOnClickListener {
