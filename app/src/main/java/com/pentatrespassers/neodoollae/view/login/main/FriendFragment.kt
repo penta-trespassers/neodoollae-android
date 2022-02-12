@@ -141,8 +141,12 @@ class FriendFragment constructor() : Fragment() {
         super.onHiddenChanged(hidden)
         if (!hidden) {
             friendListFragment.refreshFriendList()
-            friendRequestFragment.refreshFriendRequest(bind.friendRequestBadge)
+            friendRequestFragment.refreshFriendRequest()
         }
+    }
+
+    fun setBadgeCount(count: String) {
+        bind.friendRequestBadge.text = count
     }
 
 

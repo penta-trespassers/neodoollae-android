@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellFriendRequestBinding
 import com.pentatrespassers.neodoollae.dto.FriendRequest
 import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.main.FriendFragment
 
 class FriendRequestAdapter(
     private val context: Context,
-    private var friendRequestList: ArrayList<FriendRequest>
+    private var friendRequestList: ArrayList<FriendRequest>,
+    private val friendFragment: FriendFragment
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -24,12 +26,14 @@ class FriendRequestAdapter(
                 acceptButtonFriendRequest.setOnClickListener {
                     RetrofitClient.approveFriendRequest(friendRequest.id, true) { _, _ ->
                         friendRequestList.remove(friendRequest)
+                        friendFragment.setBadgeCount(itemCount.toString())
                         notifyDataSetChanged()
                     }
                 }
                 declineButtonFriendRequest.setOnClickListener {
                     RetrofitClient.approveFriendRequest(friendRequest.id, false) { _, _ ->
                         friendRequestList.remove(friendRequest)
+                        friendFragment.setBadgeCount(itemCount.toString())
                         notifyDataSetChanged()
                     }
                 }
@@ -54,6 +58,7 @@ class FriendRequestAdapter(
 
     fun refresh(friendRequestList: ArrayList<FriendRequest>) {
         this.friendRequestList = friendRequestList
+        friendFragment.setBadgeCount(itemCount.toString())
         notifyDataSetChanged()
     }
 }
