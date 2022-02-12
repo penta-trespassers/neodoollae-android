@@ -13,10 +13,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.naver.maps.geometry.LatLng
-import com.naver.maps.map.LocationTrackingMode
-import com.naver.maps.map.MapFragment
-import com.naver.maps.map.NaverMap
-import com.naver.maps.map.OnMapReadyCallback
+import com.naver.maps.map.*
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
@@ -25,6 +22,7 @@ import com.naver.maps.map.util.MarkerIcons
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.hide
 import com.pentatrespassers.neodoollae.lib.Util.show
@@ -191,6 +189,8 @@ class AroundFragment constructor() : Fragment(), OnMapReadyCallback {
 
             //네이버 위치추적모드
             naverMap.locationTrackingMode = LocationTrackingMode.NoFollow
+
+            naverMap.moveCamera(CameraUpdate.scrollTo(LatLng(Util.getLocation(requireContext())!!)))
 
             // 권한확인. 결과는 onRequestPermissionsResult 콜백 매서드 호출
             //  ActivityCompat.requestPermissions(this@AroundFragment, PERMISSIONS, PERMISSION_REQUEST_CODE)
