@@ -27,7 +27,7 @@ class ReservationEditActivity : AppCompatActivity() {
 
     var isCreate = false
 
-    var toastWord = "수정"
+    var toastWord = "예약"
 
     val calendar = Calendar.getInstance()
     val formatter = Util.getDateFormatter("yy MM dd EEEE")
@@ -45,24 +45,26 @@ class ReservationEditActivity : AppCompatActivity() {
     }
 
     fun timeOnClick(button: View){
-        var time : String = ""
+        var time : String = (button as Button).text as String
         var timestamp : Timestamp? = null
-        time = (button as Button).text as String
 
-        (button as Button).text.split(":").let{
+
+        time.split(":").let{
             calendar.set(Calendar.HOUR_OF_DAY, it[0].toInt())
             calendar.set(Calendar.MINUTE, it[1].toInt())
-            timestamp = Timestamp.from(calendar.toInstant()) as Timestamp?
+            timestamp = Timestamp(calendar.timeInMillis)
 
         }
 
         with(bind){
-            if(isStartDateSet == false) {
+            if(!isStartDateSet) {
                 visitStartTimeText.text = time
                 reservation.checkIn = timestamp
+
+                isStartDateSet = true
             }
             else{
-                visitEndDateText.text = time
+                visitEndTimeText.text = time
                 reservation.checkOut = timestamp
             }
         }
@@ -74,58 +76,22 @@ class ReservationEditActivity : AppCompatActivity() {
         ActivityReservationEditBinding.inflate(layoutInflater)
     }
 
-    fun pmOnClick(button: View){
-        var time : String = ""
-        time = (button as Button).text as String
-        with(bind){
-            if(isStartDateSet == false)
-                visitStartTimeText.text = time
-            else{
-                visitEndDateText.text = time
-            }
-        }
-    }
-    fun amOnClick(button : View){
-        var time : String = ""
-        time = (button as Button).text as String
-        with(bind){
-            if(isStartDateSet == true)
-                visitStartTimeText.text = time
-            else{
-                visitEndDateText.text = time
-            }
-        }
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
 
-            if (reservation == null) {
-                isCreate = true
-                toastWord = "예약이"
-            } else {
-                isCreate = false
-                toastWord = "수정이"
-            }
 
             reservationRoomNameText.text = reservation.roomName
             reservationVisitorNameText.text = reservation.nickname
-            vistStartDatetext.text = reservation.checkIn.toString()
-            visitStartTimeText.text = reservation.checkIn.toString()
-            visitEndDateText.text = reservation.checkOut.toString()
-            visitEndTimeText.text = reservation.checkOut.toString()
 
-            reservationVisitNumberText.text = reservation.member.toString()
+            reservationVisitNumberText.text = "1"
 
             toHostEditText.setText(reservation.requestMessage)
 
             reservationCalendarView.setClickable(true)
 
-            reservationAddButton.text = when (isCreate) {
-                true -> "예약하기"
-                false -> "수정하기"
-            }
 
             settingDateAndTimeConstraintLayout.setOnClickListener {
 //                toggleLayout(!isDateExpanded, it, layoutExpandDate)
@@ -136,7 +102,7 @@ class ReservationEditActivity : AppCompatActivity() {
                 calendar.set(year, month, dayOfMonth)
 
               //  toggleLayout(!isTimeExpanded, view, layoutExpandTime)
-                isTimeExpanded = true
+               // isTimeExpanded = true
 
                 if (isStartDateSet == false) {
                     vistStartDatetext.text = formatter.format(calendar.time)
@@ -146,6 +112,8 @@ class ReservationEditActivity : AppCompatActivity() {
 
                 }
             }
+
+
 
 
 
