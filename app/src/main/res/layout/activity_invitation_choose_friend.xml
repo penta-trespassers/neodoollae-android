@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/editToInvitationListButton"
+        android:id="@+id/backButton"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="18dp"
@@ -51,6 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:elevation="4dp"
             tools:listitem="@layout/cell_invitation_friend" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

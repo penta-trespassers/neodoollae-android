@@ -149,6 +149,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
+            addfriendButton.setOnClickListener {
+                friendFragment.addFriend()
+            }
             editButton.setOnClickListener{
                 start<EditMyInfoActivity>()
             }

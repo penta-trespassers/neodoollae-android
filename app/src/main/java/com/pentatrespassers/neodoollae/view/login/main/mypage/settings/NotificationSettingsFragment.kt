@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentNotificationSettingsBinding
 
-class NotificationSettingsFragment private constructor() : Fragment() {
+class NotificationSettingsFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentNotificationSettingsBinding
 

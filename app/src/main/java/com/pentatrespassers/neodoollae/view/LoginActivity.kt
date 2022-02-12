@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
                     progressBar.hide()
                     init()
                 }) {
+                    Util.j("액세스 토큰 ${Authentication.accessToken}")
                     start<MainActivity>()
                     finish()
                 }

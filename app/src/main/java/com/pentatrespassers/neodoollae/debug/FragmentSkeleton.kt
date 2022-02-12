@@ -2,7 +2,7 @@ package com.pentatrespassers.neodoollae.debug
 
 import androidx.fragment.app.Fragment
 
-class SkeletonFragment private constructor() : Fragment() {
+class SkeletonFragment constructor() : Fragment() {
 
 //    var test: Int by arg()
 //

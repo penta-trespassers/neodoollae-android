@@ -20,7 +20,7 @@ import com.pentatrespassers.neodoollae.view.login.main.mypage.VisitHistoryActivi
 import splitties.fragments.start
 import splitties.resources.str
 
-class MyPageFragment private constructor() : Fragment() {
+class MyPageFragment constructor() : Fragment() {
 
     private lateinit var bind: FragmentMyPageBinding
 
