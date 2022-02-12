@@ -75,8 +75,8 @@ class ManageReviewActivity : AppCompatActivity() {
                 }
             }
 
-            writableBadge.badgeText = "23"
-            writtenBadge.badgeText = "24"
+            writableBadge.text = "0"
+            writtenBadge.text = "2"
 
             backButtonReview.setOnClickListener {
                 finish()

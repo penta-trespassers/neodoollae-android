@@ -113,6 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <com.pentatrespassers.neodoollae.common.view.BadgeTextView
             android:id="@+id/waitingReservationBadge"
             android:layout_width="wrap_content"
@@ -120,7 +121,6 @@
             app:badgeText="2"
             app:layout_constraintBottom_toTopOf="@+id/waitingReservationText"
             app:layout_constraintStart_toEndOf="@+id/waitingReservationText" />
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/waitingReservationUnderlineConstraint"
@@ -167,6 +167,7 @@
             tools:listitem="@layout/cell_reservation">
 
         </androidx.recyclerview.widget.RecyclerView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

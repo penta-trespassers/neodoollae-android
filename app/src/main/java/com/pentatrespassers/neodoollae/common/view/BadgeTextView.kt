@@ -4,14 +4,17 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.text.isDigitsOnly
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellBadgeTextBinding
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.hide
 
 class BadgeTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-    var badgeText = ""
+    var text = ""
 
     init {
         initView()
@@ -22,7 +25,7 @@ class BadgeTextView @JvmOverloads constructor(
             0, 0
         ).apply {
             try {
-                badgeText = getString(R.styleable.BadgeTextView_badgeText).toString()
+                text = getString(R.styleable.BadgeTextView_badgeText).toString()
             } finally {
                 recycle()
             }
@@ -37,7 +40,11 @@ class BadgeTextView @JvmOverloads constructor(
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
         with(CellBadgeTextBinding.bind(this)) {
-            badgeText.text = this@BadgeTextView.badgeText
+            if(text.isDigitsOnly() && text.toInt() != 0){
+                badgeText.text = this@BadgeTextView.text
+            } else {
+                root.gone()
+            }
         }
     }
 }
