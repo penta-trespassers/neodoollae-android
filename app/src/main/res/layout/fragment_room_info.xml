@@ -10,15 +10,14 @@
         android:id="@+id/roomInfoDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/insert_room_info_description"
+        android:textColor="@color/black"
         android:textSize="14dp"
         android:textStyle="normal"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
@@ -96,7 +95,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:hint="@string/hint_room_info"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

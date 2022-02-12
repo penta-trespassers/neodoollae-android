@@ -21,13 +21,14 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:background="@null"
+            android:background="@drawable/bg_common_button_app_bar"
             android:scaleType="center"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+            app:srcCompat="@drawable/ic_common_back"
+            app:tint="@color/blue_grey_800"
             tools:visibility="visible" />
 
         <ImageButton
@@ -42,6 +43,7 @@
             app:layout_constraintEnd_toStartOf="@+id/notificationButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_common_edit"
+            app:tint="@color/blue_grey_800"
             tools:visibility="visible" />
 
         <ImageButton
@@ -56,6 +58,7 @@
             app:layout_constraintEnd_toStartOf="@+id/editButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_person_add_black_24dp"
+            app:tint="@color/blue_grey_800"
             tools:visibility="visible" />
 
         <ImageButton
@@ -68,7 +71,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/scheduleButton"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_notifications_black_24dp" />
+            app:srcCompat="@drawable/ic_notifications_black_24dp"
+            app:tint="@color/blue_grey_800" />
 
         <ImageButton
             android:id="@+id/scheduleButton"
@@ -80,7 +84,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/settingButton"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_event_note_black_24dp" />
+            app:srcCompat="@drawable/ic_event_note_black_24dp"
+            app:tint="@color/blue_grey_800" />
 
         <ImageButton
             android:id="@+id/settingButton"
@@ -94,6 +99,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_settings_black_24dp"
+            app:tint="@color/blue_grey_800"
             tools:visibility="visible" />
 
         <TextView
@@ -101,16 +107,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:text="@string/home"
-            android:textColor="@color/black"
+            android:textColor="@color/blue_grey_800"
             android:textSize="18dp"
             android:textStyle="bold"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@id/backButtonMain"
+            app:layout_constraintBottom_toBottomOf="@+id/addfriendButton"
             app:layout_constraintStart_toEndOf="@+id/backButtonMain"
-            app:layout_constraintTop_toTopOf="@id/backButtonMain"
+            app:layout_constraintTop_toTopOf="@+id/addfriendButton"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -125,8 +129,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarConstraint"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout="@layout/fragment_home"
-        >
+        tools:layout="@layout/fragment_home">
 
     </androidx.fragment.app.FragmentContainerView>
 
@@ -134,10 +137,13 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:itemIconTint="@drawable/bg_navigation_bar_item_tint"
+        app:itemRippleColor="@color/color_card_pressed"
+        app:itemTextColor="@color/blue_grey_400"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation"/>
+        app:menu="@menu/bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
