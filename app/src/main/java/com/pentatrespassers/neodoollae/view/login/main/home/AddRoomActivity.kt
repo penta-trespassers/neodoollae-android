@@ -12,6 +12,8 @@ import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.*
 import splitties.fragments.fragmentTransaction
+import java.sql.Timestamp
+import java.util.*
 
 class AddRoomActivity : AppCompatActivity() {
 
@@ -95,10 +97,14 @@ class AddRoomActivity : AppCompatActivity() {
                         longitude = addressFragment.longitude!!,
                         status = roomOperationFragment.operation
                     ), {_, response ->
+                        Util.j(response)
                         Util.j(response.message())
+                        Util.j(response.body())
+                        Util.j(response.errorBody()?.string())
                         progressBarAddRoom.gone()
                     }) { _, response ->
                         finish()
+                        Timestamp(Calendar.getInstance().timeInMillis)
                     }
 
                 } else {
