@@ -115,8 +115,17 @@ object Util {
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                return (getSystemService(Context.LOCATION_SERVICE) as LocationManager?)?.getLastKnownLocation(
-                    LocationManager.GPS_PROVIDER)
+                val mLocationManager = (getSystemService(Context.LOCATION_SERVICE) as LocationManager)
+                val providers: List<String> = mLocationManager.getProviders(true)
+                var bestLocation: Location? = null
+                for (provider in providers) {
+                    val l: Location = mLocationManager.getLastKnownLocation(provider) ?: continue
+                    if (bestLocation == null || l.accuracy < bestLocation.accuracy) {
+                        // Found best last known location: %s", l);
+                        bestLocation = l
+                    }
+                }
+                return bestLocation
             }
             return null
         }
