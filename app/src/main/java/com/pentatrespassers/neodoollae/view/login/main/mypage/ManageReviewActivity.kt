@@ -41,14 +41,14 @@ class ManageReviewActivity : AppCompatActivity() {
                     writableText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassBlue_900
+                            R.color.blue_grey_800
                         )
                     )
                     writableUnderlineConstraint.visibility = View.VISIBLE
                     writtenText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassGray_900
+                            R.color.blue_grey_200
                         )
                     )
                     writtenUnderlineConstraint.visibility = View.GONE
@@ -61,14 +61,14 @@ class ManageReviewActivity : AppCompatActivity() {
                     writtenText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassBlue_900
+                            R.color.blue_grey_800
                         )
                     )
                     writtenUnderlineConstraint.visibility = View.VISIBLE
                     writableText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassGray_900
+                            R.color.blue_grey_200
                         )
                     )
                     writableUnderlineConstraint.visibility = View.GONE

@@ -57,8 +57,6 @@ class ReservationFragment constructor() : Fragment() {
             views[waitingReservationConstraint] =
                 Pair(waitingReservationText, waitingReservationUnderlineConstraint)
 
-            changeTo(myReservationConstraint)
-
             //나의 예약을 누른 경우
             myReservationConstraint.setOnClickListener {
                 RetrofitClient.getAllMyReservations { _, response ->

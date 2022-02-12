@@ -63,7 +63,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/friend_request"
-            android:textColor="@color/blue_grey_800"
+            android:textColor="@color/blue_grey_200"
             android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

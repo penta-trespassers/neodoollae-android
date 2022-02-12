@@ -43,38 +43,29 @@
         app:layout_constraintTop_toBottomOf="@+id/backButtonVisit">
 
 
-        <FrameLayout
-            android:id="@+id/myVisitBadge"
+        <TextView
+            android:id="@+id/myVisitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/my_visit_history"
+            android:textColor="@color/blue_grey_800"
+            android:textSize="14dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/myVisitText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/my_visit_history"
-                android:textColor="@color/trespassBlue_900"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/myVisitUnderlineConstraint"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/trespassBlue_900"
+            android:layout_height="2dp"
+            android:background="@color/grey_800"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -92,38 +83,29 @@
         app:layout_constraintTop_toTopOf="@+id/myVisitConstraint">
 
 
-        <FrameLayout
-            android:id="@+id/roomVisitBadge"
+        <TextView
+            android:id="@+id/roomVisitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/room_visit_history"
+            android:textColor="@color/blue_grey_200"
+            android:textSize="14dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/roomVisitText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/room_visit_history"
-                android:textColor="@color/trespassGray_900"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/roomVisitUnderlineConstraint"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/trespassBlue_900"
+            android:layout_height="2dp"
+            android:background="@color/blue_grey_800"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -141,9 +123,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myVisitConstraint"/>
-
-
+        app:layout_constraintTop_toBottomOf="@+id/myVisitConstraint" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

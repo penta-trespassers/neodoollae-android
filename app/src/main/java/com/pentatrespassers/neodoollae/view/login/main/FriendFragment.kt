@@ -53,13 +53,6 @@ class FriendFragment constructor() : Fragment() {
                 hide(friendRequestFragment)
             }
 
-            friendRequestText.setTextColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.blue_grey_200
-                )
-            )
-
             friendListConstraint.setOnClickListener {
                 fragmentTransaction {
                     hide(friendRequestFragment)
