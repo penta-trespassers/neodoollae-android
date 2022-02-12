@@ -11,9 +11,10 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
-class MyScheduleAdapter(private val context: Context, private var schedules: List<Pair<String, ArrayList<Reservation>>>) :
+class MyScheduleAdapter(private val context: Context, ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private val schedules: ArrayList<Pair<String, ArrayList<Reservation>>> = arrayListOf()
     private val dateTimeFormatter = DateTimeFormatter.ofPattern("MM.dd E")
 
     inner class MyScheduleHolder(private val bind: CellMyScheduleBinding) :
@@ -40,6 +41,13 @@ class MyScheduleAdapter(private val context: Context, private var schedules: Lis
         return schedules.size
     }
 
+    fun refresh(newSchedules: List<Pair<String, ArrayList<Reservation>>>? = null) {
+        newSchedules?.let {
+            schedules.clear()
+            schedules.addAll(newSchedules)
+        }
+        notifyDataSetChanged()
+    }
 
 
 }

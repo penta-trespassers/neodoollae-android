@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellMapListBinding
 import com.pentatrespassers.neodoollae.dto.Room
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.RoomImageAdapter
 import splitties.activities.start
@@ -26,6 +27,8 @@ class MapListAdapter(
 
     private var filteredList = mapItemList
 
+    var location = Util.getLocation(context)!!
+
     inner class MapListItemHolder(private val bind: CellMapListBinding) :
         RecyclerView.ViewHolder(bind.root) {
         fun binding(roomData: Room) {
@@ -35,10 +38,14 @@ class MapListAdapter(
                 roomRateImageView.setImageResource(R.drawable.ic_common_sentiment_5)
 
                 // set distance
-//                distanceTextView.text = getDistance(
-//                    roomData.latitude,
-//                    roomData.longitude
-//                )
+                distanceTextView.text = "${
+                    Util.getDistance(
+                        roomData.latitude,
+                        roomData.longitude,
+                        location.latitude,
+                        location.longitude
+                    ).toInt()
+                }m"
                 when (roomData.status) {
                     0, 1 -> {
                         roomConditionImageView.setImageResource(R.drawable.ic_common_room_open)

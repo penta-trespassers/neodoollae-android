@@ -1,12 +1,12 @@
 package com.pentatrespassers.neodoollae.view.login.main.mypage.visithistory
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentRoomVisitBinding
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.mypage.visithistory.roomvisit.RoomVisitAdapter
 
 class RoomVisitFragment constructor(): Fragment() {
@@ -23,7 +23,7 @@ class RoomVisitFragment constructor(): Fragment() {
         with(bind) {
             roomVisitAdapter = RoomVisitAdapter(requireContext())
             roomVisitRecycler.adapter = roomVisitAdapter
-
+            refreshRoomVisit()
             return root
         }
     }
@@ -34,7 +34,9 @@ class RoomVisitFragment constructor(): Fragment() {
     }
 
     fun refreshRoomVisit() {
-
+        RetrofitClient.getAllMyRoomReservations { _, response ->
+            roomVisitAdapter.refresh(response.body()!!)
+        }
     }
 
     override fun onHiddenChanged(hidden: Boolean) {

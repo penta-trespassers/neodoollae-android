@@ -1,9 +1,9 @@
 package com.pentatrespassers.neodoollae.view.login.main.mypage
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityVisitHistoryBinding
@@ -16,6 +16,7 @@ class VisitHistoryActivity : AppCompatActivity() {
     private val bind by lazy {
         ActivityVisitHistoryBinding.inflate(layoutInflater)
     }
+
 
     
     private val myVisitFragment = MyVisitFragment.newInstance()

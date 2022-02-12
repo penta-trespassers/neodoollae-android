@@ -10,6 +10,7 @@ data class Reservation(
     var userId: Int = UNDEFINED,
     var roomId: Int = UNDEFINED,
     var nickname: String = "",
+    var hostname: String = "",
     var roomName: String = "",
     var checkIn: Timestamp? = null,
     var checkOut: Timestamp? = null,
