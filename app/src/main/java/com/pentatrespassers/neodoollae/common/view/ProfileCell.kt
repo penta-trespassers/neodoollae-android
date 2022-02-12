@@ -94,7 +94,7 @@ class ProfileCell @JvmOverloads constructor(
         setRoomScore(room)
     }
 
-    private fun setProfileImage(image: String) {
+    private fun setProfileImage(image: String?) {
         with(CellProfileBinding.bind(this)) {
             when (profileViewType) {
                 Type.USER -> {

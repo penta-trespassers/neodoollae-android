@@ -86,6 +86,7 @@
             app:layout_constraintTop_toBottomOf="@+id/changePictureText" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/profileEditButton"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="16dp"

@@ -84,6 +84,7 @@
             tools:text="@string/friend_name" />
 
         <TextView
+            android:id="@+id/reviewScoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -129,6 +130,7 @@
             app:layout_constraintTop_toBottomOf="@id/emojiReviewAverage" />
 
         <TextView
+            android:id="@+id/reviewNumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -180,12 +182,12 @@
             android:id="@+id/emojiReview5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
             android:src="@drawable/ic_common_sentiment_5"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/trespassBlue_900" />
 
         <ProgressBar
             android:id="@+id/progressBar5"
@@ -202,12 +204,12 @@
             android:id="@+id/emojiReview4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/emojiReview5"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_common_sentiment_4"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emojiReview5"
+            app:tint="@color/trespassGreen_900" />
 
         <ProgressBar
             android:id="@+id/progressBar4"
@@ -225,12 +227,12 @@
             android:id="@+id/emojiReview3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/emojiReview4"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_common_sentiment_3"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emojiReview4"
+            app:tint="@color/trespassYellow_900" />
 
         <ProgressBar
             android:id="@+id/progressBar3"
@@ -247,11 +249,12 @@
             android:id="@+id/emojiReview2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/emojiReview3"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_common_sentiment_2"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_common_sentiment_2" />
+            app:layout_constraintTop_toBottomOf="@id/emojiReview3"
+            app:tint="@color/color_button_error" />
 
         <ProgressBar
             android:id="@+id/progressBar2"
@@ -268,13 +271,14 @@
             android:id="@+id/emojiReview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/emojiReview2"
-            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_common_sentiment_1"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_common_sentiment_1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emojiReview2"
+            app:tint="@color/trespassRed_900" />
 
         <ProgressBar
             android:id="@+id/progressBar1"
@@ -296,7 +300,6 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:padding="16dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
