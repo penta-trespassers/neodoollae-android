@@ -8,12 +8,13 @@ data class Notification(
 ) {
     companion object {
         const val TYPE_UNDEFINED = -1
-        const val STATUS_RESERVE_WAITING = 0
-        const val STATUS_RESERVE_ACCEPTED = 1
-        const val STATUS_RESERVE_DECLINED = 2
-        const val STATUS_REVIEW_HOST = 3
-        const val STATUS_REVIEW_GUEST = 4
-        const val STATUS_REVIEW_ROOM = 5
+        const val TYPE_RESERVE_WAITING = 0
+        const val TYPE_RESERVE_ACCEPTED = 1
+        const val TYPE_RESERVE_DECLINED = 2
+        const val TYPE_REVIEW_HOST = 3
+        const val TYPE_REVIEW_GUEST = 4
+        const val TYPE_FRIEND_ACCEPTED = 5
+        const val TYPE_FRIEND_REQUEST = 6
     }
 }
 

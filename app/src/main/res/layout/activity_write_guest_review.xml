@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.login.main.mypage.managereview.writablereview.WriteGuestReviewActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBarConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButtonWriteGuestReview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_common_button_app_bar"
+            android:scaleType="center"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_common_back"
+            app:tint="@color/blue_grey_800"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/titleTextWriteGuestReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/write_guest_review"
+            android:textColor="@color/blue_grey_800"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/backButtonWriteGuestReview"
+            app:layout_constraintStart_toEndOf="@+id/backButtonWriteGuestReview"
+            app:layout_constraintTop_toTopOf="@+id/backButtonWriteGuestReview"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonConstraint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarConstraint">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/roomAndGuestConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_common_card"
+                    android:elevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:id="@+id/roomAndGuestDivider"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="32dp"
+                        android:background="@color/color_card_divider"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/roomText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/room"
+                        android:textColor="@color/blue_grey_400"
+                        android:textSize="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/roomAndGuestDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/roomAndGuestDivider" />
+
+                    <TextView
+                        android:id="@+id/guestText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guest"
+                        android:textColor="@color/blue_grey_400"
+                        android:textSize="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/roomAndGuestDivider"
+                        app:layout_constraintTop_toTopOf="@+id/roomAndGuestDivider" />
+
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/roomImage"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginTop="8dp"
+                        app:civ_border="false"
+                        app:layout_constraintEnd_toEndOf="@+id/roomText"
+                        app:layout_constraintStart_toStartOf="@+id/roomText"
+                        app:layout_constraintTop_toBottomOf="@id/roomText"
+                        app:srcCompat="@drawable/ic_common_bed_circle" />
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/guestImage"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginTop="8dp"
+                        app:civ_border="false"
+                        app:layout_constraintEnd_toEndOf="@+id/guestText"
+                        app:layout_constraintStart_toStartOf="@+id/guestText"
+                        app:layout_constraintTop_toBottomOf="@+id/guestText"
+                        app:srcCompat="@drawable/ic_common_account_no_padding" />
+
+                    <TextView
+                        android:id="@+id/roomNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="32dp"
+                        android:text="@string/room_name"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/roomImage"
+                        app:layout_constraintStart_toStartOf="@+id/roomImage"
+                        app:layout_constraintTop_toBottomOf="@+id/roomImage" />
+
+                    <TextView
+                        android:id="@+id/guestNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="32dp"
+                        android:text="@string/room_name"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/guestImage"
+                        app:layout_constraintStart_toStartOf="@+id/guestImage"
+                        app:layout_constraintTop_toBottomOf="@+id/guestImage" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/visitTimeConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_common_card"
+                    android:elevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/roomAndGuestConstraint">
+
+                    <View
+                        android:id="@+id/visitTimeDivider"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="@color/color_card_divider"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/visitTimeText" />
+
+                    <TextView
+                        android:id="@+id/visitTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/visit_time"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/checkInDateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_grey_400"
+                        android:textSize="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/visitTimeDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/visitTimeDivider"
+                        tools:text="@string/sample_date" />
+
+                    <TextView
+                        android:id="@+id/checkOutDateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_grey_400"
+                        android:textSize="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/visitTimeDivider"
+                        app:layout_constraintTop_toTopOf="@+id/visitTimeDivider"
+                        tools:text="@string/sample_date" />
+
+                    <TextView
+                        android:id="@+id/checkInTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="14dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/checkInDateText"
+                        app:layout_constraintStart_toStartOf="@+id/checkInDateText"
+                        app:layout_constraintTop_toBottomOf="@+id/checkInDateText"
+                        tools:text="@string/sample_time" />
+
+                    <TextView
+                        android:id="@+id/checkOutTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="14dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/checkOutDateText"
+                        app:layout_constraintStart_toStartOf="@+id/checkOutDateText"
+                        app:layout_constraintTop_toBottomOf="@+id/checkOutDateText"
+                        tools:text="@string/sample_time" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/selectGuestScoreConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_common_card"
+                    android:elevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/visitTimeConstraint">
+
+                    <TextView
+                        android:id="@+id/selectGuestScoreText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/select_guest_score"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sentiment5Constraint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_common_button_menu_cell"
+                        android:backgroundTint="@color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/sentiment4Constraint"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/selectGuestScoreText">
+
+                        <ImageView
+                            android:id="@+id/sentiment5Image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_common_sentiment_5"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/indigo_600" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sentiment4Constraint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_common_button_menu_cell"
+                        android:backgroundTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/sentiment5Constraint"
+                        app:layout_constraintEnd_toStartOf="@+id/sentiment3Constraint"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/sentiment5Constraint"
+                        app:layout_constraintTop_toTopOf="@+id/sentiment5Constraint">
+
+                        <ImageView
+                            android:id="@+id/sentiment4Image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_common_sentiment_4"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/green_600" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sentiment3Constraint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_common_button_menu_cell"
+                        android:backgroundTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/sentiment4Constraint"
+                        app:layout_constraintEnd_toStartOf="@+id/sentiment2Constraint"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/sentiment4Constraint"
+                        app:layout_constraintTop_toTopOf="@+id/sentiment4Constraint">
+
+                        <ImageView
+                            android:id="@+id/sentiment3Image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_common_sentiment_3"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/yellow_600" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sentiment2Constraint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_common_button_menu_cell"
+                        android:backgroundTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/sentiment3Constraint"
+                        app:layout_constraintEnd_toStartOf="@+id/sentiment1Constraint"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/sentiment3Constraint"
+                        app:layout_constraintTop_toTopOf="@+id/sentiment3Constraint">
+
+                        <ImageView
+                            android:id="@+id/sentiment2Image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_common_sentiment_2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/orange_600" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sentiment1Constraint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/bg_common_button_menu_cell"
+                        android:backgroundTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/sentiment2Constraint"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/sentiment2Constraint"
+                        app:layout_constraintTop_toTopOf="@+id/sentiment2Constraint">
+
+                        <ImageView
+                            android:id="@+id/sentiment1Image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_common_sentiment_1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/red_600" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/sentiment5Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/sentiment5"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/sentiment5Constraint"
+                        app:layout_constraintStart_toStartOf="@id/sentiment5Constraint"
+                        app:layout_constraintTop_toBottomOf="@id/sentiment5Constraint" />
+
+                    <TextView
+                        android:id="@+id/sentiment4Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/sentiment4"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/sentiment4Constraint"
+                        app:layout_constraintStart_toStartOf="@id/sentiment4Constraint"
+                        app:layout_constraintTop_toBottomOf="@id/sentiment4Constraint" />
+
+                    <TextView
+                        android:id="@+id/sentiment3Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/sentiment3"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/sentiment3Constraint"
+                        app:layout_constraintStart_toStartOf="@id/sentiment3Constraint"
+                        app:layout_constraintTop_toBottomOf="@id/sentiment3Constraint" />
+
+                    <TextView
+                        android:id="@+id/sentiment2Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/sentiment2"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/sentiment2Constraint"
+                        app:layout_constraintStart_toStartOf="@id/sentiment2Constraint"
+                        app:layout_constraintTop_toBottomOf="@id/sentiment2Constraint" />
+
+                    <TextView
+                        android:id="@+id/sentiment1Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/sentiment1"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/sentiment1Constraint"
+                        app:layout_constraintStart_toStartOf="@id/sentiment1Constraint"
+                        app:layout_constraintTop_toBottomOf="@id/sentiment1Constraint" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/writeGuestReviewConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_common_card"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/selectGuestScoreConstraint">
+
+                    <TextView
+                        android:id="@+id/writeGuestReviewText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/please_write_guest_review"
+                        android:textColor="@color/blue_grey_800"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/writeGuestReviewEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/content"
+                        android:textSize="14dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/writeGuestReviewText" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/guestReviewSkipButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/common_button"
+            android:text="@string/skip"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guestReviewAddButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/guestReviewAddButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/common_button"
+            android:text="@string/write_review"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/guestReviewSkipButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/guestReviewSkipButton"
+            app:layout_constraintTop_toTopOf="@+id/guestReviewSkipButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

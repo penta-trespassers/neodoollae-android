@@ -74,7 +74,28 @@
     <string name="decline">거절하기</string>
 
     <!-- Review Strings -->
+    <string name="sample_date">20YY.MM.DD</string>
+    <string name="sample_time">오후 HH:MM</string>
+    <string name="room">방</string>
+    <string name="guest">방문자</string>
     <string name="watch_reviews">리뷰 보기</string>
+    <string name="content">내용</string>
+    <string name="write_review">리뷰 작성하기</string>
+    <string name="skip">건너뛰기</string>
+    <string name="write_guest_review">손님 리뷰 작성</string>
+    <string name="write_visit_review">방문 리뷰 작성</string>
+    <string name="visit_time">방문 시간</string>
+    <string name="select_guest_score">손님 점수를 선택해주세요.</string>
+    <string name="please_write_guest_review">손님 리뷰를 작성해주세요.</string>
+    <string name="select_room_score">방 점수를 선택해주세요.</string>
+    <string name="please_write_room_review">방 리뷰를 작성해주세요.</string>
+    <string name="select_host_score">주인 점수를 선택해주세요.</string>
+    <string name="please_write_host_review">주인 리뷰를 작성해주세요.</string>
+    <string name="sentiment5">최고예요</string>
+    <string name="sentiment4">좋아요</string>
+    <string name="sentiment3">보통이에요</string>
+    <string name="sentiment2">별로예요</string>
+    <string name="sentiment1">최악이에요</string>
 
     <!-- Room profile Strings -->
     <string name="room_of_friend">친구의 방</string>
