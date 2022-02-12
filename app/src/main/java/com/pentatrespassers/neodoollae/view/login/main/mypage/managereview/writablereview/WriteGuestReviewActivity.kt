@@ -4,11 +4,20 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityWriteGuestReviewBinding
+import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationProfileActivity
+import splitties.bundle.BundleSpec
+import splitties.bundle.bundle
+import splitties.bundle.withExtras
 import splitties.resources.color
+import splitties.toast.toast
 
 class WriteGuestReviewActivity : AppCompatActivity() {
 
@@ -17,6 +26,18 @@ class WriteGuestReviewActivity : AppCompatActivity() {
     }
 
     var guestScore = 5
+
+
+    object Extras : BundleSpec() {
+        var reviews: Reservation by bundle()
+    }
+
+    private val guestReview by lazy {
+        withExtras(Extras) {
+            reviews
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +75,30 @@ class WriteGuestReviewActivity : AppCompatActivity() {
             }
 
 
+            val formatter1 = Util.getDateFormatter("yyyy.MM.dd")
+            val formatter2 = Util.getDateFormatter("a hh:mm")
+
+            guestNameText.text = guestReview.nickname
+            roomNameText.text = guestReview.roomName
+            checkInDateText.text = formatter1.format(guestReview.checkIn)
+            checkInTimeText.text = formatter2.format(guestReview.checkIn)
+            checkOutDateText.text = formatter1.format(guestReview.checkOut)
+            checkOutTimeText.text = formatter2.format(guestReview.checkOut)
+
+
+            guestReviewSkipButton.setOnClickListener {
+                toast("손님 리뷰를 건너뛰었습니다.")
+                finish()
+            }
+
+            guestReviewAddButton.setOnClickListener {
+                toast("손님 리뷰 작성 완료!")
+                finish()
+            }
+
+            backButtonWriteGuestReview.setOnClickListener {
+                onBackPressed()
+            }
 
 
 

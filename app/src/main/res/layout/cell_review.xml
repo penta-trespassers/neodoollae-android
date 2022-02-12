@@ -64,6 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:foregroundGravity="left"
+        android:gravity="left"
         android:text="방 주인분께서 라면도 직접 끓여주시고 설거지를 안 시키셔서 좋았습니다. 다음 번에도 또 가고 싶네요~담에는 떡볶이 해주세요:)"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.login.main.mypage.managereview.writablereview.WriteGuestReviewActivity">
+    tools:context=".view.login.main.mypage.managereview.writablereview.WriteVisitReviewActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/appBarConstraint"
@@ -901,7 +901,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/guestReviewSkipButton"
+            android:id="@+id/visitReviewSkipButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -910,13 +910,13 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guestReviewAddButton"
+            app:layout_constraintEnd_toStartOf="@+id/visitReviewAddButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/guestReviewAddButton"
+            android:id="@+id/visitReviewAddButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -925,11 +925,11 @@
             android:text="@string/write_review"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/guestReviewSkipButton"
+            app:layout_constraintBottom_toBottomOf="@+id/visitReviewSkipButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/guestReviewSkipButton"
-            app:layout_constraintTop_toTopOf="@+id/guestReviewSkipButton" />
+            app:layout_constraintStart_toEndOf="@+id/visitReviewSkipButton"
+            app:layout_constraintTop_toTopOf="@+id/visitReviewSkipButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

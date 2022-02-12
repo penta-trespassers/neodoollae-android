@@ -5,7 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityWriteVisitReviewBinding
+import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.lib.Util
+import splitties.bundle.BundleSpec
+import splitties.bundle.bundle
+import splitties.bundle.withExtras
 import splitties.resources.color
+import splitties.toast.toast
 
 class WriteVisitReviewActivity : AppCompatActivity() {
 
@@ -15,6 +21,17 @@ class WriteVisitReviewActivity : AppCompatActivity() {
 
     var roomScore = 5
     var hostScore = 5
+
+
+    object Extras : BundleSpec() {
+        var reviews: Reservation by bundle()
+    }
+
+    private val visitReview by lazy {
+        withExtras(Extras) {
+            reviews
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,6 +97,32 @@ class WriteVisitReviewActivity : AppCompatActivity() {
                 hostScore = 1
                 makeHostUnselect()
                 it.backgroundTintList = ColorStateList.valueOf(color(R.color.color_card_pressed))
+            }
+
+
+            val formatter1 = Util.getDateFormatter("yyyy.MM.dd")
+            val formatter2 = Util.getDateFormatter("a hh:mm")
+
+            guestNameText.text = visitReview.nickname
+            roomNameText.text = visitReview.roomName
+            checkInDateText.text = formatter1.format(visitReview.checkIn)
+            checkInTimeText.text = formatter2.format(visitReview.checkIn)
+            checkOutDateText.text = formatter1.format(visitReview.checkOut)
+            checkOutTimeText.text = formatter2.format(visitReview.checkOut)
+
+
+            visitReviewSkipButton.setOnClickListener {
+                toast("방문 리뷰를 건너뛰었습니다.")
+                finish()
+            }
+
+            visitReviewAddButton.setOnClickListener {
+                toast("방문 리뷰 작성 완료!")
+                finish()
+            }
+
+            backButtonWriteVisitReview.setOnClickListener {
+                onBackPressed()
             }
         }
     }
