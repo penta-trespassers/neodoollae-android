@@ -1,24 +1,31 @@
 package com.pentatrespassers.neodoollae.view.login.main.invite
 
 import android.content.Intent
-import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.View
 import android.widget.CalendarView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
-import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
-import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationEditActivity
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
+import splitties.bundle.BundleSpec
+import splitties.bundle.bundle
+import splitties.bundle.withExtras
 import splitties.toast.toast
 import java.text.SimpleDateFormat
 import java.util.*
 
 class InvitationEditActivity : AppCompatActivity(){
-    var invitation : Reservation = Reservation()
+    object Extras : BundleSpec() {
+        var invitation: Reservation by bundle()
+    }
+
+    private val invitation by lazy {
+        withExtras(Extras) {
+            invitation
+        }
+    }
 
     var isDateExpanded : Boolean = false
     var isTimeExpanded : Boolean = false
@@ -37,10 +44,6 @@ class InvitationEditActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-
-            var intent : Intent = getIntent()
-            invitation = intent.getParcelableExtra("Reservation")!!
-
 
             invitationRoomNameText.text = invitation.roomName
             invitationVisitorNameText.text = invitation.nickname

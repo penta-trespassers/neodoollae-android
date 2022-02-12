@@ -3,19 +3,15 @@ package com.pentatrespassers.neodoollae.view.login.main.home
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.naver.maps.geometry.LatLng
-import com.naver.maps.geometry.Utmk
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityRoomProfileBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -24,13 +20,11 @@ import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendp
 import com.pentatrespassers.neodoollae.view.login.main.home.roomactivity.RoomImageAdapter
 import com.pentatrespassers.neodoollae.view.login.main.invite.InvitationEditActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
-import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationEditActivity
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.putExtras
 import splitties.bundle.withExtras
-import java.sql.Timestamp
 
 class RoomProfileActivity : AppCompatActivity() {
 
@@ -159,9 +153,11 @@ class RoomProfileActivity : AppCompatActivity() {
                 else -> getString(R.string.make_reservation)
             }
             reserveButtonRoomProfile.setOnClickListener {
-                intent = Intent(this@RoomProfileActivity, InvitationEditActivity::class.java)
-                intent.putExtra("reservation", Reservation(0,user.id, roomInfo.id!!,user.nickname,roomInfo!!.roomName))
-                startActivity(intent)
+                start<InvitationEditActivity> {
+                    putExtras(InvitationEditActivity.Extras) {
+                        invitation = Reservation(0,user.id, roomInfo.id!!,user.nickname,roomInfo.roomName)
+                    }
+                }
             }
 
 

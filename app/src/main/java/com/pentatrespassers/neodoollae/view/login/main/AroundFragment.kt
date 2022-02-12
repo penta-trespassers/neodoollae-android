@@ -17,15 +17,11 @@ import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.util.FusedLocationSource
+import com.naver.maps.map.util.MarkerIcons
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.FragmentAroundBinding
 import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.view.login.main.around.MapListRecyclerViewAdapter
-import android.widget.Toast
-import com.naver.maps.map.util.MarkerIcons
-import com.pentatrespassers.neodoollae.lib.Util.gone
-import com.pentatrespassers.neodoollae.network.RetrofitClient
 
 
 class AroundFragment private constructor() : Fragment(), OnMapReadyCallback {
