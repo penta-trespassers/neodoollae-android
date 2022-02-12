@@ -12,6 +12,8 @@ import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.*
 import splitties.fragments.fragmentTransaction
+import splitties.resources.str
+import splitties.toast.toast
 import java.sql.Timestamp
 import java.util.*
 
@@ -96,7 +98,7 @@ class AddRoomActivity : AppCompatActivity() {
                         latitude = addressFragment.latitude!!,
                         longitude = addressFragment.longitude!!,
                         status = roomOperationFragment.operation
-                    ), {_, response ->
+                    ), { _, response ->
                         Util.j(response)
                         Util.j(response.message())
                         Util.j(response.body())
@@ -108,10 +110,32 @@ class AddRoomActivity : AppCompatActivity() {
                     }
 
                 } else {
+                    if (currentFragmentIndex == 0) {
+                        addressFragment.addressQuery.ifBlank {
+                            toast(str(R.string.toast_no_address))
+                            return@setOnClickListener
+                        }
+                        addressFragment.detailAddress.ifBlank {
+                            toast(str(R.string.toast_no_detail_address))
+                            return@setOnClickListener
+                        }
+
+                    } else if (currentFragmentIndex == 1) {
+                        roomInfoFragment.roomName.ifBlank {
+                            toast(str(R.string.toast_no_room_name))
+                            return@setOnClickListener
+                        }
+                        roomInfoFragment.description.ifBlank {
+                            toast(str(R.string.toast_no_room_description))
+                            return@setOnClickListener
+                        }
+                    }
+
                     fragmentTransaction {
                         hide(fragmentList[currentFragmentIndex])
                         show(fragmentList[++currentFragmentIndex])
                         titleTextAddRoom.text = getString(titleList[currentFragmentIndex])
+                        nextButton.setImageResource(R.drawable.ic_common_next)
                         if (currentFragmentIndex == 1) {
                             prevButton.visibility = View.VISIBLE
                         } else if (currentFragmentIndex == fragmentList.lastIndex) {
@@ -120,6 +144,8 @@ class AddRoomActivity : AppCompatActivity() {
                     }
                 }
             }
+
+
         }
     }
 }

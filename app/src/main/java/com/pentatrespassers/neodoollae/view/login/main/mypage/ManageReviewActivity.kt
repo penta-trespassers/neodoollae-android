@@ -41,14 +41,14 @@ class ManageReviewActivity : AppCompatActivity() {
                     writableText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassBlue_900
+                            R.color.blue_grey_800
                         )
                     )
                     writableUnderlineConstraint.visibility = View.VISIBLE
                     writtenText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassGray_900
+                            R.color.blue_grey_200
                         )
                     )
                     writtenUnderlineConstraint.visibility = View.GONE
@@ -61,44 +61,22 @@ class ManageReviewActivity : AppCompatActivity() {
                     writtenText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassBlue_900
+                            R.color.blue_grey_800
                         )
                     )
                     writtenUnderlineConstraint.visibility = View.VISIBLE
                     writableText.setTextColor(
                         ContextCompat.getColor(
                             root.context,
-                            R.color.trespassGray_900
+                            R.color.blue_grey_200
                         )
                     )
                     writableUnderlineConstraint.visibility = View.GONE
                 }
             }
 
-            val leftBadge = BadgeDrawable.create(this@ManageReviewActivity).apply {
-                number = 3
-                backgroundColor =
-                    ContextCompat.getColor(this@ManageReviewActivity, R.color.app_theme)
-                badgeTextColor = ContextCompat.getColor(this@ManageReviewActivity, R.color.white)
-                badgeGravity = BadgeDrawable.TOP_END
-                writableReviewBadge.foreground = this
-                writableReviewBadge.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                    BadgeUtils.attachBadgeDrawable(this, writableText, writableReviewBadge)
-                }
-            }
-
-
-            val rightBadge = BadgeDrawable.create(this@ManageReviewActivity).apply {
-                number = 3
-                backgroundColor =
-                    ContextCompat.getColor(this@ManageReviewActivity, R.color.app_theme)
-                badgeTextColor = ContextCompat.getColor(this@ManageReviewActivity, R.color.white)
-                badgeGravity = BadgeDrawable.TOP_END
-                writtenBadge.foreground = this
-                writtenBadge.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                    BadgeUtils.attachBadgeDrawable(this, writtenText, writtenBadge)
-                }
-            }
+            writableBadge.text = "0"
+            writtenBadge.text = "2"
 
             backButtonReview.setOnClickListener {
                 finish()

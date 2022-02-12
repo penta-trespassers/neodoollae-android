@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentAddressBinding
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -36,6 +39,22 @@ class AddressFragment constructor() : Fragment() {
         with(bind) {
             selectAddressAdapter = SelectAddressAdapter(requireContext(), this)
             selectAddressRecycler.adapter = selectAddressAdapter
+
+            addressEditText.setOnEditorActionListener{ _, action, _ ->
+                var handled = false
+                if (action == EditorInfo.IME_ACTION_SEARCH) {
+                    RetrofitClient.searchPlace(addressQuery) { _, response ->
+                        selectAddressAdapter.documentList = response.body()!!.documents
+                        selectAddressAdapter.notifyDataSetChanged()
+                        selectAddressConstraint.show()
+                        selectedAddressConstraint.gone()
+                        detailAddressEditText.gone()
+                    }
+                    handled = true
+                }
+                handled
+            }
+
             searchButton.setOnClickListener {
                 addressQuery.ifBlank { return@setOnClickListener }
                 RetrofitClient.searchPlace(addressQuery) { _, response ->

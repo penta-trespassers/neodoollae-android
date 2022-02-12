@@ -16,14 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_settings_black_24dp"
-        app:tint="@color/trespassGray_600" />
+        app:tint="@color/blue_grey_200" />
 
     <TextView
         android:id="@+id/oneLineMainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue_grey_800"
         android:textSize="14dp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@id/oneLineImage"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings"
-        android:textColor="@color/trespassGray_600"
+        android:textColor="@color/blue_grey_200"
         android:textSize="14dp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"

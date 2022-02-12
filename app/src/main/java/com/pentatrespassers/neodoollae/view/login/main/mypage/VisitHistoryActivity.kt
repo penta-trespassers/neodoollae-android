@@ -37,9 +37,9 @@ class VisitHistoryActivity : AppCompatActivity() {
                 fragmentTransaction {
                     hide(roomVisitFragment)
                     show(myVisitFragment)
-                    myVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.trespassBlue_900))
+                    myVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.blue_grey_800))
                     myVisitUnderlineConstraint.visibility = View.VISIBLE
-                    roomVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.trespassGray_900))
+                    roomVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.blue_grey_200))
                     roomVisitUnderlineConstraint.visibility = View.GONE
                 }
             }
@@ -48,9 +48,9 @@ class VisitHistoryActivity : AppCompatActivity() {
                 fragmentTransaction {
                     hide(myVisitFragment)
                     show(roomVisitFragment)
-                    roomVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.trespassBlue_900))
+                    roomVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.blue_grey_800))
                     roomVisitUnderlineConstraint.visibility = View.VISIBLE
-                    myVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.trespassGray_900))
+                    myVisitText.setTextColor(ContextCompat.getColor(root.context, R.color.blue_grey_200))
                     myVisitUnderlineConstraint.visibility = View.GONE
                 }
             }

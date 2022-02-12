@@ -56,6 +56,11 @@
     <string name="restrict_description">내 친구들이 예약할 수 있는\n날짜를 선택해주세요.</string>
     <string name="close_description">내 친구들이 이 방을 예약할 수 없습니다.</string>
     <string name="select_date">날짜 선택</string>
+    <string name="toast_no_address">주소를 선택해주세요.</string>
+    <string name="toast_no_detail_address">상세 주소를 입력해주세요.</string>
+    <string name="toast_no_room_name">방 이름을 입력해주세요.</string>
+    <string name="toast_no_room_description">방 소개를 적어주세요.</string>
+
 
     <!-- Around Strings -->
     <string name="possible_reserve">예약 가능한 방만 보기</string>
@@ -66,6 +71,8 @@
     <string name="friend_room_list">방 목록</string>
     <string name="has_no_room">방이 없습니다.</string>
     <string name="only_has_room">자취러만 보기</string>
+    <string name="has_room">방 있음</string>
+    <string name="does_not_have_room">방 없음</string>
 
     <!-- Notice Strings -->
     <string name="message_to_guest">수락/거절 메시지</string>
@@ -74,6 +81,8 @@
     <string name="decline">거절하기</string>
 
     <!-- Review Strings -->
+    <string name="my_reservation">나의 예약</string>
+    <string name="waiting">대기 중</string>
     <string name="sample_date">20YY.MM.DD</string>
     <string name="sample_time">오후 HH:MM</string>
     <string name="room">방</string>

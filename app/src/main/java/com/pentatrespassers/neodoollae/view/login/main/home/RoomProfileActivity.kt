@@ -122,9 +122,8 @@ class RoomProfileActivity : AppCompatActivity() {
                 else -> "NONE"
             }
 
-            roomAddressContent.text =
-                getString(R.string.full_Address, roomInfo.address, roomInfo.detailAddress)
-
+            roomAddressContent.text = roomInfo.address
+            roomDetailAddressContent.text = roomInfo.detailAddress
             wordFromHostContent.text = roomInfo.description
 
             when (hasNoImage()) {

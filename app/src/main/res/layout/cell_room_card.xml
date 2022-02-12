@@ -34,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/roomNameTextRoomCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/roomNameTextRoomCard"
-        app:srcCompat="@drawable/ic_sentiment_satisfied" />
+        app:srcCompat="@drawable/ic_common_sentiment_4" />
 
     <TextView
         android:id="@+id/roomNameTextRoomCard"
@@ -43,7 +43,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:text="@string/room_name"
-        android:textColor="@color/black"
+        android:textColor="@color/blue_grey_800"
         android:textSize="14dp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/roomRatingImage"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/nickname"
-        android:textColor="@color/black"
+        android:textColor="@color/blue_grey_800"
         android:textSize="10dp"
         app:layout_constraintStart_toStartOf="@+id/roomRatingImage"
         app:layout_constraintTop_toBottomOf="@+id/roomNameTextRoomCard" />
@@ -68,5 +68,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/roomNameTextRoomCard"
         app:srcCompat="@drawable/ic_common_room_open"
-        app:tint="@color/trespassBlue_900" />
+        app:tint="@color/indigo_600" />
 </androidx.constraintlayout.widget.ConstraintLayout>
