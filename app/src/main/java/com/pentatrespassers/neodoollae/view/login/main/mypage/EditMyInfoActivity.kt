@@ -29,7 +29,6 @@ class EditMyInfoActivity : AppCompatActivity() {
         ActivityEditMyInfoBinding.inflate(layoutInflater)
     }
 
-
     /***/
     val CAMERA = Manifest.permission.CAMERA
     //    val STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -50,9 +49,8 @@ class EditMyInfoActivity : AppCompatActivity() {
 
     // 카메라 권한 체크
     private fun checkPermission(): Boolean {
-        return (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+        return (ContextCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
     }
 
     // 권한요청 결과
@@ -184,8 +182,8 @@ class EditMyInfoActivity : AppCompatActivity() {
         with(bind){
 
             profileEditButton.setOnClickListener {
+                requestPermission()
                 if (checkPermission()) {
-                    dispatchTakePictureIntent()
                     toast("안녕")
                 }
                 toast("안녕")
