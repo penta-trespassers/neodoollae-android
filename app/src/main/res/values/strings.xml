@@ -56,6 +56,11 @@
     <string name="restrict_description">내 친구들이 예약할 수 있는\n날짜를 선택해주세요.</string>
     <string name="close_description">내 친구들이 이 방을 예약할 수 없습니다.</string>
     <string name="select_date">날짜 선택</string>
+    <string name="toast_no_address">주소를 선택해주세요.</string>
+    <string name="toast_no_detail_address">상세 주소를 입력해주세요.</string>
+    <string name="toast_no_room_name">방 이름을 입력해주세요.</string>
+    <string name="toast_no_room_description">방 소개를 적어주세요.</string>
+
 
     <!-- Around Strings -->
     <string name="possible_reserve">예약 가능한 방만 보기</string>
