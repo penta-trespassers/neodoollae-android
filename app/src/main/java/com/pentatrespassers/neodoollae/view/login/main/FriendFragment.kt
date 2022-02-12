@@ -29,7 +29,7 @@ class FriendFragment constructor() : Fragment() {
     private val friendListFragment = FriendListFragment.newInstance()
     private val friendRequestFragment = FriendRequestFragment.newInstance()
 
-    lateinit var addFriendButton: ImageButton
+    var addFriendButton: ImageButton? = null
 
     // 하단 친구 추가 창
     private val addFriendBind by lazy { BtmSheetAddFriendBinding.inflate(layoutInflater) }
@@ -126,9 +126,6 @@ class FriendFragment constructor() : Fragment() {
 
             }
 
-            addFriendButton.setOnClickListener {
-                addFriend()
-            }
             BadgeDrawable.create(requireContext()).apply {
                 number = 5
                 backgroundColor = ContextCompat.getColor(requireContext(), R.color.app_theme)
