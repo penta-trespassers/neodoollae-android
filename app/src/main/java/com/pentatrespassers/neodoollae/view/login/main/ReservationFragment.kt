@@ -29,11 +29,11 @@ class ReservationFragment constructor() : Fragment() {
 
     private fun changeTo(constraintLayout: ConstraintLayout) {
         views.values.forEach {
-            it.first.setTextColor(color(R.color.trespassGray_900))
+            it.first.setTextColor(color(R.color.blue_grey_200))
             it.second.hide()
         }
         views.getValue(constraintLayout).let {
-            it.first.setTextColor(color(R.color.trespassBlue_900))
+            it.first.setTextColor(color(R.color.blue_grey_800))
             it.second.show()
         }
     }
@@ -57,6 +57,7 @@ class ReservationFragment constructor() : Fragment() {
             views[waitingReservationConstraint] =
                 Pair(waitingRerservationText, waitingReservationUnderlineConstraint)
 
+            changeTo(myReservationConstraint)
 
             //나의 예약을 누른 경우
             myReservationConstraint.setOnClickListener {

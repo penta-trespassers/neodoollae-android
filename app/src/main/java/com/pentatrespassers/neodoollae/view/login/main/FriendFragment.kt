@@ -9,6 +9,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
+import com.google.android.material.badge.BadgeUtils.attachBadgeDrawable
+import com.google.android.material.badge.ExperimentalBadgeUtils
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
@@ -50,6 +52,14 @@ class FriendFragment constructor() : Fragment() {
                 add(R.id.friendFrame, friendRequestFragment)
                 hide(friendRequestFragment)
             }
+
+            friendRequestText.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.blue_grey_200
+                )
+            )
+
             friendListConstraint.setOnClickListener {
                 fragmentTransaction {
                     hide(friendRequestFragment)
@@ -57,14 +67,14 @@ class FriendFragment constructor() : Fragment() {
                     friendListText.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
-                            R.color.trespassBlue_900
+                            R.color.blue_grey_800
                         )
                     )
                     friendListUnderlineConstraint.visibility = View.VISIBLE
                     friendRequestText.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
-                            R.color.trespassGray_900
+                            R.color.blue_grey_200
                         )
                     )
                     friendRequestUnderlineConstraint.visibility = View.GONE
@@ -77,14 +87,14 @@ class FriendFragment constructor() : Fragment() {
                     friendRequestText.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
-                            R.color.trespassBlue_900
+                            R.color.blue_grey_800
                         )
                     )
                     friendRequestUnderlineConstraint.visibility = View.VISIBLE
                     friendListText.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
-                            R.color.trespassGray_900
+                            R.color.blue_grey_200
                         )
                     )
                     friendListUnderlineConstraint.visibility = View.GONE
@@ -128,13 +138,13 @@ class FriendFragment constructor() : Fragment() {
 
             BadgeDrawable.create(requireContext()).apply {
                 number = 5
-                backgroundColor = ContextCompat.getColor(requireContext(), R.color.app_theme)
+                backgroundColor = ContextCompat.getColor(requireContext(), R.color.red_600)
                 badgeTextColor = ContextCompat.getColor(requireContext(), R.color.white)
                 badgeGravity = BadgeDrawable.TOP_END
             }.let {
                 badgeFrame.foreground = it
                 badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                    BadgeUtils.attachBadgeDrawable(it, friendRequestText, badgeFrame)
+                   BadgeUtils.attachBadgeDrawable(it, friendRequestText, badgeFrame)
                 }
             }
 

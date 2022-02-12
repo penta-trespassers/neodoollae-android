@@ -73,8 +73,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/border1"
                 android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:background="@drawable/bg_border"
+                android:layout_height="1dp"
+                android:background="@color/color_card_divider"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -113,8 +113,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/border2"
                 android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:background="@color/trespassGray_300"
+                android:layout_height="1dp"
+                android:background="@color/color_card_divider"
                 app:layout_constraintBottom_toTopOf="@+id/TextView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

@@ -24,6 +24,7 @@ class FriendListFragment constructor() : Fragment() {
     ): View {
         bind = FragmentFriendListBinding.inflate(inflater, container, false)
         with(bind) {
+            filteringText.setOnClickListener { filteringSwitch.toggle() }
             friendListAdapter = FriendListAdapter(requireContext())
             favoriteUserAdapter = FriendListAdapter(requireContext(), listOf(border1, favoriteText))
             friendListAdapter.init(favoriteUserAdapter, false)
@@ -65,7 +66,6 @@ class FriendListFragment constructor() : Fragment() {
         refreshFriendList()
 
     }
-
 
 
 }
