@@ -210,48 +210,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/maxGuestConstraint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_common_card"
-                android:elevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/roomAddressConstraint">
-
-                <TextView
-                    android:id="@+id/maxGuestTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/max_guest"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/maxGuestContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/maxGuestTitle"
-                    tools:text="@string/max_guest" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/wordFromHostConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -261,7 +219,7 @@
                 android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/maxGuestConstraint">
+                app:layout_constraintTop_toBottomOf="@id/roomAddressConstraint">
 
                 <TextView
                     android:id="@+id/wordFromHostTitle"
