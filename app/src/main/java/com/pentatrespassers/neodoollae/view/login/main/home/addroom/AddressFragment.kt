@@ -10,6 +10,7 @@ import com.pentatrespassers.neodoollae.databinding.FragmentAddressBinding
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.network.body.searchplace.DocumentBody
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.address.SelectAddressAdapter
 
 class AddressFragment constructor() : Fragment() {
@@ -56,7 +57,9 @@ class AddressFragment constructor() : Fragment() {
             searchButton.setOnClickListener {
                 addressQuery.ifBlank { return@setOnClickListener }
                 RetrofitClient.searchPlace(addressQuery) { _, response ->
-                    selectAddressAdapter.documentList = response.body()!!.documents
+                    selectAddressAdapter.documentList = response.body()!!.documents.filter {
+                        it.roadAddressName.isNotBlank()
+                    } as ArrayList<DocumentBody>
                     selectAddressAdapter.notifyDataSetChanged()
                     selectAddressConstraint.show()
                     selectedAddressConstraint.gone()
