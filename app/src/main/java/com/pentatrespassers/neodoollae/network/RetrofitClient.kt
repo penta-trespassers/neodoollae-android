@@ -4,7 +4,8 @@ import com.pentatrespassers.neodoollae.dto.*
 import com.pentatrespassers.neodoollae.lib.Authentication
 import com.pentatrespassers.neodoollae.lib.Param
 import com.pentatrespassers.neodoollae.lib.Util
-import com.pentatrespassers.neodoollae.network.api.RetrofitApi
+import com.pentatrespassers.neodoollae.network.api.KakaoApi
+import com.pentatrespassers.neodoollae.network.api.ServerApi
 import com.pentatrespassers.neodoollae.network.body.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,8 +14,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private val instance = Retrofit.Builder().baseUrl(Param.DATABASE_URL)
-        .addConverterFactory(GsonConverterFactory.create()).build().create(RetrofitApi::class.java)
+    private val instance = Retrofit.Builder().baseUrl(Param.SERVER_URL)
+        .addConverterFactory(GsonConverterFactory.create()).build().create(ServerApi::class.java)
+    private val kakaoRestInstance = Retrofit.Builder().baseUrl(Param.KAKAO_API_URL)
+        .addConverterFactory(GsonConverterFactory.create()).build().create(KakaoApi::class.java)
 
     fun kakaoLogin(
         kakaoToken: String?,
@@ -139,6 +142,13 @@ object RetrofitClient {
         onUnsuccessful: ((Call<Map<String, ArrayList<Reservation>>>, Response<Map<String, ArrayList<Reservation>>>) -> Unit)? = null,
         onSuccessful: (Call<Map<String, ArrayList<Reservation>>>, Response<Map<String, ArrayList<Reservation>>>) -> Unit
     ) = instance.getMySchedules(Authentication.bearerAccessToken, term)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun searchPlace(
+        keyword: String,
+        onUnsuccessful: ((Call<SearchPlaceBody>, Response<SearchPlaceBody>) -> Unit)? = null,
+        onSuccessful: (Call<SearchPlaceBody>, Response<SearchPlaceBody>) -> Unit
+    ) = kakaoRestInstance.searchPlace("KakaoAK ${Param.KAKAO_SDK_REST_KEY}", keyword)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     private fun <T> defaultCallback(

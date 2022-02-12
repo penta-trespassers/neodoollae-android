@@ -12,7 +12,7 @@ import retrofit2.http.POST
 
 
 // 여기서 구현
-interface RetrofitApi: UserApi, FriendApi, RoomApi, ReservationApi {
+interface ServerApi: UserApi, FriendApi, RoomApi, ReservationApi {
 
     @POST("/v1/auth/kakao/login/")
     fun kakaoLogin(
