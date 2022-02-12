@@ -34,7 +34,9 @@ class EntireScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
-            setContentView(root)
+            backButtonSchedule.setOnClickListener {
+                onBackPressed()
+            }
 
             calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
                 val month = month + 1
@@ -45,12 +47,9 @@ class EntireScheduleActivity : AppCompatActivity() {
                 val dayName: String = simpledateformat.format(date)
 
                 dateTextSchedule.text = "$year.$month.$dayOfMonth.$dayName"
-
-                backButtonSchedule.setOnClickListener {
-                    finish()
-                }
             })
 
+            setContentView(root)
         }
     }
 }
