@@ -105,6 +105,9 @@ object RetrofitClient {
     ) = instance.deleteFriend(Authentication.bearerAccessToken, friendId)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
+    /*
+    Room Api
+     */
     fun getRoom(
         userId: Int,
         onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
@@ -116,6 +119,13 @@ object RetrofitClient {
         onUnsuccessful: ((Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit)? = null,
         onSuccessful: (Call<ArrayList<Room>>, Response<ArrayList<Room>>) -> Unit
     ) = instance.getRooms(Authentication.bearerAccessToken, null)
+        .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
+
+    fun createRoom(
+        room: Room,
+        onUnsuccessful: ((Call<Void>, Response<Void>) -> Unit)? = null,
+        onSuccessful: (Call<Void>, Response<Void>) -> Unit
+    ) = instance.createRoom(Authentication.bearerAccessToken, room)
         .enqueue(defaultCallback(onUnsuccessful, onSuccessful))
 
     fun getMyFavoriteRooms(

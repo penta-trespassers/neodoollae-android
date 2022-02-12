@@ -26,8 +26,13 @@ class SelectAddressAdapter(private val context: Context, private val fragmentAdd
                 roadAddressText.text = documentBody.roadAddressName
                 itemView.setOnClickListener {
                     document = documentBody
-                    fragmentAddressBind.selectAddressConstraint.gone()
-                    fragmentAddressBind.detailAddressEditText.show()
+                    with(fragmentAddressBind){
+                        selectedAddress.addressText.text = documentBody.addressName
+                        selectedAddress.roadAddressText.text = documentBody.roadAddressName
+                        selectAddressConstraint.gone()
+                        selectedAddressConstraint.show()
+                        detailAddressEditText.show()
+                    }
                 }
             }
         }

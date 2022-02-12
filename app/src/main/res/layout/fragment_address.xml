@@ -67,16 +67,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/selectAddressConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_common_card"
-        android:elevation="4dp"
+        android:elevation="8dp"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="wrap"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addressEditText"
+        app:layout_constraintVertical_bias="0.0"
         tools:visibility="visible">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -93,9 +97,35 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectedAddressConstraint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_common_card"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailAddressEditText"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/selectedAddress"
+            layout="@layout/cell_select_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <EditText
         android:id="@+id/detailAddressEditText"
-        android:layout_width="291dp"
+        android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_shape1"
@@ -109,4 +139,5 @@
         app:layout_constraintStart_toStartOf="@+id/addressEditText"
         app:layout_constraintTop_toBottomOf="@+id/selectAddressConstraint"
         tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

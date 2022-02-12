@@ -6,10 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.ActivityAddRoomBinding
 import com.pentatrespassers.neodoollae.dto.Room
-import com.pentatrespassers.neodoollae.lib.Authentication.user
+import com.pentatrespassers.neodoollae.lib.Util
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.show
+import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.addroom.*
-import splitties.activities.start
-import splitties.bundle.putExtras
 import splitties.fragments.fragmentTransaction
 
 class AddRoomActivity : AppCompatActivity() {
@@ -29,8 +30,7 @@ class AddRoomActivity : AppCompatActivity() {
             addressFragment,
             roomInfoFragment,
             roomOperationFragment,
-            pictureFragment,
-            roomCompleteFragment
+            pictureFragment
         )
     private var currentFragmentIndex = 0
 
@@ -39,8 +39,7 @@ class AddRoomActivity : AppCompatActivity() {
             R.string.insert_address,
             R.string.insert_room_info,
             R.string.room_operation_settings,
-            R.string.upload_picture,
-            R.string.room_registration_complete
+            R.string.upload_picture
         )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,18 +85,22 @@ class AddRoomActivity : AppCompatActivity() {
             }
             nextButton.setOnClickListener {
                 if (currentFragmentIndex == fragmentList.lastIndex) {
-                    finish()
-//                    start<RoomProfileActivity> {
-//                        putExtras(RoomProfileActivity.Extras) {
-//                            room = Room(
-//                                userId = user!!.id,
-//                                roomName = roomInfoFragment.roomName,
-//                                address = addressFragment.address,
-//                                detailAddress = addressFragment.detailAddress,
-//                                description = roomInfoFragment.description
-//                            )
-//                        }
-//                    }
+                    progressBarAddRoom.show()
+                    RetrofitClient.createRoom(Room(
+                        roomName = roomInfoFragment.roomName,
+                        address = addressFragment.address,
+                        detailAddress = addressFragment.detailAddress,
+                        description = roomInfoFragment.description,
+                        latitude = addressFragment.latitude!!,
+                        longitude = addressFragment.longitude!!,
+                        status = roomOperationFragment.operation
+                    ), {_, response ->
+                        Util.j(response.message())
+                        progressBarAddRoom.gone()
+                    }) { _, response ->
+                        finish()
+                    }
+
                 } else {
                     fragmentTransaction {
                         hide(fragmentList[currentFragmentIndex])

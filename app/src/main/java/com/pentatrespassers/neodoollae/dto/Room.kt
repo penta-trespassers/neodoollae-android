@@ -9,7 +9,7 @@ data class Room(
     var userId: Int? = null,
     var nickname: String = "",
     var roomName: String = "",
-    var address: String = "",
+    var address: String? = null,
     var roomImages: List<String>? = null,
     var detailAddress: String = "",
     var description: String = "",

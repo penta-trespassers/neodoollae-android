@@ -36,7 +36,11 @@ object Util {
     }
 
     fun View.setBackgroundColor(@Size(min = 1) colorString: String) {
-        (background as GradientDrawable).setColor(Color.parseColor(colorString))
+        when (background) {
+            is GradientDrawable -> {
+                (background as GradientDrawable).setColor(Color.parseColor(colorString))
+            }
+        }
     }
 
     fun View.setCornerRadius(radius: Float) {

@@ -16,6 +16,12 @@ class AddressFragment private constructor() : Fragment() {
     private lateinit var bind: FragmentAddressBinding
 
     val address
+        get() = selectAddressAdapter.document?.roadAddressName
+    val latitude
+        get() = selectAddressAdapter.document?.latitude
+    val longitude
+        get() = selectAddressAdapter.document?.longitude
+    val addressQuery
         get() = bind.addressEditText.text.toString()
     val detailAddress
         get() = bind.detailAddressEditText.text.toString()
@@ -31,11 +37,12 @@ class AddressFragment private constructor() : Fragment() {
             selectAddressAdapter = SelectAddressAdapter(requireContext(), this)
             selectAddressRecycler.adapter = selectAddressAdapter
             searchButton.setOnClickListener {
-                address.ifBlank { return@setOnClickListener }
-                RetrofitClient.searchPlace(address) { _, response ->
+                addressQuery.ifBlank { return@setOnClickListener }
+                RetrofitClient.searchPlace(addressQuery) { _, response ->
                     selectAddressAdapter.documentList = response.body()!!.documents
                     selectAddressAdapter.notifyDataSetChanged()
                     selectAddressConstraint.show()
+                    selectedAddressConstraint.gone()
                     detailAddressEditText.gone()
                 }
             }
