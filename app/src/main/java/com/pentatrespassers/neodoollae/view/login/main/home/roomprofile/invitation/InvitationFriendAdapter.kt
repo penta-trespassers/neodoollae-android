@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.main.invitation
+package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.invitation
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -24,10 +24,8 @@ class InvitationFriendAdapter(
                 invitationFriendNameText.text = friend.nickname
                 invitationCancelButton.setOnClickListener {
                    invitationFriendsList.remove(friend)
+                   notifyDataSetChanged()
                 }
-
-
-
 
             }
         }

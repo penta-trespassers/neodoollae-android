@@ -11,13 +11,13 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:tint="@color/material_dynamic_neutral_variant60"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43"
-        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        app:tint="@color/material_neutral_variant80" />
 
     <TextView
         android:id="@+id/invitationFriendNameText"
@@ -38,7 +38,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="4dp"
         android:src="@drawable/ic_cancel_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

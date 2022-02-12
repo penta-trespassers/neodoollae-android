@@ -3,28 +3,37 @@ package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationChooseFriendBinding
-import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.view.login.main.invitation.InvitationFriendAdapter
-import com.pentatrespassers.neodoollae.view.login.main.invitation.InvitationFriendListAdapter
+import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.network.RetrofitClient
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.invitation.InvitationFriendAdapter
+import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.invitation.InvitationFriendListAdapter
 import splitties.toast.toast
 
 class InvitationChooseFriendActivity : AppCompatActivity(){
-    var invitation : Reservation = Reservation()
 
     private val bind by lazy {
         ActivityInvitationChooseFriendBinding.inflate(layoutInflater)
     }
 
-    lateinit var invitationFriendAdapter: InvitationFriendAdapter
-    lateinit var invitationFriendListAdapter: InvitationFriendListAdapter
+    private val invitationFriendAdapter by lazy {
+        InvitationFriendAdapter(this, arrayListOf())
+    }
+
+    private val invitationFriendListAdapter by lazy {
+        InvitationFriendListAdapter(this, arrayListOf())
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-            invitationFriendAdapter = InvitationFriendAdapter(this@InvitationChooseFriendActivity, arrayListOf())
-            invitationFriendListAdapter = InvitationFriendListAdapter(this@InvitationChooseFriendActivity, arrayListOf())
 
+        RetrofitClient.getAllFriends { _, response ->
+             val users = response.body()!!
+            invitationFriendAdapter.refresh(users[1])
+            invitationFriendListAdapter.refresh(users[1])
+        }
             invitationFriendRecycler.adapter = invitationFriendAdapter
             invitationFriendListRecycler.adapter = invitationFriendListAdapter
 
@@ -42,9 +51,15 @@ class InvitationChooseFriendActivity : AppCompatActivity(){
                 finish()
             }
 
+            backButton.setOnClickListener {
+                finish()
+            }
+
 
         }
     }
+
+
 
 
 
