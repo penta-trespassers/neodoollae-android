@@ -75,10 +75,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/invitationFriendListRecycler"
         android:layout_width="match_parent"
-        android:layout_height="438dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        tools:listitem="@layout/cell_friend_request">
+        tools:listitem="@layout/cell_invitation_friend_list">
 
     </androidx.recyclerview.widget.RecyclerView>
 

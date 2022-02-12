@@ -10,10 +10,11 @@ import com.pentatrespassers.neodoollae.dto.User
 
 class InvitationFriendAdapter(
     private val context: Context,
-    private var invitationFriendsList: ArrayList<User>
+
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    var invitationFriendsList: ArrayList<User> = arrayListOf()
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     inner class CellInvitationFriendHolder(private val bind: CellInvitationFriendBinding) :

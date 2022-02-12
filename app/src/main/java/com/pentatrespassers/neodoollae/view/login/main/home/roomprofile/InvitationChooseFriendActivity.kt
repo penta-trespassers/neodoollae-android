@@ -3,7 +3,6 @@ package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationChooseFriendBinding
-import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.invitation.InvitationFriendAdapter
 import com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.invitation.InvitationFriendListAdapter
@@ -16,7 +15,7 @@ class InvitationChooseFriendActivity : AppCompatActivity(){
     }
 
     private val invitationFriendAdapter by lazy {
-        InvitationFriendAdapter(this, arrayListOf())
+        InvitationFriendAdapter(this)
     }
 
     private val invitationFriendListAdapter by lazy {
@@ -29,13 +28,15 @@ class InvitationChooseFriendActivity : AppCompatActivity(){
         with(bind) {
             setContentView(root)
 
-        RetrofitClient.getAllFriends { _, response ->
-             val users = response.body()!!
-            invitationFriendAdapter.refresh(users[1])
-            invitationFriendListAdapter.refresh(users[1])
-        }
+            invitationFriendListAdapter.init(invitationFriendAdapter)
             invitationFriendRecycler.adapter = invitationFriendAdapter
             invitationFriendListRecycler.adapter = invitationFriendListAdapter
+        RetrofitClient.getAllFriends { _, response ->
+            val users = response.body()!!
+            users[0].addAll(users[1])
+            invitationFriendListAdapter.refresh(users[0])
+        }
+
 
             invitationFriendAdapter.notifyDataSetChanged()
             invitationFriendListAdapter.notifyDataSetChanged()
