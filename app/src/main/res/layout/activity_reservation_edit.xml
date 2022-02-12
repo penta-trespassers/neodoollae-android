@@ -408,7 +408,7 @@
                     app:layout_constraintTop_toTopOf="@+id/time02" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/time3"
+                    android:id="@+id/time04"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -417,15 +417,15 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="4:00"
                     android:textSize="12dp"
-                    app:layout_constraintEnd_toStartOf="@+id/time7"
+                    app:layout_constraintEnd_toStartOf="@+id/time05"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/time00" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/time7"
+                    android:id="@+id/time05"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
@@ -433,15 +433,15 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="5:00"
                     android:textSize="12dp"
-                    app:layout_constraintEnd_toStartOf="@+id/time8"
+                    app:layout_constraintEnd_toStartOf="@+id/time06"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/time3"
-                    app:layout_constraintTop_toTopOf="@+id/time3" />
+                    app:layout_constraintStart_toEndOf="@+id/time04"
+                    app:layout_constraintTop_toTopOf="@+id/time04" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/time8"
+                    android:id="@+id/time06"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
@@ -449,15 +449,15 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="6:00"
                     android:textSize="12dp"
-                    app:layout_constraintEnd_toStartOf="@+id/time9"
+                    app:layout_constraintEnd_toStartOf="@+id/time07"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/time7"
-                    app:layout_constraintTop_toTopOf="@+id/time7" />
+                    app:layout_constraintStart_toEndOf="@+id/time05"
+                    app:layout_constraintTop_toTopOf="@+id/time05" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/time9"
+                    android:id="@+id/time07"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
@@ -465,15 +465,15 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="7:00"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toEndOf="@+id/time03"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/time8"
-                    app:layout_constraintTop_toTopOf="@+id/time8" />
+                    app:layout_constraintStart_toEndOf="@+id/time06"
+                    app:layout_constraintTop_toTopOf="@+id/time06" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/time10"
+                    android:id="@+id/time08"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -482,12 +482,47 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="8:00"
                     android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time09"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/time04"
+                    app:layout_constraintTop_toBottomOf="@+id/time04" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time09"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="9:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time08"
+                    app:layout_constraintEnd_toStartOf="@+id/time10"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time08"
+                    app:layout_constraintTop_toTopOf="@+id/time08"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="10:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time09"
                     app:layout_constraintEnd_toStartOf="@+id/time11"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/time3"
-                    app:layout_constraintTop_toBottomOf="@+id/time3" />
+                    app:layout_constraintStart_toEndOf="@+id/time09"
+                    app:layout_constraintTop_toTopOf="@+id/time09" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/time11"
@@ -498,13 +533,31 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="11:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time10"
-                    app:layout_constraintEnd_toStartOf="@+id/time12"
+                    app:layout_constraintEnd_toEndOf="@+id/time07"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/time10"
                     app:layout_constraintTop_toTopOf="@+id/time10" />
+
+                <TextView
+                    android:id="@+id/afternoonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="32dp"
+                    android:text="오후"
+                    app:layout_constraintEnd_toStartOf="@+id/time12"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/time08" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/time12"
@@ -517,11 +570,11 @@
                     android:paddingEnd="16dp"
                     android:text="12:00"
                     android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/time11"
-                    app:layout_constraintEnd_toStartOf="@+id/time13"
+                    app:layout_constraintBottom_toBottomOf="@+id/afternoonText"
+                    app:layout_constraintEnd_toStartOf="@+id/time01"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/time11"
-                    app:layout_constraintTop_toTopOf="@+id/time11" />
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/afternoonText" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/time13"
@@ -532,13 +585,185 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="1:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time12"
-                    app:layout_constraintEnd_toEndOf="@+id/time9"
+                    app:layout_constraintEnd_toStartOf="@+id/time14"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/time12"
                     app:layout_constraintTop_toTopOf="@+id/time12" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="2:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time13"
+                    app:layout_constraintEnd_toStartOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time01"
+                    app:layout_constraintTop_toTopOf="@+id/time13" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="3:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time02"
+                    app:layout_constraintTop_toTopOf="@+id/time14" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="4:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time05"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/time12" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="5:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time06"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time16"
+                    app:layout_constraintTop_toTopOf="@+id/time16" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time18"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="6:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time07"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time05"
+                    app:layout_constraintTop_toTopOf="@+id/time17" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time19"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="7:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time06"
+                    app:layout_constraintTop_toTopOf="@+id/time18" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="8:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time09"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/time04"
+                    app:layout_constraintTop_toBottomOf="@+id/time16" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="49dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="9:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time20"
+                    app:layout_constraintEnd_toStartOf="@+id/time10"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/time08"
+                    app:layout_constraintTop_toTopOf="@+id/time20"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="49dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="10:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time21"
+                    app:layout_constraintEnd_toStartOf="@+id/time11"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/time09"
+                    app:layout_constraintTop_toTopOf="@+id/time21"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="11:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time22"
+                    app:layout_constraintEnd_toEndOf="@+id/time07"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time10"
+                    app:layout_constraintTop_toTopOf="@+id/time22" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
