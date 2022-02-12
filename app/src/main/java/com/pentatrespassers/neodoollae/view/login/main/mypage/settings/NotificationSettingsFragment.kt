@@ -17,8 +17,10 @@ class NotificationSettingsFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentNotificationSettingsBinding.inflate(inflater, container, false)
         with(bind) {
+            notiMethod.setOnClickListener {
 
-            ns21.oneLineSettingSwitchConstraint.setOnClickListener {
+            }
+            notiBeforePromise.setOnClickListener {
 
             }
 

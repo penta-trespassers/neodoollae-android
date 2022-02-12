@@ -3,10 +3,30 @@
     <declare-styleable name="BadgeImageView">
         <attr name="showText" format="boolean" />
         <attr name="labelPosition" format="enum">
-            <enum name="leftTop" value="0"/>
-            <enum name="rightTop" value="1"/>
+            <enum name="leftTop" value="0" />
+            <enum name="rightTop" value="1" />
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="OneLineCell">
+        <attr name="oneLineImageResource" format="integer" />
+        <attr name="isSwitchSetting" format="boolean" />
+        <attr name="isTextSetting" format="boolean" />
+        <attr name="oneLineMainText" format="string" />
+        <attr name="oneLineSettingText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TwoLineCell">
+        <attr name="twoLineImageResource" format="integer" />
+        <attr name="twoLineMainText" format="string" />
+        <attr name="twoLineSubText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ProfileCell">
+        <attr name="profileType" format="enum">
+            <enum name="user" value="0"/>
+            <enum name="room" value="1"/>
+        </attr>
+    </declare-styleable>
 
 </resources>

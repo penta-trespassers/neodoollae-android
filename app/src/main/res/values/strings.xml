@@ -93,6 +93,7 @@
     <string name="view_on_map">지도에서 보기</string>
 
     <!-- My Page strings -->
+    <string name="my_name">내 이름</string>
     <string name="guest_score">손님 점수</string>
     <string name="host_score">주인 점수</string>
     <string name="my_code">나의 친구 코드</string>
@@ -106,6 +107,16 @@
     <string name="bring_picture">사진 불러오기</string>
     <string name="change_name">이름 변경하기</string>
     <string name="change">수정하기</string>
+
+    <!-- Notification Setting Strings -->
+    <string name="notification_method">알림 방식</string>
+    <string name="notification_reservation_request">친구의 예약 신청</string>
+    <string name="notification_reservation_result">예약 신청 수락 여부</string>
+    <string name="notification_before_promise">약속 시간 전 알림</string>
+    <string name="notification_friend_request">친구 신청</string>
+    <string name="notification_become_friend">친구 성사</string>
+    <string name="notification_review_request">리뷰 작성 요청</string>
+    <string name="notification_review_mine">자신에게 작성된 리뷰</string>
 
     <!-- Developer Info -->
     <string name="team_name">Team Penta Trespassers</string>

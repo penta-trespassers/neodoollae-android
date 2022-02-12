@@ -27,7 +27,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+            app:srcCompat="@drawable/ic_common_back"
+            app:tint="@color/blue_grey_800"
             tools:visibility="visible" />
 
         <TextView
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/friend_profile"
-            android:textColor="@color/black"
+            android:textColor="@color/blue_grey_800"
             android:textSize="18dp"
             android:textStyle="bold"
             android:visibility="visible"
@@ -53,6 +54,7 @@
             android:background="@drawable/bg_common_button_app_bar"
             android:scaleType="center"
             android:visibility="visible"
+            app:tint="@color/blue_grey_200"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -62,16 +64,28 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
-        android:id="@+id/profileCellFriendProfile"
-        layout="@layout/cell_profile_person"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileCellFriendProfileConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_common_card"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarConstraint" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarConstraint">
+
+        <com.pentatrespassers.neodoollae.common.view.ProfileCell
+            android:id="@+id/profileCellFriendProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -84,7 +98,7 @@
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileCellFriendProfile">
+        app:layout_constraintTop_toBottomOf="@id/profileCellFriendProfileConstraint">
 
         <TextView
             android:id="@+id/roomListTextFriendProfile"

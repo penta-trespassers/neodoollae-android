@@ -17,14 +17,16 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_common_card">
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.TwoLineCell
             android:id="@+id/teamCell"
-            layout="@layout/cell_two_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:twoLineMainText="@string/team_name"
+            app:twoLineSubText="@string/team_description"
+            app:twoLineImageResource="@drawable/ic_mypage_setting_developers"/>
 
 
         <View
@@ -38,15 +40,17 @@
             android:layout_marginEnd="16dp"
             android:background="@color/color_card_divider"/>
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.TwoLineCell
             android:id="@+id/firstMemberCell"
-            layout="@layout/cell_two_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_common_button_menu_cell"
             app:layout_constraintTop_toBottomOf="@id/divider1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:twoLineMainText="@string/first_member"
+            app:twoLineSubText="@string/back_end"
+            app:twoLineImageResource="@drawable/ic_common_account_no_padding"/>
 
         <View
             android:id="@+id/divider2"
@@ -59,15 +63,16 @@
             android:layout_marginEnd="16dp"
             android:background="@color/color_card_divider"/>
 
-
-        <include
+        <com.pentatrespassers.neodoollae.common.view.TwoLineCell
             android:id="@+id/secondMemberCell"
-            layout="@layout/cell_two_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/divider2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:twoLineMainText="@string/second_member"
+            app:twoLineSubText="@string/front_end_designer"
+            app:twoLineImageResource="@drawable/ic_common_account_no_padding"/>
 
         <View
             android:id="@+id/divider3"
@@ -80,15 +85,16 @@
             android:layout_marginEnd="16dp"
             android:background="@color/color_card_divider"/>
 
-
-        <include
+        <com.pentatrespassers.neodoollae.common.view.TwoLineCell
             android:id="@+id/thirdMemberCell"
-            layout="@layout/cell_two_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/divider3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:twoLineMainText="@string/third_member"
+            app:twoLineSubText="@string/front_end"
+            app:twoLineImageResource="@drawable/ic_common_account_no_padding"/>
 
         <View
             android:id="@+id/divider4"
@@ -101,15 +107,17 @@
             android:layout_marginEnd="16dp"
             android:background="@color/color_card_divider"/>
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.TwoLineCell
             android:id="@+id/fourthMemberCell"
-            layout="@layout/cell_two_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_common_button_menu_cell"
             app:layout_constraintTop_toBottomOf="@id/divider4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:twoLineMainText="@string/fourth_member"
+            app:twoLineSubText="@string/front_back_end"
+            app:twoLineImageResource="@drawable/ic_common_account_no_padding"/>
 
         <View
             android:id="@+id/divider5"
@@ -122,19 +130,19 @@
             android:layout_marginEnd="16dp"
             android:background="@color/color_card_divider"/>
 
-        <include
+        <com.pentatrespassers.neodoollae.common.view.TwoLineCell
             android:id="@+id/fifthMemberCell"
-            layout="@layout/cell_two_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/divider5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:twoLineMainText="@string/fifth_member"
+            app:twoLineSubText="@string/front_end"
+            app:twoLineImageResource="@drawable/ic_common_account_no_padding"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
