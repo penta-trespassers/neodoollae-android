@@ -1,18 +1,13 @@
-package com.pentatrespassers.neodoollae.view.login.main.invite
+package com.pentatrespassers.neodoollae.view.login.main.invitation
 
 import android.content.Context
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
-import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.databinding.CellFriendRequestBinding
-import com.pentatrespassers.neodoollae.databinding.CellInvitationFriendBinding
-import com.pentatrespassers.neodoollae.dto.FriendRequest
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Util.hide
-import splitties.resources.drawable
 
 class InvitationFriendListAdapter(
     private val context: Context,

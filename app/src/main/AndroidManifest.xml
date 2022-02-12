@@ -63,7 +63,7 @@
             android:name=".view.login.main.home.roomprofile.InvitationActivity"
             android:exported="true"
             android:noHistory="true" />
-        <activity android:name=".view.login.main.invite.InvitationEditActivity"/>
+        <activity android:name=".view.login.main.home.roomprofile.InvitationEditActivity"/>
 
 
         <activity

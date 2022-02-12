@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.main.invite
+package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
+import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
+import splitties.bundle.putExtras
 import splitties.bundle.withExtras
 import splitties.toast.toast
 import java.text.SimpleDateFormat
@@ -59,11 +61,11 @@ class InvitationEditActivity : AppCompatActivity(){
 
 
             invitationVisitorImageView.setOnClickListener {
-                var intent = Intent(this@InvitationEditActivity, InvitationChooseFriendActivity::class.java)
-                startActivity(intent)
+                start<InvitationChooseFriendActivity>()
             }
+
             settingDateAndTimeConstraintLayout.setOnClickListener {
-                isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
+               // isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
 
                 isTimeExpanded = true
             }
@@ -76,7 +78,7 @@ class InvitationEditActivity : AppCompatActivity(){
                 val simpledateformat = SimpleDateFormat("EEEE", Locale.getDefault())
                 val dayName: String = simpledateformat.format(date)
 
-                toggleLayout(!isTimeExpanded, view, layoutExpandTime)
+             //   toggleLayout(!isTimeExpanded, view, layoutExpandTime)
                 isTimeExpanded = true
 
                 if (isStartDateSet == false) {
@@ -87,9 +89,9 @@ class InvitationEditActivity : AppCompatActivity(){
                 }
             })
 
-            SetTimeEndbutton.setOnClickListener{
-                toggleLayout(!isDateExpanded, it, layoutExpandDate)
-                toggleLayout(!isTimeExpanded, it, layoutExpandTime)
+            invitationSetDateButton.setOnClickListener{
+               // toggleLayout(!isDateExpanded, it, layoutExpandDate)
+                //toggleLayout(!isTimeExpanded, it, layoutExpandTime)
                 isDateExpanded = false
                 isTimeExpanded = false
 

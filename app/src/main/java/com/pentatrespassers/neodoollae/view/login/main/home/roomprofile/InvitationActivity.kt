@@ -37,17 +37,17 @@ class InvitationActivity : AppCompatActivity(){
 
 
             settingDateAndTimeConstraintLayout.setOnClickListener {
-                toggleLayout(!isDateExpanded, it, layoutExpandDate)
+                //toggleLayout(!isDateExpanded, it, layoutExpandDate)
                 isDateExpanded = true
             }
             invitationCalendarView.setOnClickListener {
-                toggleLayout(!isTimeExpanded, it, layoutExpandTime)
-                isTimeExpanded = true
+              // toggleLayout(!isTimeExpanded, it, layoutExpandTime)
+               // isTimeExpanded = true
             }
 
-            SetTimeEndbutton.setOnClickListener{
-                toggleLayout(!isDateExpanded, it, layoutExpandDate)
-                toggleLayout(!isTimeExpanded, it, layoutExpandTime)
+            invitationSetDateButton.setOnClickListener{
+               // toggleLayout(!isDateExpanded, it, layoutExpandDate)
+                //toggleLayout(!isTimeExpanded, it, layoutExpandTime)
                 isDateExpanded = false
                 isTimeExpanded = false
 
@@ -55,13 +55,16 @@ class InvitationActivity : AppCompatActivity(){
 
 
             invitationAddButton.setOnClickListener {
-                toast("예약이 완료되었습니다.")
+                toast("초대가 완료되었습니다.")
                 //   var intent = Intent(this@invitationEditActivity,invitationFragment)
                 // startActivity(intent)
                 finish()
 
             }
+            invitationSetDateButton.setOnClickListener {
 
+
+            }
 
             editToInvitationListButton.setOnClickListener {
                 finish()
@@ -71,7 +74,7 @@ class InvitationActivity : AppCompatActivity(){
 
     }
 
-    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout) {
+    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: View) {
 
         ToggleAnimation.toggleArrow(view, isExpanded)
         if (isExpanded) {

@@ -6,6 +6,7 @@ import android.widget.CalendarView.OnDateChangeListener
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
@@ -77,28 +78,29 @@ class ReservationEditActivity : AppCompatActivity() {
 //                toggleLayout(!isDateExpanded, it, layoutExpandDate)
             }
 
-            reservationCalendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
-                val month = month + 1
-                val calendar = Calendar.getInstance()
-                calendar.set(year, month, dayOfMonth)
-                val date = calendar.time
-                val simpledateformat = SimpleDateFormat("EEEE", Locale.getDefault())
-                val dayName: String = simpledateformat.format(date)
+            val calendar = Calendar.getInstance()
+            val formatter = Util.getDateFormatter("yy MM dd EEEE")
 
-                toggleLayout(!isTimeExpanded, view, layoutExpandTime)
+            reservationCalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+                calendar.set(year, month, dayOfMonth)
+
+              //  toggleLayout(!isTimeExpanded, view, layoutExpandTime)
                 isTimeExpanded = true
 
                 if (isStartDateSet == false) {
-                    vistStartDatetext.text = "$year.$month.$dayOfMonth.$dayName"
+                    vistStartDatetext.text = formatter.format(calendar.time)
+
                 } else {
-                    visitEndDateText.text = "$year.$month.$dayOfMonth.$dayName"
+                    visitEndDateText.text = formatter.format(calendar.time)
 
                 }
-            })
+            }
 
-            SetTimeEndbutton.setOnClickListener {
+
+
+            reservationSetTimeButton.setOnClickListener {
 //                toggleLayout(!isDateExpanded, it, layoutExpandDate)
-                toggleLayout(!isTimeExpanded, it, layoutExpandTime)
+               /// toggleLayout(!isTimeExpanded, it, layoutExpandTime)
                 isDateExpanded = false
                 isTimeExpanded = false
 
