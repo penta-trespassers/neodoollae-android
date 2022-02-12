@@ -166,7 +166,7 @@ class RoomProfileActivity : AppCompatActivity() {
                 }
                 else{
                     start<ReservationEditActivity> {
-                        putExtras(InvitationEditActivity.Extras) {
+                        putExtras(ReservationEditActivity.Extras) {
                             reservation = Reservation(
                                 0,
                                 user.id,

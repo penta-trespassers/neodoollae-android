@@ -2,6 +2,7 @@ package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.CalendarView.OnDateChangeListener
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
@@ -12,6 +13,7 @@ import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
 import splitties.bundle.withExtras
 import splitties.toast.toast
+import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,6 +29,10 @@ class ReservationEditActivity : AppCompatActivity() {
 
     var toastWord = "수정"
 
+    val calendar = Calendar.getInstance()
+    val formatter = Util.getDateFormatter("yy MM dd EEEE")
+
+
 
     object Extras : BundleSpec() {
         var reservation: Reservation by bundle()
@@ -38,11 +44,58 @@ class ReservationEditActivity : AppCompatActivity() {
         }
     }
 
+    fun timeOnClick(button: View){
+        var time : String = ""
+        var timestamp : Timestamp? = null
+        time = (button as Button).text as String
+
+        (button as Button).text.split(":").let{
+            calendar.set(Calendar.HOUR_OF_DAY, it[0].toInt())
+            calendar.set(Calendar.MINUTE, it[1].toInt())
+            timestamp = Timestamp.from(calendar.toInstant()) as Timestamp?
+
+        }
+
+        with(bind){
+            if(isStartDateSet == false) {
+                visitStartTimeText.text = time
+                reservation.checkIn = timestamp
+            }
+            else{
+                visitEndDateText.text = time
+                reservation.checkOut = timestamp
+            }
+        }
+
+    }
+
 
     private val bind by lazy {
         ActivityReservationEditBinding.inflate(layoutInflater)
     }
 
+    fun pmOnClick(button: View){
+        var time : String = ""
+        time = (button as Button).text as String
+        with(bind){
+            if(isStartDateSet == false)
+                visitStartTimeText.text = time
+            else{
+                visitEndDateText.text = time
+            }
+        }
+    }
+    fun amOnClick(button : View){
+        var time : String = ""
+        time = (button as Button).text as String
+        with(bind){
+            if(isStartDateSet == true)
+                visitStartTimeText.text = time
+            else{
+                visitEndDateText.text = time
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
@@ -78,8 +131,6 @@ class ReservationEditActivity : AppCompatActivity() {
 //                toggleLayout(!isDateExpanded, it, layoutExpandDate)
             }
 
-            val calendar = Calendar.getInstance()
-            val formatter = Util.getDateFormatter("yy MM dd EEEE")
 
             reservationCalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
                 calendar.set(year, month, dayOfMonth)

@@ -3,11 +3,13 @@ package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.CalendarView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimation
 import splitties.activities.start
 import splitties.bundle.BundleSpec
@@ -15,8 +17,11 @@ import splitties.bundle.bundle
 import splitties.bundle.putExtras
 import splitties.bundle.withExtras
 import splitties.toast.toast
+import java.nio.file.attribute.FileTime.from
+import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.Date.from
 
 class InvitationEditActivity : AppCompatActivity(){
     object Extras : BundleSpec() {
@@ -34,9 +39,37 @@ class InvitationEditActivity : AppCompatActivity(){
 
     var isStartDateSet = false
 
+    val calendar = Calendar.getInstance()
+    val formatter = Util.getDateFormatter("yy MM dd EEEE")
 
 
 
+    fun timeOnClick(button: View){
+        var time : String = (button as Button).text as String
+        var timestamp : Timestamp? = null
+
+
+        time.split(":").let{
+            calendar.set(Calendar.HOUR_OF_DAY, it[0].toInt())
+            calendar.set(Calendar.MINUTE, it[1].toInt())
+            timestamp = Timestamp(calendar.timeInMillis)
+
+        }
+
+        with(bind){
+            if(!isStartDateSet) {
+                visitStartTimeText.text = time
+                invitation.checkIn = timestamp
+
+                isStartDateSet = true
+            }
+            else{
+                visitEndTimeText.text = time
+                invitation.checkOut = timestamp
+            }
+        }
+
+    }
 
     private val bind by lazy {
         ActivityInvitationEditBinding.inflate(layoutInflater)
@@ -49,10 +82,6 @@ class InvitationEditActivity : AppCompatActivity(){
 
             invitationRoomNameText.text = invitation.roomName
             invitationVisitorNameText.text = invitation.nickname
-            vistStartDatetext.text = invitation.checkIn.toString()
-            visitStartTimeText.text = invitation.checkIn.toString()
-            visitEndDateText.text = invitation.checkOut.toString()
-            visitEndTimeText.text = invitation.checkOut.toString()
 
 
            // toHostEditText.setText(invitation.requestMessage)
@@ -64,30 +93,30 @@ class InvitationEditActivity : AppCompatActivity(){
                 start<InvitationChooseFriendActivity>()
             }
 
-            settingDateAndTimeConstraintLayout.setOnClickListener {
-               // isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
-
-                isTimeExpanded = true
+            vistStartDatetext.setOnClickListener {
+                isStartDateSet = false
             }
+            visitEndDateText.setOnClickListener {
+                isStartDateSet = true
+            }
+//            settingDateAndTimeConstraintLayout.setOnClickListener {
+//               // isDateExpanded = toggleLayout(!isDateExpanded, it, layoutExpandDate)
+//
+//                isTimeExpanded = true
+//            }
 
-            invitationCalendarView.setOnDateChangeListener(CalendarView.OnDateChangeListener { view, year, month, dayOfMonth ->
-                val month = month + 1
-                val calendar = Calendar.getInstance()
+            invitationCalendarView.setOnDateChangeListener{ view, year, month, dayOfMonth ->
                 calendar.set(year, month, dayOfMonth)
-                val date = calendar.time
-                val simpledateformat = SimpleDateFormat("EEEE", Locale.getDefault())
-                val dayName: String = simpledateformat.format(date)
+
 
              //   toggleLayout(!isTimeExpanded, view, layoutExpandTime)
-                isTimeExpanded = true
 
                 if (isStartDateSet == false) {
-                    vistStartDatetext.text = "$year.$month.$dayOfMonth.$dayName"
+                    vistStartDatetext.text = formatter.format(calendar.time)
                 } else {
-                    visitEndDateText.text = "$year.$month.$dayOfMonth.$dayName"
-
+                    visitEndDateText.text = formatter.format(calendar.time)
                 }
-            })
+            }
 
             invitationSetDateButton.setOnClickListener{
                // toggleLayout(!isDateExpanded, it, layoutExpandDate)
@@ -106,6 +135,10 @@ class InvitationEditActivity : AppCompatActivity(){
                 print(invitation.member)
                 finish()
 
+            }
+
+            backButton.setOnClickListener {
+                finish()
             }
 
 

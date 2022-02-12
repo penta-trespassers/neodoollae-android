@@ -6,56 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/invitationAddButton"
-            android:layout_width="366dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/common_button"
-            android:text="초대하기"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/invitationTitleConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/editToInvitationListButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/ic_arrow_back_black_24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/invitationEditTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="18dp"
-            android:text="초대하기"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -77,58 +27,47 @@
                 android:id="@+id/invitationProfileConstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_common_card"
+                android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/invitationImageView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="188dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_common_card"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/bg_common_card" />
 
                 <TextView
                     android:id="@+id/roomTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="88dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
                     android:text="방"
-                    android:textColor="#828282"
                     android:textSize="10dp"
-                    app:layout_constraintStart_toStartOf="@+id/invitationImageView1"
-                    app:layout_constraintTop_toTopOf="@+id/invitationImageView1" />
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/visitorNameTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="89dp"
+                    android:layout_marginTop="16dp"
                     android:text="방문자"
                     android:textColor="#828282"
                     android:textSize="10dp"
-                    app:layout_constraintEnd_toEndOf="@+id/invitationImageView1"
-                    app:layout_constraintTop_toTopOf="@+id/invitationImageView1" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline7"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/invitationRoomImageView"
                     android:layout_width="72dp"
                     android:layout_height="72dp"
-                    android:layout_marginStart="56dp"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintStart_toStartOf="@+id/invitationImageView1"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
                     app:srcCompat="@drawable/ic_common_bed" />
 
@@ -136,35 +75,46 @@
                     android:id="@+id/invitationVisitorImageView"
                     android:layout_width="72dp"
                     android:layout_height="72dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="64dp"
-                    app:layout_constraintEnd_toEndOf="@+id/invitationImageView1"
-                    app:layout_constraintTop_toBottomOf="@+id/visitorNameTextTitle"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline7"
+                    app:layout_constraintTop_toTopOf="@+id/visitorNameTextTitle"
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
                 <TextView
                     android:id="@+id/invitationRoomNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="72dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="16dp"
                     android:text="방 이름"
                     android:textSize="14dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/invitationImageView1"
-                    app:layout_constraintTop_toBottomOf="@+id/invitationRoomImageView" />
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/invitationRoomImageView"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:id="@+id/invitationVisitorNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="89dp"
-                    android:text="수빈 외 1명"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="나"
                     android:textSize="14dp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/invitationImageView1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline7"
                     app:layout_constraintTop_toBottomOf="@+id/invitationVisitorImageView" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="240dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -256,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_begin="207dp" />
+                    app:layout_constraintGuide_begin="264dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -345,10 +295,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="12:00"
+                    android:text="0:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView"
                     app:layout_constraintEnd_toStartOf="@+id/time01"
@@ -362,6 +313,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -379,6 +331,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -397,6 +350,7 @@
                     android:layout_marginEnd="16dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -415,6 +369,7 @@
                     android:layout_marginTop="16dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -431,6 +386,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -447,6 +403,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -463,6 +420,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -480,6 +438,7 @@
                     android:layout_marginTop="16dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -496,6 +455,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -514,6 +474,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -531,6 +492,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -566,6 +528,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -583,10 +546,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="1:00"
+                    android:text="13:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time12"
                     app:layout_constraintEnd_toStartOf="@+id/time14"
@@ -600,10 +564,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="2:00"
+                    android:text="14:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time13"
                     app:layout_constraintEnd_toStartOf="@+id/time03"
@@ -618,10 +583,11 @@
                     android:layout_marginEnd="16dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="3:00"
+                    android:text="15:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time14"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -636,10 +602,11 @@
                     android:layout_marginTop="16dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="4:00"
+                    android:text="16:00"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toStartOf="@+id/time05"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -652,10 +619,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="5:00"
+                    android:text="17:00"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toStartOf="@+id/time06"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -668,10 +636,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="6:00"
+                    android:text="18:00"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toStartOf="@+id/time07"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -684,10 +653,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="7:00"
+                    android:text="19:00"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toEndOf="@+id/time03"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -701,10 +671,11 @@
                     android:layout_marginTop="16dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="8:00"
+                    android:text="20:00"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toStartOf="@+id/time09"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -718,10 +689,11 @@
                     android:layout_marginBottom="49dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="9:00"
+                    android:text="21:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time20"
                     app:layout_constraintEnd_toStartOf="@+id/time10"
@@ -737,10 +709,11 @@
                     android:layout_marginBottom="49dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="10:00"
+                    android:text="22:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time21"
                     app:layout_constraintEnd_toStartOf="@+id/time11"
@@ -755,10 +728,11 @@
                     android:layout_height="wrap_content"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:onClick="timeOnClick"
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="11:00"
+                    android:text="23:00"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@+id/time22"
                     app:layout_constraintEnd_toEndOf="@+id/time07"
@@ -781,18 +755,61 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/time21" />
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/invitationTitleConstraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/backButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/ic_arrow_back_black_24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/invitationEditTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="72dp"
+                        android:layout_marginTop="18dp"
+                        android:text="초대하기"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/invitationAddButton"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/common_button"
+            android:text="초대하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

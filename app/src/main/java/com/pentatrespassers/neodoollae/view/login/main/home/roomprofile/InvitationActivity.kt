@@ -66,9 +66,7 @@ class InvitationActivity : AppCompatActivity(){
 
             }
 
-            editToInvitationListButton.setOnClickListener {
-                finish()
-            }
+
 
         }
 
