@@ -1,4 +1,4 @@
-package com.pentatrespassers.neodoollae.view.login.main.invitation
+package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile.invitation
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,24 +10,32 @@ import com.pentatrespassers.neodoollae.dto.User
 
 class InvitationFriendAdapter(
     private val context: Context,
-    private var invitationFriendsList: ArrayList<User>
+
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    var invitationFriendsList: ArrayList<InviteFriend> = arrayListOf()
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
+
+    lateinit var anotherAdapter: InvitationFriendListAdapter
 
     inner class CellInvitationFriendHolder(private val bind: CellInvitationFriendBinding) :
         RecyclerView.ViewHolder(bind.root) {
-        fun binding(friend: User) {
+        fun binding(friend: InviteFriend) {
             with(bind) {
+                invitationFriendNameText.text = friend.user.nickname
 
-                invitationFriendNameText.text = friend.nickname
                 invitationCancelButton.setOnClickListener {
                    invitationFriendsList.remove(friend)
+
+                    val index = anotherAdapter.friendslist.indexOf(friend)
+                    anotherAdapter.friendslist[index].isInvite = false
+                    anotherAdapter.notifyItemChanged(index)
+
+                    val my_index = invitationFriendsList.indexOf(friend)
+
+                    notifyItemRemoved(my_index)
                 }
-
-
-
 
             }
         }
@@ -47,8 +55,12 @@ class InvitationFriendAdapter(
         return invitationFriendsList.size
     }
 
-    fun refresh(invitationFriendsList: ArrayList<User>) {
+    fun refresh(invitationFriendsList: ArrayList<InviteFriend>) {
         this.invitationFriendsList = invitationFriendsList
         notifyDataSetChanged()
+    }
+
+    fun init(anotherAdapter: InvitationFriendListAdapter) {
+        this.anotherAdapter = anotherAdapter
     }
 }

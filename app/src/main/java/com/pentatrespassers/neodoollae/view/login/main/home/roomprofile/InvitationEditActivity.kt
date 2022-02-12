@@ -1,10 +1,8 @@
 package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.CalendarView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationEditBinding
@@ -14,16 +12,13 @@ import com.pentatrespassers.neodoollae.view.login.main.reservation.ToggleAnimati
 import splitties.activities.start
 import splitties.bundle.BundleSpec
 import splitties.bundle.bundle
-import splitties.bundle.putExtras
 import splitties.bundle.withExtras
 import splitties.toast.toast
-import java.nio.file.attribute.FileTime.from
 import java.sql.Timestamp
-import java.text.SimpleDateFormat
 import java.util.*
-import java.util.Date.from
 
 class InvitationEditActivity : AppCompatActivity(){
+
     object Extras : BundleSpec() {
         var invitation: Reservation by bundle()
     }
@@ -90,7 +85,7 @@ class InvitationEditActivity : AppCompatActivity(){
 
 
             invitationVisitorImageView.setOnClickListener {
-                start<InvitationChooseFriendActivity>()
+                start<InvitationChooseFriendActivity> ()
             }
 
             vistStartDatetext.setOnClickListener {

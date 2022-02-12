@@ -31,7 +31,8 @@ class FriendListFragment constructor() : Fragment() {
             favoriteUserAdapter.init(friendListAdapter, true)
             friendListRecycler.adapter = friendListAdapter
             favoriteUserRecycler.adapter = favoriteUserAdapter
-            friendSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            friendSearchbar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
                 }
