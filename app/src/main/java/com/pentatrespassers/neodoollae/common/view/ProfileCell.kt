@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
-import splitties.bundle.putExtras
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.common.view.ProfileCell.Type.values
 import com.pentatrespassers.neodoollae.databinding.CellProfileBinding
@@ -17,6 +16,7 @@ import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import com.pentatrespassers.neodoollae.view.login.main.mypage.ShowImageActivity
 import splitties.activities.start
+import splitties.bundle.putExtras
 import splitties.resources.str
 
 
@@ -76,10 +76,12 @@ class ProfileCell @JvmOverloads constructor(
         }
     }
 
-    fun setProfileView(user: User) {
-        setProfileImage(user.profileImage)
-        setProfileName(user.nickname)
-        setUserScore(user)
+    fun setProfileView(user: User?) {
+        user?.let {
+            setProfileImage(it.profileImage)
+            setProfileName(it.nickname)
+            setUserScore(it)
+        }
     }
 
     fun setProfileView(room: Room) {

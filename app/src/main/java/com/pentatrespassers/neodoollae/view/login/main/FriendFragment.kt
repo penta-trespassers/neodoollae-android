@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
@@ -126,6 +128,17 @@ class FriendFragment private constructor() : Fragment() {
 
             addFriendButton.setOnClickListener {
                 addFriend()
+            }
+            BadgeDrawable.create(requireContext()).apply {
+                number = 5
+                backgroundColor = ContextCompat.getColor(requireContext(), R.color.app_theme)
+                badgeTextColor = ContextCompat.getColor(requireContext(), R.color.white)
+                badgeGravity = BadgeDrawable.TOP_END
+            }.let {
+                badgeFrame.foreground = it
+                badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+                    BadgeUtils.attachBadgeDrawable(it, friendRequestText, badgeFrame)
+                }
             }
 
             return root

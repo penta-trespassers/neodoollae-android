@@ -36,6 +36,9 @@ android {
         viewBinding true
 
     }
+    lintOptions {
+        disable "ResourceType"
+    }
 }
 
 dependencies {

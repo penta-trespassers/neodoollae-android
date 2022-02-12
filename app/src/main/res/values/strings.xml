@@ -97,7 +97,7 @@
     <string name="guest_score">손님 점수</string>
     <string name="host_score">주인 점수</string>
     <string name="my_code">나의 친구 코드</string>
-    <string name="my_code_cell">나의 친구 코드 :\ </string>
+    <string name="my_code_cell">나의 친구 코드 : %1$s</string>
     <string name="copy_to_clipboard">클립보드에 복사되었습니다.</string>
     <string name="history">기록</string>
     <string name="manage_review">리뷰 관리</string>
