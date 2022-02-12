@@ -7,10 +7,7 @@ import com.pentatrespassers.neodoollae.network.body.FriendRequestBody
 import com.pentatrespassers.neodoollae.network.body.MessageBody
 import com.pentatrespassers.neodoollae.network.body.RegisterBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface FriendApi {
     @POST("/v1/auth/kakao/register/")
@@ -45,5 +42,13 @@ interface FriendApi {
         bearerAccessToken: String?,
         @Body
         hashMap: HashMap<String, @JvmSuppressWildcards Any?>
+    ): Call<Void>
+
+    @DELETE("/v1/friends/")
+    fun deleteFriend(
+        @Header("Authorization")
+        bearerAccessToken: String?,
+        @Query("friendId")
+        friendId: Int
     ): Call<Void>
 }

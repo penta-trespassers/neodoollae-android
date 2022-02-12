@@ -4,6 +4,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.Transformation
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.show
 
 class ToggleAnimation {
 
@@ -19,32 +21,25 @@ class ToggleAnimation {
             }
         }
 
-        fun expand(view: View) {
-            val animation = expandAction(view)
-            view.startAnimation(animation)
-        }
-
-        private fun expandAction(view: View) : Animation {
-            view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        fun expand(view: View, view2: View? = null) {
+            view.measure(ViewGroup.LayoutParams.MATCH_PARENT, View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
             val actualHeight = view.measuredHeight
-
             view.layoutParams.height = 0
-            view.visibility = View.VISIBLE
+            view.show()
+
 
             val animation = object : Animation() {
                 override fun applyTransformation(interpolatedTime: Float, t: Transformation?) {
                     view.layoutParams.height = if (interpolatedTime == 1f) ViewGroup.LayoutParams.WRAP_CONTENT
                     else (actualHeight * interpolatedTime).toInt()
-
                     view.requestLayout()
+                    view2?.gone()
+                    view2?.show()
                 }
             }
 
             animation.duration = (actualHeight / view.context.resources.displayMetrics.density).toLong()
-
             view.startAnimation(animation)
-
-            return animation
         }
 
         fun collapse(view: View) {

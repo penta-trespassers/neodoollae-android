@@ -1,24 +1,30 @@
 package com.pentatrespassers.neodoollae.view.login.main.reservation
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.CalendarView
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityReservationEditBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.lib.Util.hide
-import com.pentatrespassers.neodoollae.view.login.main.ReservationFragment
-import splitties.toast.toast
+import splitties.bundle.BundleSpec
+import splitties.bundle.bundle
+import splitties.bundle.withExtras
 
 class ReservationEditActivity : AppCompatActivity() {
-    var reservation : Reservation = Reservation()
 
     var isDateExpanded : Boolean = false
     var isTimeExpanded : Boolean = false
 
     var num : Int = 0
+
+    object Extras : BundleSpec() {
+        var reservation: Reservation by bundle()
+    }
+
+    private val reservation by lazy {
+        withExtras(Extras) {
+            reservation
+        }
+    }
 
 
 
@@ -30,9 +36,6 @@ class ReservationEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(bind) {
             setContentView(root)
-
-            var intent : Intent = getIntent()
-            reservation = intent.getParcelableExtra("Reservation")!!
 
             reservationRoomNameText.text = reservation.roomName
             reservationVisitorNameText.text = reservation.nickname
@@ -60,10 +63,12 @@ class ReservationEditActivity : AppCompatActivity() {
 
 
             reservationAddButton.setOnClickListener {
-                toast("예약이 완료되었습니다.")
+                toggleLayout(!isDateExpanded, it, layoutExpandDate)
+                isDateExpanded = true
+//                toast("예약이 완료되었습니다.")
              //   var intent = Intent(this@ReservationEditActivity,ReservationFragment)
                // startActivity(intent)
-                finish()
+//                finish()
 
             }
 
@@ -85,7 +90,7 @@ class ReservationEditActivity : AppCompatActivity() {
 
     }
 
-    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout) {
+    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: View) {
 
         ToggleAnimation.toggleArrow(view, isExpanded)
         if (isExpanded) {

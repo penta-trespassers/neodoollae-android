@@ -8,7 +8,7 @@ data class User(
     var id: Int = ID_UNDEFINED,
     var nickname: String = "", val socialId: Int = -1, val socialType: Int = -1,
     var profileImage: String = "", val createdAt: Long = 0, val fcmToken: String = "",
-    val friendCode: String = ""
+    val friendCode: String = "", val hasRoom: Boolean = false
 ) : Parcelable {
     companion object {
         const val ID_UNDEFINED = -1

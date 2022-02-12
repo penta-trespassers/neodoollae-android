@@ -79,14 +79,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/friendFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friendListConstraint"/>
+        app:layout_constraintTop_toBottomOf="@+id/friendListConstraint"
+        tools:layout="@layout/fragment_friend_list"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/roomOXConstraint"
@@ -107,7 +108,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
-            android:backgroundTint="@color/trespassBlue_300"
+            android:backgroundTint="@color/light_blue_50"
             android:backgroundTintMode="multiply"
             app:layout_constraintBottom_toTopOf="@id/roomXImage"
             app:layout_constraintEnd_toStartOf="@+id/roomOText"
