@@ -2,8 +2,9 @@
 <resources>
     <string-array name="spinnerArrayNotification">
         <item>전체 알림</item>
-        <item>예약 알림</item>
-        <item>리뷰 알림</item>
+        <item>예약 신청</item>
+        <item>리뷰 작성</item>
+        <item>친구 성사</item>
     </string-array>
     <string-array name="spinnerArrayReservation">
         <item>전체 예약</item>
