@@ -1,37 +1,24 @@
 package com.pentatrespassers.neodoollae.view.login.main.reservation
 
-import android.R
-import android.app.PendingIntent.getActivity
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
-import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.databinding.CellReservationBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.dto.User
-import com.pentatrespassers.neodoollae.lib.Util
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendListAdapter
-import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.FriendProfileActivity
 import splitties.activities.start
 import splitties.bundle.putExtras
 
 
 class ReservationAdapter(
-    private val context: Context,
-    var reservationList: ArrayList<Reservation>
+    private val context: Context
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
-    private var reservations : ArrayList<Reservation> = reservationList
+    var reservationList : ArrayList<Reservation> = arrayListOf()
 
 
     inner class CellReservationHolder(
@@ -89,17 +76,17 @@ class ReservationAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
       //  (holder as CellNotificationReservationHolder).binding(reservations[position])
-        val data = reservations[position]
+        val data = reservationList[position]
         (holder as ReservationAdapter.CellReservationHolder).binding(data)
     }
 
     fun refresh(reservationList: ArrayList<Reservation>) {
-        this.reservations = reservationList
+        this.reservationList = reservationList
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        return reservations.size
+        return reservationList.size
     }
 
 

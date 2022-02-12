@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/bg_common_button_menu_cell"
+    android:elevation="4dp">
+
+    <ImageView
+        android:id="@+id/roomRateImageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_common_sentiment_5"
+        app:layout_constraintBottom_toBottomOf="@+id/roomTitleTextViewAround"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/roomTitleTextViewAround" />
+
+    <TextView
+        android:id="@+id/roomTitleTextViewAround"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:text="Title"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/roomHostNametextViewAround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="@+id/roomRateImageView"
+        app:layout_constraintTop_toBottomOf="@+id/roomTitleTextViewAround" />
+
+    <ImageView
+        android:id="@+id/roomConditionImageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roomTitleTextViewAround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/roomTitleTextViewAround"
+        app:srcCompat="@drawable/ic_common_room_open"
+        app:tint="@color/trespassBlue_900" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/roomConditionImageView"
+        app:layout_constraintTop_toBottomOf="@+id/roomConditionImageView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/roomCardRecyclerMapListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="16dp"
+        android:paddingStart="16dp"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomHostNametextViewAround"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/cell_room_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.pentatrespassers.neodoollae.view.login.main.friend.friendlist
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
@@ -10,12 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellFriendListBinding
 import com.pentatrespassers.neodoollae.dto.User
+import com.pentatrespassers.neodoollae.lib.Util.gone
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.network.body.FavoriteBody
 import splitties.activities.start
 import splitties.bundle.putExtras
+import splitties.resources.color
 
-class FriendListAdapter(private var context: Context) :
+class FriendListAdapter(private val context: Context, private val borderViews: List<View>? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     var userList: ArrayList<User> = arrayListOf()
@@ -28,7 +32,7 @@ class FriendListAdapter(private var context: Context) :
         this.forFavorite = forFavorite
     }
 
-    private var users: ArrayList<User> = userList
+    private var filteredUserList: ArrayList<User> = userList
 
     inner class CellFriendListHolder(private val bind: CellFriendListBinding) :
         RecyclerView.ViewHolder(bind.root) {
@@ -42,6 +46,7 @@ class FriendListAdapter(private var context: Context) :
                         }
                     }
                 }
+                itemView.setBackgroundColor(context.color(if (user.hasRoom) R.color.light_blue_50 else R.color.white))
                 val pop = PopupMenu(itemView.context, itemView)
                 pop.inflate(R.menu.friend_list_menu)
                 // 즐겨찾기
@@ -75,6 +80,15 @@ class FriendListAdapter(private var context: Context) :
                     }
 
                 }
+                pop.menu.getItem(1).apply {
+                    setOnMenuItemClickListener {
+                        RetrofitClient.deleteFriend(user.id) { _, _ ->
+                            userList.remove(user)
+                            refresh()
+                        }
+                        true
+                    }
+                }
                 itemView.setOnLongClickListener {
                     pop.show()
                     true
@@ -89,15 +103,25 @@ class FriendListAdapter(private var context: Context) :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val data = users[position]
+        val data = filteredUserList[position]
         (holder as CellFriendListHolder).binding(data)
     }
 
     override fun getItemCount(): Int {
-        return users.size
+        return filteredUserList.size
     }
 
     fun refresh() {
+        if (userList.isEmpty()) {
+            borderViews?.forEach {
+                it.gone()
+            }
+        } else {
+            borderViews?.forEach {
+                it.show()
+            }
+        }
+
         filter.filter(lastConstraint)
     }
 
@@ -111,7 +135,7 @@ class FriendListAdapter(private var context: Context) :
     private val searchFilter = object : Filter() {
         override fun performFiltering(constraint: CharSequence): FilterResults {
             lastConstraint = constraint.toString()
-            users = if (lastConstraint.isEmpty()) {
+            filteredUserList = if (lastConstraint.isEmpty()) {
                 userList
             } else {
                 val filteredList = ArrayList<User>()

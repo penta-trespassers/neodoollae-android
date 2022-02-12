@@ -25,7 +25,7 @@ class FriendListFragment private constructor() : Fragment() {
         bind = FragmentFriendListBinding.inflate(inflater, container, false)
         with(bind) {
             friendListAdapter = FriendListAdapter(requireContext())
-            favoriteUserAdapter = FriendListAdapter(requireContext())
+            favoriteUserAdapter = FriendListAdapter(requireContext(), listOf(border1, favoriteText))
             friendListAdapter.init(favoriteUserAdapter, false)
             favoriteUserAdapter.init(friendListAdapter, true)
             friendListRecycler.adapter = friendListAdapter
@@ -54,16 +54,16 @@ class FriendListFragment private constructor() : Fragment() {
     fun refreshFriendList() {
         RetrofitClient.getAllFriends { _, response ->
             val users = response.body()!!
-//            users[0].
-//            friendListAdapter.refresh(response.body()!!)
+            favoriteUserAdapter.refresh(users[0])
+            friendListAdapter.refresh(users[1])
         }
     }
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if (hidden) {
-            refreshFriendList()
-        }
+
+        refreshFriendList()
+
     }
 
 }

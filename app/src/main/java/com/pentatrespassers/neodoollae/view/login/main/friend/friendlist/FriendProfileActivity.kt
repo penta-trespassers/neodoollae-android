@@ -8,9 +8,7 @@ import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityFriendProfileBinding
 import com.pentatrespassers.neodoollae.dto.User
 import com.pentatrespassers.neodoollae.lib.Authentication
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
-import com.pentatrespassers.neodoollae.lib.Util.hide
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendlist.friendprofile.ReviewActivity
@@ -86,7 +84,7 @@ class FriendProfileActivity : AppCompatActivity() {
                 }
             }
 
-            RetrofitClient.getRooms(user.id) { _, response ->
+            RetrofitClient.getRoom(user.id) { _, response ->
                 when(response.body().isNullOrEmpty()){
                     true -> {
                         roomCardRecycler.gone()
