@@ -7,6 +7,7 @@ import android.widget.CalendarView.OnDateChangeListener
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.common.adapter.RoomCardAdapter
 import com.pentatrespassers.neodoollae.databinding.ActivityEntireScheduleBinding
+import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import java.text.SimpleDateFormat
@@ -34,22 +35,25 @@ class EntireScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(bind) {
+            setContentView(root)
+
             backButtonSchedule.setOnClickListener {
                 onBackPressed()
             }
+            val calendar = Calendar.getInstance()
+            val formatter = Util.getDateFormatter("EEEE")
 
             calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
                 val month = month + 1
-                val calendar = Calendar.getInstance()
+
                 calendar.set(year, month, dayOfMonth)
                 val date = calendar.time
-                val simpledateformat = SimpleDateFormat("EEEE", Locale.getDefault())
-                val dayName: String = simpledateformat.format(date)
+                val dayName: String = formatter.format(date)
 
                 dateTextSchedule.text = "$year.$month.$dayOfMonth.$dayName"
+
             })
 
-            setContentView(root)
         }
     }
 }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_common_button_menu_cell"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:layout_margin="8dp">
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profileImageReviewCell"

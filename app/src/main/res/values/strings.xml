@@ -107,6 +107,11 @@
     <string name="bring_picture">사진 불러오기</string>
     <string name="change_name">이름 변경하기</string>
     <string name="change">수정하기</string>
+    <string name="writable_review">작성 가능한 리뷰</string>
+    <string name="written_review">작성한 리뷰</string>
+    <string name="my_visit_history">나의 방문 기록</string>
+    <string name="room_visit_history">내 방의 방문 기록</string>
+    <string name="host_name">방 주인 이름</string>
 
     <!-- Notification Setting Strings -->
     <string name="notification_method">알림 방식</string>

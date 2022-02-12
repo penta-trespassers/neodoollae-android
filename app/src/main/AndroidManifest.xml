@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Neodoollae"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.login.main.mypage.VisitHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.main.mypage.ManageReviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.login.main.friend.friendlist.friendprofile.ReviewActivity"
             android:exported="false" />
         <activity
@@ -36,18 +42,6 @@
             android:name=".view.login.main.mypage.SettingsActivity"
             android:exported="true" />
         <activity
-            android:name=".view.login.main.mypage.RoomVisitTraceActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.RoomBookInfoActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.UserVisitTraceActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.login.main.mypage.UserBookInfoActivity"
-            android:exported="true" />
-        <activity
             android:name=".view.login.main.friend.friendlist.FriendProfileActivity"
             android:exported="true" />
         <activity
@@ -58,9 +52,9 @@
             android:exported="true"
             android:noHistory="true" />
         <activity
-        android:name=".view.login.main.reservation.ReservationProfileActivity"
-        android:exported="true"
-        android:noHistory="true" />
+            android:name=".view.login.main.reservation.ReservationProfileActivity"
+            android:exported="true"
+            android:noHistory="true" />
         <activity
             android:name=".view.login.main.reservation.ReservationEditActivity"
             android:exported="true"
@@ -69,7 +63,6 @@
             android:name=".view.login.main.invite.InvitationActivity"
             android:exported="true"
             android:noHistory="true" />
-
         <activity
             android:name=".view.login.MainActivity"
             android:exported="true" >

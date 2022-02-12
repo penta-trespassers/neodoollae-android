@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ConstraintLayout">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/guestReviewAddButton"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/common_button"
+            android:text="예약하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/guestReviewListButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_arrow_back_black_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/guestReviewTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginTop="18dp"
+                    android:text="손님 리뷰 작성"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteY="24dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="212dp">
+
+                <ImageView
+                    android:id="@+id/guestReviewImageView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="188dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_common_card"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/bg_common_card" />
+
+                <TextView
+                    android:id="@+id/roomTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginTop="32dp"
+                    android:text="방"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewImageView1"
+                    app:layout_constraintTop_toTopOf="@+id/guestReviewImageView1" />
+
+                <TextView
+                    android:id="@+id/visitorNameTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="89dp"
+                    android:text="방문자"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewImageView1"
+                    app:layout_constraintTop_toTopOf="@+id/guestReviewImageView1" />
+
+                <ImageView
+                    android:id="@+id/guestReviewRoomImageView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewImageView1"
+                    app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+                <ImageView
+                    android:id="@+id/guestReviewVisitorImageView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="64dp"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewImageView1"
+                    app:layout_constraintTop_toBottomOf="@+id/visitorNameTextTitle"
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+                <TextView
+                    android:id="@+id/guestReviewRoomNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/room_name"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewRoomImageView"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewRoomImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/guestReviewRoomImageView" />
+
+                <TextView
+                    android:id="@+id/guestReviewVisitorNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/friend_name"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewVisitorImageView"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewVisitorImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/guestReviewVisitorImageView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settingDateAndTimeConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/guestReviewImageView2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_common_card"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/bg_common_card" />
+
+                <TextView
+                    android:id="@+id/visitTimeTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="방문 시간"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewImageView2"
+                    app:layout_constraintTop_toTopOf="@+id/guestReviewImageView2" />
+
+                <TextView
+                    android:id="@+id/vistStartDatetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="20YY.MM.DD"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewImageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/visitTimeTextTitle" />
+
+                <TextView
+                    android:id="@+id/visitStartTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오후 HH:MM"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/guestReviewImageView2"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewImageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/vistStartDatetext" />
+
+                <TextView
+                    android:id="@+id/visitEndDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="20YY.MM.DD"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewImageView2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline5"
+                    app:layout_constraintTop_toBottomOf="@+id/visitTimeTextTitle" />
+
+                <TextView
+                    android:id="@+id/visitEndTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오전 HH:MM"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/guestReviewImageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewImageView2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline5"
+                    app:layout_constraintTop_toBottomOf="@+id/visitEndDateText" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="207dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="104dp">
+
+                <ImageView
+                    android:id="@+id/selectScoreImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_common_card"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/bg_common_card" />
+
+                <TextView
+                    android:id="@+id/selectGuestScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="손님 점수를 선택해주세요."
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/selectScoreImageView"
+                    app:layout_constraintTop_toTopOf="@+id/selectScoreImageView" />
+
+                <ImageButton
+                    android:id="@+id/guestScore1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_common_sentiment_5"
+                    app:layout_constraintEnd_toStartOf="@id/guestScore2"
+                    app:layout_constraintStart_toStartOf="@+id/selectScoreImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/selectGuestScore" />
+
+                <TextView
+                    android:id="@+id/guestScoretext1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최고예요"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/guestScore1"
+                    app:layout_constraintStart_toStartOf="@id/guestScore1"
+                    app:layout_constraintTop_toBottomOf="@id/guestScore1" />
+
+                <ImageButton
+                    android:id="@+id/guestScore2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_common_sentiment_4"
+                    app:layout_constraintStart_toEndOf="@+id/guestScore1"
+                    app:layout_constraintTop_toTopOf="@+id/guestScore1"
+                    app:layout_constraintEnd_toStartOf="@id/guestScore3"/>
+
+
+                <ImageButton
+                    android:id="@+id/guestScore3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_common_sentiment_3"
+                    app:layout_constraintStart_toEndOf="@+id/guestScore2"
+                    app:layout_constraintTop_toTopOf="@+id/guestScore2"
+                    app:layout_constraintEnd_toStartOf="@id/guestScore4"/>
+
+
+                <ImageButton
+                    android:id="@+id/guestScore4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_common_sentiment_2"
+                    app:layout_constraintStart_toEndOf="@+id/guestScore3"
+                    app:layout_constraintTop_toTopOf="@+id/guestScore3"
+                    app:layout_constraintEnd_toStartOf="@id/guestScore5"/>
+
+
+                <ImageButton
+                    android:id="@+id/guestScore5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_common_sentiment_1"
+                    app:layout_constraintEnd_toEndOf="@+id/selectScoreImageView"
+                    app:layout_constraintStart_toEndOf="@+id/guestScore4"
+                    app:layout_constraintTop_toTopOf="@+id/guestScore4" />
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="104dp">
+
+                <ImageView
+                    android:id="@+id/guestReviewImageView4"
+                    android:layout_width="0dp"
+                    android:layout_height="88dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_common_card"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/bg_common_card" />
+
+                <TextView
+                    android:id="@+id/toHostTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="손님 리뷰를 작성해주세요."
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/guestReviewImageView4"
+                    app:layout_constraintTop_toTopOf="@+id/guestReviewImageView4" />
+
+                <EditText
+                    android:id="@+id/toHostEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:hint="내용"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#AAAAAA"
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toEndOf="@+id/guestReviewImageView4"
+                    app:layout_constraintStart_toStartOf="@+id/toHostTextTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/toHostTextTitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
