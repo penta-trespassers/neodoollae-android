@@ -190,7 +190,10 @@ class AroundFragment constructor() : Fragment(), OnMapReadyCallback {
             //네이버 위치추적모드
             naverMap.locationTrackingMode = LocationTrackingMode.NoFollow
 
-            naverMap.moveCamera(CameraUpdate.scrollTo(LatLng(Util.getLocation(requireContext())!!)))
+            Util.getLocation(requireContext())?.let {
+                naverMap.moveCamera(CameraUpdate.scrollTo(LatLng(it)))
+            }
+
 
             // 권한확인. 결과는 onRequestPermissionsResult 콜백 매서드 호출
             //  ActivityCompat.requestPermissions(this@AroundFragment, PERMISSIONS, PERMISSION_REQUEST_CODE)
