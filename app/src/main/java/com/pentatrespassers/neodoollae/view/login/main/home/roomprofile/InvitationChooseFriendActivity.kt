@@ -1,6 +1,7 @@
 package com.pentatrespassers.neodoollae.view.login.main.home.roomprofile
 
 import android.os.Bundle
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.pentatrespassers.neodoollae.databinding.ActivityInvitationChooseFriendBinding
 import com.pentatrespassers.neodoollae.network.RetrofitClient
@@ -44,6 +45,21 @@ class InvitationChooseFriendActivity : AppCompatActivity(){
             }
             invitationFriendListAdapter.refresh(list)
         }
+
+            //서치바 구현
+            friendSearchbar.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+                androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    invitationFriendListAdapter.filter!!.filter(query)
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    invitationFriendListAdapter.filter!!.filter(newText)
+                    return false
+                }
+            }
+            )
 
            // invitationFriendAdapter.notifyDataSetChanged()
             //invitationFriendListAdapter.notifyDataSetChanged()

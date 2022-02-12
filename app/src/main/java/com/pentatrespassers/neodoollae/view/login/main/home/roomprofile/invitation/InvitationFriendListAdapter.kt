@@ -4,22 +4,28 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellInvitationFriendListBinding
+import com.pentatrespassers.neodoollae.dto.Room
 import com.pentatrespassers.neodoollae.dto.User
 import splitties.resources.color
 
 class InvitationFriendListAdapter(
     private val context: Context,
     ) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
     lateinit var anotherAdapter: InvitationFriendAdapter
 
 
     var friendslist: ArrayList<InviteFriend> = arrayListOf()
+
+    private var filteredList = friendslist
+    var lastConstraint = ""
 
     inner class CellInvitationFriendListHolder(private val bind: CellInvitationFriendListBinding) :
         RecyclerView.ViewHolder(bind.root) {
@@ -65,20 +71,43 @@ class InvitationFriendListAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as CellInvitationFriendListHolder).binding(friendslist[position])
+        (holder as CellInvitationFriendListHolder).binding(filteredList[position])
     }
 
     override fun getItemCount(): Int {
-        return friendslist.size
+        return filteredList.size
     }
 
     fun refresh(invitationFriendsList: ArrayList<InviteFriend>) {
-        this.friendslist = invitationFriendsList
+        this.filteredList = invitationFriendsList
         notifyDataSetChanged()
     }
 
     fun init(anotherAdapter: InvitationFriendAdapter) {
         this.anotherAdapter = anotherAdapter
+    }
+
+    override fun getFilter() = object : Filter() {
+        override fun performFiltering(constraint: CharSequence): FilterResults {
+            lastConstraint = constraint.toString()
+            filteredList = if (lastConstraint.isEmpty()) {
+                friendslist
+            } else {
+                val filteredList = ArrayList<InviteFriend>()
+                for (item in friendslist) {
+                    if (item.user.nickname.lowercase().contains(lastConstraint.lowercase())) {
+                        filteredList.add(item)
+                    }
+                }
+                filteredList
+            }
+            return FilterResults()
+        }
+
+
+        override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
+            notifyDataSetChanged()
+        }
     }
 
 }

@@ -35,7 +35,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friendSearchView">
+        app:layout_constraintTop_toBottomOf="@+id/friendSearchbar">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/invitationFriendRecycler"
@@ -59,7 +59,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/friendSearchView"
+        android:id="@+id/friendSearchbar"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
