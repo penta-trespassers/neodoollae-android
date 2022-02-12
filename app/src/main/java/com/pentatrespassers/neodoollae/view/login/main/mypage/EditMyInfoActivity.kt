@@ -1,7 +1,6 @@
 package com.pentatrespassers.neodoollae.view.login.main.mypage
 
 import android.Manifest
-import android.R.attr
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -93,31 +92,31 @@ class EditMyInfoActivity : AppCompatActivity() {
         }
     }
 
-//    private fun performCrop(picUri: Uri) {
-//        try {
-//            val cropIntent = Intent("com.android.camera.action.CROP")
-//            // indicate image type and Uri
-//            cropIntent.setDataAndType(picUri, "image/*")
-//            // set crop properties here
-//            cropIntent.putExtra("crop", true)
-//            // indicate aspect of desired crop
-//            cropIntent.putExtra("aspectX", 1)
-//            cropIntent.putExtra("aspectY", 1)
-//            // indicate output X and Y
-//            cropIntent.putExtra("outputX", 128)
-//            cropIntent.putExtra("outputY", 128)
-//            // retrieve data on return
-//            cropIntent.putExtra("return-data", true)
-//            // start the activity - we handle returning in onActivityResult
-//            startActivityForResult(cropIntent, PIC_CROP)
-//        } // respond to users whose devices do not support the crop action
-//        catch (anfe: ActivityNotFoundException) {
-//            // display an error message
-//            val errorMessage = "Whoops - your device doesn't support the crop action!"
-//            val toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT)
-//            toast.show()
-//        }
-//    }
+    private fun performCrop(picUri: Uri) {
+        try {
+            val cropIntent = Intent("com.android.camera.action.CROP")
+            // indicate image type and Uri
+            cropIntent.setDataAndType(picUri, "image/*")
+            // set crop properties here
+            cropIntent.putExtra("crop", true)
+            // indicate aspect of desired crop
+            cropIntent.putExtra("aspectX", 1)
+            cropIntent.putExtra("aspectY", 1)
+            // indicate output X and Y
+            cropIntent.putExtra("outputX", 128)
+            cropIntent.putExtra("outputY", 128)
+            // retrieve data on return
+            cropIntent.putExtra("return-data", true)
+            // start the activity - we handle returning in onActivityResult
+            startActivityForResult(cropIntent, PIC_CROP)
+        } // respond to users whose devices do not support the crop action
+        catch (anfe: ActivityNotFoundException) {
+            // display an error message
+            val errorMessage = "Whoops - your device doesn't support the crop action!"
+            val toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT)
+            toast.show()
+        }
+    }
     // 카메라 열기
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
@@ -185,16 +184,16 @@ class EditMyInfoActivity : AppCompatActivity() {
                 if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
                     // 갤러리에서 저장
-//                    data?.data?.let { uri ->
-//                        performCrop(uri)
-//                    }
-//                    var photoUri = data?.data
-//                    bind.imageView.setImageURI(photoUri)
+                    data?.data?.let { uri ->
+                        performCrop(uri)
+                    }
+                    var photoUri = data?.data
+                    bind.imageView.setImageURI(photoUri)
 
 //                     크롭없이 그냥 저장하는 버전
-                    data?.data?.let {
-                            uri -> bind.imageView.setImageURI(uri)
-                    }
+//                    data?.data?.let {
+//                            uri -> bind.imageView.setImageURI(uri)
+//                    }
                 }
 
                 // 카메라로부터 받은 데이터가 있을경우에만
@@ -221,13 +220,13 @@ class EditMyInfoActivity : AppCompatActivity() {
                 }
             }
 
-//            2-> {
-//                // get the returned data
-//                val extras: Bundle = data?.extras!!
-//                // get the cropped bitmap
-//                val selectedBitmap = extras.getParcelable<Bitmap>("data")
-//                bind.imageView.setImageBitmap(selectedBitmap)
-//            }
+            2-> {
+                // get the returned data
+                val extras: Bundle = data?.extras!!
+                // get the cropped bitmap
+                val selectedBitmap = extras.getParcelable<Bitmap>("data")
+                bind.imageView.setImageBitmap(selectedBitmap)
+            }
         }
     }
 }
