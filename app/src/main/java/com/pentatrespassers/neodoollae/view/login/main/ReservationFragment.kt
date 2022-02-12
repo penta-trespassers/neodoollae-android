@@ -1,38 +1,42 @@
 package com.pentatrespassers.neodoollae.view.login.main
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.FragmentReservationBinding
 import com.pentatrespassers.neodoollae.dto.Reservation
-import com.pentatrespassers.neodoollae.dto.Room
-import com.pentatrespassers.neodoollae.lib.Util.fragmentTransaction
+import com.pentatrespassers.neodoollae.lib.Util.hide
+import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient
-import com.pentatrespassers.neodoollae.view.login.MainActivity
 import com.pentatrespassers.neodoollae.view.login.main.reservation.ReservationAdapter
+import splitties.resources.color
 
 class ReservationFragment private constructor() : Fragment() {
 
     private lateinit var bind: FragmentReservationBinding
 
     private val reservationAdapter by lazy {
-        ReservationAdapter(requireContext(),
-        makeDummyReservationData())
+        ReservationAdapter(requireContext())
     }
 
-//    private fun refreshReservationList() {
-//        RetrofitClient.getAllMyReservations { _, response ->
-//            reservationAdapter. = response.body()!!
-//            reservationAdapter.notifyDataSetChanged()
-//        }
-//    }
+    private val views: HashMap<ConstraintLayout, Pair<TextView, ConstraintLayout>> = hashMapOf()
+
+    private fun changeTo(constraintLayout: ConstraintLayout) {
+        views.values.forEach {
+            it.first.setTextColor(color(R.color.trespassGray_900))
+            it.second.hide()
+        }
+        views.getValue(constraintLayout).let {
+            it.first.setTextColor(color(R.color.trespassBlue_900))
+            it.second.show()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,22 +44,35 @@ class ReservationFragment private constructor() : Fragment() {
     ): View {
         bind = FragmentReservationBinding.inflate(inflater, container, false)
         with(bind) {
-         //   reservationRecycler.setHasFixedSize(true)
             reservationRecycler.adapter = reservationAdapter
-           // reservationRecycler.addItemDecoration(DividerItemDecoration(requireContext(), 1))
-           //refreshReservationList()
+
+            RetrofitClient.getAllMyReservations { _, response ->
+                reservationAdapter.refresh(response.body()!!)
+            }
+
+            views[myReservationConstraint] = Pair(myReservationText, myReservationUnderlineConstraint)
+            views[myRoomReservationConstraint] = Pair(myRoomReservationText, myRoomReservationUnderlineConstraint)
+            views[waitingReservationConstraint] = Pair(waitingRerservationText, waitingReservationUnderlineConstraint)
+
+
 
             //나의 예약을 누른 경우
             myReservationConstraint.setOnClickListener {
-
+                RetrofitClient.getAllMyReservations { _, response ->
+                    reservationAdapter.refresh(response.body()!!)
+                }
+                changeTo(myReservationConstraint)
             }
             // 내 방 예약을 누른 경우
             myRoomReservationConstraint.setOnClickListener {
-
+                RetrofitClient.getAllMyRoomReservations { _, response ->
+                    reservationAdapter.refresh(response.body()!!)
+                }
+                changeTo(myRoomReservationConstraint)
             }
             //대기중을 누른 경우
             waitingReservationConstraint.setOnClickListener {
-
+                changeTo(waitingReservationConstraint)
             }
 
 
