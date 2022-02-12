@@ -136,18 +136,6 @@ class FriendFragment constructor() : Fragment() {
 
             }
 
-            BadgeDrawable.create(requireContext()).apply {
-                number = 5
-                backgroundColor = ContextCompat.getColor(requireContext(), R.color.red_600)
-                badgeTextColor = ContextCompat.getColor(requireContext(), R.color.white)
-                badgeGravity = BadgeDrawable.TOP_END
-            }.let {
-                badgeFrame.foreground = it
-                badgeFrame.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                   BadgeUtils.attachBadgeDrawable(it, friendRequestText, badgeFrame)
-                }
-            }
-
             return root
         }
     }

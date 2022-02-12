@@ -54,33 +54,31 @@
         app:layout_constraintTop_toTopOf="@+id/friendListConstraint">
 
 
-        <FrameLayout
-            android:id="@+id/badgeFrame"
+        <TextView
+            android:id="@+id/friendRequestText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/friend_request"
+            android:textColor="@color/blue_grey_800"
+            android:textSize="14dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/friendRequestText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/friend_request"
-                android:textColor="@color/blue_grey_800"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.pentatrespassers.neodoollae.common.view.BadgeTextView
+            android:id="@+id/friendRequestBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeText="2"
+            app:layout_constraintBottom_toTopOf="@+id/friendRequestText"
+            app:layout_constraintStart_toEndOf="@+id/friendRequestText" />
 
-        </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/friendRequestUnderlineConstraint"

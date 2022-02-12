@@ -29,4 +29,8 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="BadgeTextView">
+        <attr name="badgeText" format="string"/>
+    </declare-styleable>
+
 </resources>
