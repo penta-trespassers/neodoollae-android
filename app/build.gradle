@@ -107,6 +107,9 @@ dependencies {
     // https://firebase.google.com/docs/dynamic-links/android/create?hl=ko - Firebase Dynamic Link
     implementation 'com.google.firebase:firebase-dynamic-links-ktx'
 
+    // https://github.com/CanHub/Android-Image-Cropper
+    implementation("com.github.CanHub:Android-Image-Cropper:$cropperVersion")
+
 
     // 디슈가링 - https://developer.android.com/studio/write/java8-support#library-desugaring
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
