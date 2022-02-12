@@ -27,7 +27,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+            app:srcCompat="@drawable/ic_common_back"
+            app:tint="@color/blue_grey_800"
             tools:visibility="visible" />
 
         <TextView
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/room_of_mine"
-            android:textColor="@color/black"
+            android:textColor="@color/blue_grey_800"
             android:textSize="18dp"
             android:textStyle="bold"
             android:visibility="visible"
@@ -83,12 +84,12 @@
         android:id="@+id/nextButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/common_button"
         android:backgroundTint="@color/trespassBlue_600"
         android:contentDescription="@string/app_name"
         android:focusable="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         app:borderWidth="0dp"
         app:fabCustomSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
