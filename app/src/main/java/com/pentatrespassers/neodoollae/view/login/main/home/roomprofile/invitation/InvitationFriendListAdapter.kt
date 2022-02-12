@@ -12,26 +12,37 @@ import splitties.resources.color
 
 class InvitationFriendListAdapter(
     private val context: Context,
-    private var friendslist: ArrayList<User>
     ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
     lateinit var anotherAdapter: InvitationFriendAdapter
 
+
+    var friendslist: ArrayList<InviteFriend> = arrayListOf()
+
     inner class CellInvitationFriendListHolder(private val bind: CellInvitationFriendListBinding) :
         RecyclerView.ViewHolder(bind.root) {
-        var checked = false
-        fun binding(friend: User) {
+        fun binding(friend: InviteFriend) {
             with(bind) {
-                nicknameTextFriendRequest.text = friend.nickname
+                nicknameTextFriendRequest.text = friend.user.nickname
+                if (!friend.isInvite) {
+                    itemView.setBackgroundColor(context.color(R.color.white))
+                    acceptButtonFriendRequest.imageTintList = ColorStateList.valueOf(context.color(R.color.grey_200))
+                } else {
+                    itemView.setBackgroundColor(context.color(R.color.color_card))
+                    acceptButtonFriendRequest.imageTintList = ColorStateList.valueOf(context.color(R.color.yellow_600))
+
+                }
+
                 itemView.setOnClickListener {
-                    if (checked) {
+                    if (friend.isInvite) {
                         itemView.setBackgroundColor(context.color(R.color.white))
                         acceptButtonFriendRequest.imageTintList = ColorStateList.valueOf(context.color(R.color.grey_200))
                         val index = anotherAdapter.invitationFriendsList.indexOf(friend)
                         anotherAdapter.invitationFriendsList.removeAt(index)
                         anotherAdapter.notifyItemRemoved(index)
+
                     } else {
                         itemView.setBackgroundColor(context.color(R.color.color_card))
                         acceptButtonFriendRequest.imageTintList = ColorStateList.valueOf(context.color(R.color.yellow_600))
@@ -39,7 +50,7 @@ class InvitationFriendListAdapter(
                         anotherAdapter.notifyItemInserted(anotherAdapter.invitationFriendsList.size)
 
                     }
-                    checked = !checked
+                    friend.isInvite = !friend.isInvite
                 }
 
             }
@@ -61,7 +72,7 @@ class InvitationFriendListAdapter(
         return friendslist.size
     }
 
-    fun refresh(invitationFriendsList: ArrayList<User>) {
+    fun refresh(invitationFriendsList: ArrayList<InviteFriend>) {
         this.friendslist = invitationFriendsList
         notifyDataSetChanged()
     }
@@ -69,4 +80,5 @@ class InvitationFriendListAdapter(
     fun init(anotherAdapter: InvitationFriendAdapter) {
         this.anotherAdapter = anotherAdapter
     }
+
 }
