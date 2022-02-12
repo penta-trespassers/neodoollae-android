@@ -55,7 +55,7 @@ class ReservationFragment constructor() : Fragment() {
             views[myRoomReservationConstraint] =
                 Pair(myRoomReservationText, myRoomReservationUnderlineConstraint)
             views[waitingReservationConstraint] =
-                Pair(waitingRerservationText, waitingReservationUnderlineConstraint)
+                Pair(waitingReservationText, waitingReservationUnderlineConstraint)
 
             changeTo(myReservationConstraint)
 

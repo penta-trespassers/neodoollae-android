@@ -27,8 +27,8 @@
         android:layout_marginStart="16dp"
         android:text="@string/manage_review"
         android:textColor="@color/black"
-        android:textStyle="bold"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/backButtonReview"
         app:layout_constraintStart_toEndOf="@+id/backButtonReview"
         app:layout_constraintTop_toTopOf="@+id/backButtonReview" />
@@ -42,32 +42,29 @@
         app:layout_constraintTop_toBottomOf="@+id/backButtonReview">
 
 
-        <FrameLayout
-            android:id="@+id/writableReviewBadge"
+        <TextView
+            android:id="@+id/writableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/writable_review"
+            android:textColor="@color/trespassBlue_900"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/writableText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/writable_review"
-                android:textColor="@color/trespassBlue_900"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </FrameLayout>
+        <com.pentatrespassers.neodoollae.common.view.BadgeTextView
+            android:id="@+id/writableBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeText="2"
+            app:layout_constraintBottom_toTopOf="@+id/writableText"
+            app:layout_constraintStart_toEndOf="@+id/writableText" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/writableUnderlineConstraint"
@@ -91,32 +88,30 @@
         app:layout_constraintTop_toTopOf="@+id/writableConstraint">
 
 
-        <FrameLayout
-            android:id="@+id/writtenBadge"
+        <TextView
+            android:id="@+id/writtenText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/written_review"
+            android:textColor="@color/trespassGray_900"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/writtenText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/written_review"
-                android:textColor="@color/trespassGray_900"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.pentatrespassers.neodoollae.common.view.BadgeTextView
+            android:id="@+id/writtenBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeText="2"
+            app:layout_constraintBottom_toTopOf="@+id/writtenText"
+            app:layout_constraintStart_toEndOf="@+id/writtenText" />
 
-        </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/writtenUnderlineConstraint"
@@ -141,7 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/writableConstraint"
-        tools:layout="@layout/fragment_writable_review"/>
+        tools:layout="@layout/fragment_writable_review" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

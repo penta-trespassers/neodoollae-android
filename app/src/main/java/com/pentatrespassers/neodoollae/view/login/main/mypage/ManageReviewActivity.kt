@@ -75,30 +75,8 @@ class ManageReviewActivity : AppCompatActivity() {
                 }
             }
 
-            val leftBadge = BadgeDrawable.create(this@ManageReviewActivity).apply {
-                number = 3
-                backgroundColor =
-                    ContextCompat.getColor(this@ManageReviewActivity, R.color.app_theme)
-                badgeTextColor = ContextCompat.getColor(this@ManageReviewActivity, R.color.white)
-                badgeGravity = BadgeDrawable.TOP_END
-                writableReviewBadge.foreground = this
-                writableReviewBadge.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                    BadgeUtils.attachBadgeDrawable(this, writableText, writableReviewBadge)
-                }
-            }
-
-
-            val rightBadge = BadgeDrawable.create(this@ManageReviewActivity).apply {
-                number = 3
-                backgroundColor =
-                    ContextCompat.getColor(this@ManageReviewActivity, R.color.app_theme)
-                badgeTextColor = ContextCompat.getColor(this@ManageReviewActivity, R.color.white)
-                badgeGravity = BadgeDrawable.TOP_END
-                writtenBadge.foreground = this
-                writtenBadge.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                    BadgeUtils.attachBadgeDrawable(this, writtenText, writtenBadge)
-                }
-            }
+            writableBadge.badgeText = "23"
+            writtenBadge.badgeText = "24"
 
             backButtonReview.setOnClickListener {
                 finish()

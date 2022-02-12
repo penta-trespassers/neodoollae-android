@@ -97,7 +97,7 @@
         app:layout_constraintTop_toTopOf="@+id/myRoomReservationConstraint">
 
         <TextView
-            android:id="@+id/waitingRerservationText"
+            android:id="@+id/waitingReservationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -112,6 +112,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.pentatrespassers.neodoollae.common.view.BadgeTextView
+            android:id="@+id/friendRequestBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeText="2"
+            app:layout_constraintBottom_toTopOf="@+id/waitingReservationText"
+            app:layout_constraintStart_toEndOf="@+id/waitingReservationText" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/waitingReservationUnderlineConstraint"
