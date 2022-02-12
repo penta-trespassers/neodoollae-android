@@ -59,7 +59,10 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
                 progressBar.show()
+            } else {
+                init()
             }
+
         }
 
     }
