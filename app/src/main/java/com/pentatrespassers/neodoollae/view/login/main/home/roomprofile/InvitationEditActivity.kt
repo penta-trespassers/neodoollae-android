@@ -99,7 +99,7 @@ class InvitationEditActivity : AppCompatActivity(){
 //
 //                isTimeExpanded = true
 //            }
-
+            invitationCalendarView.minDate = System.currentTimeMillis() - 1000
             invitationCalendarView.setOnDateChangeListener{ view, year, month, dayOfMonth ->
                 calendar.set(year, month, dayOfMonth)
 

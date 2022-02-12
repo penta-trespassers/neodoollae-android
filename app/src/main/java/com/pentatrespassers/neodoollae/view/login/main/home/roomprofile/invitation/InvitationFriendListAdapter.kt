@@ -9,8 +9,6 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.CellInvitationFriendListBinding
-import com.pentatrespassers.neodoollae.dto.Room
-import com.pentatrespassers.neodoollae.dto.User
 import splitties.resources.color
 
 class InvitationFriendListAdapter(
@@ -78,9 +76,11 @@ class InvitationFriendListAdapter(
         return filteredList.size
     }
 
-    fun refresh(invitationFriendsList: ArrayList<InviteFriend>) {
-        this.filteredList = invitationFriendsList
-        notifyDataSetChanged()
+    fun refresh(invitationFriendsList: ArrayList<InviteFriend>? = null) {
+        invitationFriendsList?.let {
+            friendslist = it
+        }
+        filter.filter(lastConstraint)
     }
 
     fun init(anotherAdapter: InvitationFriendAdapter) {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pentatrespassers.neodoollae.common.view.BadgeTextView
 import com.pentatrespassers.neodoollae.databinding.FragmentFriendRequestBinding
 import com.pentatrespassers.neodoollae.network.RetrofitClient
 import com.pentatrespassers.neodoollae.view.login.main.friend.friendrequest.FriendRequestAdapter
@@ -33,9 +34,11 @@ class FriendRequestFragment constructor() : Fragment() {
         }
     }
 
-    fun refreshFriendRequest() {
+    fun refreshFriendRequest(badgeTextView: BadgeTextView? = null) {
         RetrofitClient.getAllFriendRequests { _, response ->
-            friendRequestAdapter.refresh(response.body()!!)
+            val friendList = response.body()!!
+            friendRequestAdapter.refresh(friendList)
+            badgeTextView?.let { it.text = friendList.size.toString() }
         }
     }
 

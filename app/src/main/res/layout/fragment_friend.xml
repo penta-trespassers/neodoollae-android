@@ -75,7 +75,7 @@
             android:id="@+id/friendRequestBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:badgeText="2"
+            app:badgeText="0"
             app:layout_constraintBottom_toTopOf="@+id/friendRequestText"
             app:layout_constraintStart_toEndOf="@+id/friendRequestText" />
 

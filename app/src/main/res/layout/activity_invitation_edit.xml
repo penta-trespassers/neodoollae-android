@@ -7,10 +7,7 @@
     android:layout_height="match_parent">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/invitationTitleConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <Button
             android:id="@+id/backButton"
@@ -34,753 +31,752 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
-            android:id="@+id/scrollView"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invitationEditTitleText">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/constraintLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/invitationEditTitleText">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/invitationProfileConstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_common_card"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toTopOf="@id/settingDateAndTimeConstraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/invitationProfileConstraintLayout"
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:id="@+id/roomTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="방"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/visitorNameTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="방문자"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline7"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/invitationRoomImageView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
+                    app:srcCompat="@drawable/ic_common_bed" />
+
+                <ImageView
+                    android:id="@+id/invitationVisitorImageView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="@+id/guideline7"
+                    app:layout_constraintTop_toTopOf="@+id/visitorNameTextTitle"
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                    app:tint="@color/material_neutral_variant80" />
+
+                <TextView
+                    android:id="@+id/invitationRoomNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="방 이름"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/invitationRoomImageView" />
+
+                <TextView
+                    android:id="@+id/invitationVisitorNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="나"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline7"
+                    app:layout_constraintTop_toBottomOf="@+id/invitationVisitorImageView" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settingDateAndTimeConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_common_card"
+                app:layout_constraintBottom_toTopOf="@+id/expandDateConstraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/invitationProfileConstraintLayout">
+
+                <TextView
+                    android:id="@+id/visitTimeTextTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_common_card"
-                    android:elevation="4dp"
-                    app:layout_constraintBottom_toTopOf="@id/settingDateAndTimeConstraintLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginTop="16dp"
+                    android:text="언제 방문했으면 좋겠나요?"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="parent">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-
-                    <TextView
-                        android:id="@+id/roomTextTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="방"
-                        android:textSize="10dp"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/visitorNameTextTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="방문자"
-                        android:textColor="#828282"
-                        android:textSize="10dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/invitationRoomImageView"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        android:layout_marginTop="16dp"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/roomTextTitle"
-                        app:srcCompat="@drawable/ic_common_bed" />
-
-                    <ImageView
-                        android:id="@+id/invitationVisitorImageView"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        android:layout_marginTop="32dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.502"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="@+id/visitorNameTextTitle"
-                        app:srcCompat="@drawable/ic_baseline_account_circle_24"
-                        app:tint="@color/material_neutral_variant80" />
-
-                    <TextView
-                        android:id="@+id/invitationRoomNameText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="방 이름"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/invitationRoomImageView" />
-
-                    <TextView
-                        android:id="@+id/invitationVisitorNameText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="나"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toBottomOf="@+id/invitationVisitorImageView" />
-
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintGuide_begin="240dp" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/settingDateAndTimeConstraintLayout"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/vistStartDatetext"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_common_card"
-                    app:layout_constraintBottom_toTopOf="@+id/expandDateConstraintLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="20YY.MM.DD"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/invitationProfileConstraintLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/visitTimeTextTitle" />
 
-                    <TextView
-                        android:id="@+id/visitTimeTextTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="언제 방문했으면 좋겠나요?"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/vistStartDatetext"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="20YY.MM.DD"
-                        android:textColor="#828282"
-                        android:textSize="10dp"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/visitTimeTextTitle" />
-
-                    <TextView
-                        android:id="@+id/visitStartTimeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="오후 HH:MM"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/vistStartDatetext" />
-
-                    <TextView
-                        android:id="@+id/visitEndDateText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="20YY.MM.DD"
-                        android:textColor="#828282"
-                        android:textSize="10dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline5"
-                        app:layout_constraintTop_toBottomOf="@+id/visitTimeTextTitle" />
-
-                    <TextView
-                        android:id="@+id/visitEndTimeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="오전 HH:MM"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline5"
-                        app:layout_constraintTop_toBottomOf="@+id/visitEndDateText" />
-
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintGuide_end="240dp" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expandDateConstraintLayout"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/visitStartTimeText"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_common_card"
-                    android:elevation="4dp"
-
-                    app:layout_constraintBottom_toTopOf="@+id/expandTimeConstraintLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="16dp"
+                    android:text="오후 HH:MM"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/settingDateAndTimeConstraintLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/vistStartDatetext" />
 
-                    <TextView
-                        android:id="@+id/chooseDateTitleText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="날짜 선택"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/visitEndDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="20YY.MM.DD"
+                    android:textColor="#828282"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline5"
+                    app:layout_constraintTop_toBottomOf="@+id/visitTimeTextTitle" />
 
-                    <CalendarView
-                        android:id="@+id/invitationCalendarView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/chooseDateTitleText" />
+                <TextView
+                    android:id="@+id/visitEndTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="오전 HH:MM"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline5"
+                    app:layout_constraintTop_toBottomOf="@+id/visitEndDateText" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expandTimeConstraintLayout"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expandDateConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_common_card"
+                android:elevation="4dp"
+
+                app:layout_constraintBottom_toTopOf="@+id/expandTimeConstraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settingDateAndTimeConstraintLayout">
+
+                <TextView
+                    android:id="@+id/chooseDateTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:text="날짜 선택"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CalendarView
+                    android:id="@+id/invitationCalendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseDateTitleText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expandTimeConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_common_card"
+                android:elevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expandDateConstraintLayout">
+
+                <TextView
+                    android:id="@+id/chooseTimeTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="시간 선택"
+                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/expandTimeConstraintLayout" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="32dp"
+                    android:text="오전"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseTimeTitleText" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time00"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="0:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintEnd_toStartOf="@+id/time01"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/textView" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="1:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time00"
+                    app:layout_constraintEnd_toStartOf="@+id/time02"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time00"
+                    app:layout_constraintTop_toTopOf="@+id/time00" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time02"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="2:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time01"
+                    app:layout_constraintEnd_toStartOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time01"
+                    app:layout_constraintTop_toTopOf="@+id/time01" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time03"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="3:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time02"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time02"
+                    app:layout_constraintTop_toTopOf="@+id/time02" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time04"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="4:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time05"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/time00" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time05"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="5:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time06"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time04"
+                    app:layout_constraintTop_toTopOf="@+id/time04" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time06"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="6:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time07"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time05"
+                    app:layout_constraintTop_toTopOf="@+id/time05" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time07"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="7:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time06"
+                    app:layout_constraintTop_toTopOf="@+id/time06" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time08"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="8:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time09"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/time04"
+                    app:layout_constraintTop_toBottomOf="@+id/time04" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time09"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="9:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time08"
+                    app:layout_constraintEnd_toStartOf="@+id/time10"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time08"
+                    app:layout_constraintTop_toTopOf="@+id/time08"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="10:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time09"
+                    app:layout_constraintEnd_toStartOf="@+id/time11"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time09"
+                    app:layout_constraintTop_toTopOf="@+id/time09" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="11:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time10"
+                    app:layout_constraintEnd_toEndOf="@+id/time07"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time10"
+                    app:layout_constraintTop_toTopOf="@+id/time10" />
+
+                <TextView
+                    android:id="@+id/afternoonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="8dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="32dp"
+                    android:text="오후"
+                    app:layout_constraintEnd_toStartOf="@+id/time12"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/time08" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="12:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/afternoonText"
+                    app:layout_constraintEnd_toStartOf="@+id/time01"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/afternoonText" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="13:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time12"
+                    app:layout_constraintEnd_toStartOf="@+id/time14"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time12"
+                    app:layout_constraintTop_toTopOf="@+id/time12" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="14:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time13"
+                    app:layout_constraintEnd_toStartOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time01"
+                    app:layout_constraintTop_toTopOf="@+id/time13" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="15:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time02"
+                    app:layout_constraintTop_toTopOf="@+id/time14" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="16:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time05"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/time12" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="17:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time06"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time16"
+                    app:layout_constraintTop_toTopOf="@+id/time16" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time18"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="18:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time07"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time05"
+                    app:layout_constraintTop_toTopOf="@+id/time17" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time19"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="19:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/time03"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time06"
+                    app:layout_constraintTop_toTopOf="@+id/time18" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="20:00"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toStartOf="@+id/time09"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/time04"
+                    app:layout_constraintTop_toBottomOf="@+id/time16" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="49dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="21:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time20"
+                    app:layout_constraintEnd_toStartOf="@+id/time10"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/time08"
+                    app:layout_constraintTop_toTopOf="@+id/time20"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="49dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="22:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time21"
+                    app:layout_constraintEnd_toStartOf="@+id/time11"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/time09"
+                    app:layout_constraintTop_toTopOf="@+id/time21"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/time23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="timeOnClick"
+                    android:padding="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="23:00"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/time22"
+                    app:layout_constraintEnd_toEndOf="@+id/time07"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/time10"
+                    app:layout_constraintTop_toTopOf="@+id/time22" />
+
+                <Button
+                    android:id="@+id/invitationSetDateButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_common_card"
-                    android:elevation="4dp"
+                    android:text="확인"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.532"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/expandDateConstraintLayout">
-
-                    <TextView
-                        android:id="@+id/chooseTimeTitleText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="시간 선택"
-                        app:layout_constraintEnd_toEndOf="@+id/textView"
-                        app:layout_constraintStart_toStartOf="@+id/textView"
-                        app:layout_constraintTop_toTopOf="@+id/expandTimeConstraintLayout" />
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="8dp"
-                        android:paddingStart="32dp"
-                        android:paddingEnd="32dp"
-                        android:text="오전"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/chooseTimeTitleText" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time00"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="0:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView"
-                        app:layout_constraintEnd_toStartOf="@+id/time01"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView"
-                        app:layout_constraintTop_toTopOf="@+id/textView" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time01"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="1:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time00"
-                        app:layout_constraintEnd_toStartOf="@+id/time02"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time00"
-                        app:layout_constraintTop_toTopOf="@+id/time00" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time02"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="2:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time01"
-                        app:layout_constraintEnd_toStartOf="@+id/time03"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time01"
-                        app:layout_constraintTop_toTopOf="@+id/time01" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time03"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="3:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time02"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time02"
-                        app:layout_constraintTop_toTopOf="@+id/time02" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time04"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="4:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time05"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView"
-                        app:layout_constraintTop_toBottomOf="@+id/time00" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time05"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="5:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time06"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time04"
-                        app:layout_constraintTop_toTopOf="@+id/time04" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time06"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="6:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time07"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time05"
-                        app:layout_constraintTop_toTopOf="@+id/time05" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time07"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="7:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toEndOf="@+id/time03"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time06"
-                        app:layout_constraintTop_toTopOf="@+id/time06" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time08"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="8:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time09"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="@+id/time04"
-                        app:layout_constraintTop_toBottomOf="@+id/time04" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time09"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="9:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time08"
-                        app:layout_constraintEnd_toStartOf="@+id/time10"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time08"
-                        app:layout_constraintTop_toTopOf="@+id/time08"
-                        app:layout_constraintVertical_bias="1.0" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time10"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="10:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time09"
-                        app:layout_constraintEnd_toStartOf="@+id/time11"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time09"
-                        app:layout_constraintTop_toTopOf="@+id/time09" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time11"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="11:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time10"
-                        app:layout_constraintEnd_toEndOf="@+id/time07"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time10"
-                        app:layout_constraintTop_toTopOf="@+id/time10" />
-
-                    <TextView
-                        android:id="@+id/afternoonText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="8dp"
-                        android:paddingStart="32dp"
-                        android:paddingEnd="32dp"
-                        android:text="오후"
-                        app:layout_constraintEnd_toStartOf="@+id/time12"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView"
-                        app:layout_constraintTop_toBottomOf="@+id/time08" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time12"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="12:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/afternoonText"
-                        app:layout_constraintEnd_toStartOf="@+id/time01"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView"
-                        app:layout_constraintTop_toTopOf="@+id/afternoonText" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time13"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="13:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time12"
-                        app:layout_constraintEnd_toStartOf="@+id/time14"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time12"
-                        app:layout_constraintTop_toTopOf="@+id/time12" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time14"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="14:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time13"
-                        app:layout_constraintEnd_toStartOf="@+id/time03"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time01"
-                        app:layout_constraintTop_toTopOf="@+id/time13" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time15"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="15:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time14"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time02"
-                        app:layout_constraintTop_toTopOf="@+id/time14" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time16"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="16:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time05"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView"
-                        app:layout_constraintTop_toBottomOf="@+id/time12" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time17"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="17:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time06"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time16"
-                        app:layout_constraintTop_toTopOf="@+id/time16" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time18"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="18:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time07"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time05"
-                        app:layout_constraintTop_toTopOf="@+id/time17" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time19"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="19:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toEndOf="@+id/time03"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time06"
-                        app:layout_constraintTop_toTopOf="@+id/time18" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time20"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="20:00"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/time09"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="@+id/time04"
-                        app:layout_constraintTop_toBottomOf="@+id/time16" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time21"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="49dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="21:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time20"
-                        app:layout_constraintEnd_toStartOf="@+id/time10"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/time08"
-                        app:layout_constraintTop_toTopOf="@+id/time20"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time22"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="49dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="22:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time21"
-                        app:layout_constraintEnd_toStartOf="@+id/time11"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/time09"
-                        app:layout_constraintTop_toTopOf="@+id/time21"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/time23"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:onClick="timeOnClick"
-                        android:padding="8dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="23:00"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/time22"
-                        app:layout_constraintEnd_toEndOf="@+id/time07"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/time10"
-                        app:layout_constraintTop_toTopOf="@+id/time22" />
-
-                    <Button
-                        android:id="@+id/invitationSetDateButton"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="확인"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.532"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/time21"
-                        app:layout_goneMarginTop="16dp" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/time21"
+                    app:layout_goneMarginTop="16dp" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

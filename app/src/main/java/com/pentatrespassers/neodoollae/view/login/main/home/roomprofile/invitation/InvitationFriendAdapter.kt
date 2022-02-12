@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pentatrespassers.neodoollae.databinding.CellInvitationFriendBinding
-import com.pentatrespassers.neodoollae.dto.User
 
 
 class InvitationFriendAdapter(
@@ -26,15 +25,14 @@ class InvitationFriendAdapter(
                 invitationFriendNameText.text = friend.user.nickname
 
                 invitationCancelButton.setOnClickListener {
-                   invitationFriendsList.remove(friend)
 
-                    val index = anotherAdapter.friendslist.indexOf(friend)
-                    anotherAdapter.friendslist[index].isInvite = false
-                    anotherAdapter.notifyItemChanged(index)
 
-                    val my_index = invitationFriendsList.indexOf(friend)
+                    friend.isInvite = false
+                    anotherAdapter.refresh()
 
-                    notifyItemRemoved(my_index)
+                    val myIndex = invitationFriendsList.indexOf(friend)
+                    invitationFriendsList.removeAt(myIndex)
+                    notifyItemRemoved(myIndex)
                 }
 
             }

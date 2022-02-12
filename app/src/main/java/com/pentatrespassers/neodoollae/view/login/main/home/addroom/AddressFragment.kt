@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.pentatrespassers.neodoollae.databinding.FragmentAddressBinding
-import com.pentatrespassers.neodoollae.lib.Util
 import com.pentatrespassers.neodoollae.lib.Util.gone
 import com.pentatrespassers.neodoollae.lib.Util.show
 import com.pentatrespassers.neodoollae.network.RetrofitClient

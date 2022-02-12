@@ -18,12 +18,11 @@ import com.pentatrespassers.neodoollae.view.login.main.home.AddRoomActivity
 import com.pentatrespassers.neodoollae.view.login.main.home.RoomProfileActivity
 import splitties.activities.start
 import splitties.bundle.putExtras
-import splitties.resources.appStr
 import splitties.resources.str
 
 class RoomCardAdapter(
     private val context: Context,
-    private val roomList: ArrayList<Room>,
+    private var roomList: ArrayList<Room>,
     private val functionsOnBind: ArrayList<(adapter: RoomCardAdapter) -> Unit> = arrayListOf()
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -76,8 +75,8 @@ class RoomCardAdapter(
                         false -> {
                             roomImage.apply {
                                 updateLayoutParams {
-                                    width = 0
-                                    height = 0
+                                    width = ViewGroup.LayoutParams.MATCH_PARENT
+                                    height = ViewGroup.LayoutParams.MATCH_PARENT
                                 }
                             }
                             Glide.with(context)
@@ -120,11 +119,8 @@ class RoomCardAdapter(
         return roomList.size
     }
 
-    fun refresh(newRooms: List<Room>? = null) {
-        newRooms?.let {
-            roomList.clear()
-            roomList.addAll(newRooms)
-        }
+    fun refresh(newRooms: ArrayList<Room>? = null) {
+        newRooms?.let { roomList = it }
         notifyDataSetChanged()
 
         functionsOnBind.forEach {

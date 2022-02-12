@@ -7,10 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.badge.BadgeUtils
-import com.google.android.material.badge.BadgeUtils.attachBadgeDrawable
-import com.google.android.material.badge.ExperimentalBadgeUtils
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pentatrespassers.neodoollae.R
 import com.pentatrespassers.neodoollae.databinding.BtmSheetAddFriendBinding
@@ -143,9 +139,9 @@ class FriendFragment constructor() : Fragment() {
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if (hidden) {
+        if (!hidden) {
             friendListFragment.refreshFriendList()
-            friendRequestFragment.refreshFriendRequest()
+            friendRequestFragment.refreshFriendRequest(bind.friendRequestBadge)
         }
     }
 

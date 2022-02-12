@@ -22,7 +22,6 @@ class WritableReviewFragment constructor() : Fragment() {
         with(bind) {
             writableReviewAdapter = WritableReviewAdapter(requireContext())
             writableReviewRecycler.adapter = writableReviewAdapter
-
             return root
         }
     }
